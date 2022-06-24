@@ -1,0 +1,36 @@
+name: PACs
+
+on:
+  push:
+    branches: [ master, staging, trying ]
+  pull_request:
+    branches:
+      - 'master'
+
+jobs:
+  build:
+    name: Validate PACs
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
+          components: rustfmt
+      - name: Build Crates
+        run: |
+          find . -type f -name "Cargo.toml" -execdir cargo test \; -execdir cargo clean \;
+        env:
+          RUSTFLAGS: --deny warnings
+
+  ci:
+    if: ${{ success() }}
+    # all new jobs must be added to this list
+    needs: [ build ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: CI succeeded
+        run: exit 0

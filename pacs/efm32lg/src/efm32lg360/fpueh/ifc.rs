@@ -37,27 +37,27 @@ impl From<crate::W<IFC_SPEC>> for W {
 #[doc = "Field `FPIOC` reader - Clear FPIOC Interrupt Flag"]
 pub type FPIOC_R = crate::BitReader<bool>;
 #[doc = "Field `FPIOC` writer - Clear FPIOC Interrupt Flag"]
-pub type FPIOC_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 0>;
+pub type FPIOC_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `FPDZC` reader - Clear FPDZC Interrupt Flag"]
 pub type FPDZC_R = crate::BitReader<bool>;
 #[doc = "Field `FPDZC` writer - Clear FPDZC Interrupt Flag"]
-pub type FPDZC_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 1>;
+pub type FPDZC_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `FPUFC` reader - Clear FPUFC Interrupt Flag"]
 pub type FPUFC_R = crate::BitReader<bool>;
 #[doc = "Field `FPUFC` writer - Clear FPUFC Interrupt Flag"]
-pub type FPUFC_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 2>;
+pub type FPUFC_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `FPOFC` reader - Clear FPOFC Interrupt Flag"]
 pub type FPOFC_R = crate::BitReader<bool>;
 #[doc = "Field `FPOFC` writer - Clear FPOFC Interrupt Flag"]
-pub type FPOFC_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 3>;
+pub type FPOFC_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `FPIDC` reader - Clear FPIDC Interrupt Flag"]
 pub type FPIDC_R = crate::BitReader<bool>;
 #[doc = "Field `FPIDC` writer - Clear FPIDC Interrupt Flag"]
-pub type FPIDC_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 4>;
+pub type FPIDC_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `FPIXC` reader - Clear FPIXC Interrupt Flag"]
 pub type FPIXC_R = crate::BitReader<bool>;
 #[doc = "Field `FPIXC` writer - Clear FPIXC Interrupt Flag"]
-pub type FPIXC_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 5>;
+pub type FPIXC_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Clear FPIOC Interrupt Flag"]
     #[inline(always)]
@@ -93,32 +93,38 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Clear FPIOC Interrupt Flag"]
     #[inline(always)]
-    pub fn fpioc(&mut self) -> FPIOC_W {
+    #[must_use]
+    pub fn fpioc(&mut self) -> FPIOC_W<0> {
         FPIOC_W::new(self)
     }
     #[doc = "Bit 1 - Clear FPDZC Interrupt Flag"]
     #[inline(always)]
-    pub fn fpdzc(&mut self) -> FPDZC_W {
+    #[must_use]
+    pub fn fpdzc(&mut self) -> FPDZC_W<1> {
         FPDZC_W::new(self)
     }
     #[doc = "Bit 2 - Clear FPUFC Interrupt Flag"]
     #[inline(always)]
-    pub fn fpufc(&mut self) -> FPUFC_W {
+    #[must_use]
+    pub fn fpufc(&mut self) -> FPUFC_W<2> {
         FPUFC_W::new(self)
     }
     #[doc = "Bit 3 - Clear FPOFC Interrupt Flag"]
     #[inline(always)]
-    pub fn fpofc(&mut self) -> FPOFC_W {
+    #[must_use]
+    pub fn fpofc(&mut self) -> FPOFC_W<3> {
         FPOFC_W::new(self)
     }
     #[doc = "Bit 4 - Clear FPIDC Interrupt Flag"]
     #[inline(always)]
-    pub fn fpidc(&mut self) -> FPIDC_W {
+    #[must_use]
+    pub fn fpidc(&mut self) -> FPIDC_W<4> {
         FPIDC_W::new(self)
     }
     #[doc = "Bit 5 - Clear FPIXC Interrupt Flag"]
     #[inline(always)]
-    pub fn fpixc(&mut self) -> FPIXC_W {
+    #[must_use]
+    pub fn fpixc(&mut self) -> FPIXC_W<5> {
         FPIXC_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -140,11 +146,10 @@ impl crate::Readable for IFC_SPEC {
 #[doc = "`write(|w| ..)` method takes [ifc::W](W) writer structure"]
 impl crate::Writable for IFC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IFC to value 0"]
 impl crate::Resettable for IFC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

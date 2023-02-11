@@ -37,19 +37,19 @@ impl From<crate::W<IEN_SPEC>> for W {
 #[doc = "Field `CH0` reader - Channel 0 Conversion Complete Interrupt Enable"]
 pub type CH0_R = crate::BitReader<bool>;
 #[doc = "Field `CH0` writer - Channel 0 Conversion Complete Interrupt Enable"]
-pub type CH0_W<'a> = crate::BitWriter<'a, u32, IEN_SPEC, bool, 0>;
+pub type CH0_W<'a, const O: u8> = crate::BitWriter<'a, u32, IEN_SPEC, bool, O>;
 #[doc = "Field `CH1` reader - Channel 1 Conversion Complete Interrupt Enable"]
 pub type CH1_R = crate::BitReader<bool>;
 #[doc = "Field `CH1` writer - Channel 1 Conversion Complete Interrupt Enable"]
-pub type CH1_W<'a> = crate::BitWriter<'a, u32, IEN_SPEC, bool, 1>;
+pub type CH1_W<'a, const O: u8> = crate::BitWriter<'a, u32, IEN_SPEC, bool, O>;
 #[doc = "Field `CH0UF` reader - Channel 0 Conversion Data Underflow Interrupt Enable"]
 pub type CH0UF_R = crate::BitReader<bool>;
 #[doc = "Field `CH0UF` writer - Channel 0 Conversion Data Underflow Interrupt Enable"]
-pub type CH0UF_W<'a> = crate::BitWriter<'a, u32, IEN_SPEC, bool, 4>;
+pub type CH0UF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IEN_SPEC, bool, O>;
 #[doc = "Field `CH1UF` reader - Channel 1 Conversion Data Underflow Interrupt Enable"]
 pub type CH1UF_R = crate::BitReader<bool>;
 #[doc = "Field `CH1UF` writer - Channel 1 Conversion Data Underflow Interrupt Enable"]
-pub type CH1UF_W<'a> = crate::BitWriter<'a, u32, IEN_SPEC, bool, 5>;
+pub type CH1UF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IEN_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Channel 0 Conversion Complete Interrupt Enable"]
     #[inline(always)]
@@ -75,22 +75,26 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Channel 0 Conversion Complete Interrupt Enable"]
     #[inline(always)]
-    pub fn ch0(&mut self) -> CH0_W {
+    #[must_use]
+    pub fn ch0(&mut self) -> CH0_W<0> {
         CH0_W::new(self)
     }
     #[doc = "Bit 1 - Channel 1 Conversion Complete Interrupt Enable"]
     #[inline(always)]
-    pub fn ch1(&mut self) -> CH1_W {
+    #[must_use]
+    pub fn ch1(&mut self) -> CH1_W<1> {
         CH1_W::new(self)
     }
     #[doc = "Bit 4 - Channel 0 Conversion Data Underflow Interrupt Enable"]
     #[inline(always)]
-    pub fn ch0uf(&mut self) -> CH0UF_W {
+    #[must_use]
+    pub fn ch0uf(&mut self) -> CH0UF_W<4> {
         CH0UF_W::new(self)
     }
     #[doc = "Bit 5 - Channel 1 Conversion Data Underflow Interrupt Enable"]
     #[inline(always)]
-    pub fn ch1uf(&mut self) -> CH1UF_W {
+    #[must_use]
+    pub fn ch1uf(&mut self) -> CH1UF_W<5> {
         CH1UF_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -112,11 +116,10 @@ impl crate::Readable for IEN_SPEC {
 #[doc = "`write(|w| ..)` method takes [ien::W](W) writer structure"]
 impl crate::Writable for IEN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IEN to value 0"]
 impl crate::Resettable for IEN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,7 +37,7 @@ impl From<crate::W<EXTIRISE_SPEC>> for W {
 #[doc = "Field `EXTIRISE` reader - External Interrupt n Rising Edge Trigger Enable"]
 pub type EXTIRISE_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `EXTIRISE` writer - External Interrupt n Rising Edge Trigger Enable"]
-pub type EXTIRISE_W<'a> = crate::FieldWriter<'a, u32, EXTIRISE_SPEC, u16, u16, 16, 0>;
+pub type EXTIRISE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, EXTIRISE_SPEC, u16, u16, 16, O>;
 impl R {
     #[doc = "Bits 0:15 - External Interrupt n Rising Edge Trigger Enable"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - External Interrupt n Rising Edge Trigger Enable"]
     #[inline(always)]
-    pub fn extirise(&mut self) -> EXTIRISE_W {
+    #[must_use]
+    pub fn extirise(&mut self) -> EXTIRISE_W<0> {
         EXTIRISE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for EXTIRISE_SPEC {
 #[doc = "`write(|w| ..)` method takes [extirise::W](W) writer structure"]
 impl crate::Writable for EXTIRISE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets EXTIRISE to value 0"]
 impl crate::Resettable for EXTIRISE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

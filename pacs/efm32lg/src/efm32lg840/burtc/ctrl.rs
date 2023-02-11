@@ -34,8 +34,10 @@ impl From<crate::W<CTRL_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `MODE` reader - BURTC Enable"]
+pub type MODE_R = crate::FieldReader<u8, MODE_A>;
 #[doc = "BURTC Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum MODE_A {
     #[doc = "0: The BURTC is disabled."]
@@ -53,8 +55,6 @@ impl From<MODE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `MODE` reader - BURTC Enable"]
-pub type MODE_R = crate::FieldReader<u8, MODE_A>;
 impl MODE_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -89,8 +89,8 @@ impl MODE_R {
     }
 }
 #[doc = "Field `MODE` writer - BURTC Enable"]
-pub type MODE_W<'a> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, MODE_A, 2, 0>;
-impl<'a> MODE_W<'a> {
+pub type MODE_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, MODE_A, 2, O>;
+impl<'a, const O: u8> MODE_W<'a, O> {
     #[doc = "The BURTC is disabled."]
     #[inline(always)]
     pub fn disable(self) -> &'a mut W {
@@ -115,17 +115,19 @@ impl<'a> MODE_W<'a> {
 #[doc = "Field `DEBUGRUN` reader - Debug Mode Run Enable"]
 pub type DEBUGRUN_R = crate::BitReader<bool>;
 #[doc = "Field `DEBUGRUN` writer - Debug Mode Run Enable"]
-pub type DEBUGRUN_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 2>;
+pub type DEBUGRUN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `RSTEN` reader - Enable BURTC reset"]
 pub type RSTEN_R = crate::BitReader<bool>;
 #[doc = "Field `RSTEN` writer - Enable BURTC reset"]
-pub type RSTEN_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 3>;
+pub type RSTEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `COMP0TOP` reader - Compare clear enable"]
 pub type COMP0TOP_R = crate::BitReader<bool>;
 #[doc = "Field `COMP0TOP` writer - Compare clear enable"]
-pub type COMP0TOP_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 4>;
+pub type COMP0TOP_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
+#[doc = "Field `LPCOMP` reader - Low power mode compare configuration"]
+pub type LPCOMP_R = crate::FieldReader<u8, LPCOMP_A>;
 #[doc = "Low power mode compare configuration\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LPCOMP_A {
     #[doc = "0: Do not ignore any bits for compare match evaluation."]
@@ -151,8 +153,6 @@ impl From<LPCOMP_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `LPCOMP` reader - Low power mode compare configuration"]
-pub type LPCOMP_R = crate::FieldReader<u8, LPCOMP_A>;
 impl LPCOMP_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -211,8 +211,8 @@ impl LPCOMP_R {
     }
 }
 #[doc = "Field `LPCOMP` writer - Low power mode compare configuration"]
-pub type LPCOMP_W<'a> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, LPCOMP_A, 3, 5>;
-impl<'a> LPCOMP_W<'a> {
+pub type LPCOMP_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, LPCOMP_A, 3, O>;
+impl<'a, const O: u8> LPCOMP_W<'a, O> {
     #[doc = "Do not ignore any bits for compare match evaluation."]
     #[inline(always)]
     pub fn ign0lsb(self) -> &'a mut W {
@@ -254,8 +254,10 @@ impl<'a> LPCOMP_W<'a> {
         self.variant(LPCOMP_A::IGN7LSB)
     }
 }
+#[doc = "Field `PRESC` reader - Select BURTC prescaler factor"]
+pub type PRESC_R = crate::FieldReader<u8, PRESC_A>;
 #[doc = "Select BURTC prescaler factor\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PRESC_A {
     #[doc = "0: No prescaling."]
@@ -281,8 +283,6 @@ impl From<PRESC_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `PRESC` reader - Select BURTC prescaler factor"]
-pub type PRESC_R = crate::FieldReader<u8, PRESC_A>;
 impl PRESC_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -341,8 +341,8 @@ impl PRESC_R {
     }
 }
 #[doc = "Field `PRESC` writer - Select BURTC prescaler factor"]
-pub type PRESC_W<'a> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, PRESC_A, 3, 8>;
-impl<'a> PRESC_W<'a> {
+pub type PRESC_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, PRESC_A, 3, O>;
+impl<'a, const O: u8> PRESC_W<'a, O> {
     #[doc = "No prescaling."]
     #[inline(always)]
     pub fn div1(self) -> &'a mut W {
@@ -384,8 +384,10 @@ impl<'a> PRESC_W<'a> {
         self.variant(PRESC_A::DIV128)
     }
 }
+#[doc = "Field `CLKSEL` reader - Select BURTC clock source"]
+pub type CLKSEL_R = crate::FieldReader<u8, CLKSEL_A>;
 #[doc = "Select BURTC clock source\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CLKSEL_A {
     #[doc = "0: No clock source selected for BURTC."]
@@ -403,8 +405,6 @@ impl From<CLKSEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `CLKSEL` reader - Select BURTC clock source"]
-pub type CLKSEL_R = crate::FieldReader<u8, CLKSEL_A>;
 impl CLKSEL_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -439,8 +439,8 @@ impl CLKSEL_R {
     }
 }
 #[doc = "Field `CLKSEL` writer - Select BURTC clock source"]
-pub type CLKSEL_W<'a> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, CLKSEL_A, 2, 12>;
-impl<'a> CLKSEL_W<'a> {
+pub type CLKSEL_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, CLKSEL_A, 2, O>;
+impl<'a, const O: u8> CLKSEL_W<'a, O> {
     #[doc = "No clock source selected for BURTC."]
     #[inline(always)]
     pub fn none(self) -> &'a mut W {
@@ -465,7 +465,7 @@ impl<'a> CLKSEL_W<'a> {
 #[doc = "Field `BUMODETSEN` reader - Backup mode timestamp enable"]
 pub type BUMODETSEN_R = crate::BitReader<bool>;
 #[doc = "Field `BUMODETSEN` writer - Backup mode timestamp enable"]
-pub type BUMODETSEN_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 14>;
+pub type BUMODETSEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 impl R {
     #[doc = "Bits 0:1 - BURTC Enable"]
     #[inline(always)]
@@ -511,42 +511,50 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - BURTC Enable"]
     #[inline(always)]
-    pub fn mode(&mut self) -> MODE_W {
+    #[must_use]
+    pub fn mode(&mut self) -> MODE_W<0> {
         MODE_W::new(self)
     }
     #[doc = "Bit 2 - Debug Mode Run Enable"]
     #[inline(always)]
-    pub fn debugrun(&mut self) -> DEBUGRUN_W {
+    #[must_use]
+    pub fn debugrun(&mut self) -> DEBUGRUN_W<2> {
         DEBUGRUN_W::new(self)
     }
     #[doc = "Bit 3 - Enable BURTC reset"]
     #[inline(always)]
-    pub fn rsten(&mut self) -> RSTEN_W {
+    #[must_use]
+    pub fn rsten(&mut self) -> RSTEN_W<3> {
         RSTEN_W::new(self)
     }
     #[doc = "Bit 4 - Compare clear enable"]
     #[inline(always)]
-    pub fn comp0top(&mut self) -> COMP0TOP_W {
+    #[must_use]
+    pub fn comp0top(&mut self) -> COMP0TOP_W<4> {
         COMP0TOP_W::new(self)
     }
     #[doc = "Bits 5:7 - Low power mode compare configuration"]
     #[inline(always)]
-    pub fn lpcomp(&mut self) -> LPCOMP_W {
+    #[must_use]
+    pub fn lpcomp(&mut self) -> LPCOMP_W<5> {
         LPCOMP_W::new(self)
     }
     #[doc = "Bits 8:10 - Select BURTC prescaler factor"]
     #[inline(always)]
-    pub fn presc(&mut self) -> PRESC_W {
+    #[must_use]
+    pub fn presc(&mut self) -> PRESC_W<8> {
         PRESC_W::new(self)
     }
     #[doc = "Bits 12:13 - Select BURTC clock source"]
     #[inline(always)]
-    pub fn clksel(&mut self) -> CLKSEL_W {
+    #[must_use]
+    pub fn clksel(&mut self) -> CLKSEL_W<12> {
         CLKSEL_W::new(self)
     }
     #[doc = "Bit 14 - Backup mode timestamp enable"]
     #[inline(always)]
-    pub fn bumodetsen(&mut self) -> BUMODETSEN_W {
+    #[must_use]
+    pub fn bumodetsen(&mut self) -> BUMODETSEN_W<14> {
         BUMODETSEN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -568,11 +576,10 @@ impl crate::Readable for CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
 impl crate::Writable for CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CTRL to value 0x08"]
 impl crate::Resettable for CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x08
-    }
+    const RESET_VALUE: Self::Ux = 0x08;
 }

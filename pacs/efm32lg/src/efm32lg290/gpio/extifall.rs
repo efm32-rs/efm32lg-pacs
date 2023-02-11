@@ -37,7 +37,7 @@ impl From<crate::W<EXTIFALL_SPEC>> for W {
 #[doc = "Field `EXTIFALL` reader - External Interrupt n Falling Edge Trigger Enable"]
 pub type EXTIFALL_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `EXTIFALL` writer - External Interrupt n Falling Edge Trigger Enable"]
-pub type EXTIFALL_W<'a> = crate::FieldWriter<'a, u32, EXTIFALL_SPEC, u16, u16, 16, 0>;
+pub type EXTIFALL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, EXTIFALL_SPEC, u16, u16, 16, O>;
 impl R {
     #[doc = "Bits 0:15 - External Interrupt n Falling Edge Trigger Enable"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - External Interrupt n Falling Edge Trigger Enable"]
     #[inline(always)]
-    pub fn extifall(&mut self) -> EXTIFALL_W {
+    #[must_use]
+    pub fn extifall(&mut self) -> EXTIFALL_W<0> {
         EXTIFALL_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for EXTIFALL_SPEC {
 #[doc = "`write(|w| ..)` method takes [extifall::W](W) writer structure"]
 impl crate::Writable for EXTIFALL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets EXTIFALL to value 0"]
 impl crate::Resettable for EXTIFALL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

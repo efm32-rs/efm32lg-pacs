@@ -37,7 +37,7 @@ impl From<crate::W<AREGB_SPEC>> for W {
 #[doc = "Field `AREGB` reader - Animation Register B Data"]
 pub type AREGB_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `AREGB` writer - Animation Register B Data"]
-pub type AREGB_W<'a> = crate::FieldWriter<'a, u32, AREGB_SPEC, u8, u8, 8, 0>;
+pub type AREGB_W<'a, const O: u8> = crate::FieldWriter<'a, u32, AREGB_SPEC, u8, u8, 8, O>;
 impl R {
     #[doc = "Bits 0:7 - Animation Register B Data"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:7 - Animation Register B Data"]
     #[inline(always)]
-    pub fn aregb(&mut self) -> AREGB_W {
+    #[must_use]
+    pub fn aregb(&mut self) -> AREGB_W<0> {
         AREGB_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for AREGB_SPEC {
 #[doc = "`write(|w| ..)` method takes [aregb::W](W) writer structure"]
 impl crate::Writable for AREGB_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets AREGB to value 0"]
 impl crate::Resettable for AREGB_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

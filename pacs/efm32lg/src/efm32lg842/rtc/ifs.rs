@@ -20,25 +20,28 @@ impl From<crate::W<IFS_SPEC>> for W {
     }
 }
 #[doc = "Field `OF` writer - Set Overflow Interrupt Flag"]
-pub type OF_W<'a> = crate::BitWriter<'a, u32, IFS_SPEC, bool, 0>;
+pub type OF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFS_SPEC, bool, O>;
 #[doc = "Field `COMP0` writer - Set Compare match 0 Interrupt Flag"]
-pub type COMP0_W<'a> = crate::BitWriter<'a, u32, IFS_SPEC, bool, 1>;
+pub type COMP0_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFS_SPEC, bool, O>;
 #[doc = "Field `COMP1` writer - Set Compare match 1 Interrupt Flag"]
-pub type COMP1_W<'a> = crate::BitWriter<'a, u32, IFS_SPEC, bool, 2>;
+pub type COMP1_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFS_SPEC, bool, O>;
 impl W {
     #[doc = "Bit 0 - Set Overflow Interrupt Flag"]
     #[inline(always)]
-    pub fn of(&mut self) -> OF_W {
+    #[must_use]
+    pub fn of(&mut self) -> OF_W<0> {
         OF_W::new(self)
     }
     #[doc = "Bit 1 - Set Compare match 0 Interrupt Flag"]
     #[inline(always)]
-    pub fn comp0(&mut self) -> COMP0_W {
+    #[must_use]
+    pub fn comp0(&mut self) -> COMP0_W<1> {
         COMP0_W::new(self)
     }
     #[doc = "Bit 2 - Set Compare match 1 Interrupt Flag"]
     #[inline(always)]
-    pub fn comp1(&mut self) -> COMP1_W {
+    #[must_use]
+    pub fn comp1(&mut self) -> COMP1_W<2> {
         COMP1_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -56,11 +59,10 @@ impl crate::RegisterSpec for IFS_SPEC {
 #[doc = "`write(|w| ..)` method takes [ifs::W](W) writer structure"]
 impl crate::Writable for IFS_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IFS to value 0"]
 impl crate::Resettable for IFS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

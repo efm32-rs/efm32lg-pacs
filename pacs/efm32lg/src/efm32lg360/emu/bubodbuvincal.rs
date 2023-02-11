@@ -37,11 +37,11 @@ impl From<crate::W<BUBODBUVINCAL_SPEC>> for W {
 #[doc = "Field `THRES` reader - "]
 pub type THRES_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `THRES` writer - "]
-pub type THRES_W<'a> = crate::FieldWriter<'a, u32, BUBODBUVINCAL_SPEC, u8, u8, 3, 0>;
+pub type THRES_W<'a, const O: u8> = crate::FieldWriter<'a, u32, BUBODBUVINCAL_SPEC, u8, u8, 3, O>;
 #[doc = "Field `RANGE` reader - "]
 pub type RANGE_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `RANGE` writer - "]
-pub type RANGE_W<'a> = crate::FieldWriter<'a, u32, BUBODBUVINCAL_SPEC, u8, u8, 2, 3>;
+pub type RANGE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, BUBODBUVINCAL_SPEC, u8, u8, 2, O>;
 impl R {
     #[doc = "Bits 0:2"]
     #[inline(always)]
@@ -57,12 +57,14 @@ impl R {
 impl W {
     #[doc = "Bits 0:2"]
     #[inline(always)]
-    pub fn thres(&mut self) -> THRES_W {
+    #[must_use]
+    pub fn thres(&mut self) -> THRES_W<0> {
         THRES_W::new(self)
     }
     #[doc = "Bits 3:4"]
     #[inline(always)]
-    pub fn range(&mut self) -> RANGE_W {
+    #[must_use]
+    pub fn range(&mut self) -> RANGE_W<3> {
         RANGE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -84,11 +86,10 @@ impl crate::Readable for BUBODBUVINCAL_SPEC {
 #[doc = "`write(|w| ..)` method takes [bubodbuvincal::W](W) writer structure"]
 impl crate::Writable for BUBODBUVINCAL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets BUBODBUVINCAL to value 0x0b"]
 impl crate::Resettable for BUBODBUVINCAL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0b
-    }
+    const RESET_VALUE: Self::Ux = 0x0b;
 }

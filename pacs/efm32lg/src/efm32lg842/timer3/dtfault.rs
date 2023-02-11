@@ -54,8 +54,5 @@ impl crate::Readable for DTFAULT_SPEC {
 }
 #[doc = "`reset()` method sets DTFAULT to value 0"]
 impl crate::Resettable for DTFAULT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

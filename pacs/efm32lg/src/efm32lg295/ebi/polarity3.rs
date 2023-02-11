@@ -37,27 +37,27 @@ impl From<crate::W<POLARITY3_SPEC>> for W {
 #[doc = "Field `CSPOL` reader - Chip Select Polarity"]
 pub type CSPOL_R = crate::BitReader<bool>;
 #[doc = "Field `CSPOL` writer - Chip Select Polarity"]
-pub type CSPOL_W<'a> = crate::BitWriter<'a, u32, POLARITY3_SPEC, bool, 0>;
+pub type CSPOL_W<'a, const O: u8> = crate::BitWriter<'a, u32, POLARITY3_SPEC, bool, O>;
 #[doc = "Field `REPOL` reader - Read Enable Polarity"]
 pub type REPOL_R = crate::BitReader<bool>;
 #[doc = "Field `REPOL` writer - Read Enable Polarity"]
-pub type REPOL_W<'a> = crate::BitWriter<'a, u32, POLARITY3_SPEC, bool, 1>;
+pub type REPOL_W<'a, const O: u8> = crate::BitWriter<'a, u32, POLARITY3_SPEC, bool, O>;
 #[doc = "Field `WEPOL` reader - Write Enable Polarity"]
 pub type WEPOL_R = crate::BitReader<bool>;
 #[doc = "Field `WEPOL` writer - Write Enable Polarity"]
-pub type WEPOL_W<'a> = crate::BitWriter<'a, u32, POLARITY3_SPEC, bool, 2>;
+pub type WEPOL_W<'a, const O: u8> = crate::BitWriter<'a, u32, POLARITY3_SPEC, bool, O>;
 #[doc = "Field `ALEPOL` reader - Address Latch Polarity"]
 pub type ALEPOL_R = crate::BitReader<bool>;
 #[doc = "Field `ALEPOL` writer - Address Latch Polarity"]
-pub type ALEPOL_W<'a> = crate::BitWriter<'a, u32, POLARITY3_SPEC, bool, 3>;
+pub type ALEPOL_W<'a, const O: u8> = crate::BitWriter<'a, u32, POLARITY3_SPEC, bool, O>;
 #[doc = "Field `ARDYPOL` reader - ARDY Polarity"]
 pub type ARDYPOL_R = crate::BitReader<bool>;
 #[doc = "Field `ARDYPOL` writer - ARDY Polarity"]
-pub type ARDYPOL_W<'a> = crate::BitWriter<'a, u32, POLARITY3_SPEC, bool, 4>;
+pub type ARDYPOL_W<'a, const O: u8> = crate::BitWriter<'a, u32, POLARITY3_SPEC, bool, O>;
 #[doc = "Field `BLPOL` reader - BL Polarity"]
 pub type BLPOL_R = crate::BitReader<bool>;
 #[doc = "Field `BLPOL` writer - BL Polarity"]
-pub type BLPOL_W<'a> = crate::BitWriter<'a, u32, POLARITY3_SPEC, bool, 5>;
+pub type BLPOL_W<'a, const O: u8> = crate::BitWriter<'a, u32, POLARITY3_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Chip Select Polarity"]
     #[inline(always)]
@@ -93,32 +93,38 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Chip Select Polarity"]
     #[inline(always)]
-    pub fn cspol(&mut self) -> CSPOL_W {
+    #[must_use]
+    pub fn cspol(&mut self) -> CSPOL_W<0> {
         CSPOL_W::new(self)
     }
     #[doc = "Bit 1 - Read Enable Polarity"]
     #[inline(always)]
-    pub fn repol(&mut self) -> REPOL_W {
+    #[must_use]
+    pub fn repol(&mut self) -> REPOL_W<1> {
         REPOL_W::new(self)
     }
     #[doc = "Bit 2 - Write Enable Polarity"]
     #[inline(always)]
-    pub fn wepol(&mut self) -> WEPOL_W {
+    #[must_use]
+    pub fn wepol(&mut self) -> WEPOL_W<2> {
         WEPOL_W::new(self)
     }
     #[doc = "Bit 3 - Address Latch Polarity"]
     #[inline(always)]
-    pub fn alepol(&mut self) -> ALEPOL_W {
+    #[must_use]
+    pub fn alepol(&mut self) -> ALEPOL_W<3> {
         ALEPOL_W::new(self)
     }
     #[doc = "Bit 4 - ARDY Polarity"]
     #[inline(always)]
-    pub fn ardypol(&mut self) -> ARDYPOL_W {
+    #[must_use]
+    pub fn ardypol(&mut self) -> ARDYPOL_W<4> {
         ARDYPOL_W::new(self)
     }
     #[doc = "Bit 5 - BL Polarity"]
     #[inline(always)]
-    pub fn blpol(&mut self) -> BLPOL_W {
+    #[must_use]
+    pub fn blpol(&mut self) -> BLPOL_W<5> {
         BLPOL_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -140,11 +146,10 @@ impl crate::Readable for POLARITY3_SPEC {
 #[doc = "`write(|w| ..)` method takes [polarity3::W](W) writer structure"]
 impl crate::Writable for POLARITY3_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets POLARITY3 to value 0"]
 impl crate::Resettable for POLARITY3_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

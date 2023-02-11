@@ -33,8 +33,5 @@ impl crate::Readable for CURCH_SPEC {
 }
 #[doc = "`reset()` method sets CURCH to value 0"]
 impl crate::Resettable for CURCH_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

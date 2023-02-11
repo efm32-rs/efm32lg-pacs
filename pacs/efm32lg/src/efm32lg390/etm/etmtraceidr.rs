@@ -37,7 +37,7 @@ impl From<crate::W<ETMTRACEIDR_SPEC>> for W {
 #[doc = "Field `TRACEID` reader - Trace ID"]
 pub type TRACEID_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `TRACEID` writer - Trace ID"]
-pub type TRACEID_W<'a> = crate::FieldWriter<'a, u32, ETMTRACEIDR_SPEC, u8, u8, 7, 0>;
+pub type TRACEID_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ETMTRACEIDR_SPEC, u8, u8, 7, O>;
 impl R {
     #[doc = "Bits 0:6 - Trace ID"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:6 - Trace ID"]
     #[inline(always)]
-    pub fn traceid(&mut self) -> TRACEID_W {
+    #[must_use]
+    pub fn traceid(&mut self) -> TRACEID_W<0> {
         TRACEID_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for ETMTRACEIDR_SPEC {
 #[doc = "`write(|w| ..)` method takes [etmtraceidr::W](W) writer structure"]
 impl crate::Writable for ETMTRACEIDR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ETMTRACEIDR to value 0"]
 impl crate::Resettable for ETMTRACEIDR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

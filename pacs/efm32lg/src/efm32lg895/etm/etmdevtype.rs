@@ -40,8 +40,5 @@ impl crate::Readable for ETMDEVTYPE_SPEC {
 }
 #[doc = "`reset()` method sets ETMDEVTYPE to value 0x13"]
 impl crate::Resettable for ETMDEVTYPE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x13
-    }
+    const RESET_VALUE: Self::Ux = 0x13;
 }

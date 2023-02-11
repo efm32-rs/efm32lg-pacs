@@ -34,8 +34,10 @@ impl From<crate::W<HCFG_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `FSLSPCLKSEL` reader - FS/LS PHY Clock Select"]
+pub type FSLSPCLKSEL_R = crate::FieldReader<u8, FSLSPCLKSEL_A>;
 #[doc = "FS/LS PHY Clock Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum FSLSPCLKSEL_A {
     #[doc = "1: Internal PHY clock is running at 48 MHz (undivided)."]
@@ -49,8 +51,6 @@ impl From<FSLSPCLKSEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `FSLSPCLKSEL` reader - FS/LS PHY Clock Select"]
-pub type FSLSPCLKSEL_R = crate::FieldReader<u8, FSLSPCLKSEL_A>;
 impl FSLSPCLKSEL_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -73,8 +73,9 @@ impl FSLSPCLKSEL_R {
     }
 }
 #[doc = "Field `FSLSPCLKSEL` writer - FS/LS PHY Clock Select"]
-pub type FSLSPCLKSEL_W<'a> = crate::FieldWriter<'a, u32, HCFG_SPEC, u8, FSLSPCLKSEL_A, 2, 0>;
-impl<'a> FSLSPCLKSEL_W<'a> {
+pub type FSLSPCLKSEL_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, HCFG_SPEC, u8, FSLSPCLKSEL_A, 2, O>;
+impl<'a, const O: u8> FSLSPCLKSEL_W<'a, O> {
     #[doc = "Internal PHY clock is running at 48 MHz (undivided)."]
     #[inline(always)]
     pub fn div1(self) -> &'a mut W {
@@ -89,19 +90,19 @@ impl<'a> FSLSPCLKSEL_W<'a> {
 #[doc = "Field `FSLSSUPP` reader - FS- and LS-Only Support"]
 pub type FSLSSUPP_R = crate::BitReader<bool>;
 #[doc = "Field `FSLSSUPP` writer - FS- and LS-Only Support"]
-pub type FSLSSUPP_W<'a> = crate::BitWriter<'a, u32, HCFG_SPEC, bool, 2>;
+pub type FSLSSUPP_W<'a, const O: u8> = crate::BitWriter<'a, u32, HCFG_SPEC, bool, O>;
 #[doc = "Field `ENA32KHZS` reader - Enable 32 KHz Suspend mode"]
 pub type ENA32KHZS_R = crate::BitReader<bool>;
 #[doc = "Field `ENA32KHZS` writer - Enable 32 KHz Suspend mode"]
-pub type ENA32KHZS_W<'a> = crate::BitWriter<'a, u32, HCFG_SPEC, bool, 7>;
+pub type ENA32KHZS_W<'a, const O: u8> = crate::BitWriter<'a, u32, HCFG_SPEC, bool, O>;
 #[doc = "Field `RESVALID` reader - Resume Validation Period"]
 pub type RESVALID_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `RESVALID` writer - Resume Validation Period"]
-pub type RESVALID_W<'a> = crate::FieldWriter<'a, u32, HCFG_SPEC, u8, u8, 8, 8>;
+pub type RESVALID_W<'a, const O: u8> = crate::FieldWriter<'a, u32, HCFG_SPEC, u8, u8, 8, O>;
 #[doc = "Field `MODECHTIMEN` reader - Mode Change Time"]
 pub type MODECHTIMEN_R = crate::BitReader<bool>;
 #[doc = "Field `MODECHTIMEN` writer - Mode Change Time"]
-pub type MODECHTIMEN_W<'a> = crate::BitWriter<'a, u32, HCFG_SPEC, bool, 31>;
+pub type MODECHTIMEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, HCFG_SPEC, bool, O>;
 impl R {
     #[doc = "Bits 0:1 - FS/LS PHY Clock Select"]
     #[inline(always)]
@@ -132,27 +133,32 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - FS/LS PHY Clock Select"]
     #[inline(always)]
-    pub fn fslspclksel(&mut self) -> FSLSPCLKSEL_W {
+    #[must_use]
+    pub fn fslspclksel(&mut self) -> FSLSPCLKSEL_W<0> {
         FSLSPCLKSEL_W::new(self)
     }
     #[doc = "Bit 2 - FS- and LS-Only Support"]
     #[inline(always)]
-    pub fn fslssupp(&mut self) -> FSLSSUPP_W {
+    #[must_use]
+    pub fn fslssupp(&mut self) -> FSLSSUPP_W<2> {
         FSLSSUPP_W::new(self)
     }
     #[doc = "Bit 7 - Enable 32 KHz Suspend mode"]
     #[inline(always)]
-    pub fn ena32khzs(&mut self) -> ENA32KHZS_W {
+    #[must_use]
+    pub fn ena32khzs(&mut self) -> ENA32KHZS_W<7> {
         ENA32KHZS_W::new(self)
     }
     #[doc = "Bits 8:15 - Resume Validation Period"]
     #[inline(always)]
-    pub fn resvalid(&mut self) -> RESVALID_W {
+    #[must_use]
+    pub fn resvalid(&mut self) -> RESVALID_W<8> {
         RESVALID_W::new(self)
     }
     #[doc = "Bit 31 - Mode Change Time"]
     #[inline(always)]
-    pub fn modechtimen(&mut self) -> MODECHTIMEN_W {
+    #[must_use]
+    pub fn modechtimen(&mut self) -> MODECHTIMEN_W<31> {
         MODECHTIMEN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -174,11 +180,10 @@ impl crate::Readable for HCFG_SPEC {
 #[doc = "`write(|w| ..)` method takes [hcfg::W](W) writer structure"]
 impl crate::Writable for HCFG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets HCFG to value 0x0020_0000"]
 impl crate::Resettable for HCFG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0020_0000
-    }
+    const RESET_VALUE: Self::Ux = 0x0020_0000;
 }

@@ -34,8 +34,10 @@ impl From<crate::W<HFPERCLKDIV_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `HFPERCLKDIV` reader - HFPERCLK Divider"]
+pub type HFPERCLKDIV_R = crate::FieldReader<u8, HFPERCLKDIV_A>;
 #[doc = "HFPERCLK Divider\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum HFPERCLKDIV_A {
     #[doc = "0: HFPERCLK = HFCLK."]
@@ -65,8 +67,6 @@ impl From<HFPERCLKDIV_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `HFPERCLKDIV` reader - HFPERCLK Divider"]
-pub type HFPERCLKDIV_R = crate::FieldReader<u8, HFPERCLKDIV_A>;
 impl HFPERCLKDIV_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -137,8 +137,9 @@ impl HFPERCLKDIV_R {
     }
 }
 #[doc = "Field `HFPERCLKDIV` writer - HFPERCLK Divider"]
-pub type HFPERCLKDIV_W<'a> = crate::FieldWriter<'a, u32, HFPERCLKDIV_SPEC, u8, HFPERCLKDIV_A, 4, 0>;
-impl<'a> HFPERCLKDIV_W<'a> {
+pub type HFPERCLKDIV_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, HFPERCLKDIV_SPEC, u8, HFPERCLKDIV_A, 4, O>;
+impl<'a, const O: u8> HFPERCLKDIV_W<'a, O> {
     #[doc = "HFPERCLK = HFCLK."]
     #[inline(always)]
     pub fn hfclk(self) -> &'a mut W {
@@ -193,7 +194,7 @@ impl<'a> HFPERCLKDIV_W<'a> {
 #[doc = "Field `HFPERCLKEN` reader - HFPERCLK Enable"]
 pub type HFPERCLKEN_R = crate::BitReader<bool>;
 #[doc = "Field `HFPERCLKEN` writer - HFPERCLK Enable"]
-pub type HFPERCLKEN_W<'a> = crate::BitWriter<'a, u32, HFPERCLKDIV_SPEC, bool, 8>;
+pub type HFPERCLKEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFPERCLKDIV_SPEC, bool, O>;
 impl R {
     #[doc = "Bits 0:3 - HFPERCLK Divider"]
     #[inline(always)]
@@ -209,12 +210,14 @@ impl R {
 impl W {
     #[doc = "Bits 0:3 - HFPERCLK Divider"]
     #[inline(always)]
-    pub fn hfperclkdiv(&mut self) -> HFPERCLKDIV_W {
+    #[must_use]
+    pub fn hfperclkdiv(&mut self) -> HFPERCLKDIV_W<0> {
         HFPERCLKDIV_W::new(self)
     }
     #[doc = "Bit 8 - HFPERCLK Enable"]
     #[inline(always)]
-    pub fn hfperclken(&mut self) -> HFPERCLKEN_W {
+    #[must_use]
+    pub fn hfperclken(&mut self) -> HFPERCLKEN_W<8> {
         HFPERCLKEN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -236,11 +239,10 @@ impl crate::Readable for HFPERCLKDIV_SPEC {
 #[doc = "`write(|w| ..)` method takes [hfperclkdiv::W](W) writer structure"]
 impl crate::Writable for HFPERCLKDIV_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets HFPERCLKDIV to value 0x0100"]
 impl crate::Resettable for HFPERCLKDIV_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0100
-    }
+    const RESET_VALUE: Self::Ux = 0x0100;
 }

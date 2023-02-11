@@ -4,4 +4,10 @@
 
 # 0.1.1
 
-- Combine same family MCUs into the single crate
+- Combined same family MCUs into the single crate
+
+# 0.1.2
+
+- Regenerated PAC crates with `svd2rust` version `0.28.0` with the enabled `atomics` feature
+- Added `portable-atomic` dependency to reflect crates with the `atomics` feature generated
+- Added `critical-section` dependency to reflect the latest `svd2rust` generation rules

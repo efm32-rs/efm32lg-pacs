@@ -34,8 +34,10 @@ impl From<crate::W<PF_CTRL_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `DRIVEMODE` reader - Drive Mode Select"]
+pub type DRIVEMODE_R = crate::FieldReader<u8, DRIVEMODE_A>;
 #[doc = "Drive Mode Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum DRIVEMODE_A {
     #[doc = "0: 6 mA drive current"]
@@ -53,8 +55,6 @@ impl From<DRIVEMODE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `DRIVEMODE` reader - Drive Mode Select"]
-pub type DRIVEMODE_R = crate::FieldReader<u8, DRIVEMODE_A>;
 impl DRIVEMODE_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -89,8 +89,9 @@ impl DRIVEMODE_R {
     }
 }
 #[doc = "Field `DRIVEMODE` writer - Drive Mode Select"]
-pub type DRIVEMODE_W<'a> = crate::FieldWriterSafe<'a, u32, PF_CTRL_SPEC, u8, DRIVEMODE_A, 2, 0>;
-impl<'a> DRIVEMODE_W<'a> {
+pub type DRIVEMODE_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, PF_CTRL_SPEC, u8, DRIVEMODE_A, 2, O>;
+impl<'a, const O: u8> DRIVEMODE_W<'a, O> {
     #[doc = "6 mA drive current"]
     #[inline(always)]
     pub fn standard(self) -> &'a mut W {
@@ -122,7 +123,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - Drive Mode Select"]
     #[inline(always)]
-    pub fn drivemode(&mut self) -> DRIVEMODE_W {
+    #[must_use]
+    pub fn drivemode(&mut self) -> DRIVEMODE_W<0> {
         DRIVEMODE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -144,11 +146,10 @@ impl crate::Readable for PF_CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [pf_ctrl::W](W) writer structure"]
 impl crate::Writable for PF_CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PF_CTRL to value 0"]
 impl crate::Resettable for PF_CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

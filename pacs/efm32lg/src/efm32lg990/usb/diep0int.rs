@@ -37,41 +37,41 @@ impl From<crate::W<DIEP0INT_SPEC>> for W {
 #[doc = "Field `XFERCOMPL` reader - Transfer Completed Interrupt"]
 pub type XFERCOMPL_R = crate::BitReader<bool>;
 #[doc = "Field `XFERCOMPL` writer - Transfer Completed Interrupt"]
-pub type XFERCOMPL_W<'a> = crate::BitWriter<'a, u32, DIEP0INT_SPEC, bool, 0>;
+pub type XFERCOMPL_W<'a, const O: u8> = crate::BitWriter<'a, u32, DIEP0INT_SPEC, bool, O>;
 #[doc = "Field `EPDISBLD` reader - Endpoint Disabled Interrupt"]
 pub type EPDISBLD_R = crate::BitReader<bool>;
 #[doc = "Field `EPDISBLD` writer - Endpoint Disabled Interrupt"]
-pub type EPDISBLD_W<'a> = crate::BitWriter<'a, u32, DIEP0INT_SPEC, bool, 1>;
+pub type EPDISBLD_W<'a, const O: u8> = crate::BitWriter<'a, u32, DIEP0INT_SPEC, bool, O>;
 #[doc = "Field `AHBERR` reader - AHB Error"]
 pub type AHBERR_R = crate::BitReader<bool>;
 #[doc = "Field `AHBERR` writer - AHB Error"]
-pub type AHBERR_W<'a> = crate::BitWriter<'a, u32, DIEP0INT_SPEC, bool, 2>;
+pub type AHBERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, DIEP0INT_SPEC, bool, O>;
 #[doc = "Field `TIMEOUT` reader - Timeout Condition"]
 pub type TIMEOUT_R = crate::BitReader<bool>;
 #[doc = "Field `TIMEOUT` writer - Timeout Condition"]
-pub type TIMEOUT_W<'a> = crate::BitWriter<'a, u32, DIEP0INT_SPEC, bool, 3>;
+pub type TIMEOUT_W<'a, const O: u8> = crate::BitWriter<'a, u32, DIEP0INT_SPEC, bool, O>;
 #[doc = "Field `INTKNTXFEMP` reader - IN Token Received When TxFIFO is Empty"]
 pub type INTKNTXFEMP_R = crate::BitReader<bool>;
 #[doc = "Field `INTKNTXFEMP` writer - IN Token Received When TxFIFO is Empty"]
-pub type INTKNTXFEMP_W<'a> = crate::BitWriter<'a, u32, DIEP0INT_SPEC, bool, 4>;
+pub type INTKNTXFEMP_W<'a, const O: u8> = crate::BitWriter<'a, u32, DIEP0INT_SPEC, bool, O>;
 #[doc = "Field `INEPNAKEFF` reader - IN Endpoint NAK Effective"]
 pub type INEPNAKEFF_R = crate::BitReader<bool>;
 #[doc = "Field `INEPNAKEFF` writer - IN Endpoint NAK Effective"]
-pub type INEPNAKEFF_W<'a> = crate::BitWriter<'a, u32, DIEP0INT_SPEC, bool, 6>;
+pub type INEPNAKEFF_W<'a, const O: u8> = crate::BitWriter<'a, u32, DIEP0INT_SPEC, bool, O>;
 #[doc = "Field `TXFEMP` reader - Transmit FIFO Empty"]
 pub type TXFEMP_R = crate::BitReader<bool>;
 #[doc = "Field `PKTDRPSTS` reader - Packet Drop Status"]
 pub type PKTDRPSTS_R = crate::BitReader<bool>;
 #[doc = "Field `PKTDRPSTS` writer - Packet Drop Status"]
-pub type PKTDRPSTS_W<'a> = crate::BitWriter<'a, u32, DIEP0INT_SPEC, bool, 11>;
+pub type PKTDRPSTS_W<'a, const O: u8> = crate::BitWriter<'a, u32, DIEP0INT_SPEC, bool, O>;
 #[doc = "Field `BBLEERR` reader - NAK Interrupt"]
 pub type BBLEERR_R = crate::BitReader<bool>;
 #[doc = "Field `BBLEERR` writer - NAK Interrupt"]
-pub type BBLEERR_W<'a> = crate::BitWriter<'a, u32, DIEP0INT_SPEC, bool, 12>;
+pub type BBLEERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, DIEP0INT_SPEC, bool, O>;
 #[doc = "Field `NAKINTRPT` reader - NAK Interrupt"]
 pub type NAKINTRPT_R = crate::BitReader<bool>;
 #[doc = "Field `NAKINTRPT` writer - NAK Interrupt"]
-pub type NAKINTRPT_W<'a> = crate::BitWriter<'a, u32, DIEP0INT_SPEC, bool, 13>;
+pub type NAKINTRPT_W<'a, const O: u8> = crate::BitWriter<'a, u32, DIEP0INT_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Transfer Completed Interrupt"]
     #[inline(always)]
@@ -127,47 +127,56 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Transfer Completed Interrupt"]
     #[inline(always)]
-    pub fn xfercompl(&mut self) -> XFERCOMPL_W {
+    #[must_use]
+    pub fn xfercompl(&mut self) -> XFERCOMPL_W<0> {
         XFERCOMPL_W::new(self)
     }
     #[doc = "Bit 1 - Endpoint Disabled Interrupt"]
     #[inline(always)]
-    pub fn epdisbld(&mut self) -> EPDISBLD_W {
+    #[must_use]
+    pub fn epdisbld(&mut self) -> EPDISBLD_W<1> {
         EPDISBLD_W::new(self)
     }
     #[doc = "Bit 2 - AHB Error"]
     #[inline(always)]
-    pub fn ahberr(&mut self) -> AHBERR_W {
+    #[must_use]
+    pub fn ahberr(&mut self) -> AHBERR_W<2> {
         AHBERR_W::new(self)
     }
     #[doc = "Bit 3 - Timeout Condition"]
     #[inline(always)]
-    pub fn timeout(&mut self) -> TIMEOUT_W {
+    #[must_use]
+    pub fn timeout(&mut self) -> TIMEOUT_W<3> {
         TIMEOUT_W::new(self)
     }
     #[doc = "Bit 4 - IN Token Received When TxFIFO is Empty"]
     #[inline(always)]
-    pub fn intkntxfemp(&mut self) -> INTKNTXFEMP_W {
+    #[must_use]
+    pub fn intkntxfemp(&mut self) -> INTKNTXFEMP_W<4> {
         INTKNTXFEMP_W::new(self)
     }
     #[doc = "Bit 6 - IN Endpoint NAK Effective"]
     #[inline(always)]
-    pub fn inepnakeff(&mut self) -> INEPNAKEFF_W {
+    #[must_use]
+    pub fn inepnakeff(&mut self) -> INEPNAKEFF_W<6> {
         INEPNAKEFF_W::new(self)
     }
     #[doc = "Bit 11 - Packet Drop Status"]
     #[inline(always)]
-    pub fn pktdrpsts(&mut self) -> PKTDRPSTS_W {
+    #[must_use]
+    pub fn pktdrpsts(&mut self) -> PKTDRPSTS_W<11> {
         PKTDRPSTS_W::new(self)
     }
     #[doc = "Bit 12 - NAK Interrupt"]
     #[inline(always)]
-    pub fn bbleerr(&mut self) -> BBLEERR_W {
+    #[must_use]
+    pub fn bbleerr(&mut self) -> BBLEERR_W<12> {
         BBLEERR_W::new(self)
     }
     #[doc = "Bit 13 - NAK Interrupt"]
     #[inline(always)]
-    pub fn nakintrpt(&mut self) -> NAKINTRPT_W {
+    #[must_use]
+    pub fn nakintrpt(&mut self) -> NAKINTRPT_W<13> {
         NAKINTRPT_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -189,11 +198,10 @@ impl crate::Readable for DIEP0INT_SPEC {
 #[doc = "`write(|w| ..)` method takes [diep0int::W](W) writer structure"]
 impl crate::Writable for DIEP0INT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DIEP0INT to value 0x80"]
 impl crate::Resettable for DIEP0INT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x80
-    }
+    const RESET_VALUE: Self::Ux = 0x80;
 }

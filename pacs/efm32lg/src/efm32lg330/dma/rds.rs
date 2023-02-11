@@ -37,51 +37,51 @@ impl From<crate::W<RDS_SPEC>> for W {
 #[doc = "Field `RDSCH0` reader - Retain Descriptor State"]
 pub type RDSCH0_R = crate::BitReader<bool>;
 #[doc = "Field `RDSCH0` writer - Retain Descriptor State"]
-pub type RDSCH0_W<'a> = crate::BitWriter<'a, u32, RDS_SPEC, bool, 0>;
+pub type RDSCH0_W<'a, const O: u8> = crate::BitWriter<'a, u32, RDS_SPEC, bool, O>;
 #[doc = "Field `RDSCH1` reader - Retain Descriptor State"]
 pub type RDSCH1_R = crate::BitReader<bool>;
 #[doc = "Field `RDSCH1` writer - Retain Descriptor State"]
-pub type RDSCH1_W<'a> = crate::BitWriter<'a, u32, RDS_SPEC, bool, 1>;
+pub type RDSCH1_W<'a, const O: u8> = crate::BitWriter<'a, u32, RDS_SPEC, bool, O>;
 #[doc = "Field `RDSCH2` reader - Retain Descriptor State"]
 pub type RDSCH2_R = crate::BitReader<bool>;
 #[doc = "Field `RDSCH2` writer - Retain Descriptor State"]
-pub type RDSCH2_W<'a> = crate::BitWriter<'a, u32, RDS_SPEC, bool, 2>;
+pub type RDSCH2_W<'a, const O: u8> = crate::BitWriter<'a, u32, RDS_SPEC, bool, O>;
 #[doc = "Field `RDSCH3` reader - Retain Descriptor State"]
 pub type RDSCH3_R = crate::BitReader<bool>;
 #[doc = "Field `RDSCH3` writer - Retain Descriptor State"]
-pub type RDSCH3_W<'a> = crate::BitWriter<'a, u32, RDS_SPEC, bool, 3>;
+pub type RDSCH3_W<'a, const O: u8> = crate::BitWriter<'a, u32, RDS_SPEC, bool, O>;
 #[doc = "Field `RDSCH4` reader - Retain Descriptor State"]
 pub type RDSCH4_R = crate::BitReader<bool>;
 #[doc = "Field `RDSCH4` writer - Retain Descriptor State"]
-pub type RDSCH4_W<'a> = crate::BitWriter<'a, u32, RDS_SPEC, bool, 4>;
+pub type RDSCH4_W<'a, const O: u8> = crate::BitWriter<'a, u32, RDS_SPEC, bool, O>;
 #[doc = "Field `RDSCH5` reader - Retain Descriptor State"]
 pub type RDSCH5_R = crate::BitReader<bool>;
 #[doc = "Field `RDSCH5` writer - Retain Descriptor State"]
-pub type RDSCH5_W<'a> = crate::BitWriter<'a, u32, RDS_SPEC, bool, 5>;
+pub type RDSCH5_W<'a, const O: u8> = crate::BitWriter<'a, u32, RDS_SPEC, bool, O>;
 #[doc = "Field `RDSCH6` reader - Retain Descriptor State"]
 pub type RDSCH6_R = crate::BitReader<bool>;
 #[doc = "Field `RDSCH6` writer - Retain Descriptor State"]
-pub type RDSCH6_W<'a> = crate::BitWriter<'a, u32, RDS_SPEC, bool, 6>;
+pub type RDSCH6_W<'a, const O: u8> = crate::BitWriter<'a, u32, RDS_SPEC, bool, O>;
 #[doc = "Field `RDSCH7` reader - Retain Descriptor State"]
 pub type RDSCH7_R = crate::BitReader<bool>;
 #[doc = "Field `RDSCH7` writer - Retain Descriptor State"]
-pub type RDSCH7_W<'a> = crate::BitWriter<'a, u32, RDS_SPEC, bool, 7>;
+pub type RDSCH7_W<'a, const O: u8> = crate::BitWriter<'a, u32, RDS_SPEC, bool, O>;
 #[doc = "Field `RDSCH8` reader - Retain Descriptor State"]
 pub type RDSCH8_R = crate::BitReader<bool>;
 #[doc = "Field `RDSCH8` writer - Retain Descriptor State"]
-pub type RDSCH8_W<'a> = crate::BitWriter<'a, u32, RDS_SPEC, bool, 8>;
+pub type RDSCH8_W<'a, const O: u8> = crate::BitWriter<'a, u32, RDS_SPEC, bool, O>;
 #[doc = "Field `RDSCH9` reader - Retain Descriptor State"]
 pub type RDSCH9_R = crate::BitReader<bool>;
 #[doc = "Field `RDSCH9` writer - Retain Descriptor State"]
-pub type RDSCH9_W<'a> = crate::BitWriter<'a, u32, RDS_SPEC, bool, 9>;
+pub type RDSCH9_W<'a, const O: u8> = crate::BitWriter<'a, u32, RDS_SPEC, bool, O>;
 #[doc = "Field `RDSCH10` reader - Retain Descriptor State"]
 pub type RDSCH10_R = crate::BitReader<bool>;
 #[doc = "Field `RDSCH10` writer - Retain Descriptor State"]
-pub type RDSCH10_W<'a> = crate::BitWriter<'a, u32, RDS_SPEC, bool, 10>;
+pub type RDSCH10_W<'a, const O: u8> = crate::BitWriter<'a, u32, RDS_SPEC, bool, O>;
 #[doc = "Field `RDSCH11` reader - Retain Descriptor State"]
 pub type RDSCH11_R = crate::BitReader<bool>;
 #[doc = "Field `RDSCH11` writer - Retain Descriptor State"]
-pub type RDSCH11_W<'a> = crate::BitWriter<'a, u32, RDS_SPEC, bool, 11>;
+pub type RDSCH11_W<'a, const O: u8> = crate::BitWriter<'a, u32, RDS_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Retain Descriptor State"]
     #[inline(always)]
@@ -147,62 +147,74 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Retain Descriptor State"]
     #[inline(always)]
-    pub fn rdsch0(&mut self) -> RDSCH0_W {
+    #[must_use]
+    pub fn rdsch0(&mut self) -> RDSCH0_W<0> {
         RDSCH0_W::new(self)
     }
     #[doc = "Bit 1 - Retain Descriptor State"]
     #[inline(always)]
-    pub fn rdsch1(&mut self) -> RDSCH1_W {
+    #[must_use]
+    pub fn rdsch1(&mut self) -> RDSCH1_W<1> {
         RDSCH1_W::new(self)
     }
     #[doc = "Bit 2 - Retain Descriptor State"]
     #[inline(always)]
-    pub fn rdsch2(&mut self) -> RDSCH2_W {
+    #[must_use]
+    pub fn rdsch2(&mut self) -> RDSCH2_W<2> {
         RDSCH2_W::new(self)
     }
     #[doc = "Bit 3 - Retain Descriptor State"]
     #[inline(always)]
-    pub fn rdsch3(&mut self) -> RDSCH3_W {
+    #[must_use]
+    pub fn rdsch3(&mut self) -> RDSCH3_W<3> {
         RDSCH3_W::new(self)
     }
     #[doc = "Bit 4 - Retain Descriptor State"]
     #[inline(always)]
-    pub fn rdsch4(&mut self) -> RDSCH4_W {
+    #[must_use]
+    pub fn rdsch4(&mut self) -> RDSCH4_W<4> {
         RDSCH4_W::new(self)
     }
     #[doc = "Bit 5 - Retain Descriptor State"]
     #[inline(always)]
-    pub fn rdsch5(&mut self) -> RDSCH5_W {
+    #[must_use]
+    pub fn rdsch5(&mut self) -> RDSCH5_W<5> {
         RDSCH5_W::new(self)
     }
     #[doc = "Bit 6 - Retain Descriptor State"]
     #[inline(always)]
-    pub fn rdsch6(&mut self) -> RDSCH6_W {
+    #[must_use]
+    pub fn rdsch6(&mut self) -> RDSCH6_W<6> {
         RDSCH6_W::new(self)
     }
     #[doc = "Bit 7 - Retain Descriptor State"]
     #[inline(always)]
-    pub fn rdsch7(&mut self) -> RDSCH7_W {
+    #[must_use]
+    pub fn rdsch7(&mut self) -> RDSCH7_W<7> {
         RDSCH7_W::new(self)
     }
     #[doc = "Bit 8 - Retain Descriptor State"]
     #[inline(always)]
-    pub fn rdsch8(&mut self) -> RDSCH8_W {
+    #[must_use]
+    pub fn rdsch8(&mut self) -> RDSCH8_W<8> {
         RDSCH8_W::new(self)
     }
     #[doc = "Bit 9 - Retain Descriptor State"]
     #[inline(always)]
-    pub fn rdsch9(&mut self) -> RDSCH9_W {
+    #[must_use]
+    pub fn rdsch9(&mut self) -> RDSCH9_W<9> {
         RDSCH9_W::new(self)
     }
     #[doc = "Bit 10 - Retain Descriptor State"]
     #[inline(always)]
-    pub fn rdsch10(&mut self) -> RDSCH10_W {
+    #[must_use]
+    pub fn rdsch10(&mut self) -> RDSCH10_W<10> {
         RDSCH10_W::new(self)
     }
     #[doc = "Bit 11 - Retain Descriptor State"]
     #[inline(always)]
-    pub fn rdsch11(&mut self) -> RDSCH11_W {
+    #[must_use]
+    pub fn rdsch11(&mut self) -> RDSCH11_W<11> {
         RDSCH11_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -224,11 +236,10 @@ impl crate::Readable for RDS_SPEC {
 #[doc = "`write(|w| ..)` method takes [rds::W](W) writer structure"]
 impl crate::Writable for RDS_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RDS to value 0"]
 impl crate::Resettable for RDS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

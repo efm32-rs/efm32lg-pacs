@@ -37,19 +37,19 @@ impl From<crate::W<TFTHPORCH_SPEC>> for W {
 #[doc = "Field `HSYNC` reader - Horizontal Synchronization Pulse Width"]
 pub type HSYNC_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `HSYNC` writer - Horizontal Synchronization Pulse Width"]
-pub type HSYNC_W<'a> = crate::FieldWriter<'a, u32, TFTHPORCH_SPEC, u8, u8, 7, 0>;
+pub type HSYNC_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TFTHPORCH_SPEC, u8, u8, 7, O>;
 #[doc = "Field `HFPORCH` reader - Horizontal Front Porch Size"]
 pub type HFPORCH_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `HFPORCH` writer - Horizontal Front Porch Size"]
-pub type HFPORCH_W<'a> = crate::FieldWriter<'a, u32, TFTHPORCH_SPEC, u8, u8, 8, 8>;
+pub type HFPORCH_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TFTHPORCH_SPEC, u8, u8, 8, O>;
 #[doc = "Field `HBPORCH` reader - Horizontal Back Porch Size"]
 pub type HBPORCH_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `HBPORCH` writer - Horizontal Back Porch Size"]
-pub type HBPORCH_W<'a> = crate::FieldWriter<'a, u32, TFTHPORCH_SPEC, u8, u8, 8, 18>;
+pub type HBPORCH_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TFTHPORCH_SPEC, u8, u8, 8, O>;
 #[doc = "Field `HSYNCSTART` reader - HSYNC Start Delay"]
 pub type HSYNCSTART_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `HSYNCSTART` writer - HSYNC Start Delay"]
-pub type HSYNCSTART_W<'a> = crate::FieldWriter<'a, u32, TFTHPORCH_SPEC, u8, u8, 2, 28>;
+pub type HSYNCSTART_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TFTHPORCH_SPEC, u8, u8, 2, O>;
 impl R {
     #[doc = "Bits 0:6 - Horizontal Synchronization Pulse Width"]
     #[inline(always)]
@@ -75,22 +75,26 @@ impl R {
 impl W {
     #[doc = "Bits 0:6 - Horizontal Synchronization Pulse Width"]
     #[inline(always)]
-    pub fn hsync(&mut self) -> HSYNC_W {
+    #[must_use]
+    pub fn hsync(&mut self) -> HSYNC_W<0> {
         HSYNC_W::new(self)
     }
     #[doc = "Bits 8:15 - Horizontal Front Porch Size"]
     #[inline(always)]
-    pub fn hfporch(&mut self) -> HFPORCH_W {
+    #[must_use]
+    pub fn hfporch(&mut self) -> HFPORCH_W<8> {
         HFPORCH_W::new(self)
     }
     #[doc = "Bits 18:25 - Horizontal Back Porch Size"]
     #[inline(always)]
-    pub fn hbporch(&mut self) -> HBPORCH_W {
+    #[must_use]
+    pub fn hbporch(&mut self) -> HBPORCH_W<18> {
         HBPORCH_W::new(self)
     }
     #[doc = "Bits 28:29 - HSYNC Start Delay"]
     #[inline(always)]
-    pub fn hsyncstart(&mut self) -> HSYNCSTART_W {
+    #[must_use]
+    pub fn hsyncstart(&mut self) -> HSYNCSTART_W<28> {
         HSYNCSTART_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -112,11 +116,10 @@ impl crate::Readable for TFTHPORCH_SPEC {
 #[doc = "`write(|w| ..)` method takes [tfthporch::W](W) writer structure"]
 impl crate::Writable for TFTHPORCH_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TFTHPORCH to value 0"]
 impl crate::Resettable for TFTHPORCH_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

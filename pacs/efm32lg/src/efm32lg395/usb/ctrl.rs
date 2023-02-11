@@ -37,27 +37,27 @@ impl From<crate::W<CTRL_SPEC>> for W {
 #[doc = "Field `VBUSENAP` reader - VBUSEN Active Polarity"]
 pub type VBUSENAP_R = crate::BitReader<bool>;
 #[doc = "Field `VBUSENAP` writer - VBUSEN Active Polarity"]
-pub type VBUSENAP_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 0>;
+pub type VBUSENAP_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `DMPUAP` reader - DMPU Active Polarity"]
 pub type DMPUAP_R = crate::BitReader<bool>;
 #[doc = "Field `DMPUAP` writer - DMPU Active Polarity"]
-pub type DMPUAP_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 1>;
+pub type DMPUAP_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `VREGDIS` reader - Voltage Regulator Disable"]
 pub type VREGDIS_R = crate::BitReader<bool>;
 #[doc = "Field `VREGDIS` writer - Voltage Regulator Disable"]
-pub type VREGDIS_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 16>;
+pub type VREGDIS_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `VREGOSEN` reader - VREGO Sense Enable"]
 pub type VREGOSEN_R = crate::BitReader<bool>;
 #[doc = "Field `VREGOSEN` writer - VREGO Sense Enable"]
-pub type VREGOSEN_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 17>;
+pub type VREGOSEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `BIASPROGEM01` reader - Regulator Bias Programming Value in EM0/1"]
 pub type BIASPROGEM01_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `BIASPROGEM01` writer - Regulator Bias Programming Value in EM0/1"]
-pub type BIASPROGEM01_W<'a> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, u8, 2, 20>;
+pub type BIASPROGEM01_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, u8, 2, O>;
 #[doc = "Field `BIASPROGEM23` reader - Regulator Bias Programming Value in EM2/3"]
 pub type BIASPROGEM23_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `BIASPROGEM23` writer - Regulator Bias Programming Value in EM2/3"]
-pub type BIASPROGEM23_W<'a> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, u8, 2, 24>;
+pub type BIASPROGEM23_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, u8, 2, O>;
 impl R {
     #[doc = "Bit 0 - VBUSEN Active Polarity"]
     #[inline(always)]
@@ -93,32 +93,38 @@ impl R {
 impl W {
     #[doc = "Bit 0 - VBUSEN Active Polarity"]
     #[inline(always)]
-    pub fn vbusenap(&mut self) -> VBUSENAP_W {
+    #[must_use]
+    pub fn vbusenap(&mut self) -> VBUSENAP_W<0> {
         VBUSENAP_W::new(self)
     }
     #[doc = "Bit 1 - DMPU Active Polarity"]
     #[inline(always)]
-    pub fn dmpuap(&mut self) -> DMPUAP_W {
+    #[must_use]
+    pub fn dmpuap(&mut self) -> DMPUAP_W<1> {
         DMPUAP_W::new(self)
     }
     #[doc = "Bit 16 - Voltage Regulator Disable"]
     #[inline(always)]
-    pub fn vregdis(&mut self) -> VREGDIS_W {
+    #[must_use]
+    pub fn vregdis(&mut self) -> VREGDIS_W<16> {
         VREGDIS_W::new(self)
     }
     #[doc = "Bit 17 - VREGO Sense Enable"]
     #[inline(always)]
-    pub fn vregosen(&mut self) -> VREGOSEN_W {
+    #[must_use]
+    pub fn vregosen(&mut self) -> VREGOSEN_W<17> {
         VREGOSEN_W::new(self)
     }
     #[doc = "Bits 20:21 - Regulator Bias Programming Value in EM0/1"]
     #[inline(always)]
-    pub fn biasprogem01(&mut self) -> BIASPROGEM01_W {
+    #[must_use]
+    pub fn biasprogem01(&mut self) -> BIASPROGEM01_W<20> {
         BIASPROGEM01_W::new(self)
     }
     #[doc = "Bits 24:25 - Regulator Bias Programming Value in EM2/3"]
     #[inline(always)]
-    pub fn biasprogem23(&mut self) -> BIASPROGEM23_W {
+    #[must_use]
+    pub fn biasprogem23(&mut self) -> BIASPROGEM23_W<24> {
         BIASPROGEM23_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -140,11 +146,10 @@ impl crate::Readable for CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
 impl crate::Writable for CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CTRL to value 0"]
 impl crate::Resettable for CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

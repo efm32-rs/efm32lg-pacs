@@ -37,7 +37,7 @@ impl From<crate::W<CTRLBASE_SPEC>> for W {
 #[doc = "Field `CTRLBASE` reader - Channel Control Data Base Pointer"]
 pub type CTRLBASE_R = crate::FieldReader<u32, u32>;
 #[doc = "Field `CTRLBASE` writer - Channel Control Data Base Pointer"]
-pub type CTRLBASE_W<'a> = crate::FieldWriter<'a, u32, CTRLBASE_SPEC, u32, u32, 32, 0>;
+pub type CTRLBASE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTRLBASE_SPEC, u32, u32, 32, O>;
 impl R {
     #[doc = "Bits 0:31 - Channel Control Data Base Pointer"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Channel Control Data Base Pointer"]
     #[inline(always)]
-    pub fn ctrlbase(&mut self) -> CTRLBASE_W {
+    #[must_use]
+    pub fn ctrlbase(&mut self) -> CTRLBASE_W<0> {
         CTRLBASE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for CTRLBASE_SPEC {
 #[doc = "`write(|w| ..)` method takes [ctrlbase::W](W) writer structure"]
 impl crate::Writable for CTRLBASE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CTRLBASE to value 0"]
 impl crate::Resettable for CTRLBASE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,13 +37,15 @@ impl From<crate::W<BUACT_SPEC>> for W {
 #[doc = "Field `BUEXTHRES` reader - "]
 pub type BUEXTHRES_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `BUEXTHRES` writer - "]
-pub type BUEXTHRES_W<'a> = crate::FieldWriter<'a, u32, BUACT_SPEC, u8, u8, 3, 0>;
+pub type BUEXTHRES_W<'a, const O: u8> = crate::FieldWriter<'a, u32, BUACT_SPEC, u8, u8, 3, O>;
 #[doc = "Field `BUEXRANGE` reader - "]
 pub type BUEXRANGE_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `BUEXRANGE` writer - "]
-pub type BUEXRANGE_W<'a> = crate::FieldWriter<'a, u32, BUACT_SPEC, u8, u8, 2, 3>;
+pub type BUEXRANGE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, BUACT_SPEC, u8, u8, 2, O>;
+#[doc = "Field `PWRCON` reader - Power connection configuration when in Backup mode"]
+pub type PWRCON_R = crate::FieldReader<u8, PWRCON_A>;
 #[doc = "Power connection configuration when in Backup mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PWRCON_A {
     #[doc = "0: No connection."]
@@ -61,8 +63,6 @@ impl From<PWRCON_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `PWRCON` reader - Power connection configuration when in Backup mode"]
-pub type PWRCON_R = crate::FieldReader<u8, PWRCON_A>;
 impl PWRCON_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -97,8 +97,9 @@ impl PWRCON_R {
     }
 }
 #[doc = "Field `PWRCON` writer - Power connection configuration when in Backup mode"]
-pub type PWRCON_W<'a> = crate::FieldWriterSafe<'a, u32, BUACT_SPEC, u8, PWRCON_A, 2, 5>;
-impl<'a> PWRCON_W<'a> {
+pub type PWRCON_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, BUACT_SPEC, u8, PWRCON_A, 2, O>;
+impl<'a, const O: u8> PWRCON_W<'a, O> {
     #[doc = "No connection."]
     #[inline(always)]
     pub fn none(self) -> &'a mut W {
@@ -140,17 +141,20 @@ impl R {
 impl W {
     #[doc = "Bits 0:2"]
     #[inline(always)]
-    pub fn buexthres(&mut self) -> BUEXTHRES_W {
+    #[must_use]
+    pub fn buexthres(&mut self) -> BUEXTHRES_W<0> {
         BUEXTHRES_W::new(self)
     }
     #[doc = "Bits 3:4"]
     #[inline(always)]
-    pub fn buexrange(&mut self) -> BUEXRANGE_W {
+    #[must_use]
+    pub fn buexrange(&mut self) -> BUEXRANGE_W<3> {
         BUEXRANGE_W::new(self)
     }
     #[doc = "Bits 5:6 - Power connection configuration when in Backup mode"]
     #[inline(always)]
-    pub fn pwrcon(&mut self) -> PWRCON_W {
+    #[must_use]
+    pub fn pwrcon(&mut self) -> PWRCON_W<5> {
         PWRCON_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -172,11 +176,10 @@ impl crate::Readable for BUACT_SPEC {
 #[doc = "`write(|w| ..)` method takes [buact::W](W) writer structure"]
 impl crate::Writable for BUACT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets BUACT to value 0x0b"]
 impl crate::Resettable for BUACT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0b
-    }
+    const RESET_VALUE: Self::Ux = 0x0b;
 }

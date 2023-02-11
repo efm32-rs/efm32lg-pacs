@@ -37,15 +37,15 @@ impl From<crate::W<ROUTE_SPEC>> for W {
 #[doc = "Field `PHYPEN` reader - USB PHY Pin Enable"]
 pub type PHYPEN_R = crate::BitReader<bool>;
 #[doc = "Field `PHYPEN` writer - USB PHY Pin Enable"]
-pub type PHYPEN_W<'a> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, 0>;
+pub type PHYPEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, O>;
 #[doc = "Field `VBUSENPEN` reader - VBUSEN Pin Enable"]
 pub type VBUSENPEN_R = crate::BitReader<bool>;
 #[doc = "Field `VBUSENPEN` writer - VBUSEN Pin Enable"]
-pub type VBUSENPEN_W<'a> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, 1>;
+pub type VBUSENPEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, O>;
 #[doc = "Field `DMPUPEN` reader - DMPU Pin Enable"]
 pub type DMPUPEN_R = crate::BitReader<bool>;
 #[doc = "Field `DMPUPEN` writer - DMPU Pin Enable"]
-pub type DMPUPEN_W<'a> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, 2>;
+pub type DMPUPEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - USB PHY Pin Enable"]
     #[inline(always)]
@@ -66,17 +66,20 @@ impl R {
 impl W {
     #[doc = "Bit 0 - USB PHY Pin Enable"]
     #[inline(always)]
-    pub fn phypen(&mut self) -> PHYPEN_W {
+    #[must_use]
+    pub fn phypen(&mut self) -> PHYPEN_W<0> {
         PHYPEN_W::new(self)
     }
     #[doc = "Bit 1 - VBUSEN Pin Enable"]
     #[inline(always)]
-    pub fn vbusenpen(&mut self) -> VBUSENPEN_W {
+    #[must_use]
+    pub fn vbusenpen(&mut self) -> VBUSENPEN_W<1> {
         VBUSENPEN_W::new(self)
     }
     #[doc = "Bit 2 - DMPU Pin Enable"]
     #[inline(always)]
-    pub fn dmpupen(&mut self) -> DMPUPEN_W {
+    #[must_use]
+    pub fn dmpupen(&mut self) -> DMPUPEN_W<2> {
         DMPUPEN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -98,11 +101,10 @@ impl crate::Readable for ROUTE_SPEC {
 #[doc = "`write(|w| ..)` method takes [route::W](W) writer structure"]
 impl crate::Writable for ROUTE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ROUTE to value 0"]
 impl crate::Resettable for ROUTE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

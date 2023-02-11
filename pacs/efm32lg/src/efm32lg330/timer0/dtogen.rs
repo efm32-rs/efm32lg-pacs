@@ -37,27 +37,27 @@ impl From<crate::W<DTOGEN_SPEC>> for W {
 #[doc = "Field `DTOGCC0EN` reader - DTI CC0 Output Generation Enable"]
 pub type DTOGCC0EN_R = crate::BitReader<bool>;
 #[doc = "Field `DTOGCC0EN` writer - DTI CC0 Output Generation Enable"]
-pub type DTOGCC0EN_W<'a> = crate::BitWriter<'a, u32, DTOGEN_SPEC, bool, 0>;
+pub type DTOGCC0EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, DTOGEN_SPEC, bool, O>;
 #[doc = "Field `DTOGCC1EN` reader - DTI CC1 Output Generation Enable"]
 pub type DTOGCC1EN_R = crate::BitReader<bool>;
 #[doc = "Field `DTOGCC1EN` writer - DTI CC1 Output Generation Enable"]
-pub type DTOGCC1EN_W<'a> = crate::BitWriter<'a, u32, DTOGEN_SPEC, bool, 1>;
+pub type DTOGCC1EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, DTOGEN_SPEC, bool, O>;
 #[doc = "Field `DTOGCC2EN` reader - DTI CC2 Output Generation Enable"]
 pub type DTOGCC2EN_R = crate::BitReader<bool>;
 #[doc = "Field `DTOGCC2EN` writer - DTI CC2 Output Generation Enable"]
-pub type DTOGCC2EN_W<'a> = crate::BitWriter<'a, u32, DTOGEN_SPEC, bool, 2>;
+pub type DTOGCC2EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, DTOGEN_SPEC, bool, O>;
 #[doc = "Field `DTOGCDTI0EN` reader - DTI CDTI0 Output Generation Enable"]
 pub type DTOGCDTI0EN_R = crate::BitReader<bool>;
 #[doc = "Field `DTOGCDTI0EN` writer - DTI CDTI0 Output Generation Enable"]
-pub type DTOGCDTI0EN_W<'a> = crate::BitWriter<'a, u32, DTOGEN_SPEC, bool, 3>;
+pub type DTOGCDTI0EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, DTOGEN_SPEC, bool, O>;
 #[doc = "Field `DTOGCDTI1EN` reader - DTI CDTI1 Output Generation Enable"]
 pub type DTOGCDTI1EN_R = crate::BitReader<bool>;
 #[doc = "Field `DTOGCDTI1EN` writer - DTI CDTI1 Output Generation Enable"]
-pub type DTOGCDTI1EN_W<'a> = crate::BitWriter<'a, u32, DTOGEN_SPEC, bool, 4>;
+pub type DTOGCDTI1EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, DTOGEN_SPEC, bool, O>;
 #[doc = "Field `DTOGCDTI2EN` reader - DTI CDTI2 Output Generation Enable"]
 pub type DTOGCDTI2EN_R = crate::BitReader<bool>;
 #[doc = "Field `DTOGCDTI2EN` writer - DTI CDTI2 Output Generation Enable"]
-pub type DTOGCDTI2EN_W<'a> = crate::BitWriter<'a, u32, DTOGEN_SPEC, bool, 5>;
+pub type DTOGCDTI2EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, DTOGEN_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - DTI CC0 Output Generation Enable"]
     #[inline(always)]
@@ -93,32 +93,38 @@ impl R {
 impl W {
     #[doc = "Bit 0 - DTI CC0 Output Generation Enable"]
     #[inline(always)]
-    pub fn dtogcc0en(&mut self) -> DTOGCC0EN_W {
+    #[must_use]
+    pub fn dtogcc0en(&mut self) -> DTOGCC0EN_W<0> {
         DTOGCC0EN_W::new(self)
     }
     #[doc = "Bit 1 - DTI CC1 Output Generation Enable"]
     #[inline(always)]
-    pub fn dtogcc1en(&mut self) -> DTOGCC1EN_W {
+    #[must_use]
+    pub fn dtogcc1en(&mut self) -> DTOGCC1EN_W<1> {
         DTOGCC1EN_W::new(self)
     }
     #[doc = "Bit 2 - DTI CC2 Output Generation Enable"]
     #[inline(always)]
-    pub fn dtogcc2en(&mut self) -> DTOGCC2EN_W {
+    #[must_use]
+    pub fn dtogcc2en(&mut self) -> DTOGCC2EN_W<2> {
         DTOGCC2EN_W::new(self)
     }
     #[doc = "Bit 3 - DTI CDTI0 Output Generation Enable"]
     #[inline(always)]
-    pub fn dtogcdti0en(&mut self) -> DTOGCDTI0EN_W {
+    #[must_use]
+    pub fn dtogcdti0en(&mut self) -> DTOGCDTI0EN_W<3> {
         DTOGCDTI0EN_W::new(self)
     }
     #[doc = "Bit 4 - DTI CDTI1 Output Generation Enable"]
     #[inline(always)]
-    pub fn dtogcdti1en(&mut self) -> DTOGCDTI1EN_W {
+    #[must_use]
+    pub fn dtogcdti1en(&mut self) -> DTOGCDTI1EN_W<4> {
         DTOGCDTI1EN_W::new(self)
     }
     #[doc = "Bit 5 - DTI CDTI2 Output Generation Enable"]
     #[inline(always)]
-    pub fn dtogcdti2en(&mut self) -> DTOGCDTI2EN_W {
+    #[must_use]
+    pub fn dtogcdti2en(&mut self) -> DTOGCDTI2EN_W<5> {
         DTOGCDTI2EN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -140,11 +146,10 @@ impl crate::Readable for DTOGEN_SPEC {
 #[doc = "`write(|w| ..)` method takes [dtogen::W](W) writer structure"]
 impl crate::Writable for DTOGEN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DTOGEN to value 0"]
 impl crate::Resettable for DTOGEN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

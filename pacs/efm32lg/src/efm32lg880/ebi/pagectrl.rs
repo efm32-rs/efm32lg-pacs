@@ -34,8 +34,10 @@ impl From<crate::W<PAGECTRL_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `PAGELEN` reader - Page Length"]
+pub type PAGELEN_R = crate::FieldReader<u8, PAGELEN_A>;
 #[doc = "Page Length\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PAGELEN_A {
     #[doc = "0: 4 members in a page."]
@@ -53,8 +55,6 @@ impl From<PAGELEN_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `PAGELEN` reader - Page Length"]
-pub type PAGELEN_R = crate::FieldReader<u8, PAGELEN_A>;
 impl PAGELEN_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -89,8 +89,9 @@ impl PAGELEN_R {
     }
 }
 #[doc = "Field `PAGELEN` writer - Page Length"]
-pub type PAGELEN_W<'a> = crate::FieldWriterSafe<'a, u32, PAGECTRL_SPEC, u8, PAGELEN_A, 2, 0>;
-impl<'a> PAGELEN_W<'a> {
+pub type PAGELEN_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, PAGECTRL_SPEC, u8, PAGELEN_A, 2, O>;
+impl<'a, const O: u8> PAGELEN_W<'a, O> {
     #[doc = "4 members in a page."]
     #[inline(always)]
     pub fn member4(self) -> &'a mut W {
@@ -115,15 +116,15 @@ impl<'a> PAGELEN_W<'a> {
 #[doc = "Field `INCHIT` reader - Intrapage hit only on incremental addresses"]
 pub type INCHIT_R = crate::BitReader<bool>;
 #[doc = "Field `INCHIT` writer - Intrapage hit only on incremental addresses"]
-pub type INCHIT_W<'a> = crate::BitWriter<'a, u32, PAGECTRL_SPEC, bool, 4>;
+pub type INCHIT_W<'a, const O: u8> = crate::BitWriter<'a, u32, PAGECTRL_SPEC, bool, O>;
 #[doc = "Field `RDPA` reader - Page Read Access Time"]
 pub type RDPA_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `RDPA` writer - Page Read Access Time"]
-pub type RDPA_W<'a> = crate::FieldWriter<'a, u32, PAGECTRL_SPEC, u8, u8, 3, 8>;
+pub type RDPA_W<'a, const O: u8> = crate::FieldWriter<'a, u32, PAGECTRL_SPEC, u8, u8, 3, O>;
 #[doc = "Field `KEEPOPEN` reader - Maximum Page Open Time."]
 pub type KEEPOPEN_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `KEEPOPEN` writer - Maximum Page Open Time."]
-pub type KEEPOPEN_W<'a> = crate::FieldWriter<'a, u32, PAGECTRL_SPEC, u8, u8, 7, 20>;
+pub type KEEPOPEN_W<'a, const O: u8> = crate::FieldWriter<'a, u32, PAGECTRL_SPEC, u8, u8, 7, O>;
 impl R {
     #[doc = "Bits 0:1 - Page Length"]
     #[inline(always)]
@@ -149,22 +150,26 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - Page Length"]
     #[inline(always)]
-    pub fn pagelen(&mut self) -> PAGELEN_W {
+    #[must_use]
+    pub fn pagelen(&mut self) -> PAGELEN_W<0> {
         PAGELEN_W::new(self)
     }
     #[doc = "Bit 4 - Intrapage hit only on incremental addresses"]
     #[inline(always)]
-    pub fn inchit(&mut self) -> INCHIT_W {
+    #[must_use]
+    pub fn inchit(&mut self) -> INCHIT_W<4> {
         INCHIT_W::new(self)
     }
     #[doc = "Bits 8:10 - Page Read Access Time"]
     #[inline(always)]
-    pub fn rdpa(&mut self) -> RDPA_W {
+    #[must_use]
+    pub fn rdpa(&mut self) -> RDPA_W<8> {
         RDPA_W::new(self)
     }
     #[doc = "Bits 20:26 - Maximum Page Open Time."]
     #[inline(always)]
-    pub fn keepopen(&mut self) -> KEEPOPEN_W {
+    #[must_use]
+    pub fn keepopen(&mut self) -> KEEPOPEN_W<20> {
         KEEPOPEN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -186,11 +191,10 @@ impl crate::Readable for PAGECTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [pagectrl::W](W) writer structure"]
 impl crate::Writable for PAGECTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PAGECTRL to value 0x0700"]
 impl crate::Resettable for PAGECTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0700
-    }
+    const RESET_VALUE: Self::Ux = 0x0700;
 }

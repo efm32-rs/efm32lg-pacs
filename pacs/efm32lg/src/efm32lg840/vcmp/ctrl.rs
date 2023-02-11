@@ -37,17 +37,19 @@ impl From<crate::W<CTRL_SPEC>> for W {
 #[doc = "Field `EN` reader - Voltage Supply Comparator Enable"]
 pub type EN_R = crate::BitReader<bool>;
 #[doc = "Field `EN` writer - Voltage Supply Comparator Enable"]
-pub type EN_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 0>;
+pub type EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `INACTVAL` reader - Inactive Value"]
 pub type INACTVAL_R = crate::BitReader<bool>;
 #[doc = "Field `INACTVAL` writer - Inactive Value"]
-pub type INACTVAL_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 2>;
+pub type INACTVAL_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `HYSTEN` reader - Hysteresis Enable"]
 pub type HYSTEN_R = crate::BitReader<bool>;
 #[doc = "Field `HYSTEN` writer - Hysteresis Enable"]
-pub type HYSTEN_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 4>;
+pub type HYSTEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
+#[doc = "Field `WARMTIME` reader - Warm-Up Time"]
+pub type WARMTIME_R = crate::FieldReader<u8, WARMTIME_A>;
 #[doc = "Warm-Up Time\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum WARMTIME_A {
     #[doc = "0: 4 HFPERCLK cycles"]
@@ -73,8 +75,6 @@ impl From<WARMTIME_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `WARMTIME` reader - Warm-Up Time"]
-pub type WARMTIME_R = crate::FieldReader<u8, WARMTIME_A>;
 impl WARMTIME_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -133,8 +133,9 @@ impl WARMTIME_R {
     }
 }
 #[doc = "Field `WARMTIME` writer - Warm-Up Time"]
-pub type WARMTIME_W<'a> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, WARMTIME_A, 3, 8>;
-impl<'a> WARMTIME_W<'a> {
+pub type WARMTIME_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, WARMTIME_A, 3, O>;
+impl<'a, const O: u8> WARMTIME_W<'a, O> {
     #[doc = "4 HFPERCLK cycles"]
     #[inline(always)]
     pub fn _4cycles(self) -> &'a mut W {
@@ -179,19 +180,19 @@ impl<'a> WARMTIME_W<'a> {
 #[doc = "Field `IRISE` reader - Rising Edge Interrupt Sense"]
 pub type IRISE_R = crate::BitReader<bool>;
 #[doc = "Field `IRISE` writer - Rising Edge Interrupt Sense"]
-pub type IRISE_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 16>;
+pub type IRISE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `IFALL` reader - Falling Edge Interrupt Sense"]
 pub type IFALL_R = crate::BitReader<bool>;
 #[doc = "Field `IFALL` writer - Falling Edge Interrupt Sense"]
-pub type IFALL_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 17>;
+pub type IFALL_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `BIASPROG` reader - VCMP Bias Programming Value"]
 pub type BIASPROG_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `BIASPROG` writer - VCMP Bias Programming Value"]
-pub type BIASPROG_W<'a> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, u8, 4, 24>;
+pub type BIASPROG_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, u8, 4, O>;
 #[doc = "Field `HALFBIAS` reader - Half Bias Current"]
 pub type HALFBIAS_R = crate::BitReader<bool>;
 #[doc = "Field `HALFBIAS` writer - Half Bias Current"]
-pub type HALFBIAS_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 30>;
+pub type HALFBIAS_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Voltage Supply Comparator Enable"]
     #[inline(always)]
@@ -237,42 +238,50 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Voltage Supply Comparator Enable"]
     #[inline(always)]
-    pub fn en(&mut self) -> EN_W {
+    #[must_use]
+    pub fn en(&mut self) -> EN_W<0> {
         EN_W::new(self)
     }
     #[doc = "Bit 2 - Inactive Value"]
     #[inline(always)]
-    pub fn inactval(&mut self) -> INACTVAL_W {
+    #[must_use]
+    pub fn inactval(&mut self) -> INACTVAL_W<2> {
         INACTVAL_W::new(self)
     }
     #[doc = "Bit 4 - Hysteresis Enable"]
     #[inline(always)]
-    pub fn hysten(&mut self) -> HYSTEN_W {
+    #[must_use]
+    pub fn hysten(&mut self) -> HYSTEN_W<4> {
         HYSTEN_W::new(self)
     }
     #[doc = "Bits 8:10 - Warm-Up Time"]
     #[inline(always)]
-    pub fn warmtime(&mut self) -> WARMTIME_W {
+    #[must_use]
+    pub fn warmtime(&mut self) -> WARMTIME_W<8> {
         WARMTIME_W::new(self)
     }
     #[doc = "Bit 16 - Rising Edge Interrupt Sense"]
     #[inline(always)]
-    pub fn irise(&mut self) -> IRISE_W {
+    #[must_use]
+    pub fn irise(&mut self) -> IRISE_W<16> {
         IRISE_W::new(self)
     }
     #[doc = "Bit 17 - Falling Edge Interrupt Sense"]
     #[inline(always)]
-    pub fn ifall(&mut self) -> IFALL_W {
+    #[must_use]
+    pub fn ifall(&mut self) -> IFALL_W<17> {
         IFALL_W::new(self)
     }
     #[doc = "Bits 24:27 - VCMP Bias Programming Value"]
     #[inline(always)]
-    pub fn biasprog(&mut self) -> BIASPROG_W {
+    #[must_use]
+    pub fn biasprog(&mut self) -> BIASPROG_W<24> {
         BIASPROG_W::new(self)
     }
     #[doc = "Bit 30 - Half Bias Current"]
     #[inline(always)]
-    pub fn halfbias(&mut self) -> HALFBIAS_W {
+    #[must_use]
+    pub fn halfbias(&mut self) -> HALFBIAS_W<30> {
         HALFBIAS_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -294,11 +303,10 @@ impl crate::Readable for CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
 impl crate::Writable for CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CTRL to value 0x4700_0000"]
 impl crate::Resettable for CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x4700_0000
-    }
+    const RESET_VALUE: Self::Ux = 0x4700_0000;
 }

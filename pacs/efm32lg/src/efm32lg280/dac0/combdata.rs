@@ -20,18 +20,20 @@ impl From<crate::W<COMBDATA_SPEC>> for W {
     }
 }
 #[doc = "Field `CH0DATA` writer - Channel 0 Data"]
-pub type CH0DATA_W<'a> = crate::FieldWriter<'a, u32, COMBDATA_SPEC, u16, u16, 12, 0>;
+pub type CH0DATA_W<'a, const O: u8> = crate::FieldWriter<'a, u32, COMBDATA_SPEC, u16, u16, 12, O>;
 #[doc = "Field `CH1DATA` writer - Channel 1 Data"]
-pub type CH1DATA_W<'a> = crate::FieldWriter<'a, u32, COMBDATA_SPEC, u16, u16, 12, 16>;
+pub type CH1DATA_W<'a, const O: u8> = crate::FieldWriter<'a, u32, COMBDATA_SPEC, u16, u16, 12, O>;
 impl W {
     #[doc = "Bits 0:11 - Channel 0 Data"]
     #[inline(always)]
-    pub fn ch0data(&mut self) -> CH0DATA_W {
+    #[must_use]
+    pub fn ch0data(&mut self) -> CH0DATA_W<0> {
         CH0DATA_W::new(self)
     }
     #[doc = "Bits 16:27 - Channel 1 Data"]
     #[inline(always)]
-    pub fn ch1data(&mut self) -> CH1DATA_W {
+    #[must_use]
+    pub fn ch1data(&mut self) -> CH1DATA_W<16> {
         CH1DATA_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -49,11 +51,10 @@ impl crate::RegisterSpec for COMBDATA_SPEC {
 #[doc = "`write(|w| ..)` method takes [combdata::W](W) writer structure"]
 impl crate::Writable for COMBDATA_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets COMBDATA to value 0"]
 impl crate::Resettable for COMBDATA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,11 +37,11 @@ impl From<crate::W<CTRL_SPEC>> for W {
 #[doc = "Field `DESCRECT` reader - Descriptor Specifies Rectangle"]
 pub type DESCRECT_R = crate::BitReader<bool>;
 #[doc = "Field `DESCRECT` writer - Descriptor Specifies Rectangle"]
-pub type DESCRECT_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 0>;
+pub type DESCRECT_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `PRDU` reader - Prevent Rect Descriptor Update"]
 pub type PRDU_R = crate::BitReader<bool>;
 #[doc = "Field `PRDU` writer - Prevent Rect Descriptor Update"]
-pub type PRDU_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 1>;
+pub type PRDU_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Descriptor Specifies Rectangle"]
     #[inline(always)]
@@ -57,12 +57,14 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Descriptor Specifies Rectangle"]
     #[inline(always)]
-    pub fn descrect(&mut self) -> DESCRECT_W {
+    #[must_use]
+    pub fn descrect(&mut self) -> DESCRECT_W<0> {
         DESCRECT_W::new(self)
     }
     #[doc = "Bit 1 - Prevent Rect Descriptor Update"]
     #[inline(always)]
-    pub fn prdu(&mut self) -> PRDU_W {
+    #[must_use]
+    pub fn prdu(&mut self) -> PRDU_W<1> {
         PRDU_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -84,11 +86,10 @@ impl crate::Readable for CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
 impl crate::Writable for CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CTRL to value 0"]
 impl crate::Resettable for CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

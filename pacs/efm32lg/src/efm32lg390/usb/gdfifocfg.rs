@@ -37,11 +37,13 @@ impl From<crate::W<GDFIFOCFG_SPEC>> for W {
 #[doc = "Field `GDFIFOCFG` reader - DFIFO Config"]
 pub type GDFIFOCFG_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `GDFIFOCFG` writer - DFIFO Config"]
-pub type GDFIFOCFG_W<'a> = crate::FieldWriter<'a, u32, GDFIFOCFG_SPEC, u16, u16, 16, 0>;
+pub type GDFIFOCFG_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, GDFIFOCFG_SPEC, u16, u16, 16, O>;
 #[doc = "Field `EPINFOBASEADDR` reader - Endpoint Info Base Address"]
 pub type EPINFOBASEADDR_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `EPINFOBASEADDR` writer - Endpoint Info Base Address"]
-pub type EPINFOBASEADDR_W<'a> = crate::FieldWriter<'a, u32, GDFIFOCFG_SPEC, u16, u16, 16, 16>;
+pub type EPINFOBASEADDR_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, GDFIFOCFG_SPEC, u16, u16, 16, O>;
 impl R {
     #[doc = "Bits 0:15 - DFIFO Config"]
     #[inline(always)]
@@ -57,12 +59,14 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - DFIFO Config"]
     #[inline(always)]
-    pub fn gdfifocfg(&mut self) -> GDFIFOCFG_W {
+    #[must_use]
+    pub fn gdfifocfg(&mut self) -> GDFIFOCFG_W<0> {
         GDFIFOCFG_W::new(self)
     }
     #[doc = "Bits 16:31 - Endpoint Info Base Address"]
     #[inline(always)]
-    pub fn epinfobaseaddr(&mut self) -> EPINFOBASEADDR_W {
+    #[must_use]
+    pub fn epinfobaseaddr(&mut self) -> EPINFOBASEADDR_W<16> {
         EPINFOBASEADDR_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -84,11 +88,10 @@ impl crate::Readable for GDFIFOCFG_SPEC {
 #[doc = "`write(|w| ..)` method takes [gdfifocfg::W](W) writer structure"]
 impl crate::Writable for GDFIFOCFG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets GDFIFOCFG to value 0x01f2_0200"]
 impl crate::Resettable for GDFIFOCFG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x01f2_0200
-    }
+    const RESET_VALUE: Self::Ux = 0x01f2_0200;
 }

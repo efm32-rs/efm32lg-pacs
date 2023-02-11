@@ -34,8 +34,10 @@ impl From<crate::W<BIASCTRL_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `BIASMODE` reader - Select bias mode"]
+pub type BIASMODE_R = crate::FieldReader<u8, BIASMODE_A>;
 #[doc = "Select bias mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum BIASMODE_A {
     #[doc = "0: Bias module duty cycled between low power and high accuracy mode"]
@@ -51,8 +53,6 @@ impl From<BIASMODE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `BIASMODE` reader - Select bias mode"]
-pub type BIASMODE_R = crate::FieldReader<u8, BIASMODE_A>;
 impl BIASMODE_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -81,8 +81,9 @@ impl BIASMODE_R {
     }
 }
 #[doc = "Field `BIASMODE` writer - Select bias mode"]
-pub type BIASMODE_W<'a> = crate::FieldWriter<'a, u32, BIASCTRL_SPEC, u8, BIASMODE_A, 2, 0>;
-impl<'a> BIASMODE_W<'a> {
+pub type BIASMODE_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, BIASCTRL_SPEC, u8, BIASMODE_A, 2, O>;
+impl<'a, const O: u8> BIASMODE_W<'a, O> {
     #[doc = "Bias module duty cycled between low power and high accuracy mode"]
     #[inline(always)]
     pub fn dutycycle(self) -> &'a mut W {
@@ -109,7 +110,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - Select bias mode"]
     #[inline(always)]
-    pub fn biasmode(&mut self) -> BIASMODE_W {
+    #[must_use]
+    pub fn biasmode(&mut self) -> BIASMODE_W<0> {
         BIASMODE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -131,11 +133,10 @@ impl crate::Readable for BIASCTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [biasctrl::W](W) writer structure"]
 impl crate::Writable for BIASCTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets BIASCTRL to value 0"]
 impl crate::Resettable for BIASCTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

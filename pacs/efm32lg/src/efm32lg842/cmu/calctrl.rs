@@ -34,8 +34,10 @@ impl From<crate::W<CALCTRL_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `UPSEL` reader - Calibration Up-counter Select"]
+pub type UPSEL_R = crate::FieldReader<u8, UPSEL_A>;
 #[doc = "Calibration Up-counter Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum UPSEL_A {
     #[doc = "0: Select HFXO as up-counter."]
@@ -55,8 +57,6 @@ impl From<UPSEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `UPSEL` reader - Calibration Up-counter Select"]
-pub type UPSEL_R = crate::FieldReader<u8, UPSEL_A>;
 impl UPSEL_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -97,8 +97,8 @@ impl UPSEL_R {
     }
 }
 #[doc = "Field `UPSEL` writer - Calibration Up-counter Select"]
-pub type UPSEL_W<'a> = crate::FieldWriter<'a, u32, CALCTRL_SPEC, u8, UPSEL_A, 3, 0>;
-impl<'a> UPSEL_W<'a> {
+pub type UPSEL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CALCTRL_SPEC, u8, UPSEL_A, 3, O>;
+impl<'a, const O: u8> UPSEL_W<'a, O> {
     #[doc = "Select HFXO as up-counter."]
     #[inline(always)]
     pub fn hfxo(self) -> &'a mut W {
@@ -125,8 +125,10 @@ impl<'a> UPSEL_W<'a> {
         self.variant(UPSEL_A::AUXHFRCO)
     }
 }
+#[doc = "Field `DOWNSEL` reader - Calibration Down-counter Select"]
+pub type DOWNSEL_R = crate::FieldReader<u8, DOWNSEL_A>;
 #[doc = "Calibration Down-counter Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum DOWNSEL_A {
     #[doc = "0: Select HFCLK for down-counter."]
@@ -148,8 +150,6 @@ impl From<DOWNSEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `DOWNSEL` reader - Calibration Down-counter Select"]
-pub type DOWNSEL_R = crate::FieldReader<u8, DOWNSEL_A>;
 impl DOWNSEL_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -196,8 +196,9 @@ impl DOWNSEL_R {
     }
 }
 #[doc = "Field `DOWNSEL` writer - Calibration Down-counter Select"]
-pub type DOWNSEL_W<'a> = crate::FieldWriter<'a, u32, CALCTRL_SPEC, u8, DOWNSEL_A, 3, 3>;
-impl<'a> DOWNSEL_W<'a> {
+pub type DOWNSEL_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, CALCTRL_SPEC, u8, DOWNSEL_A, 3, O>;
+impl<'a, const O: u8> DOWNSEL_W<'a, O> {
     #[doc = "Select HFCLK for down-counter."]
     #[inline(always)]
     pub fn hfclk(self) -> &'a mut W {
@@ -232,7 +233,7 @@ impl<'a> DOWNSEL_W<'a> {
 #[doc = "Field `CONT` reader - Continuous Calibration"]
 pub type CONT_R = crate::BitReader<bool>;
 #[doc = "Field `CONT` writer - Continuous Calibration"]
-pub type CONT_W<'a> = crate::BitWriter<'a, u32, CALCTRL_SPEC, bool, 6>;
+pub type CONT_W<'a, const O: u8> = crate::BitWriter<'a, u32, CALCTRL_SPEC, bool, O>;
 impl R {
     #[doc = "Bits 0:2 - Calibration Up-counter Select"]
     #[inline(always)]
@@ -253,17 +254,20 @@ impl R {
 impl W {
     #[doc = "Bits 0:2 - Calibration Up-counter Select"]
     #[inline(always)]
-    pub fn upsel(&mut self) -> UPSEL_W {
+    #[must_use]
+    pub fn upsel(&mut self) -> UPSEL_W<0> {
         UPSEL_W::new(self)
     }
     #[doc = "Bits 3:5 - Calibration Down-counter Select"]
     #[inline(always)]
-    pub fn downsel(&mut self) -> DOWNSEL_W {
+    #[must_use]
+    pub fn downsel(&mut self) -> DOWNSEL_W<3> {
         DOWNSEL_W::new(self)
     }
     #[doc = "Bit 6 - Continuous Calibration"]
     #[inline(always)]
-    pub fn cont(&mut self) -> CONT_W {
+    #[must_use]
+    pub fn cont(&mut self) -> CONT_W<6> {
         CONT_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -285,11 +289,10 @@ impl crate::Readable for CALCTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [calctrl::W](W) writer structure"]
 impl crate::Writable for CALCTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CALCTRL to value 0"]
 impl crate::Resettable for CALCTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -34,8 +34,10 @@ impl From<crate::W<TIMCTRL_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `AUXPRESC` reader - Prescaling factor for high frequency timer"]
+pub type AUXPRESC_R = crate::FieldReader<u8, AUXPRESC_A>;
 #[doc = "Prescaling factor for high frequency timer\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum AUXPRESC_A {
     #[doc = "0: High frequency timer is clocked with AUXHFRCO/1"]
@@ -53,8 +55,6 @@ impl From<AUXPRESC_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `AUXPRESC` reader - Prescaling factor for high frequency timer"]
-pub type AUXPRESC_R = crate::FieldReader<u8, AUXPRESC_A>;
 impl AUXPRESC_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -89,8 +89,9 @@ impl AUXPRESC_R {
     }
 }
 #[doc = "Field `AUXPRESC` writer - Prescaling factor for high frequency timer"]
-pub type AUXPRESC_W<'a> = crate::FieldWriterSafe<'a, u32, TIMCTRL_SPEC, u8, AUXPRESC_A, 2, 0>;
-impl<'a> AUXPRESC_W<'a> {
+pub type AUXPRESC_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, TIMCTRL_SPEC, u8, AUXPRESC_A, 2, O>;
+impl<'a, const O: u8> AUXPRESC_W<'a, O> {
     #[doc = "High frequency timer is clocked with AUXHFRCO/1"]
     #[inline(always)]
     pub fn div1(self) -> &'a mut W {
@@ -112,8 +113,10 @@ impl<'a> AUXPRESC_W<'a> {
         self.variant(AUXPRESC_A::DIV8)
     }
 }
+#[doc = "Field `LFPRESC` reader - Prescaling factor for low frequency timer"]
+pub type LFPRESC_R = crate::FieldReader<u8, LFPRESC_A>;
 #[doc = "Prescaling factor for low frequency timer\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LFPRESC_A {
     #[doc = "0: Low frequency timer is clocked with LFACLKLESENSE/1"]
@@ -139,8 +142,6 @@ impl From<LFPRESC_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `LFPRESC` reader - Prescaling factor for low frequency timer"]
-pub type LFPRESC_R = crate::FieldReader<u8, LFPRESC_A>;
 impl LFPRESC_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -199,8 +200,9 @@ impl LFPRESC_R {
     }
 }
 #[doc = "Field `LFPRESC` writer - Prescaling factor for low frequency timer"]
-pub type LFPRESC_W<'a> = crate::FieldWriterSafe<'a, u32, TIMCTRL_SPEC, u8, LFPRESC_A, 3, 4>;
-impl<'a> LFPRESC_W<'a> {
+pub type LFPRESC_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, TIMCTRL_SPEC, u8, LFPRESC_A, 3, O>;
+impl<'a, const O: u8> LFPRESC_W<'a, O> {
     #[doc = "Low frequency timer is clocked with LFACLKLESENSE/1"]
     #[inline(always)]
     pub fn div1(self) -> &'a mut W {
@@ -242,8 +244,10 @@ impl<'a> LFPRESC_W<'a> {
         self.variant(LFPRESC_A::DIV128)
     }
 }
+#[doc = "Field `PCPRESC` reader - Period counter prescaling"]
+pub type PCPRESC_R = crate::FieldReader<u8, PCPRESC_A>;
 #[doc = "Period counter prescaling\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PCPRESC_A {
     #[doc = "0: The period counter clock frequency is LFACLKLESENSE/1"]
@@ -269,8 +273,6 @@ impl From<PCPRESC_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `PCPRESC` reader - Period counter prescaling"]
-pub type PCPRESC_R = crate::FieldReader<u8, PCPRESC_A>;
 impl PCPRESC_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -329,8 +331,9 @@ impl PCPRESC_R {
     }
 }
 #[doc = "Field `PCPRESC` writer - Period counter prescaling"]
-pub type PCPRESC_W<'a> = crate::FieldWriterSafe<'a, u32, TIMCTRL_SPEC, u8, PCPRESC_A, 3, 8>;
-impl<'a> PCPRESC_W<'a> {
+pub type PCPRESC_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, TIMCTRL_SPEC, u8, PCPRESC_A, 3, O>;
+impl<'a, const O: u8> PCPRESC_W<'a, O> {
     #[doc = "The period counter clock frequency is LFACLKLESENSE/1"]
     #[inline(always)]
     pub fn div1(self) -> &'a mut W {
@@ -375,11 +378,11 @@ impl<'a> PCPRESC_W<'a> {
 #[doc = "Field `PCTOP` reader - Period counter top value"]
 pub type PCTOP_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `PCTOP` writer - Period counter top value"]
-pub type PCTOP_W<'a> = crate::FieldWriter<'a, u32, TIMCTRL_SPEC, u8, u8, 8, 12>;
+pub type PCTOP_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TIMCTRL_SPEC, u8, u8, 8, O>;
 #[doc = "Field `STARTDLY` reader - Start delay configuration"]
 pub type STARTDLY_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `STARTDLY` writer - Start delay configuration"]
-pub type STARTDLY_W<'a> = crate::FieldWriter<'a, u32, TIMCTRL_SPEC, u8, u8, 2, 22>;
+pub type STARTDLY_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TIMCTRL_SPEC, u8, u8, 2, O>;
 impl R {
     #[doc = "Bits 0:1 - Prescaling factor for high frequency timer"]
     #[inline(always)]
@@ -410,27 +413,32 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - Prescaling factor for high frequency timer"]
     #[inline(always)]
-    pub fn auxpresc(&mut self) -> AUXPRESC_W {
+    #[must_use]
+    pub fn auxpresc(&mut self) -> AUXPRESC_W<0> {
         AUXPRESC_W::new(self)
     }
     #[doc = "Bits 4:6 - Prescaling factor for low frequency timer"]
     #[inline(always)]
-    pub fn lfpresc(&mut self) -> LFPRESC_W {
+    #[must_use]
+    pub fn lfpresc(&mut self) -> LFPRESC_W<4> {
         LFPRESC_W::new(self)
     }
     #[doc = "Bits 8:10 - Period counter prescaling"]
     #[inline(always)]
-    pub fn pcpresc(&mut self) -> PCPRESC_W {
+    #[must_use]
+    pub fn pcpresc(&mut self) -> PCPRESC_W<8> {
         PCPRESC_W::new(self)
     }
     #[doc = "Bits 12:19 - Period counter top value"]
     #[inline(always)]
-    pub fn pctop(&mut self) -> PCTOP_W {
+    #[must_use]
+    pub fn pctop(&mut self) -> PCTOP_W<12> {
         PCTOP_W::new(self)
     }
     #[doc = "Bits 22:23 - Start delay configuration"]
     #[inline(always)]
-    pub fn startdly(&mut self) -> STARTDLY_W {
+    #[must_use]
+    pub fn startdly(&mut self) -> STARTDLY_W<22> {
         STARTDLY_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -452,11 +460,10 @@ impl crate::Readable for TIMCTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [timctrl::W](W) writer structure"]
 impl crate::Writable for TIMCTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TIMCTRL to value 0"]
 impl crate::Resettable for TIMCTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

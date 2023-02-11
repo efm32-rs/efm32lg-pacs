@@ -33,8 +33,5 @@ impl crate::Readable for SCANRES_SPEC {
 }
 #[doc = "`reset()` method sets SCANRES to value 0"]
 impl crate::Resettable for SCANRES_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

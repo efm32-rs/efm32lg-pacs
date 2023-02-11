@@ -34,8 +34,10 @@ impl From<crate::W<MASSLOCK_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `LOCKKEY` reader - Mass Erase Lock"]
+pub type LOCKKEY_R = crate::FieldReader<u16, LOCKKEY_A>;
 #[doc = "Mass Erase Lock\n\nValue on reset: 1"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u16)]
 pub enum LOCKKEY_A {
     #[doc = "0: Mass erase unlocked."]
@@ -49,8 +51,6 @@ impl From<LOCKKEY_A> for u16 {
         variant as _
     }
 }
-#[doc = "Field `LOCKKEY` reader - Mass Erase Lock"]
-pub type LOCKKEY_R = crate::FieldReader<u16, LOCKKEY_A>;
 impl LOCKKEY_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -73,8 +73,9 @@ impl LOCKKEY_R {
     }
 }
 #[doc = "Field `LOCKKEY` writer - Mass Erase Lock"]
-pub type LOCKKEY_W<'a> = crate::FieldWriter<'a, u32, MASSLOCK_SPEC, u16, LOCKKEY_A, 16, 0>;
-impl<'a> LOCKKEY_W<'a> {
+pub type LOCKKEY_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, MASSLOCK_SPEC, u16, LOCKKEY_A, 16, O>;
+impl<'a, const O: u8> LOCKKEY_W<'a, O> {
     #[doc = "Mass erase unlocked."]
     #[inline(always)]
     pub fn unlocked(self) -> &'a mut W {
@@ -96,7 +97,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - Mass Erase Lock"]
     #[inline(always)]
-    pub fn lockkey(&mut self) -> LOCKKEY_W {
+    #[must_use]
+    pub fn lockkey(&mut self) -> LOCKKEY_W<0> {
         LOCKKEY_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -118,11 +120,10 @@ impl crate::Readable for MASSLOCK_SPEC {
 #[doc = "`write(|w| ..)` method takes [masslock::W](W) writer structure"]
 impl crate::Writable for MASSLOCK_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets MASSLOCK to value 0x01"]
 impl crate::Resettable for MASSLOCK_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x01
-    }
+    const RESET_VALUE: Self::Ux = 0x01;
 }

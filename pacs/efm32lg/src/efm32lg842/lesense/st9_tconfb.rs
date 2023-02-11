@@ -37,23 +37,23 @@ impl From<crate::W<ST9_TCONFB_SPEC>> for W {
 #[doc = "Field `COMP` reader - Sensor compare value"]
 pub type COMP_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `COMP` writer - Sensor compare value"]
-pub type COMP_W<'a> = crate::FieldWriter<'a, u32, ST9_TCONFB_SPEC, u8, u8, 4, 0>;
+pub type COMP_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ST9_TCONFB_SPEC, u8, u8, 4, O>;
 #[doc = "Field `MASK` reader - Sensor mask"]
 pub type MASK_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `MASK` writer - Sensor mask"]
-pub type MASK_W<'a> = crate::FieldWriter<'a, u32, ST9_TCONFB_SPEC, u8, u8, 4, 4>;
+pub type MASK_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ST9_TCONFB_SPEC, u8, u8, 4, O>;
 #[doc = "Field `NEXTSTATE` reader - Next state index"]
 pub type NEXTSTATE_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `NEXTSTATE` writer - Next state index"]
-pub type NEXTSTATE_W<'a> = crate::FieldWriter<'a, u32, ST9_TCONFB_SPEC, u8, u8, 4, 8>;
+pub type NEXTSTATE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ST9_TCONFB_SPEC, u8, u8, 4, O>;
 #[doc = "Field `PRSACT` reader - Configure transition action"]
 pub type PRSACT_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `PRSACT` writer - Configure transition action"]
-pub type PRSACT_W<'a> = crate::FieldWriter<'a, u32, ST9_TCONFB_SPEC, u8, u8, 3, 12>;
+pub type PRSACT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ST9_TCONFB_SPEC, u8, u8, 3, O>;
 #[doc = "Field `SETIF` reader - Set interrupt flag"]
 pub type SETIF_R = crate::BitReader<bool>;
 #[doc = "Field `SETIF` writer - Set interrupt flag"]
-pub type SETIF_W<'a> = crate::BitWriter<'a, u32, ST9_TCONFB_SPEC, bool, 16>;
+pub type SETIF_W<'a, const O: u8> = crate::BitWriter<'a, u32, ST9_TCONFB_SPEC, bool, O>;
 impl R {
     #[doc = "Bits 0:3 - Sensor compare value"]
     #[inline(always)]
@@ -84,27 +84,32 @@ impl R {
 impl W {
     #[doc = "Bits 0:3 - Sensor compare value"]
     #[inline(always)]
-    pub fn comp(&mut self) -> COMP_W {
+    #[must_use]
+    pub fn comp(&mut self) -> COMP_W<0> {
         COMP_W::new(self)
     }
     #[doc = "Bits 4:7 - Sensor mask"]
     #[inline(always)]
-    pub fn mask(&mut self) -> MASK_W {
+    #[must_use]
+    pub fn mask(&mut self) -> MASK_W<4> {
         MASK_W::new(self)
     }
     #[doc = "Bits 8:11 - Next state index"]
     #[inline(always)]
-    pub fn nextstate(&mut self) -> NEXTSTATE_W {
+    #[must_use]
+    pub fn nextstate(&mut self) -> NEXTSTATE_W<8> {
         NEXTSTATE_W::new(self)
     }
     #[doc = "Bits 12:14 - Configure transition action"]
     #[inline(always)]
-    pub fn prsact(&mut self) -> PRSACT_W {
+    #[must_use]
+    pub fn prsact(&mut self) -> PRSACT_W<12> {
         PRSACT_W::new(self)
     }
     #[doc = "Bit 16 - Set interrupt flag"]
     #[inline(always)]
-    pub fn setif(&mut self) -> SETIF_W {
+    #[must_use]
+    pub fn setif(&mut self) -> SETIF_W<16> {
         SETIF_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -126,11 +131,10 @@ impl crate::Readable for ST9_TCONFB_SPEC {
 #[doc = "`write(|w| ..)` method takes [st9_tconfb::W](W) writer structure"]
 impl crate::Writable for ST9_TCONFB_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ST9_TCONFB to value 0"]
 impl crate::Resettable for ST9_TCONFB_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

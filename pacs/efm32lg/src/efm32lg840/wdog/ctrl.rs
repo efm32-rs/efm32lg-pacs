@@ -37,37 +37,39 @@ impl From<crate::W<CTRL_SPEC>> for W {
 #[doc = "Field `EN` reader - Watchdog Timer Enable"]
 pub type EN_R = crate::BitReader<bool>;
 #[doc = "Field `EN` writer - Watchdog Timer Enable"]
-pub type EN_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 0>;
+pub type EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `DEBUGRUN` reader - Debug Mode Run Enable"]
 pub type DEBUGRUN_R = crate::BitReader<bool>;
 #[doc = "Field `DEBUGRUN` writer - Debug Mode Run Enable"]
-pub type DEBUGRUN_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 1>;
+pub type DEBUGRUN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `EM2RUN` reader - Energy Mode 2 Run Enable"]
 pub type EM2RUN_R = crate::BitReader<bool>;
 #[doc = "Field `EM2RUN` writer - Energy Mode 2 Run Enable"]
-pub type EM2RUN_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 2>;
+pub type EM2RUN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `EM3RUN` reader - Energy Mode 3 Run Enable"]
 pub type EM3RUN_R = crate::BitReader<bool>;
 #[doc = "Field `EM3RUN` writer - Energy Mode 3 Run Enable"]
-pub type EM3RUN_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 3>;
+pub type EM3RUN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `LOCK` reader - Configuration lock"]
 pub type LOCK_R = crate::BitReader<bool>;
 #[doc = "Field `LOCK` writer - Configuration lock"]
-pub type LOCK_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 4>;
+pub type LOCK_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `EM4BLOCK` reader - Energy Mode 4 Block"]
 pub type EM4BLOCK_R = crate::BitReader<bool>;
 #[doc = "Field `EM4BLOCK` writer - Energy Mode 4 Block"]
-pub type EM4BLOCK_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 5>;
+pub type EM4BLOCK_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `SWOSCBLOCK` reader - Software Oscillator Disable Block"]
 pub type SWOSCBLOCK_R = crate::BitReader<bool>;
 #[doc = "Field `SWOSCBLOCK` writer - Software Oscillator Disable Block"]
-pub type SWOSCBLOCK_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 6>;
+pub type SWOSCBLOCK_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `PERSEL` reader - Watchdog Timeout Period Select"]
 pub type PERSEL_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `PERSEL` writer - Watchdog Timeout Period Select"]
-pub type PERSEL_W<'a> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, u8, 4, 8>;
+pub type PERSEL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, u8, 4, O>;
+#[doc = "Field `CLKSEL` reader - Watchdog Clock Select"]
+pub type CLKSEL_R = crate::FieldReader<u8, CLKSEL_A>;
 #[doc = "Watchdog Clock Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CLKSEL_A {
     #[doc = "0: ULFRCO"]
@@ -83,8 +85,6 @@ impl From<CLKSEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `CLKSEL` reader - Watchdog Clock Select"]
-pub type CLKSEL_R = crate::FieldReader<u8, CLKSEL_A>;
 impl CLKSEL_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -113,8 +113,8 @@ impl CLKSEL_R {
     }
 }
 #[doc = "Field `CLKSEL` writer - Watchdog Clock Select"]
-pub type CLKSEL_W<'a> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, CLKSEL_A, 2, 12>;
-impl<'a> CLKSEL_W<'a> {
+pub type CLKSEL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, CLKSEL_A, 2, O>;
+impl<'a, const O: u8> CLKSEL_W<'a, O> {
     #[doc = "ULFRCO"]
     #[inline(always)]
     pub fn ulfrco(self) -> &'a mut W {
@@ -181,47 +181,56 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Watchdog Timer Enable"]
     #[inline(always)]
-    pub fn en(&mut self) -> EN_W {
+    #[must_use]
+    pub fn en(&mut self) -> EN_W<0> {
         EN_W::new(self)
     }
     #[doc = "Bit 1 - Debug Mode Run Enable"]
     #[inline(always)]
-    pub fn debugrun(&mut self) -> DEBUGRUN_W {
+    #[must_use]
+    pub fn debugrun(&mut self) -> DEBUGRUN_W<1> {
         DEBUGRUN_W::new(self)
     }
     #[doc = "Bit 2 - Energy Mode 2 Run Enable"]
     #[inline(always)]
-    pub fn em2run(&mut self) -> EM2RUN_W {
+    #[must_use]
+    pub fn em2run(&mut self) -> EM2RUN_W<2> {
         EM2RUN_W::new(self)
     }
     #[doc = "Bit 3 - Energy Mode 3 Run Enable"]
     #[inline(always)]
-    pub fn em3run(&mut self) -> EM3RUN_W {
+    #[must_use]
+    pub fn em3run(&mut self) -> EM3RUN_W<3> {
         EM3RUN_W::new(self)
     }
     #[doc = "Bit 4 - Configuration lock"]
     #[inline(always)]
-    pub fn lock(&mut self) -> LOCK_W {
+    #[must_use]
+    pub fn lock(&mut self) -> LOCK_W<4> {
         LOCK_W::new(self)
     }
     #[doc = "Bit 5 - Energy Mode 4 Block"]
     #[inline(always)]
-    pub fn em4block(&mut self) -> EM4BLOCK_W {
+    #[must_use]
+    pub fn em4block(&mut self) -> EM4BLOCK_W<5> {
         EM4BLOCK_W::new(self)
     }
     #[doc = "Bit 6 - Software Oscillator Disable Block"]
     #[inline(always)]
-    pub fn swoscblock(&mut self) -> SWOSCBLOCK_W {
+    #[must_use]
+    pub fn swoscblock(&mut self) -> SWOSCBLOCK_W<6> {
         SWOSCBLOCK_W::new(self)
     }
     #[doc = "Bits 8:11 - Watchdog Timeout Period Select"]
     #[inline(always)]
-    pub fn persel(&mut self) -> PERSEL_W {
+    #[must_use]
+    pub fn persel(&mut self) -> PERSEL_W<8> {
         PERSEL_W::new(self)
     }
     #[doc = "Bits 12:13 - Watchdog Clock Select"]
     #[inline(always)]
-    pub fn clksel(&mut self) -> CLKSEL_W {
+    #[must_use]
+    pub fn clksel(&mut self) -> CLKSEL_W<12> {
         CLKSEL_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -243,11 +252,10 @@ impl crate::Readable for CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
 impl crate::Writable for CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CTRL to value 0x0f00"]
 impl crate::Resettable for CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0f00
-    }
+    const RESET_VALUE: Self::Ux = 0x0f00;
 }

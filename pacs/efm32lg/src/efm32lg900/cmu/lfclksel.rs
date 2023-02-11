@@ -34,8 +34,10 @@ impl From<crate::W<LFCLKSEL_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `LFA` reader - Clock Select for LFA"]
+pub type LFA_R = crate::FieldReader<u8, LFA_A>;
 #[doc = "Clock Select for LFA\n\nValue on reset: 1"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LFA_A {
     #[doc = "0: LFACLK is disabled"]
@@ -53,8 +55,6 @@ impl From<LFA_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `LFA` reader - Clock Select for LFA"]
-pub type LFA_R = crate::FieldReader<u8, LFA_A>;
 impl LFA_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -89,8 +89,8 @@ impl LFA_R {
     }
 }
 #[doc = "Field `LFA` writer - Clock Select for LFA"]
-pub type LFA_W<'a> = crate::FieldWriterSafe<'a, u32, LFCLKSEL_SPEC, u8, LFA_A, 2, 0>;
-impl<'a> LFA_W<'a> {
+pub type LFA_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, LFCLKSEL_SPEC, u8, LFA_A, 2, O>;
+impl<'a, const O: u8> LFA_W<'a, O> {
     #[doc = "LFACLK is disabled"]
     #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
@@ -112,8 +112,10 @@ impl<'a> LFA_W<'a> {
         self.variant(LFA_A::HFCORECLKLEDIV2)
     }
 }
+#[doc = "Field `LFB` reader - Clock Select for LFB"]
+pub type LFB_R = crate::FieldReader<u8, LFB_A>;
 #[doc = "Clock Select for LFB\n\nValue on reset: 1"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LFB_A {
     #[doc = "0: LFBCLK is disabled"]
@@ -131,8 +133,6 @@ impl From<LFB_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `LFB` reader - Clock Select for LFB"]
-pub type LFB_R = crate::FieldReader<u8, LFB_A>;
 impl LFB_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -167,8 +167,8 @@ impl LFB_R {
     }
 }
 #[doc = "Field `LFB` writer - Clock Select for LFB"]
-pub type LFB_W<'a> = crate::FieldWriterSafe<'a, u32, LFCLKSEL_SPEC, u8, LFB_A, 2, 2>;
-impl<'a> LFB_W<'a> {
+pub type LFB_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, LFCLKSEL_SPEC, u8, LFB_A, 2, O>;
+impl<'a, const O: u8> LFB_W<'a, O> {
     #[doc = "LFBCLK is disabled"]
     #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
@@ -193,11 +193,11 @@ impl<'a> LFB_W<'a> {
 #[doc = "Field `LFAE` reader - Clock Select for LFA Extended"]
 pub type LFAE_R = crate::BitReader<bool>;
 #[doc = "Field `LFAE` writer - Clock Select for LFA Extended"]
-pub type LFAE_W<'a> = crate::BitWriter<'a, u32, LFCLKSEL_SPEC, bool, 16>;
+pub type LFAE_W<'a, const O: u8> = crate::BitWriter<'a, u32, LFCLKSEL_SPEC, bool, O>;
 #[doc = "Field `LFBE` reader - Clock Select for LFB Extended"]
 pub type LFBE_R = crate::BitReader<bool>;
 #[doc = "Field `LFBE` writer - Clock Select for LFB Extended"]
-pub type LFBE_W<'a> = crate::BitWriter<'a, u32, LFCLKSEL_SPEC, bool, 20>;
+pub type LFBE_W<'a, const O: u8> = crate::BitWriter<'a, u32, LFCLKSEL_SPEC, bool, O>;
 impl R {
     #[doc = "Bits 0:1 - Clock Select for LFA"]
     #[inline(always)]
@@ -223,22 +223,26 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - Clock Select for LFA"]
     #[inline(always)]
-    pub fn lfa(&mut self) -> LFA_W {
+    #[must_use]
+    pub fn lfa(&mut self) -> LFA_W<0> {
         LFA_W::new(self)
     }
     #[doc = "Bits 2:3 - Clock Select for LFB"]
     #[inline(always)]
-    pub fn lfb(&mut self) -> LFB_W {
+    #[must_use]
+    pub fn lfb(&mut self) -> LFB_W<2> {
         LFB_W::new(self)
     }
     #[doc = "Bit 16 - Clock Select for LFA Extended"]
     #[inline(always)]
-    pub fn lfae(&mut self) -> LFAE_W {
+    #[must_use]
+    pub fn lfae(&mut self) -> LFAE_W<16> {
         LFAE_W::new(self)
     }
     #[doc = "Bit 20 - Clock Select for LFB Extended"]
     #[inline(always)]
-    pub fn lfbe(&mut self) -> LFBE_W {
+    #[must_use]
+    pub fn lfbe(&mut self) -> LFBE_W<20> {
         LFBE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -260,11 +264,10 @@ impl crate::Readable for LFCLKSEL_SPEC {
 #[doc = "`write(|w| ..)` method takes [lfclksel::W](W) writer structure"]
 impl crate::Writable for LFCLKSEL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets LFCLKSEL to value 0x05"]
 impl crate::Resettable for LFCLKSEL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x05
-    }
+    const RESET_VALUE: Self::Ux = 0x05;
 }

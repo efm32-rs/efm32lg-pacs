@@ -110,8 +110,5 @@ impl crate::Readable for CHSREQSTATUS_SPEC {
 }
 #[doc = "`reset()` method sets CHSREQSTATUS to value 0"]
 impl crate::Resettable for CHSREQSTATUS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

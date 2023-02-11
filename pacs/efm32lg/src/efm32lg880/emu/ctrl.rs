@@ -37,15 +37,15 @@ impl From<crate::W<CTRL_SPEC>> for W {
 #[doc = "Field `EMVREG` reader - Energy Mode Voltage Regulator Control"]
 pub type EMVREG_R = crate::BitReader<bool>;
 #[doc = "Field `EMVREG` writer - Energy Mode Voltage Regulator Control"]
-pub type EMVREG_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 0>;
+pub type EMVREG_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `EM2BLOCK` reader - Energy Mode 2 Block"]
 pub type EM2BLOCK_R = crate::BitReader<bool>;
 #[doc = "Field `EM2BLOCK` writer - Energy Mode 2 Block"]
-pub type EM2BLOCK_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 1>;
+pub type EM2BLOCK_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `EM4CTRL` reader - Energy Mode 4 Control"]
 pub type EM4CTRL_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `EM4CTRL` writer - Energy Mode 4 Control"]
-pub type EM4CTRL_W<'a> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, u8, 2, 2>;
+pub type EM4CTRL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, u8, 2, O>;
 impl R {
     #[doc = "Bit 0 - Energy Mode Voltage Regulator Control"]
     #[inline(always)]
@@ -66,17 +66,20 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Energy Mode Voltage Regulator Control"]
     #[inline(always)]
-    pub fn emvreg(&mut self) -> EMVREG_W {
+    #[must_use]
+    pub fn emvreg(&mut self) -> EMVREG_W<0> {
         EMVREG_W::new(self)
     }
     #[doc = "Bit 1 - Energy Mode 2 Block"]
     #[inline(always)]
-    pub fn em2block(&mut self) -> EM2BLOCK_W {
+    #[must_use]
+    pub fn em2block(&mut self) -> EM2BLOCK_W<1> {
         EM2BLOCK_W::new(self)
     }
     #[doc = "Bits 2:3 - Energy Mode 4 Control"]
     #[inline(always)]
-    pub fn em4ctrl(&mut self) -> EM4CTRL_W {
+    #[must_use]
+    pub fn em4ctrl(&mut self) -> EM4CTRL_W<2> {
         EM4CTRL_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -98,11 +101,10 @@ impl crate::Readable for CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
 impl crate::Writable for CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CTRL to value 0"]
 impl crate::Resettable for CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

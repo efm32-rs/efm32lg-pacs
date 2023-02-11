@@ -37,7 +37,7 @@ impl From<crate::W<KEYLC_SPEC>> for W {
 #[doc = "Field `KEYLC` reader - Key Low Access C"]
 pub type KEYLC_R = crate::FieldReader<u32, u32>;
 #[doc = "Field `KEYLC` writer - Key Low Access C"]
-pub type KEYLC_W<'a> = crate::FieldWriter<'a, u32, KEYLC_SPEC, u32, u32, 32, 0>;
+pub type KEYLC_W<'a, const O: u8> = crate::FieldWriter<'a, u32, KEYLC_SPEC, u32, u32, 32, O>;
 impl R {
     #[doc = "Bits 0:31 - Key Low Access C"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Key Low Access C"]
     #[inline(always)]
-    pub fn keylc(&mut self) -> KEYLC_W {
+    #[must_use]
+    pub fn keylc(&mut self) -> KEYLC_W<0> {
         KEYLC_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for KEYLC_SPEC {
 #[doc = "`write(|w| ..)` method takes [keylc::W](W) writer structure"]
 impl crate::Writable for KEYLC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets KEYLC to value 0"]
 impl crate::Resettable for KEYLC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

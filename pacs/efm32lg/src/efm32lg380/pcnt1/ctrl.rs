@@ -34,8 +34,10 @@ impl From<crate::W<CTRL_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `MODE` reader - Mode Select"]
+pub type MODE_R = crate::FieldReader<u8, MODE_A>;
 #[doc = "Mode Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum MODE_A {
     #[doc = "0: The module is disabled."]
@@ -53,8 +55,6 @@ impl From<MODE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `MODE` reader - Mode Select"]
-pub type MODE_R = crate::FieldReader<u8, MODE_A>;
 impl MODE_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -89,8 +89,8 @@ impl MODE_R {
     }
 }
 #[doc = "Field `MODE` writer - Mode Select"]
-pub type MODE_W<'a> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, MODE_A, 2, 0>;
-impl<'a> MODE_W<'a> {
+pub type MODE_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, MODE_A, 2, O>;
+impl<'a, const O: u8> MODE_W<'a, O> {
     #[doc = "The module is disabled."]
     #[inline(always)]
     pub fn disable(self) -> &'a mut W {
@@ -115,29 +115,31 @@ impl<'a> MODE_W<'a> {
 #[doc = "Field `CNTDIR` reader - Non-Quadrature Mode Counter Direction Control"]
 pub type CNTDIR_R = crate::BitReader<bool>;
 #[doc = "Field `CNTDIR` writer - Non-Quadrature Mode Counter Direction Control"]
-pub type CNTDIR_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 2>;
+pub type CNTDIR_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `EDGE` reader - Edge Select"]
 pub type EDGE_R = crate::BitReader<bool>;
 #[doc = "Field `EDGE` writer - Edge Select"]
-pub type EDGE_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 3>;
+pub type EDGE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `FILT` reader - Enable Digital Pulse Width Filter"]
 pub type FILT_R = crate::BitReader<bool>;
 #[doc = "Field `FILT` writer - Enable Digital Pulse Width Filter"]
-pub type FILT_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 4>;
+pub type FILT_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `RSTEN` reader - Enable PCNT Clock Domain Reset"]
 pub type RSTEN_R = crate::BitReader<bool>;
 #[doc = "Field `RSTEN` writer - Enable PCNT Clock Domain Reset"]
-pub type RSTEN_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 5>;
+pub type RSTEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `HYST` reader - Enable Hysteresis"]
 pub type HYST_R = crate::BitReader<bool>;
 #[doc = "Field `HYST` writer - Enable Hysteresis"]
-pub type HYST_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 8>;
+pub type HYST_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `S1CDIR` reader - Count direction determined by S1"]
 pub type S1CDIR_R = crate::BitReader<bool>;
 #[doc = "Field `S1CDIR` writer - Count direction determined by S1"]
-pub type S1CDIR_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 9>;
+pub type S1CDIR_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
+#[doc = "Field `CNTEV` reader - Controls when the counter counts"]
+pub type CNTEV_R = crate::FieldReader<u8, CNTEV_A>;
 #[doc = "Controls when the counter counts\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CNTEV_A {
     #[doc = "0: Counts up on up-count and down on down-count events."]
@@ -155,8 +157,6 @@ impl From<CNTEV_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `CNTEV` reader - Controls when the counter counts"]
-pub type CNTEV_R = crate::FieldReader<u8, CNTEV_A>;
 impl CNTEV_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -191,8 +191,8 @@ impl CNTEV_R {
     }
 }
 #[doc = "Field `CNTEV` writer - Controls when the counter counts"]
-pub type CNTEV_W<'a> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, CNTEV_A, 2, 10>;
-impl<'a> CNTEV_W<'a> {
+pub type CNTEV_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, CNTEV_A, 2, O>;
+impl<'a, const O: u8> CNTEV_W<'a, O> {
     #[doc = "Counts up on up-count and down on down-count events."]
     #[inline(always)]
     pub fn both(self) -> &'a mut W {
@@ -214,8 +214,10 @@ impl<'a> CNTEV_W<'a> {
         self.variant(CNTEV_A::NONE)
     }
 }
+#[doc = "Field `AUXCNTEV` reader - Controls when the auxiliary counter counts"]
+pub type AUXCNTEV_R = crate::FieldReader<u8, AUXCNTEV_A>;
 #[doc = "Controls when the auxiliary counter counts\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum AUXCNTEV_A {
     #[doc = "0: Never counts."]
@@ -233,8 +235,6 @@ impl From<AUXCNTEV_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `AUXCNTEV` reader - Controls when the auxiliary counter counts"]
-pub type AUXCNTEV_R = crate::FieldReader<u8, AUXCNTEV_A>;
 impl AUXCNTEV_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -269,8 +269,9 @@ impl AUXCNTEV_R {
     }
 }
 #[doc = "Field `AUXCNTEV` writer - Controls when the auxiliary counter counts"]
-pub type AUXCNTEV_W<'a> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, AUXCNTEV_A, 2, 14>;
-impl<'a> AUXCNTEV_W<'a> {
+pub type AUXCNTEV_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, AUXCNTEV_A, 2, O>;
+impl<'a, const O: u8> AUXCNTEV_W<'a, O> {
     #[doc = "Never counts."]
     #[inline(always)]
     pub fn none(self) -> &'a mut W {
@@ -342,47 +343,56 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - Mode Select"]
     #[inline(always)]
-    pub fn mode(&mut self) -> MODE_W {
+    #[must_use]
+    pub fn mode(&mut self) -> MODE_W<0> {
         MODE_W::new(self)
     }
     #[doc = "Bit 2 - Non-Quadrature Mode Counter Direction Control"]
     #[inline(always)]
-    pub fn cntdir(&mut self) -> CNTDIR_W {
+    #[must_use]
+    pub fn cntdir(&mut self) -> CNTDIR_W<2> {
         CNTDIR_W::new(self)
     }
     #[doc = "Bit 3 - Edge Select"]
     #[inline(always)]
-    pub fn edge(&mut self) -> EDGE_W {
+    #[must_use]
+    pub fn edge(&mut self) -> EDGE_W<3> {
         EDGE_W::new(self)
     }
     #[doc = "Bit 4 - Enable Digital Pulse Width Filter"]
     #[inline(always)]
-    pub fn filt(&mut self) -> FILT_W {
+    #[must_use]
+    pub fn filt(&mut self) -> FILT_W<4> {
         FILT_W::new(self)
     }
     #[doc = "Bit 5 - Enable PCNT Clock Domain Reset"]
     #[inline(always)]
-    pub fn rsten(&mut self) -> RSTEN_W {
+    #[must_use]
+    pub fn rsten(&mut self) -> RSTEN_W<5> {
         RSTEN_W::new(self)
     }
     #[doc = "Bit 8 - Enable Hysteresis"]
     #[inline(always)]
-    pub fn hyst(&mut self) -> HYST_W {
+    #[must_use]
+    pub fn hyst(&mut self) -> HYST_W<8> {
         HYST_W::new(self)
     }
     #[doc = "Bit 9 - Count direction determined by S1"]
     #[inline(always)]
-    pub fn s1cdir(&mut self) -> S1CDIR_W {
+    #[must_use]
+    pub fn s1cdir(&mut self) -> S1CDIR_W<9> {
         S1CDIR_W::new(self)
     }
     #[doc = "Bits 10:11 - Controls when the counter counts"]
     #[inline(always)]
-    pub fn cntev(&mut self) -> CNTEV_W {
+    #[must_use]
+    pub fn cntev(&mut self) -> CNTEV_W<10> {
         CNTEV_W::new(self)
     }
     #[doc = "Bits 14:15 - Controls when the auxiliary counter counts"]
     #[inline(always)]
-    pub fn auxcntev(&mut self) -> AUXCNTEV_W {
+    #[must_use]
+    pub fn auxcntev(&mut self) -> AUXCNTEV_W<14> {
         AUXCNTEV_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -404,11 +414,10 @@ impl crate::Readable for CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
 impl crate::Writable for CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CTRL to value 0"]
 impl crate::Resettable for CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

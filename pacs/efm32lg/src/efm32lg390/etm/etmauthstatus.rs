@@ -15,8 +15,10 @@ impl From<crate::R<ETMAUTHSTATUS_SPEC>> for R {
 }
 #[doc = "Field `NONSECINVDBG` reader - Non-secure invasive Debug Status"]
 pub type NONSECINVDBG_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `NONSECNONINVDBG` reader - Non-secure non-invasive Debug Status"]
+pub type NONSECNONINVDBG_R = crate::FieldReader<u8, NONSECNONINVDBG_A>;
 #[doc = "Non-secure non-invasive Debug Status\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum NONSECNONINVDBG_A {
     #[doc = "2: Non-secure non-invasive debug disable"]
@@ -30,8 +32,6 @@ impl From<NONSECNONINVDBG_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `NONSECNONINVDBG` reader - Non-secure non-invasive Debug Status"]
-pub type NONSECNONINVDBG_R = crate::FieldReader<u8, NONSECNONINVDBG_A>;
 impl NONSECNONINVDBG_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -90,8 +90,5 @@ impl crate::Readable for ETMAUTHSTATUS_SPEC {
 }
 #[doc = "`reset()` method sets ETMAUTHSTATUS to value 0xc0"]
 impl crate::Resettable for ETMAUTHSTATUS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0xc0
-    }
+    const RESET_VALUE: Self::Ux = 0xc0;
 }

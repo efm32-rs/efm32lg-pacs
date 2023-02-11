@@ -37,23 +37,23 @@ impl From<crate::W<TFTPOLARITY_SPEC>> for W {
 #[doc = "Field `CSPOL` reader - TFT Chip Select Polarity"]
 pub type CSPOL_R = crate::BitReader<bool>;
 #[doc = "Field `CSPOL` writer - TFT Chip Select Polarity"]
-pub type CSPOL_W<'a> = crate::BitWriter<'a, u32, TFTPOLARITY_SPEC, bool, 0>;
+pub type CSPOL_W<'a, const O: u8> = crate::BitWriter<'a, u32, TFTPOLARITY_SPEC, bool, O>;
 #[doc = "Field `DCLKPOL` reader - TFT DCLK Polarity"]
 pub type DCLKPOL_R = crate::BitReader<bool>;
 #[doc = "Field `DCLKPOL` writer - TFT DCLK Polarity"]
-pub type DCLKPOL_W<'a> = crate::BitWriter<'a, u32, TFTPOLARITY_SPEC, bool, 1>;
+pub type DCLKPOL_W<'a, const O: u8> = crate::BitWriter<'a, u32, TFTPOLARITY_SPEC, bool, O>;
 #[doc = "Field `DATAENPOL` reader - TFT DATAEN Polarity"]
 pub type DATAENPOL_R = crate::BitReader<bool>;
 #[doc = "Field `DATAENPOL` writer - TFT DATAEN Polarity"]
-pub type DATAENPOL_W<'a> = crate::BitWriter<'a, u32, TFTPOLARITY_SPEC, bool, 2>;
+pub type DATAENPOL_W<'a, const O: u8> = crate::BitWriter<'a, u32, TFTPOLARITY_SPEC, bool, O>;
 #[doc = "Field `HSYNCPOL` reader - Address Latch Polarity"]
 pub type HSYNCPOL_R = crate::BitReader<bool>;
 #[doc = "Field `HSYNCPOL` writer - Address Latch Polarity"]
-pub type HSYNCPOL_W<'a> = crate::BitWriter<'a, u32, TFTPOLARITY_SPEC, bool, 3>;
+pub type HSYNCPOL_W<'a, const O: u8> = crate::BitWriter<'a, u32, TFTPOLARITY_SPEC, bool, O>;
 #[doc = "Field `VSYNCPOL` reader - VSYNC Polarity"]
 pub type VSYNCPOL_R = crate::BitReader<bool>;
 #[doc = "Field `VSYNCPOL` writer - VSYNC Polarity"]
-pub type VSYNCPOL_W<'a> = crate::BitWriter<'a, u32, TFTPOLARITY_SPEC, bool, 4>;
+pub type VSYNCPOL_W<'a, const O: u8> = crate::BitWriter<'a, u32, TFTPOLARITY_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - TFT Chip Select Polarity"]
     #[inline(always)]
@@ -84,27 +84,32 @@ impl R {
 impl W {
     #[doc = "Bit 0 - TFT Chip Select Polarity"]
     #[inline(always)]
-    pub fn cspol(&mut self) -> CSPOL_W {
+    #[must_use]
+    pub fn cspol(&mut self) -> CSPOL_W<0> {
         CSPOL_W::new(self)
     }
     #[doc = "Bit 1 - TFT DCLK Polarity"]
     #[inline(always)]
-    pub fn dclkpol(&mut self) -> DCLKPOL_W {
+    #[must_use]
+    pub fn dclkpol(&mut self) -> DCLKPOL_W<1> {
         DCLKPOL_W::new(self)
     }
     #[doc = "Bit 2 - TFT DATAEN Polarity"]
     #[inline(always)]
-    pub fn dataenpol(&mut self) -> DATAENPOL_W {
+    #[must_use]
+    pub fn dataenpol(&mut self) -> DATAENPOL_W<2> {
         DATAENPOL_W::new(self)
     }
     #[doc = "Bit 3 - Address Latch Polarity"]
     #[inline(always)]
-    pub fn hsyncpol(&mut self) -> HSYNCPOL_W {
+    #[must_use]
+    pub fn hsyncpol(&mut self) -> HSYNCPOL_W<3> {
         HSYNCPOL_W::new(self)
     }
     #[doc = "Bit 4 - VSYNC Polarity"]
     #[inline(always)]
-    pub fn vsyncpol(&mut self) -> VSYNCPOL_W {
+    #[must_use]
+    pub fn vsyncpol(&mut self) -> VSYNCPOL_W<4> {
         VSYNCPOL_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -126,11 +131,10 @@ impl crate::Readable for TFTPOLARITY_SPEC {
 #[doc = "`write(|w| ..)` method takes [tftpolarity::W](W) writer structure"]
 impl crate::Writable for TFTPOLARITY_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TFTPOLARITY to value 0"]
 impl crate::Resettable for TFTPOLARITY_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

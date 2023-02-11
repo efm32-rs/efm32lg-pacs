@@ -47,8 +47,5 @@ impl crate::Readable for GNPTXSTS_SPEC {
 }
 #[doc = "`reset()` method sets GNPTXSTS to value 0x0008_0200"]
 impl crate::Resettable for GNPTXSTS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0008_0200
-    }
+    const RESET_VALUE: Self::Ux = 0x0008_0200;
 }

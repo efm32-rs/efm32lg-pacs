@@ -37,17 +37,19 @@ impl From<crate::W<CH0CTRL_SPEC>> for W {
 #[doc = "Field `EN` reader - Channel 0 Enable"]
 pub type EN_R = crate::BitReader<bool>;
 #[doc = "Field `EN` writer - Channel 0 Enable"]
-pub type EN_W<'a> = crate::BitWriter<'a, u32, CH0CTRL_SPEC, bool, 0>;
+pub type EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CH0CTRL_SPEC, bool, O>;
 #[doc = "Field `REFREN` reader - Channel 0 Automatic Refresh Enable"]
 pub type REFREN_R = crate::BitReader<bool>;
 #[doc = "Field `REFREN` writer - Channel 0 Automatic Refresh Enable"]
-pub type REFREN_W<'a> = crate::BitWriter<'a, u32, CH0CTRL_SPEC, bool, 1>;
+pub type REFREN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CH0CTRL_SPEC, bool, O>;
 #[doc = "Field `PRSEN` reader - Channel 0 PRS Trigger Enable"]
 pub type PRSEN_R = crate::BitReader<bool>;
 #[doc = "Field `PRSEN` writer - Channel 0 PRS Trigger Enable"]
-pub type PRSEN_W<'a> = crate::BitWriter<'a, u32, CH0CTRL_SPEC, bool, 2>;
+pub type PRSEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CH0CTRL_SPEC, bool, O>;
+#[doc = "Field `PRSSEL` reader - Channel 0 PRS Trigger Select"]
+pub type PRSSEL_R = crate::FieldReader<u8, PRSSEL_A>;
 #[doc = "Channel 0 PRS Trigger Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PRSSEL_A {
     #[doc = "0: PRS ch 0 triggers channel 0 conversion."]
@@ -81,8 +83,6 @@ impl From<PRSSEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `PRSSEL` reader - Channel 0 PRS Trigger Select"]
-pub type PRSSEL_R = crate::FieldReader<u8, PRSSEL_A>;
 impl PRSSEL_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -165,8 +165,8 @@ impl PRSSEL_R {
     }
 }
 #[doc = "Field `PRSSEL` writer - Channel 0 PRS Trigger Select"]
-pub type PRSSEL_W<'a> = crate::FieldWriter<'a, u32, CH0CTRL_SPEC, u8, PRSSEL_A, 4, 4>;
-impl<'a> PRSSEL_W<'a> {
+pub type PRSSEL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CH0CTRL_SPEC, u8, PRSSEL_A, 4, O>;
+impl<'a, const O: u8> PRSSEL_W<'a, O> {
     #[doc = "PRS ch 0 triggers channel 0 conversion."]
     #[inline(always)]
     pub fn prsch0(self) -> &'a mut W {
@@ -253,22 +253,26 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Channel 0 Enable"]
     #[inline(always)]
-    pub fn en(&mut self) -> EN_W {
+    #[must_use]
+    pub fn en(&mut self) -> EN_W<0> {
         EN_W::new(self)
     }
     #[doc = "Bit 1 - Channel 0 Automatic Refresh Enable"]
     #[inline(always)]
-    pub fn refren(&mut self) -> REFREN_W {
+    #[must_use]
+    pub fn refren(&mut self) -> REFREN_W<1> {
         REFREN_W::new(self)
     }
     #[doc = "Bit 2 - Channel 0 PRS Trigger Enable"]
     #[inline(always)]
-    pub fn prsen(&mut self) -> PRSEN_W {
+    #[must_use]
+    pub fn prsen(&mut self) -> PRSEN_W<2> {
         PRSEN_W::new(self)
     }
     #[doc = "Bits 4:7 - Channel 0 PRS Trigger Select"]
     #[inline(always)]
-    pub fn prssel(&mut self) -> PRSSEL_W {
+    #[must_use]
+    pub fn prssel(&mut self) -> PRSSEL_W<4> {
         PRSSEL_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -290,11 +294,10 @@ impl crate::Readable for CH0CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ch0ctrl::W](W) writer structure"]
 impl crate::Writable for CH0CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CH0CTRL to value 0"]
 impl crate::Resettable for CH0CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

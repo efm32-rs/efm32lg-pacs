@@ -34,8 +34,10 @@ impl From<crate::W<PC_MODEH_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `MODE8` reader - Pin 8 Mode"]
+pub type MODE8_R = crate::FieldReader<u8, MODE8_A>;
 #[doc = "Pin 8 Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum MODE8_A {
     #[doc = "0: Input disabled. Pullup if DOUT is set."]
@@ -77,8 +79,6 @@ impl From<MODE8_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `MODE8` reader - Pin 8 Mode"]
-pub type MODE8_R = crate::FieldReader<u8, MODE8_A>;
 impl MODE8_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -185,8 +185,9 @@ impl MODE8_R {
     }
 }
 #[doc = "Field `MODE8` writer - Pin 8 Mode"]
-pub type MODE8_W<'a> = crate::FieldWriterSafe<'a, u32, PC_MODEH_SPEC, u8, MODE8_A, 4, 0>;
-impl<'a> MODE8_W<'a> {
+pub type MODE8_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, PC_MODEH_SPEC, u8, MODE8_A, 4, O>;
+impl<'a, const O: u8> MODE8_W<'a, O> {
     #[doc = "Input disabled. Pullup if DOUT is set."]
     #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
@@ -268,8 +269,10 @@ impl<'a> MODE8_W<'a> {
         self.variant(MODE8_A::WIREDANDDRIVEPULLUPFILTER)
     }
 }
+#[doc = "Field `MODE9` reader - Pin 9 Mode"]
+pub type MODE9_R = crate::FieldReader<u8, MODE9_A>;
 #[doc = "Pin 9 Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum MODE9_A {
     #[doc = "0: Input disabled. Pullup if DOUT is set."]
@@ -311,8 +314,6 @@ impl From<MODE9_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `MODE9` reader - Pin 9 Mode"]
-pub type MODE9_R = crate::FieldReader<u8, MODE9_A>;
 impl MODE9_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -419,8 +420,9 @@ impl MODE9_R {
     }
 }
 #[doc = "Field `MODE9` writer - Pin 9 Mode"]
-pub type MODE9_W<'a> = crate::FieldWriterSafe<'a, u32, PC_MODEH_SPEC, u8, MODE9_A, 4, 4>;
-impl<'a> MODE9_W<'a> {
+pub type MODE9_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, PC_MODEH_SPEC, u8, MODE9_A, 4, O>;
+impl<'a, const O: u8> MODE9_W<'a, O> {
     #[doc = "Input disabled. Pullup if DOUT is set."]
     #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
@@ -502,8 +504,10 @@ impl<'a> MODE9_W<'a> {
         self.variant(MODE9_A::WIREDANDDRIVEPULLUPFILTER)
     }
 }
+#[doc = "Field `MODE10` reader - Pin 10 Mode"]
+pub type MODE10_R = crate::FieldReader<u8, MODE10_A>;
 #[doc = "Pin 10 Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum MODE10_A {
     #[doc = "0: Input disabled. Pullup if DOUT is set."]
@@ -545,8 +549,6 @@ impl From<MODE10_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `MODE10` reader - Pin 10 Mode"]
-pub type MODE10_R = crate::FieldReader<u8, MODE10_A>;
 impl MODE10_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -653,8 +655,9 @@ impl MODE10_R {
     }
 }
 #[doc = "Field `MODE10` writer - Pin 10 Mode"]
-pub type MODE10_W<'a> = crate::FieldWriterSafe<'a, u32, PC_MODEH_SPEC, u8, MODE10_A, 4, 8>;
-impl<'a> MODE10_W<'a> {
+pub type MODE10_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, PC_MODEH_SPEC, u8, MODE10_A, 4, O>;
+impl<'a, const O: u8> MODE10_W<'a, O> {
     #[doc = "Input disabled. Pullup if DOUT is set."]
     #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
@@ -736,8 +739,10 @@ impl<'a> MODE10_W<'a> {
         self.variant(MODE10_A::WIREDANDDRIVEPULLUPFILTER)
     }
 }
+#[doc = "Field `MODE11` reader - Pin 11 Mode"]
+pub type MODE11_R = crate::FieldReader<u8, MODE11_A>;
 #[doc = "Pin 11 Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum MODE11_A {
     #[doc = "0: Input disabled. Pullup if DOUT is set."]
@@ -779,8 +784,6 @@ impl From<MODE11_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `MODE11` reader - Pin 11 Mode"]
-pub type MODE11_R = crate::FieldReader<u8, MODE11_A>;
 impl MODE11_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -887,8 +890,9 @@ impl MODE11_R {
     }
 }
 #[doc = "Field `MODE11` writer - Pin 11 Mode"]
-pub type MODE11_W<'a> = crate::FieldWriterSafe<'a, u32, PC_MODEH_SPEC, u8, MODE11_A, 4, 12>;
-impl<'a> MODE11_W<'a> {
+pub type MODE11_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, PC_MODEH_SPEC, u8, MODE11_A, 4, O>;
+impl<'a, const O: u8> MODE11_W<'a, O> {
     #[doc = "Input disabled. Pullup if DOUT is set."]
     #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
@@ -970,8 +974,10 @@ impl<'a> MODE11_W<'a> {
         self.variant(MODE11_A::WIREDANDDRIVEPULLUPFILTER)
     }
 }
+#[doc = "Field `MODE12` reader - Pin 12 Mode"]
+pub type MODE12_R = crate::FieldReader<u8, MODE12_A>;
 #[doc = "Pin 12 Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum MODE12_A {
     #[doc = "0: Input disabled. Pullup if DOUT is set."]
@@ -1013,8 +1019,6 @@ impl From<MODE12_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `MODE12` reader - Pin 12 Mode"]
-pub type MODE12_R = crate::FieldReader<u8, MODE12_A>;
 impl MODE12_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -1121,8 +1125,9 @@ impl MODE12_R {
     }
 }
 #[doc = "Field `MODE12` writer - Pin 12 Mode"]
-pub type MODE12_W<'a> = crate::FieldWriterSafe<'a, u32, PC_MODEH_SPEC, u8, MODE12_A, 4, 16>;
-impl<'a> MODE12_W<'a> {
+pub type MODE12_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, PC_MODEH_SPEC, u8, MODE12_A, 4, O>;
+impl<'a, const O: u8> MODE12_W<'a, O> {
     #[doc = "Input disabled. Pullup if DOUT is set."]
     #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
@@ -1204,8 +1209,10 @@ impl<'a> MODE12_W<'a> {
         self.variant(MODE12_A::WIREDANDDRIVEPULLUPFILTER)
     }
 }
+#[doc = "Field `MODE13` reader - Pin 13 Mode"]
+pub type MODE13_R = crate::FieldReader<u8, MODE13_A>;
 #[doc = "Pin 13 Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum MODE13_A {
     #[doc = "0: Input disabled. Pullup if DOUT is set."]
@@ -1247,8 +1254,6 @@ impl From<MODE13_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `MODE13` reader - Pin 13 Mode"]
-pub type MODE13_R = crate::FieldReader<u8, MODE13_A>;
 impl MODE13_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -1355,8 +1360,9 @@ impl MODE13_R {
     }
 }
 #[doc = "Field `MODE13` writer - Pin 13 Mode"]
-pub type MODE13_W<'a> = crate::FieldWriterSafe<'a, u32, PC_MODEH_SPEC, u8, MODE13_A, 4, 20>;
-impl<'a> MODE13_W<'a> {
+pub type MODE13_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, PC_MODEH_SPEC, u8, MODE13_A, 4, O>;
+impl<'a, const O: u8> MODE13_W<'a, O> {
     #[doc = "Input disabled. Pullup if DOUT is set."]
     #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
@@ -1438,8 +1444,10 @@ impl<'a> MODE13_W<'a> {
         self.variant(MODE13_A::WIREDANDDRIVEPULLUPFILTER)
     }
 }
+#[doc = "Field `MODE14` reader - Pin 14 Mode"]
+pub type MODE14_R = crate::FieldReader<u8, MODE14_A>;
 #[doc = "Pin 14 Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum MODE14_A {
     #[doc = "0: Input disabled. Pullup if DOUT is set."]
@@ -1481,8 +1489,6 @@ impl From<MODE14_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `MODE14` reader - Pin 14 Mode"]
-pub type MODE14_R = crate::FieldReader<u8, MODE14_A>;
 impl MODE14_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -1589,8 +1595,9 @@ impl MODE14_R {
     }
 }
 #[doc = "Field `MODE14` writer - Pin 14 Mode"]
-pub type MODE14_W<'a> = crate::FieldWriterSafe<'a, u32, PC_MODEH_SPEC, u8, MODE14_A, 4, 24>;
-impl<'a> MODE14_W<'a> {
+pub type MODE14_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, PC_MODEH_SPEC, u8, MODE14_A, 4, O>;
+impl<'a, const O: u8> MODE14_W<'a, O> {
     #[doc = "Input disabled. Pullup if DOUT is set."]
     #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
@@ -1672,8 +1679,10 @@ impl<'a> MODE14_W<'a> {
         self.variant(MODE14_A::WIREDANDDRIVEPULLUPFILTER)
     }
 }
+#[doc = "Field `MODE15` reader - Pin 15 Mode"]
+pub type MODE15_R = crate::FieldReader<u8, MODE15_A>;
 #[doc = "Pin 15 Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum MODE15_A {
     #[doc = "0: Input disabled. Pullup if DOUT is set."]
@@ -1715,8 +1724,6 @@ impl From<MODE15_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `MODE15` reader - Pin 15 Mode"]
-pub type MODE15_R = crate::FieldReader<u8, MODE15_A>;
 impl MODE15_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -1823,8 +1830,9 @@ impl MODE15_R {
     }
 }
 #[doc = "Field `MODE15` writer - Pin 15 Mode"]
-pub type MODE15_W<'a> = crate::FieldWriterSafe<'a, u32, PC_MODEH_SPEC, u8, MODE15_A, 4, 28>;
-impl<'a> MODE15_W<'a> {
+pub type MODE15_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, PC_MODEH_SPEC, u8, MODE15_A, 4, O>;
+impl<'a, const O: u8> MODE15_W<'a, O> {
     #[doc = "Input disabled. Pullup if DOUT is set."]
     #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
@@ -1951,42 +1959,50 @@ impl R {
 impl W {
     #[doc = "Bits 0:3 - Pin 8 Mode"]
     #[inline(always)]
-    pub fn mode8(&mut self) -> MODE8_W {
+    #[must_use]
+    pub fn mode8(&mut self) -> MODE8_W<0> {
         MODE8_W::new(self)
     }
     #[doc = "Bits 4:7 - Pin 9 Mode"]
     #[inline(always)]
-    pub fn mode9(&mut self) -> MODE9_W {
+    #[must_use]
+    pub fn mode9(&mut self) -> MODE9_W<4> {
         MODE9_W::new(self)
     }
     #[doc = "Bits 8:11 - Pin 10 Mode"]
     #[inline(always)]
-    pub fn mode10(&mut self) -> MODE10_W {
+    #[must_use]
+    pub fn mode10(&mut self) -> MODE10_W<8> {
         MODE10_W::new(self)
     }
     #[doc = "Bits 12:15 - Pin 11 Mode"]
     #[inline(always)]
-    pub fn mode11(&mut self) -> MODE11_W {
+    #[must_use]
+    pub fn mode11(&mut self) -> MODE11_W<12> {
         MODE11_W::new(self)
     }
     #[doc = "Bits 16:19 - Pin 12 Mode"]
     #[inline(always)]
-    pub fn mode12(&mut self) -> MODE12_W {
+    #[must_use]
+    pub fn mode12(&mut self) -> MODE12_W<16> {
         MODE12_W::new(self)
     }
     #[doc = "Bits 20:23 - Pin 13 Mode"]
     #[inline(always)]
-    pub fn mode13(&mut self) -> MODE13_W {
+    #[must_use]
+    pub fn mode13(&mut self) -> MODE13_W<20> {
         MODE13_W::new(self)
     }
     #[doc = "Bits 24:27 - Pin 14 Mode"]
     #[inline(always)]
-    pub fn mode14(&mut self) -> MODE14_W {
+    #[must_use]
+    pub fn mode14(&mut self) -> MODE14_W<24> {
         MODE14_W::new(self)
     }
     #[doc = "Bits 28:31 - Pin 15 Mode"]
     #[inline(always)]
-    pub fn mode15(&mut self) -> MODE15_W {
+    #[must_use]
+    pub fn mode15(&mut self) -> MODE15_W<28> {
         MODE15_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -2008,11 +2024,10 @@ impl crate::Readable for PC_MODEH_SPEC {
 #[doc = "`write(|w| ..)` method takes [pc_modeh::W](W) writer structure"]
 impl crate::Writable for PC_MODEH_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PC_MODEH to value 0"]
 impl crate::Resettable for PC_MODEH_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

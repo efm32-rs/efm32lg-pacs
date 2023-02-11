@@ -20,11 +20,12 @@ impl From<crate::W<PA_DOUTCLR_SPEC>> for W {
     }
 }
 #[doc = "Field `DOUTCLR` writer - Data Out Clear"]
-pub type DOUTCLR_W<'a> = crate::FieldWriter<'a, u32, PA_DOUTCLR_SPEC, u16, u16, 16, 0>;
+pub type DOUTCLR_W<'a, const O: u8> = crate::FieldWriter<'a, u32, PA_DOUTCLR_SPEC, u16, u16, 16, O>;
 impl W {
     #[doc = "Bits 0:15 - Data Out Clear"]
     #[inline(always)]
-    pub fn doutclr(&mut self) -> DOUTCLR_W {
+    #[must_use]
+    pub fn doutclr(&mut self) -> DOUTCLR_W<0> {
         DOUTCLR_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -42,11 +43,10 @@ impl crate::RegisterSpec for PA_DOUTCLR_SPEC {
 #[doc = "`write(|w| ..)` method takes [pa_doutclr::W](W) writer structure"]
 impl crate::Writable for PA_DOUTCLR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PA_DOUTCLR to value 0"]
 impl crate::Resettable for PA_DOUTCLR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

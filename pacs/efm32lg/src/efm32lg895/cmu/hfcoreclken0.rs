@@ -37,19 +37,19 @@ impl From<crate::W<HFCORECLKEN0_SPEC>> for W {
 #[doc = "Field `DMA` reader - Direct Memory Access Controller Clock Enable"]
 pub type DMA_R = crate::BitReader<bool>;
 #[doc = "Field `DMA` writer - Direct Memory Access Controller Clock Enable"]
-pub type DMA_W<'a> = crate::BitWriter<'a, u32, HFCORECLKEN0_SPEC, bool, 0>;
+pub type DMA_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFCORECLKEN0_SPEC, bool, O>;
 #[doc = "Field `AES` reader - Advanced Encryption Standard Accelerator Clock Enable"]
 pub type AES_R = crate::BitReader<bool>;
 #[doc = "Field `AES` writer - Advanced Encryption Standard Accelerator Clock Enable"]
-pub type AES_W<'a> = crate::BitWriter<'a, u32, HFCORECLKEN0_SPEC, bool, 1>;
+pub type AES_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFCORECLKEN0_SPEC, bool, O>;
 #[doc = "Field `LE` reader - Low Energy Peripheral Interface Clock Enable"]
 pub type LE_R = crate::BitReader<bool>;
 #[doc = "Field `LE` writer - Low Energy Peripheral Interface Clock Enable"]
-pub type LE_W<'a> = crate::BitWriter<'a, u32, HFCORECLKEN0_SPEC, bool, 4>;
+pub type LE_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFCORECLKEN0_SPEC, bool, O>;
 #[doc = "Field `EBI` reader - External Bus Interface Clock Enable"]
 pub type EBI_R = crate::BitReader<bool>;
 #[doc = "Field `EBI` writer - External Bus Interface Clock Enable"]
-pub type EBI_W<'a> = crate::BitWriter<'a, u32, HFCORECLKEN0_SPEC, bool, 5>;
+pub type EBI_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFCORECLKEN0_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Direct Memory Access Controller Clock Enable"]
     #[inline(always)]
@@ -75,22 +75,26 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Direct Memory Access Controller Clock Enable"]
     #[inline(always)]
-    pub fn dma(&mut self) -> DMA_W {
+    #[must_use]
+    pub fn dma(&mut self) -> DMA_W<0> {
         DMA_W::new(self)
     }
     #[doc = "Bit 1 - Advanced Encryption Standard Accelerator Clock Enable"]
     #[inline(always)]
-    pub fn aes(&mut self) -> AES_W {
+    #[must_use]
+    pub fn aes(&mut self) -> AES_W<1> {
         AES_W::new(self)
     }
     #[doc = "Bit 4 - Low Energy Peripheral Interface Clock Enable"]
     #[inline(always)]
-    pub fn le(&mut self) -> LE_W {
+    #[must_use]
+    pub fn le(&mut self) -> LE_W<4> {
         LE_W::new(self)
     }
     #[doc = "Bit 5 - External Bus Interface Clock Enable"]
     #[inline(always)]
-    pub fn ebi(&mut self) -> EBI_W {
+    #[must_use]
+    pub fn ebi(&mut self) -> EBI_W<5> {
         EBI_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -112,11 +116,10 @@ impl crate::Readable for HFCORECLKEN0_SPEC {
 #[doc = "`write(|w| ..)` method takes [hfcoreclken0::W](W) writer structure"]
 impl crate::Writable for HFCORECLKEN0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets HFCORECLKEN0 to value 0"]
 impl crate::Resettable for HFCORECLKEN0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

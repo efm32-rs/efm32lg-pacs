@@ -33,8 +33,5 @@ impl crate::Readable for ECCPARITY_SPEC {
 }
 #[doc = "`reset()` method sets ECCPARITY to value 0"]
 impl crate::Resettable for ECCPARITY_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

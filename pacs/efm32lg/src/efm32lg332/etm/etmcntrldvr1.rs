@@ -37,7 +37,7 @@ impl From<crate::W<ETMCNTRLDVR1_SPEC>> for W {
 #[doc = "Field `COUNT` reader - Free running counter reload value"]
 pub type COUNT_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `COUNT` writer - Free running counter reload value"]
-pub type COUNT_W<'a> = crate::FieldWriter<'a, u32, ETMCNTRLDVR1_SPEC, u16, u16, 16, 0>;
+pub type COUNT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ETMCNTRLDVR1_SPEC, u16, u16, 16, O>;
 impl R {
     #[doc = "Bits 0:15 - Free running counter reload value"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - Free running counter reload value"]
     #[inline(always)]
-    pub fn count(&mut self) -> COUNT_W {
+    #[must_use]
+    pub fn count(&mut self) -> COUNT_W<0> {
         COUNT_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for ETMCNTRLDVR1_SPEC {
 #[doc = "`write(|w| ..)` method takes [etmcntrldvr1::W](W) writer structure"]
 impl crate::Writable for ETMCNTRLDVR1_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ETMCNTRLDVR1 to value 0"]
 impl crate::Resettable for ETMCNTRLDVR1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

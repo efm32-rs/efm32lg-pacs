@@ -37,18 +37,20 @@ impl From<crate::W<TFTFRAMEBASE_SPEC>> for W {
 #[doc = "Field `FRAMEBASE` reader - Frame Base Address"]
 pub type FRAMEBASE_R = crate::FieldReader<u32, u32>;
 #[doc = "Field `FRAMEBASE` writer - Frame Base Address"]
-pub type FRAMEBASE_W<'a> = crate::FieldWriter<'a, u32, TFTFRAMEBASE_SPEC, u32, u32, 28, 0>;
+pub type FRAMEBASE_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, TFTFRAMEBASE_SPEC, u32, u32, 28, O>;
 impl R {
     #[doc = "Bits 0:27 - Frame Base Address"]
     #[inline(always)]
     pub fn framebase(&self) -> FRAMEBASE_R {
-        FRAMEBASE_R::new((self.bits & 0x0fff_ffff) as u32)
+        FRAMEBASE_R::new(self.bits & 0x0fff_ffff)
     }
 }
 impl W {
     #[doc = "Bits 0:27 - Frame Base Address"]
     #[inline(always)]
-    pub fn framebase(&mut self) -> FRAMEBASE_W {
+    #[must_use]
+    pub fn framebase(&mut self) -> FRAMEBASE_W<0> {
         FRAMEBASE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +72,10 @@ impl crate::Readable for TFTFRAMEBASE_SPEC {
 #[doc = "`write(|w| ..)` method takes [tftframebase::W](W) writer structure"]
 impl crate::Writable for TFTFRAMEBASE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TFTFRAMEBASE to value 0"]
 impl crate::Resettable for TFTFRAMEBASE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

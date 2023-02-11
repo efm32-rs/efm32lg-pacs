@@ -37,75 +37,75 @@ impl From<crate::W<HFPERCLKEN0_SPEC>> for W {
 #[doc = "Field `USART0` reader - Universal Synchronous/Asynchronous Receiver/Transmitter 0 Clock Enable"]
 pub type USART0_R = crate::BitReader<bool>;
 #[doc = "Field `USART0` writer - Universal Synchronous/Asynchronous Receiver/Transmitter 0 Clock Enable"]
-pub type USART0_W<'a> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, 0>;
+pub type USART0_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, O>;
 #[doc = "Field `USART1` reader - Universal Synchronous/Asynchronous Receiver/Transmitter 1 Clock Enable"]
 pub type USART1_R = crate::BitReader<bool>;
 #[doc = "Field `USART1` writer - Universal Synchronous/Asynchronous Receiver/Transmitter 1 Clock Enable"]
-pub type USART1_W<'a> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, 1>;
+pub type USART1_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, O>;
 #[doc = "Field `USART2` reader - Universal Synchronous/Asynchronous Receiver/Transmitter 2 Clock Enable"]
 pub type USART2_R = crate::BitReader<bool>;
 #[doc = "Field `USART2` writer - Universal Synchronous/Asynchronous Receiver/Transmitter 2 Clock Enable"]
-pub type USART2_W<'a> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, 2>;
+pub type USART2_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, O>;
 #[doc = "Field `UART0` reader - Universal Asynchronous Receiver/Transmitter 0 Clock Enable"]
 pub type UART0_R = crate::BitReader<bool>;
 #[doc = "Field `UART0` writer - Universal Asynchronous Receiver/Transmitter 0 Clock Enable"]
-pub type UART0_W<'a> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, 3>;
+pub type UART0_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, O>;
 #[doc = "Field `UART1` reader - Universal Asynchronous Receiver/Transmitter 1 Clock Enable"]
 pub type UART1_R = crate::BitReader<bool>;
 #[doc = "Field `UART1` writer - Universal Asynchronous Receiver/Transmitter 1 Clock Enable"]
-pub type UART1_W<'a> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, 4>;
+pub type UART1_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, O>;
 #[doc = "Field `TIMER0` reader - Timer 0 Clock Enable"]
 pub type TIMER0_R = crate::BitReader<bool>;
 #[doc = "Field `TIMER0` writer - Timer 0 Clock Enable"]
-pub type TIMER0_W<'a> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, 5>;
+pub type TIMER0_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, O>;
 #[doc = "Field `TIMER1` reader - Timer 1 Clock Enable"]
 pub type TIMER1_R = crate::BitReader<bool>;
 #[doc = "Field `TIMER1` writer - Timer 1 Clock Enable"]
-pub type TIMER1_W<'a> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, 6>;
+pub type TIMER1_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, O>;
 #[doc = "Field `TIMER2` reader - Timer 2 Clock Enable"]
 pub type TIMER2_R = crate::BitReader<bool>;
 #[doc = "Field `TIMER2` writer - Timer 2 Clock Enable"]
-pub type TIMER2_W<'a> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, 7>;
+pub type TIMER2_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, O>;
 #[doc = "Field `TIMER3` reader - Timer 3 Clock Enable"]
 pub type TIMER3_R = crate::BitReader<bool>;
 #[doc = "Field `TIMER3` writer - Timer 3 Clock Enable"]
-pub type TIMER3_W<'a> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, 8>;
+pub type TIMER3_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, O>;
 #[doc = "Field `ACMP0` reader - Analog Comparator 0 Clock Enable"]
 pub type ACMP0_R = crate::BitReader<bool>;
 #[doc = "Field `ACMP0` writer - Analog Comparator 0 Clock Enable"]
-pub type ACMP0_W<'a> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, 9>;
+pub type ACMP0_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, O>;
 #[doc = "Field `ACMP1` reader - Analog Comparator 1 Clock Enable"]
 pub type ACMP1_R = crate::BitReader<bool>;
 #[doc = "Field `ACMP1` writer - Analog Comparator 1 Clock Enable"]
-pub type ACMP1_W<'a> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, 10>;
+pub type ACMP1_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, O>;
 #[doc = "Field `I2C0` reader - I2C 0 Clock Enable"]
 pub type I2C0_R = crate::BitReader<bool>;
 #[doc = "Field `I2C0` writer - I2C 0 Clock Enable"]
-pub type I2C0_W<'a> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, 11>;
+pub type I2C0_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, O>;
 #[doc = "Field `I2C1` reader - I2C 1 Clock Enable"]
 pub type I2C1_R = crate::BitReader<bool>;
 #[doc = "Field `I2C1` writer - I2C 1 Clock Enable"]
-pub type I2C1_W<'a> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, 12>;
+pub type I2C1_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, O>;
 #[doc = "Field `GPIO` reader - General purpose Input/Output Clock Enable"]
 pub type GPIO_R = crate::BitReader<bool>;
 #[doc = "Field `GPIO` writer - General purpose Input/Output Clock Enable"]
-pub type GPIO_W<'a> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, 13>;
+pub type GPIO_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, O>;
 #[doc = "Field `VCMP` reader - Voltage Comparator Clock Enable"]
 pub type VCMP_R = crate::BitReader<bool>;
 #[doc = "Field `VCMP` writer - Voltage Comparator Clock Enable"]
-pub type VCMP_W<'a> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, 14>;
+pub type VCMP_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, O>;
 #[doc = "Field `PRS` reader - Peripheral Reflex System Clock Enable"]
 pub type PRS_R = crate::BitReader<bool>;
 #[doc = "Field `PRS` writer - Peripheral Reflex System Clock Enable"]
-pub type PRS_W<'a> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, 15>;
+pub type PRS_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, O>;
 #[doc = "Field `ADC0` reader - Analog to Digital Converter 0 Clock Enable"]
 pub type ADC0_R = crate::BitReader<bool>;
 #[doc = "Field `ADC0` writer - Analog to Digital Converter 0 Clock Enable"]
-pub type ADC0_W<'a> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, 16>;
+pub type ADC0_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, O>;
 #[doc = "Field `DAC0` reader - Digital to Analog Converter 0 Clock Enable"]
 pub type DAC0_R = crate::BitReader<bool>;
 #[doc = "Field `DAC0` writer - Digital to Analog Converter 0 Clock Enable"]
-pub type DAC0_W<'a> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, 17>;
+pub type DAC0_W<'a, const O: u8> = crate::BitWriter<'a, u32, HFPERCLKEN0_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Universal Synchronous/Asynchronous Receiver/Transmitter 0 Clock Enable"]
     #[inline(always)]
@@ -201,92 +201,110 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Universal Synchronous/Asynchronous Receiver/Transmitter 0 Clock Enable"]
     #[inline(always)]
-    pub fn usart0(&mut self) -> USART0_W {
+    #[must_use]
+    pub fn usart0(&mut self) -> USART0_W<0> {
         USART0_W::new(self)
     }
     #[doc = "Bit 1 - Universal Synchronous/Asynchronous Receiver/Transmitter 1 Clock Enable"]
     #[inline(always)]
-    pub fn usart1(&mut self) -> USART1_W {
+    #[must_use]
+    pub fn usart1(&mut self) -> USART1_W<1> {
         USART1_W::new(self)
     }
     #[doc = "Bit 2 - Universal Synchronous/Asynchronous Receiver/Transmitter 2 Clock Enable"]
     #[inline(always)]
-    pub fn usart2(&mut self) -> USART2_W {
+    #[must_use]
+    pub fn usart2(&mut self) -> USART2_W<2> {
         USART2_W::new(self)
     }
     #[doc = "Bit 3 - Universal Asynchronous Receiver/Transmitter 0 Clock Enable"]
     #[inline(always)]
-    pub fn uart0(&mut self) -> UART0_W {
+    #[must_use]
+    pub fn uart0(&mut self) -> UART0_W<3> {
         UART0_W::new(self)
     }
     #[doc = "Bit 4 - Universal Asynchronous Receiver/Transmitter 1 Clock Enable"]
     #[inline(always)]
-    pub fn uart1(&mut self) -> UART1_W {
+    #[must_use]
+    pub fn uart1(&mut self) -> UART1_W<4> {
         UART1_W::new(self)
     }
     #[doc = "Bit 5 - Timer 0 Clock Enable"]
     #[inline(always)]
-    pub fn timer0(&mut self) -> TIMER0_W {
+    #[must_use]
+    pub fn timer0(&mut self) -> TIMER0_W<5> {
         TIMER0_W::new(self)
     }
     #[doc = "Bit 6 - Timer 1 Clock Enable"]
     #[inline(always)]
-    pub fn timer1(&mut self) -> TIMER1_W {
+    #[must_use]
+    pub fn timer1(&mut self) -> TIMER1_W<6> {
         TIMER1_W::new(self)
     }
     #[doc = "Bit 7 - Timer 2 Clock Enable"]
     #[inline(always)]
-    pub fn timer2(&mut self) -> TIMER2_W {
+    #[must_use]
+    pub fn timer2(&mut self) -> TIMER2_W<7> {
         TIMER2_W::new(self)
     }
     #[doc = "Bit 8 - Timer 3 Clock Enable"]
     #[inline(always)]
-    pub fn timer3(&mut self) -> TIMER3_W {
+    #[must_use]
+    pub fn timer3(&mut self) -> TIMER3_W<8> {
         TIMER3_W::new(self)
     }
     #[doc = "Bit 9 - Analog Comparator 0 Clock Enable"]
     #[inline(always)]
-    pub fn acmp0(&mut self) -> ACMP0_W {
+    #[must_use]
+    pub fn acmp0(&mut self) -> ACMP0_W<9> {
         ACMP0_W::new(self)
     }
     #[doc = "Bit 10 - Analog Comparator 1 Clock Enable"]
     #[inline(always)]
-    pub fn acmp1(&mut self) -> ACMP1_W {
+    #[must_use]
+    pub fn acmp1(&mut self) -> ACMP1_W<10> {
         ACMP1_W::new(self)
     }
     #[doc = "Bit 11 - I2C 0 Clock Enable"]
     #[inline(always)]
-    pub fn i2c0(&mut self) -> I2C0_W {
+    #[must_use]
+    pub fn i2c0(&mut self) -> I2C0_W<11> {
         I2C0_W::new(self)
     }
     #[doc = "Bit 12 - I2C 1 Clock Enable"]
     #[inline(always)]
-    pub fn i2c1(&mut self) -> I2C1_W {
+    #[must_use]
+    pub fn i2c1(&mut self) -> I2C1_W<12> {
         I2C1_W::new(self)
     }
     #[doc = "Bit 13 - General purpose Input/Output Clock Enable"]
     #[inline(always)]
-    pub fn gpio(&mut self) -> GPIO_W {
+    #[must_use]
+    pub fn gpio(&mut self) -> GPIO_W<13> {
         GPIO_W::new(self)
     }
     #[doc = "Bit 14 - Voltage Comparator Clock Enable"]
     #[inline(always)]
-    pub fn vcmp(&mut self) -> VCMP_W {
+    #[must_use]
+    pub fn vcmp(&mut self) -> VCMP_W<14> {
         VCMP_W::new(self)
     }
     #[doc = "Bit 15 - Peripheral Reflex System Clock Enable"]
     #[inline(always)]
-    pub fn prs(&mut self) -> PRS_W {
+    #[must_use]
+    pub fn prs(&mut self) -> PRS_W<15> {
         PRS_W::new(self)
     }
     #[doc = "Bit 16 - Analog to Digital Converter 0 Clock Enable"]
     #[inline(always)]
-    pub fn adc0(&mut self) -> ADC0_W {
+    #[must_use]
+    pub fn adc0(&mut self) -> ADC0_W<16> {
         ADC0_W::new(self)
     }
     #[doc = "Bit 17 - Digital to Analog Converter 0 Clock Enable"]
     #[inline(always)]
-    pub fn dac0(&mut self) -> DAC0_W {
+    #[must_use]
+    pub fn dac0(&mut self) -> DAC0_W<17> {
         DAC0_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -308,11 +326,10 @@ impl crate::Readable for HFPERCLKEN0_SPEC {
 #[doc = "`write(|w| ..)` method takes [hfperclken0::W](W) writer structure"]
 impl crate::Writable for HFPERCLKEN0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets HFPERCLKEN0 to value 0"]
 impl crate::Resettable for HFPERCLKEN0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,13 +37,15 @@ impl From<crate::W<ROUTE_SPEC>> for W {
 #[doc = "Field `RXPEN` reader - RX Pin Enable"]
 pub type RXPEN_R = crate::BitReader<bool>;
 #[doc = "Field `RXPEN` writer - RX Pin Enable"]
-pub type RXPEN_W<'a> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, 0>;
+pub type RXPEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, O>;
 #[doc = "Field `TXPEN` reader - TX Pin Enable"]
 pub type TXPEN_R = crate::BitReader<bool>;
 #[doc = "Field `TXPEN` writer - TX Pin Enable"]
-pub type TXPEN_W<'a> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, 1>;
+pub type TXPEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, O>;
+#[doc = "Field `LOCATION` reader - I/O Location"]
+pub type LOCATION_R = crate::FieldReader<u8, LOCATION_A>;
 #[doc = "I/O Location\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LOCATION_A {
     #[doc = "0: Location 0"]
@@ -63,8 +65,6 @@ impl From<LOCATION_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `LOCATION` reader - I/O Location"]
-pub type LOCATION_R = crate::FieldReader<u8, LOCATION_A>;
 impl LOCATION_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -105,8 +105,9 @@ impl LOCATION_R {
     }
 }
 #[doc = "Field `LOCATION` writer - I/O Location"]
-pub type LOCATION_W<'a> = crate::FieldWriter<'a, u32, ROUTE_SPEC, u8, LOCATION_A, 3, 8>;
-impl<'a> LOCATION_W<'a> {
+pub type LOCATION_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, ROUTE_SPEC, u8, LOCATION_A, 3, O>;
+impl<'a, const O: u8> LOCATION_W<'a, O> {
     #[doc = "Location 0"]
     #[inline(always)]
     pub fn loc0(self) -> &'a mut W {
@@ -153,17 +154,20 @@ impl R {
 impl W {
     #[doc = "Bit 0 - RX Pin Enable"]
     #[inline(always)]
-    pub fn rxpen(&mut self) -> RXPEN_W {
+    #[must_use]
+    pub fn rxpen(&mut self) -> RXPEN_W<0> {
         RXPEN_W::new(self)
     }
     #[doc = "Bit 1 - TX Pin Enable"]
     #[inline(always)]
-    pub fn txpen(&mut self) -> TXPEN_W {
+    #[must_use]
+    pub fn txpen(&mut self) -> TXPEN_W<1> {
         TXPEN_W::new(self)
     }
     #[doc = "Bits 8:10 - I/O Location"]
     #[inline(always)]
-    pub fn location(&mut self) -> LOCATION_W {
+    #[must_use]
+    pub fn location(&mut self) -> LOCATION_W<8> {
         LOCATION_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -185,11 +189,10 @@ impl crate::Readable for ROUTE_SPEC {
 #[doc = "`write(|w| ..)` method takes [route::W](W) writer structure"]
 impl crate::Writable for ROUTE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ROUTE to value 0"]
 impl crate::Resettable for ROUTE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

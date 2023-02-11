@@ -37,7 +37,7 @@ impl From<crate::W<ETMLAR_SPEC>> for W {
 #[doc = "Field `KEY` reader - Key Value"]
 pub type KEY_R = crate::BitReader<bool>;
 #[doc = "Field `KEY` writer - Key Value"]
-pub type KEY_W<'a> = crate::BitWriter<'a, u32, ETMLAR_SPEC, bool, 0>;
+pub type KEY_W<'a, const O: u8> = crate::BitWriter<'a, u32, ETMLAR_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Key Value"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Key Value"]
     #[inline(always)]
-    pub fn key(&mut self) -> KEY_W {
+    #[must_use]
+    pub fn key(&mut self) -> KEY_W<0> {
         KEY_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for ETMLAR_SPEC {
 #[doc = "`write(|w| ..)` method takes [etmlar::W](W) writer structure"]
 impl crate::Writable for ETMLAR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ETMLAR to value 0"]
 impl crate::Resettable for ETMLAR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

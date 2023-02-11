@@ -37,7 +37,7 @@ impl From<crate::W<SIGFRAME_SPEC>> for W {
 #[doc = "Field `SIGFRAME` reader - Signal Frame"]
 pub type SIGFRAME_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `SIGFRAME` writer - Signal Frame"]
-pub type SIGFRAME_W<'a> = crate::FieldWriter<'a, u32, SIGFRAME_SPEC, u16, u16, 9, 0>;
+pub type SIGFRAME_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SIGFRAME_SPEC, u16, u16, 9, O>;
 impl R {
     #[doc = "Bits 0:8 - Signal Frame"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:8 - Signal Frame"]
     #[inline(always)]
-    pub fn sigframe(&mut self) -> SIGFRAME_W {
+    #[must_use]
+    pub fn sigframe(&mut self) -> SIGFRAME_W<0> {
         SIGFRAME_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for SIGFRAME_SPEC {
 #[doc = "`write(|w| ..)` method takes [sigframe::W](W) writer structure"]
 impl crate::Writable for SIGFRAME_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SIGFRAME to value 0"]
 impl crate::Resettable for SIGFRAME_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

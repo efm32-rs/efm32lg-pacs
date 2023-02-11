@@ -110,8 +110,5 @@ impl crate::Readable for ETMCCER_SPEC {
 }
 #[doc = "`reset()` method sets ETMCCER to value 0x1854_1800"]
 impl crate::Resettable for ETMCCER_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x1854_1800
-    }
+    const RESET_VALUE: Self::Ux = 0x1854_1800;
 }

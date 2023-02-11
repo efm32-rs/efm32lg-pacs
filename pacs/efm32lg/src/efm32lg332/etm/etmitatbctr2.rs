@@ -33,8 +33,5 @@ impl crate::Readable for ETMITATBCTR2_SPEC {
 }
 #[doc = "`reset()` method sets ETMITATBCTR2 to value 0x01"]
 impl crate::Resettable for ETMITATBCTR2_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x01
-    }
+    const RESET_VALUE: Self::Ux = 0x01;
 }

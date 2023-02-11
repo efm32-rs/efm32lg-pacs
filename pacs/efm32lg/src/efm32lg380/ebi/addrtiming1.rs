@@ -37,15 +37,15 @@ impl From<crate::W<ADDRTIMING1_SPEC>> for W {
 #[doc = "Field `ADDRSETUP` reader - Address Setup Time"]
 pub type ADDRSETUP_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `ADDRSETUP` writer - Address Setup Time"]
-pub type ADDRSETUP_W<'a> = crate::FieldWriter<'a, u32, ADDRTIMING1_SPEC, u8, u8, 2, 0>;
+pub type ADDRSETUP_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ADDRTIMING1_SPEC, u8, u8, 2, O>;
 #[doc = "Field `ADDRHOLD` reader - Address Hold Time"]
 pub type ADDRHOLD_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `ADDRHOLD` writer - Address Hold Time"]
-pub type ADDRHOLD_W<'a> = crate::FieldWriter<'a, u32, ADDRTIMING1_SPEC, u8, u8, 2, 8>;
+pub type ADDRHOLD_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ADDRTIMING1_SPEC, u8, u8, 2, O>;
 #[doc = "Field `HALFALE` reader - Half Cycle ALE Strobe Duration Enable"]
 pub type HALFALE_R = crate::BitReader<bool>;
 #[doc = "Field `HALFALE` writer - Half Cycle ALE Strobe Duration Enable"]
-pub type HALFALE_W<'a> = crate::BitWriter<'a, u32, ADDRTIMING1_SPEC, bool, 28>;
+pub type HALFALE_W<'a, const O: u8> = crate::BitWriter<'a, u32, ADDRTIMING1_SPEC, bool, O>;
 impl R {
     #[doc = "Bits 0:1 - Address Setup Time"]
     #[inline(always)]
@@ -66,17 +66,20 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - Address Setup Time"]
     #[inline(always)]
-    pub fn addrsetup(&mut self) -> ADDRSETUP_W {
+    #[must_use]
+    pub fn addrsetup(&mut self) -> ADDRSETUP_W<0> {
         ADDRSETUP_W::new(self)
     }
     #[doc = "Bits 8:9 - Address Hold Time"]
     #[inline(always)]
-    pub fn addrhold(&mut self) -> ADDRHOLD_W {
+    #[must_use]
+    pub fn addrhold(&mut self) -> ADDRHOLD_W<8> {
         ADDRHOLD_W::new(self)
     }
     #[doc = "Bit 28 - Half Cycle ALE Strobe Duration Enable"]
     #[inline(always)]
-    pub fn halfale(&mut self) -> HALFALE_W {
+    #[must_use]
+    pub fn halfale(&mut self) -> HALFALE_W<28> {
         HALFALE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -98,11 +101,10 @@ impl crate::Readable for ADDRTIMING1_SPEC {
 #[doc = "`write(|w| ..)` method takes [addrtiming1::W](W) writer structure"]
 impl crate::Writable for ADDRTIMING1_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ADDRTIMING1 to value 0x0303"]
 impl crate::Resettable for ADDRTIMING1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0303
-    }
+    const RESET_VALUE: Self::Ux = 0x0303;
 }

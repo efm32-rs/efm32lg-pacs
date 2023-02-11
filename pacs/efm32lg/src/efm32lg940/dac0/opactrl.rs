@@ -37,29 +37,31 @@ impl From<crate::W<OPACTRL_SPEC>> for W {
 #[doc = "Field `OPA0EN` reader - OPA0 Enable"]
 pub type OPA0EN_R = crate::BitReader<bool>;
 #[doc = "Field `OPA0EN` writer - OPA0 Enable"]
-pub type OPA0EN_W<'a> = crate::BitWriter<'a, u32, OPACTRL_SPEC, bool, 0>;
+pub type OPA0EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, OPACTRL_SPEC, bool, O>;
 #[doc = "Field `OPA1EN` reader - OPA1 Enable"]
 pub type OPA1EN_R = crate::BitReader<bool>;
 #[doc = "Field `OPA1EN` writer - OPA1 Enable"]
-pub type OPA1EN_W<'a> = crate::BitWriter<'a, u32, OPACTRL_SPEC, bool, 1>;
+pub type OPA1EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, OPACTRL_SPEC, bool, O>;
 #[doc = "Field `OPA2EN` reader - OPA2 Enable"]
 pub type OPA2EN_R = crate::BitReader<bool>;
 #[doc = "Field `OPA2EN` writer - OPA2 Enable"]
-pub type OPA2EN_W<'a> = crate::BitWriter<'a, u32, OPACTRL_SPEC, bool, 2>;
+pub type OPA2EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, OPACTRL_SPEC, bool, O>;
 #[doc = "Field `OPA0HCMDIS` reader - High Common Mode Disable."]
 pub type OPA0HCMDIS_R = crate::BitReader<bool>;
 #[doc = "Field `OPA0HCMDIS` writer - High Common Mode Disable."]
-pub type OPA0HCMDIS_W<'a> = crate::BitWriter<'a, u32, OPACTRL_SPEC, bool, 6>;
+pub type OPA0HCMDIS_W<'a, const O: u8> = crate::BitWriter<'a, u32, OPACTRL_SPEC, bool, O>;
 #[doc = "Field `OPA1HCMDIS` reader - High Common Mode Disable."]
 pub type OPA1HCMDIS_R = crate::BitReader<bool>;
 #[doc = "Field `OPA1HCMDIS` writer - High Common Mode Disable."]
-pub type OPA1HCMDIS_W<'a> = crate::BitWriter<'a, u32, OPACTRL_SPEC, bool, 7>;
+pub type OPA1HCMDIS_W<'a, const O: u8> = crate::BitWriter<'a, u32, OPACTRL_SPEC, bool, O>;
 #[doc = "Field `OPA2HCMDIS` reader - High Common Mode Disable."]
 pub type OPA2HCMDIS_R = crate::BitReader<bool>;
 #[doc = "Field `OPA2HCMDIS` writer - High Common Mode Disable."]
-pub type OPA2HCMDIS_W<'a> = crate::BitWriter<'a, u32, OPACTRL_SPEC, bool, 8>;
+pub type OPA2HCMDIS_W<'a, const O: u8> = crate::BitWriter<'a, u32, OPACTRL_SPEC, bool, O>;
+#[doc = "Field `OPA0LPFDIS` reader - Disables Low Pass Filter."]
+pub type OPA0LPFDIS_R = crate::FieldReader<u8, OPA0LPFDIS_A>;
 #[doc = "Disables Low Pass Filter.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum OPA0LPFDIS_A {
     #[doc = "1: Disables the LPF between positive pad and positive input."]
@@ -73,8 +75,6 @@ impl From<OPA0LPFDIS_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `OPA0LPFDIS` reader - Disables Low Pass Filter."]
-pub type OPA0LPFDIS_R = crate::FieldReader<u8, OPA0LPFDIS_A>;
 impl OPA0LPFDIS_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -97,8 +97,9 @@ impl OPA0LPFDIS_R {
     }
 }
 #[doc = "Field `OPA0LPFDIS` writer - Disables Low Pass Filter."]
-pub type OPA0LPFDIS_W<'a> = crate::FieldWriter<'a, u32, OPACTRL_SPEC, u8, OPA0LPFDIS_A, 2, 12>;
-impl<'a> OPA0LPFDIS_W<'a> {
+pub type OPA0LPFDIS_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, OPACTRL_SPEC, u8, OPA0LPFDIS_A, 2, O>;
+impl<'a, const O: u8> OPA0LPFDIS_W<'a, O> {
     #[doc = "Disables the LPF between positive pad and positive input."]
     #[inline(always)]
     pub fn plpfdis(self) -> &'a mut W {
@@ -110,8 +111,10 @@ impl<'a> OPA0LPFDIS_W<'a> {
         self.variant(OPA0LPFDIS_A::NLPFDIS)
     }
 }
+#[doc = "Field `OPA1LPFDIS` reader - Disables Low Pass Filter."]
+pub type OPA1LPFDIS_R = crate::FieldReader<u8, OPA1LPFDIS_A>;
 #[doc = "Disables Low Pass Filter.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum OPA1LPFDIS_A {
     #[doc = "1: Disables the LPF between positive pad and positive input."]
@@ -125,8 +128,6 @@ impl From<OPA1LPFDIS_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `OPA1LPFDIS` reader - Disables Low Pass Filter."]
-pub type OPA1LPFDIS_R = crate::FieldReader<u8, OPA1LPFDIS_A>;
 impl OPA1LPFDIS_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -149,8 +150,9 @@ impl OPA1LPFDIS_R {
     }
 }
 #[doc = "Field `OPA1LPFDIS` writer - Disables Low Pass Filter."]
-pub type OPA1LPFDIS_W<'a> = crate::FieldWriter<'a, u32, OPACTRL_SPEC, u8, OPA1LPFDIS_A, 2, 14>;
-impl<'a> OPA1LPFDIS_W<'a> {
+pub type OPA1LPFDIS_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, OPACTRL_SPEC, u8, OPA1LPFDIS_A, 2, O>;
+impl<'a, const O: u8> OPA1LPFDIS_W<'a, O> {
     #[doc = "Disables the LPF between positive pad and positive input."]
     #[inline(always)]
     pub fn plpfdis(self) -> &'a mut W {
@@ -162,8 +164,10 @@ impl<'a> OPA1LPFDIS_W<'a> {
         self.variant(OPA1LPFDIS_A::NLPFDIS)
     }
 }
+#[doc = "Field `OPA2LPFDIS` reader - Disables Low Pass Filter."]
+pub type OPA2LPFDIS_R = crate::FieldReader<u8, OPA2LPFDIS_A>;
 #[doc = "Disables Low Pass Filter.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum OPA2LPFDIS_A {
     #[doc = "1: Disables the LPF between positive pad and positive input."]
@@ -177,8 +181,6 @@ impl From<OPA2LPFDIS_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `OPA2LPFDIS` reader - Disables Low Pass Filter."]
-pub type OPA2LPFDIS_R = crate::FieldReader<u8, OPA2LPFDIS_A>;
 impl OPA2LPFDIS_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -201,8 +203,9 @@ impl OPA2LPFDIS_R {
     }
 }
 #[doc = "Field `OPA2LPFDIS` writer - Disables Low Pass Filter."]
-pub type OPA2LPFDIS_W<'a> = crate::FieldWriter<'a, u32, OPACTRL_SPEC, u8, OPA2LPFDIS_A, 2, 16>;
-impl<'a> OPA2LPFDIS_W<'a> {
+pub type OPA2LPFDIS_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, OPACTRL_SPEC, u8, OPA2LPFDIS_A, 2, O>;
+impl<'a, const O: u8> OPA2LPFDIS_W<'a, O> {
     #[doc = "Disables the LPF between positive pad and positive input."]
     #[inline(always)]
     pub fn plpfdis(self) -> &'a mut W {
@@ -217,15 +220,15 @@ impl<'a> OPA2LPFDIS_W<'a> {
 #[doc = "Field `OPA0SHORT` reader - Short the non-inverting and inverting input."]
 pub type OPA0SHORT_R = crate::BitReader<bool>;
 #[doc = "Field `OPA0SHORT` writer - Short the non-inverting and inverting input."]
-pub type OPA0SHORT_W<'a> = crate::BitWriter<'a, u32, OPACTRL_SPEC, bool, 22>;
+pub type OPA0SHORT_W<'a, const O: u8> = crate::BitWriter<'a, u32, OPACTRL_SPEC, bool, O>;
 #[doc = "Field `OPA1SHORT` reader - Short the non-inverting and inverting input."]
 pub type OPA1SHORT_R = crate::BitReader<bool>;
 #[doc = "Field `OPA1SHORT` writer - Short the non-inverting and inverting input."]
-pub type OPA1SHORT_W<'a> = crate::BitWriter<'a, u32, OPACTRL_SPEC, bool, 23>;
+pub type OPA1SHORT_W<'a, const O: u8> = crate::BitWriter<'a, u32, OPACTRL_SPEC, bool, O>;
 #[doc = "Field `OPA2SHORT` reader - Short the non-inverting and inverting input."]
 pub type OPA2SHORT_R = crate::BitReader<bool>;
 #[doc = "Field `OPA2SHORT` writer - Short the non-inverting and inverting input."]
-pub type OPA2SHORT_W<'a> = crate::BitWriter<'a, u32, OPACTRL_SPEC, bool, 24>;
+pub type OPA2SHORT_W<'a, const O: u8> = crate::BitWriter<'a, u32, OPACTRL_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - OPA0 Enable"]
     #[inline(always)]
@@ -291,62 +294,74 @@ impl R {
 impl W {
     #[doc = "Bit 0 - OPA0 Enable"]
     #[inline(always)]
-    pub fn opa0en(&mut self) -> OPA0EN_W {
+    #[must_use]
+    pub fn opa0en(&mut self) -> OPA0EN_W<0> {
         OPA0EN_W::new(self)
     }
     #[doc = "Bit 1 - OPA1 Enable"]
     #[inline(always)]
-    pub fn opa1en(&mut self) -> OPA1EN_W {
+    #[must_use]
+    pub fn opa1en(&mut self) -> OPA1EN_W<1> {
         OPA1EN_W::new(self)
     }
     #[doc = "Bit 2 - OPA2 Enable"]
     #[inline(always)]
-    pub fn opa2en(&mut self) -> OPA2EN_W {
+    #[must_use]
+    pub fn opa2en(&mut self) -> OPA2EN_W<2> {
         OPA2EN_W::new(self)
     }
     #[doc = "Bit 6 - High Common Mode Disable."]
     #[inline(always)]
-    pub fn opa0hcmdis(&mut self) -> OPA0HCMDIS_W {
+    #[must_use]
+    pub fn opa0hcmdis(&mut self) -> OPA0HCMDIS_W<6> {
         OPA0HCMDIS_W::new(self)
     }
     #[doc = "Bit 7 - High Common Mode Disable."]
     #[inline(always)]
-    pub fn opa1hcmdis(&mut self) -> OPA1HCMDIS_W {
+    #[must_use]
+    pub fn opa1hcmdis(&mut self) -> OPA1HCMDIS_W<7> {
         OPA1HCMDIS_W::new(self)
     }
     #[doc = "Bit 8 - High Common Mode Disable."]
     #[inline(always)]
-    pub fn opa2hcmdis(&mut self) -> OPA2HCMDIS_W {
+    #[must_use]
+    pub fn opa2hcmdis(&mut self) -> OPA2HCMDIS_W<8> {
         OPA2HCMDIS_W::new(self)
     }
     #[doc = "Bits 12:13 - Disables Low Pass Filter."]
     #[inline(always)]
-    pub fn opa0lpfdis(&mut self) -> OPA0LPFDIS_W {
+    #[must_use]
+    pub fn opa0lpfdis(&mut self) -> OPA0LPFDIS_W<12> {
         OPA0LPFDIS_W::new(self)
     }
     #[doc = "Bits 14:15 - Disables Low Pass Filter."]
     #[inline(always)]
-    pub fn opa1lpfdis(&mut self) -> OPA1LPFDIS_W {
+    #[must_use]
+    pub fn opa1lpfdis(&mut self) -> OPA1LPFDIS_W<14> {
         OPA1LPFDIS_W::new(self)
     }
     #[doc = "Bits 16:17 - Disables Low Pass Filter."]
     #[inline(always)]
-    pub fn opa2lpfdis(&mut self) -> OPA2LPFDIS_W {
+    #[must_use]
+    pub fn opa2lpfdis(&mut self) -> OPA2LPFDIS_W<16> {
         OPA2LPFDIS_W::new(self)
     }
     #[doc = "Bit 22 - Short the non-inverting and inverting input."]
     #[inline(always)]
-    pub fn opa0short(&mut self) -> OPA0SHORT_W {
+    #[must_use]
+    pub fn opa0short(&mut self) -> OPA0SHORT_W<22> {
         OPA0SHORT_W::new(self)
     }
     #[doc = "Bit 23 - Short the non-inverting and inverting input."]
     #[inline(always)]
-    pub fn opa1short(&mut self) -> OPA1SHORT_W {
+    #[must_use]
+    pub fn opa1short(&mut self) -> OPA1SHORT_W<23> {
         OPA1SHORT_W::new(self)
     }
     #[doc = "Bit 24 - Short the non-inverting and inverting input."]
     #[inline(always)]
-    pub fn opa2short(&mut self) -> OPA2SHORT_W {
+    #[must_use]
+    pub fn opa2short(&mut self) -> OPA2SHORT_W<24> {
         OPA2SHORT_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -368,11 +383,10 @@ impl crate::Readable for OPACTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [opactrl::W](W) writer structure"]
 impl crate::Writable for OPACTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets OPACTRL to value 0"]
 impl crate::Resettable for OPACTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

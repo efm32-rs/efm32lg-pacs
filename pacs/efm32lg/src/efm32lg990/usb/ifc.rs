@@ -20,18 +20,20 @@ impl From<crate::W<IFC_SPEC>> for W {
     }
 }
 #[doc = "Field `VREGOSH` writer - Clear VREGO Sense High Interrupt Flag"]
-pub type VREGOSH_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 0>;
+pub type VREGOSH_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `VREGOSL` writer - Clear VREGO Sense Low Interrupt Flag"]
-pub type VREGOSL_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 1>;
+pub type VREGOSL_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 impl W {
     #[doc = "Bit 0 - Clear VREGO Sense High Interrupt Flag"]
     #[inline(always)]
-    pub fn vregosh(&mut self) -> VREGOSH_W {
+    #[must_use]
+    pub fn vregosh(&mut self) -> VREGOSH_W<0> {
         VREGOSH_W::new(self)
     }
     #[doc = "Bit 1 - Clear VREGO Sense Low Interrupt Flag"]
     #[inline(always)]
-    pub fn vregosl(&mut self) -> VREGOSL_W {
+    #[must_use]
+    pub fn vregosl(&mut self) -> VREGOSL_W<1> {
         VREGOSL_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -49,11 +51,10 @@ impl crate::RegisterSpec for IFC_SPEC {
 #[doc = "`write(|w| ..)` method takes [ifc::W](W) writer structure"]
 impl crate::Writable for IFC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IFC to value 0"]
 impl crate::Resettable for IFC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,15 +37,15 @@ impl From<crate::W<RECT0_SPEC>> for W {
 #[doc = "Field `HEIGHT` reader - DMA Channel 0 Rectangle Height"]
 pub type HEIGHT_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `HEIGHT` writer - DMA Channel 0 Rectangle Height"]
-pub type HEIGHT_W<'a> = crate::FieldWriter<'a, u32, RECT0_SPEC, u16, u16, 10, 0>;
+pub type HEIGHT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RECT0_SPEC, u16, u16, 10, O>;
 #[doc = "Field `SRCSTRIDE` reader - DMA Channel 0 Source Stride"]
 pub type SRCSTRIDE_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `SRCSTRIDE` writer - DMA Channel 0 Source Stride"]
-pub type SRCSTRIDE_W<'a> = crate::FieldWriter<'a, u32, RECT0_SPEC, u16, u16, 11, 10>;
+pub type SRCSTRIDE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RECT0_SPEC, u16, u16, 11, O>;
 #[doc = "Field `DSTSTRIDE` reader - DMA Channel 0 Destination Stride"]
 pub type DSTSTRIDE_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `DSTSTRIDE` writer - DMA Channel 0 Destination Stride"]
-pub type DSTSTRIDE_W<'a> = crate::FieldWriter<'a, u32, RECT0_SPEC, u16, u16, 11, 21>;
+pub type DSTSTRIDE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RECT0_SPEC, u16, u16, 11, O>;
 impl R {
     #[doc = "Bits 0:9 - DMA Channel 0 Rectangle Height"]
     #[inline(always)]
@@ -66,17 +66,20 @@ impl R {
 impl W {
     #[doc = "Bits 0:9 - DMA Channel 0 Rectangle Height"]
     #[inline(always)]
-    pub fn height(&mut self) -> HEIGHT_W {
+    #[must_use]
+    pub fn height(&mut self) -> HEIGHT_W<0> {
         HEIGHT_W::new(self)
     }
     #[doc = "Bits 10:20 - DMA Channel 0 Source Stride"]
     #[inline(always)]
-    pub fn srcstride(&mut self) -> SRCSTRIDE_W {
+    #[must_use]
+    pub fn srcstride(&mut self) -> SRCSTRIDE_W<10> {
         SRCSTRIDE_W::new(self)
     }
     #[doc = "Bits 21:31 - DMA Channel 0 Destination Stride"]
     #[inline(always)]
-    pub fn dststride(&mut self) -> DSTSTRIDE_W {
+    #[must_use]
+    pub fn dststride(&mut self) -> DSTSTRIDE_W<21> {
         DSTSTRIDE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -98,11 +101,10 @@ impl crate::Readable for RECT0_SPEC {
 #[doc = "`write(|w| ..)` method takes [rect0::W](W) writer structure"]
 impl crate::Writable for RECT0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RECT0 to value 0"]
 impl crate::Resettable for RECT0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

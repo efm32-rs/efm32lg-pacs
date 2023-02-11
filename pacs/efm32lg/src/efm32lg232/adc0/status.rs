@@ -27,8 +27,10 @@ pub type WARM_R = crate::BitReader<bool>;
 pub type SINGLEDV_R = crate::BitReader<bool>;
 #[doc = "Field `SCANDV` reader - Scan Data Valid"]
 pub type SCANDV_R = crate::BitReader<bool>;
+#[doc = "Field `SCANDATASRC` reader - Scan Data Source"]
+pub type SCANDATASRC_R = crate::FieldReader<u8, SCANDATASRC_A>;
 #[doc = "Scan Data Source\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SCANDATASRC_A {
     #[doc = "0: Single ended mode: SCANDATA result originates from ADCn_CH0. Differential mode: SCANDATA result originates from ADCn_CH0-ADCn_CH1"]
@@ -54,8 +56,6 @@ impl From<SCANDATASRC_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `SCANDATASRC` reader - Scan Data Source"]
-pub type SCANDATASRC_R = crate::FieldReader<u8, SCANDATASRC_A>;
 impl SCANDATASRC_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -166,8 +166,5 @@ impl crate::Readable for STATUS_SPEC {
 }
 #[doc = "`reset()` method sets STATUS to value 0"]
 impl crate::Resettable for STATUS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

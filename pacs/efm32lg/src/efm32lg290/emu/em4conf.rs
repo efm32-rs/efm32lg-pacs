@@ -37,13 +37,15 @@ impl From<crate::W<EM4CONF_SPEC>> for W {
 #[doc = "Field `VREGEN` reader - EM4 voltage regulator enable"]
 pub type VREGEN_R = crate::BitReader<bool>;
 #[doc = "Field `VREGEN` writer - EM4 voltage regulator enable"]
-pub type VREGEN_W<'a> = crate::BitWriter<'a, u32, EM4CONF_SPEC, bool, 0>;
+pub type VREGEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, EM4CONF_SPEC, bool, O>;
 #[doc = "Field `BURTCWU` reader - Backup RTC EM4 wakeup enable"]
 pub type BURTCWU_R = crate::BitReader<bool>;
 #[doc = "Field `BURTCWU` writer - Backup RTC EM4 wakeup enable"]
-pub type BURTCWU_W<'a> = crate::BitWriter<'a, u32, EM4CONF_SPEC, bool, 1>;
+pub type BURTCWU_W<'a, const O: u8> = crate::BitWriter<'a, u32, EM4CONF_SPEC, bool, O>;
+#[doc = "Field `OSC` reader - Select EM4 duty oscillator"]
+pub type OSC_R = crate::FieldReader<u8, OSC_A>;
 #[doc = "Select EM4 duty oscillator\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum OSC_A {
     #[doc = "0: ULFRCO is available."]
@@ -59,8 +61,6 @@ impl From<OSC_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `OSC` reader - Select EM4 duty oscillator"]
-pub type OSC_R = crate::FieldReader<u8, OSC_A>;
 impl OSC_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -89,8 +89,8 @@ impl OSC_R {
     }
 }
 #[doc = "Field `OSC` writer - Select EM4 duty oscillator"]
-pub type OSC_W<'a> = crate::FieldWriter<'a, u32, EM4CONF_SPEC, u8, OSC_A, 2, 2>;
-impl<'a> OSC_W<'a> {
+pub type OSC_W<'a, const O: u8> = crate::FieldWriter<'a, u32, EM4CONF_SPEC, u8, OSC_A, 2, O>;
+impl<'a, const O: u8> OSC_W<'a, O> {
     #[doc = "ULFRCO is available."]
     #[inline(always)]
     pub fn ulfrco(self) -> &'a mut W {
@@ -110,11 +110,11 @@ impl<'a> OSC_W<'a> {
 #[doc = "Field `BUBODRSTDIS` reader - Disable reset from Backup BOD in EM4"]
 pub type BUBODRSTDIS_R = crate::BitReader<bool>;
 #[doc = "Field `BUBODRSTDIS` writer - Disable reset from Backup BOD in EM4"]
-pub type BUBODRSTDIS_W<'a> = crate::BitWriter<'a, u32, EM4CONF_SPEC, bool, 4>;
+pub type BUBODRSTDIS_W<'a, const O: u8> = crate::BitWriter<'a, u32, EM4CONF_SPEC, bool, O>;
 #[doc = "Field `LOCKCONF` reader - EM4 configuration lock enable"]
 pub type LOCKCONF_R = crate::BitReader<bool>;
 #[doc = "Field `LOCKCONF` writer - EM4 configuration lock enable"]
-pub type LOCKCONF_W<'a> = crate::BitWriter<'a, u32, EM4CONF_SPEC, bool, 16>;
+pub type LOCKCONF_W<'a, const O: u8> = crate::BitWriter<'a, u32, EM4CONF_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - EM4 voltage regulator enable"]
     #[inline(always)]
@@ -145,27 +145,32 @@ impl R {
 impl W {
     #[doc = "Bit 0 - EM4 voltage regulator enable"]
     #[inline(always)]
-    pub fn vregen(&mut self) -> VREGEN_W {
+    #[must_use]
+    pub fn vregen(&mut self) -> VREGEN_W<0> {
         VREGEN_W::new(self)
     }
     #[doc = "Bit 1 - Backup RTC EM4 wakeup enable"]
     #[inline(always)]
-    pub fn burtcwu(&mut self) -> BURTCWU_W {
+    #[must_use]
+    pub fn burtcwu(&mut self) -> BURTCWU_W<1> {
         BURTCWU_W::new(self)
     }
     #[doc = "Bits 2:3 - Select EM4 duty oscillator"]
     #[inline(always)]
-    pub fn osc(&mut self) -> OSC_W {
+    #[must_use]
+    pub fn osc(&mut self) -> OSC_W<2> {
         OSC_W::new(self)
     }
     #[doc = "Bit 4 - Disable reset from Backup BOD in EM4"]
     #[inline(always)]
-    pub fn bubodrstdis(&mut self) -> BUBODRSTDIS_W {
+    #[must_use]
+    pub fn bubodrstdis(&mut self) -> BUBODRSTDIS_W<4> {
         BUBODRSTDIS_W::new(self)
     }
     #[doc = "Bit 16 - EM4 configuration lock enable"]
     #[inline(always)]
-    pub fn lockconf(&mut self) -> LOCKCONF_W {
+    #[must_use]
+    pub fn lockconf(&mut self) -> LOCKCONF_W<16> {
         LOCKCONF_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -187,11 +192,10 @@ impl crate::Readable for EM4CONF_SPEC {
 #[doc = "`write(|w| ..)` method takes [em4conf::W](W) writer structure"]
 impl crate::Writable for EM4CONF_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets EM4CONF to value 0"]
 impl crate::Resettable for EM4CONF_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

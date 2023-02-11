@@ -20,32 +20,36 @@ impl From<crate::W<IFC_SPEC>> for W {
     }
 }
 #[doc = "Field `UF` writer - Underflow Interrupt Clear"]
-pub type UF_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 0>;
+pub type UF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `OF` writer - Overflow Interrupt Clear"]
-pub type OF_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 1>;
+pub type OF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `DIRCNG` writer - Direction Change Detect Interrupt Clear"]
-pub type DIRCNG_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 2>;
+pub type DIRCNG_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `AUXOF` writer - Auxiliary Overflow Interrupt Clear"]
-pub type AUXOF_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 3>;
+pub type AUXOF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 impl W {
     #[doc = "Bit 0 - Underflow Interrupt Clear"]
     #[inline(always)]
-    pub fn uf(&mut self) -> UF_W {
+    #[must_use]
+    pub fn uf(&mut self) -> UF_W<0> {
         UF_W::new(self)
     }
     #[doc = "Bit 1 - Overflow Interrupt Clear"]
     #[inline(always)]
-    pub fn of(&mut self) -> OF_W {
+    #[must_use]
+    pub fn of(&mut self) -> OF_W<1> {
         OF_W::new(self)
     }
     #[doc = "Bit 2 - Direction Change Detect Interrupt Clear"]
     #[inline(always)]
-    pub fn dircng(&mut self) -> DIRCNG_W {
+    #[must_use]
+    pub fn dircng(&mut self) -> DIRCNG_W<2> {
         DIRCNG_W::new(self)
     }
     #[doc = "Bit 3 - Auxiliary Overflow Interrupt Clear"]
     #[inline(always)]
-    pub fn auxof(&mut self) -> AUXOF_W {
+    #[must_use]
+    pub fn auxof(&mut self) -> AUXOF_W<3> {
         AUXOF_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -63,11 +67,10 @@ impl crate::RegisterSpec for IFC_SPEC {
 #[doc = "`write(|w| ..)` method takes [ifc::W](W) writer structure"]
 impl crate::Writable for IFC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IFC to value 0"]
 impl crate::Resettable for IFC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,11 +37,11 @@ impl From<crate::W<INSENSE_SPEC>> for W {
 #[doc = "Field `INT` reader - Interrupt Sense Enable"]
 pub type INT_R = crate::BitReader<bool>;
 #[doc = "Field `INT` writer - Interrupt Sense Enable"]
-pub type INT_W<'a> = crate::BitWriter<'a, u32, INSENSE_SPEC, bool, 0>;
+pub type INT_W<'a, const O: u8> = crate::BitWriter<'a, u32, INSENSE_SPEC, bool, O>;
 #[doc = "Field `PRS` reader - PRS Sense Enable"]
 pub type PRS_R = crate::BitReader<bool>;
 #[doc = "Field `PRS` writer - PRS Sense Enable"]
-pub type PRS_W<'a> = crate::BitWriter<'a, u32, INSENSE_SPEC, bool, 1>;
+pub type PRS_W<'a, const O: u8> = crate::BitWriter<'a, u32, INSENSE_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Interrupt Sense Enable"]
     #[inline(always)]
@@ -57,12 +57,14 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Interrupt Sense Enable"]
     #[inline(always)]
-    pub fn int(&mut self) -> INT_W {
+    #[must_use]
+    pub fn int(&mut self) -> INT_W<0> {
         INT_W::new(self)
     }
     #[doc = "Bit 1 - PRS Sense Enable"]
     #[inline(always)]
-    pub fn prs(&mut self) -> PRS_W {
+    #[must_use]
+    pub fn prs(&mut self) -> PRS_W<1> {
         PRS_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -84,11 +86,10 @@ impl crate::Readable for INSENSE_SPEC {
 #[doc = "`write(|w| ..)` method takes [insense::W](W) writer structure"]
 impl crate::Writable for INSENSE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets INSENSE to value 0x03"]
 impl crate::Resettable for INSENSE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x03
-    }
+    const RESET_VALUE: Self::Ux = 0x03;
 }

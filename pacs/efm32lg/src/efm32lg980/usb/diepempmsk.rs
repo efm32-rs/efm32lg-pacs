@@ -37,7 +37,8 @@ impl From<crate::W<DIEPEMPMSK_SPEC>> for W {
 #[doc = "Field `DIEPEMPMSK` reader - IN EP Tx FIFO Empty Interrupt Mask Bits"]
 pub type DIEPEMPMSK_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `DIEPEMPMSK` writer - IN EP Tx FIFO Empty Interrupt Mask Bits"]
-pub type DIEPEMPMSK_W<'a> = crate::FieldWriter<'a, u32, DIEPEMPMSK_SPEC, u16, u16, 16, 0>;
+pub type DIEPEMPMSK_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, DIEPEMPMSK_SPEC, u16, u16, 16, O>;
 impl R {
     #[doc = "Bits 0:15 - IN EP Tx FIFO Empty Interrupt Mask Bits"]
     #[inline(always)]
@@ -48,7 +49,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - IN EP Tx FIFO Empty Interrupt Mask Bits"]
     #[inline(always)]
-    pub fn diepempmsk(&mut self) -> DIEPEMPMSK_W {
+    #[must_use]
+    pub fn diepempmsk(&mut self) -> DIEPEMPMSK_W<0> {
         DIEPEMPMSK_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +72,10 @@ impl crate::Readable for DIEPEMPMSK_SPEC {
 #[doc = "`write(|w| ..)` method takes [diepempmsk::W](W) writer structure"]
 impl crate::Writable for DIEPEMPMSK_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DIEPEMPMSK to value 0"]
 impl crate::Resettable for DIEPEMPMSK_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

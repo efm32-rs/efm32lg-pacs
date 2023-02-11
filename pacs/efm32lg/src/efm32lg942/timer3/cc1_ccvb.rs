@@ -37,7 +37,7 @@ impl From<crate::W<CC1_CCVB_SPEC>> for W {
 #[doc = "Field `CCVB` reader - CC Channel Value Buffer"]
 pub type CCVB_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `CCVB` writer - CC Channel Value Buffer"]
-pub type CCVB_W<'a> = crate::FieldWriter<'a, u32, CC1_CCVB_SPEC, u16, u16, 16, 0>;
+pub type CCVB_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CC1_CCVB_SPEC, u16, u16, 16, O>;
 impl R {
     #[doc = "Bits 0:15 - CC Channel Value Buffer"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - CC Channel Value Buffer"]
     #[inline(always)]
-    pub fn ccvb(&mut self) -> CCVB_W {
+    #[must_use]
+    pub fn ccvb(&mut self) -> CCVB_W<0> {
         CCVB_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for CC1_CCVB_SPEC {
 #[doc = "`write(|w| ..)` method takes [cc1_ccvb::W](W) writer structure"]
 impl crate::Writable for CC1_CCVB_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CC1_CCVB to value 0"]
 impl crate::Resettable for CC1_CCVB_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

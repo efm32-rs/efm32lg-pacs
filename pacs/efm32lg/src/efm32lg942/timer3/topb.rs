@@ -37,7 +37,7 @@ impl From<crate::W<TOPB_SPEC>> for W {
 #[doc = "Field `TOPB` reader - Counter Top Value Buffer"]
 pub type TOPB_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `TOPB` writer - Counter Top Value Buffer"]
-pub type TOPB_W<'a> = crate::FieldWriter<'a, u32, TOPB_SPEC, u16, u16, 16, 0>;
+pub type TOPB_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TOPB_SPEC, u16, u16, 16, O>;
 impl R {
     #[doc = "Bits 0:15 - Counter Top Value Buffer"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - Counter Top Value Buffer"]
     #[inline(always)]
-    pub fn topb(&mut self) -> TOPB_W {
+    #[must_use]
+    pub fn topb(&mut self) -> TOPB_W<0> {
         TOPB_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for TOPB_SPEC {
 #[doc = "`write(|w| ..)` method takes [topb::W](W) writer structure"]
 impl crate::Writable for TOPB_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TOPB to value 0"]
 impl crate::Resettable for TOPB_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

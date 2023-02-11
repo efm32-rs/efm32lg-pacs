@@ -37,7 +37,7 @@ impl From<crate::W<ETMITCTRL_SPEC>> for W {
 #[doc = "Field `ITEN` reader - Integration Mode Enable"]
 pub type ITEN_R = crate::BitReader<bool>;
 #[doc = "Field `ITEN` writer - Integration Mode Enable"]
-pub type ITEN_W<'a> = crate::BitWriter<'a, u32, ETMITCTRL_SPEC, bool, 0>;
+pub type ITEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ETMITCTRL_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Integration Mode Enable"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Integration Mode Enable"]
     #[inline(always)]
-    pub fn iten(&mut self) -> ITEN_W {
+    #[must_use]
+    pub fn iten(&mut self) -> ITEN_W<0> {
         ITEN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for ETMITCTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [etmitctrl::W](W) writer structure"]
 impl crate::Writable for ETMITCTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ETMITCTRL to value 0"]
 impl crate::Resettable for ETMITCTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,18 +37,19 @@ impl From<crate::W<COMP1_SPEC>> for W {
 #[doc = "Field `COMP1` reader - Compare Value 1"]
 pub type COMP1_R = crate::FieldReader<u32, u32>;
 #[doc = "Field `COMP1` writer - Compare Value 1"]
-pub type COMP1_W<'a> = crate::FieldWriter<'a, u32, COMP1_SPEC, u32, u32, 24, 0>;
+pub type COMP1_W<'a, const O: u8> = crate::FieldWriter<'a, u32, COMP1_SPEC, u32, u32, 24, O>;
 impl R {
     #[doc = "Bits 0:23 - Compare Value 1"]
     #[inline(always)]
     pub fn comp1(&self) -> COMP1_R {
-        COMP1_R::new((self.bits & 0x00ff_ffff) as u32)
+        COMP1_R::new(self.bits & 0x00ff_ffff)
     }
 }
 impl W {
     #[doc = "Bits 0:23 - Compare Value 1"]
     #[inline(always)]
-    pub fn comp1(&mut self) -> COMP1_W {
+    #[must_use]
+    pub fn comp1(&mut self) -> COMP1_W<0> {
         COMP1_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for COMP1_SPEC {
 #[doc = "`write(|w| ..)` method takes [comp1::W](W) writer structure"]
 impl crate::Writable for COMP1_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets COMP1 to value 0"]
 impl crate::Resettable for COMP1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

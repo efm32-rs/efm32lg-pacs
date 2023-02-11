@@ -37,7 +37,8 @@ impl From<crate::W<STARTFRAME_SPEC>> for W {
 #[doc = "Field `STARTFRAME` reader - Start Frame"]
 pub type STARTFRAME_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `STARTFRAME` writer - Start Frame"]
-pub type STARTFRAME_W<'a> = crate::FieldWriter<'a, u32, STARTFRAME_SPEC, u16, u16, 9, 0>;
+pub type STARTFRAME_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, STARTFRAME_SPEC, u16, u16, 9, O>;
 impl R {
     #[doc = "Bits 0:8 - Start Frame"]
     #[inline(always)]
@@ -48,7 +49,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:8 - Start Frame"]
     #[inline(always)]
-    pub fn startframe(&mut self) -> STARTFRAME_W {
+    #[must_use]
+    pub fn startframe(&mut self) -> STARTFRAME_W<0> {
         STARTFRAME_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +72,10 @@ impl crate::Readable for STARTFRAME_SPEC {
 #[doc = "`write(|w| ..)` method takes [startframe::W](W) writer structure"]
 impl crate::Writable for STARTFRAME_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets STARTFRAME to value 0"]
 impl crate::Resettable for STARTFRAME_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,15 +37,15 @@ impl From<crate::W<PULSECTRL_SPEC>> for W {
 #[doc = "Field `PULSEW` reader - Pulse Width"]
 pub type PULSEW_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `PULSEW` writer - Pulse Width"]
-pub type PULSEW_W<'a> = crate::FieldWriter<'a, u32, PULSECTRL_SPEC, u8, u8, 4, 0>;
+pub type PULSEW_W<'a, const O: u8> = crate::FieldWriter<'a, u32, PULSECTRL_SPEC, u8, u8, 4, O>;
 #[doc = "Field `PULSEEN` reader - Pulse Generator/Extender Enable"]
 pub type PULSEEN_R = crate::BitReader<bool>;
 #[doc = "Field `PULSEEN` writer - Pulse Generator/Extender Enable"]
-pub type PULSEEN_W<'a> = crate::BitWriter<'a, u32, PULSECTRL_SPEC, bool, 4>;
+pub type PULSEEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, PULSECTRL_SPEC, bool, O>;
 #[doc = "Field `PULSEFILT` reader - Pulse Filter"]
 pub type PULSEFILT_R = crate::BitReader<bool>;
 #[doc = "Field `PULSEFILT` writer - Pulse Filter"]
-pub type PULSEFILT_W<'a> = crate::BitWriter<'a, u32, PULSECTRL_SPEC, bool, 5>;
+pub type PULSEFILT_W<'a, const O: u8> = crate::BitWriter<'a, u32, PULSECTRL_SPEC, bool, O>;
 impl R {
     #[doc = "Bits 0:3 - Pulse Width"]
     #[inline(always)]
@@ -66,17 +66,20 @@ impl R {
 impl W {
     #[doc = "Bits 0:3 - Pulse Width"]
     #[inline(always)]
-    pub fn pulsew(&mut self) -> PULSEW_W {
+    #[must_use]
+    pub fn pulsew(&mut self) -> PULSEW_W<0> {
         PULSEW_W::new(self)
     }
     #[doc = "Bit 4 - Pulse Generator/Extender Enable"]
     #[inline(always)]
-    pub fn pulseen(&mut self) -> PULSEEN_W {
+    #[must_use]
+    pub fn pulseen(&mut self) -> PULSEEN_W<4> {
         PULSEEN_W::new(self)
     }
     #[doc = "Bit 5 - Pulse Filter"]
     #[inline(always)]
-    pub fn pulsefilt(&mut self) -> PULSEFILT_W {
+    #[must_use]
+    pub fn pulsefilt(&mut self) -> PULSEFILT_W<5> {
         PULSEFILT_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -98,11 +101,10 @@ impl crate::Readable for PULSECTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [pulsectrl::W](W) writer structure"]
 impl crate::Writable for PULSECTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PULSECTRL to value 0"]
 impl crate::Resettable for PULSECTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

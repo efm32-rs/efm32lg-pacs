@@ -37,7 +37,7 @@ impl From<crate::W<AREGA_SPEC>> for W {
 #[doc = "Field `AREGA` reader - Animation Register A Data"]
 pub type AREGA_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `AREGA` writer - Animation Register A Data"]
-pub type AREGA_W<'a> = crate::FieldWriter<'a, u32, AREGA_SPEC, u8, u8, 8, 0>;
+pub type AREGA_W<'a, const O: u8> = crate::FieldWriter<'a, u32, AREGA_SPEC, u8, u8, 8, O>;
 impl R {
     #[doc = "Bits 0:7 - Animation Register A Data"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:7 - Animation Register A Data"]
     #[inline(always)]
-    pub fn arega(&mut self) -> AREGA_W {
+    #[must_use]
+    pub fn arega(&mut self) -> AREGA_W<0> {
         AREGA_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for AREGA_SPEC {
 #[doc = "`write(|w| ..)` method takes [arega::W](W) writer structure"]
 impl crate::Writable for AREGA_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets AREGA to value 0"]
 impl crate::Resettable for AREGA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

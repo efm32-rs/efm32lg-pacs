@@ -37,7 +37,7 @@ impl From<crate::W<ETMCLAIMCLR_SPEC>> for W {
 #[doc = "Field `CLRTAG` reader - Tag Bits"]
 pub type CLRTAG_R = crate::BitReader<bool>;
 #[doc = "Field `CLRTAG` writer - Tag Bits"]
-pub type CLRTAG_W<'a> = crate::BitWriter<'a, u32, ETMCLAIMCLR_SPEC, bool, 0>;
+pub type CLRTAG_W<'a, const O: u8> = crate::BitWriter<'a, u32, ETMCLAIMCLR_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Tag Bits"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Tag Bits"]
     #[inline(always)]
-    pub fn clrtag(&mut self) -> CLRTAG_W {
+    #[must_use]
+    pub fn clrtag(&mut self) -> CLRTAG_W<0> {
         CLRTAG_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for ETMCLAIMCLR_SPEC {
 #[doc = "`write(|w| ..)` method takes [etmclaimclr::W](W) writer structure"]
 impl crate::Writable for ETMCLAIMCLR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ETMCLAIMCLR to value 0"]
 impl crate::Resettable for ETMCLAIMCLR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

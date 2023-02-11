@@ -37,7 +37,7 @@ impl From<crate::W<REP0_SPEC>> for W {
 #[doc = "Field `REP0` reader - Repeat Counter 0"]
 pub type REP0_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `REP0` writer - Repeat Counter 0"]
-pub type REP0_W<'a> = crate::FieldWriter<'a, u32, REP0_SPEC, u8, u8, 8, 0>;
+pub type REP0_W<'a, const O: u8> = crate::FieldWriter<'a, u32, REP0_SPEC, u8, u8, 8, O>;
 impl R {
     #[doc = "Bits 0:7 - Repeat Counter 0"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:7 - Repeat Counter 0"]
     #[inline(always)]
-    pub fn rep0(&mut self) -> REP0_W {
+    #[must_use]
+    pub fn rep0(&mut self) -> REP0_W<0> {
         REP0_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for REP0_SPEC {
 #[doc = "`write(|w| ..)` method takes [rep0::W](W) writer structure"]
 impl crate::Writable for REP0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets REP0 to value 0"]
 impl crate::Resettable for REP0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

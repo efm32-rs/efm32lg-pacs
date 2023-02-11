@@ -37,11 +37,11 @@ impl From<crate::W<LOOP0_SPEC>> for W {
 #[doc = "Field `WIDTH` reader - Loop Width"]
 pub type WIDTH_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `WIDTH` writer - Loop Width"]
-pub type WIDTH_W<'a> = crate::FieldWriter<'a, u32, LOOP0_SPEC, u16, u16, 10, 0>;
+pub type WIDTH_W<'a, const O: u8> = crate::FieldWriter<'a, u32, LOOP0_SPEC, u16, u16, 10, O>;
 #[doc = "Field `EN` reader - DMA Channel 0 Loop Enable"]
 pub type EN_R = crate::BitReader<bool>;
 #[doc = "Field `EN` writer - DMA Channel 0 Loop Enable"]
-pub type EN_W<'a> = crate::BitWriter<'a, u32, LOOP0_SPEC, bool, 16>;
+pub type EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, LOOP0_SPEC, bool, O>;
 impl R {
     #[doc = "Bits 0:9 - Loop Width"]
     #[inline(always)]
@@ -57,12 +57,14 @@ impl R {
 impl W {
     #[doc = "Bits 0:9 - Loop Width"]
     #[inline(always)]
-    pub fn width(&mut self) -> WIDTH_W {
+    #[must_use]
+    pub fn width(&mut self) -> WIDTH_W<0> {
         WIDTH_W::new(self)
     }
     #[doc = "Bit 16 - DMA Channel 0 Loop Enable"]
     #[inline(always)]
-    pub fn en(&mut self) -> EN_W {
+    #[must_use]
+    pub fn en(&mut self) -> EN_W<16> {
         EN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -84,11 +86,10 @@ impl crate::Readable for LOOP0_SPEC {
 #[doc = "`write(|w| ..)` method takes [loop0::W](W) writer structure"]
 impl crate::Writable for LOOP0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets LOOP0 to value 0"]
 impl crate::Resettable for LOOP0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

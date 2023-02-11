@@ -37,20 +37,21 @@ impl From<crate::W<DIEP3_TSIZ_SPEC>> for W {
 #[doc = "Field `XFERSIZE` reader - Transfer Size"]
 pub type XFERSIZE_R = crate::FieldReader<u32, u32>;
 #[doc = "Field `XFERSIZE` writer - Transfer Size"]
-pub type XFERSIZE_W<'a> = crate::FieldWriter<'a, u32, DIEP3_TSIZ_SPEC, u32, u32, 19, 0>;
+pub type XFERSIZE_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, DIEP3_TSIZ_SPEC, u32, u32, 19, O>;
 #[doc = "Field `PKTCNT` reader - Packet Count"]
 pub type PKTCNT_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `PKTCNT` writer - Packet Count"]
-pub type PKTCNT_W<'a> = crate::FieldWriter<'a, u32, DIEP3_TSIZ_SPEC, u16, u16, 10, 19>;
+pub type PKTCNT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DIEP3_TSIZ_SPEC, u16, u16, 10, O>;
 #[doc = "Field `MC` reader - Multi Count"]
 pub type MC_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `MC` writer - Multi Count"]
-pub type MC_W<'a> = crate::FieldWriter<'a, u32, DIEP3_TSIZ_SPEC, u8, u8, 2, 29>;
+pub type MC_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DIEP3_TSIZ_SPEC, u8, u8, 2, O>;
 impl R {
     #[doc = "Bits 0:18 - Transfer Size"]
     #[inline(always)]
     pub fn xfersize(&self) -> XFERSIZE_R {
-        XFERSIZE_R::new((self.bits & 0x0007_ffff) as u32)
+        XFERSIZE_R::new(self.bits & 0x0007_ffff)
     }
     #[doc = "Bits 19:28 - Packet Count"]
     #[inline(always)]
@@ -66,17 +67,20 @@ impl R {
 impl W {
     #[doc = "Bits 0:18 - Transfer Size"]
     #[inline(always)]
-    pub fn xfersize(&mut self) -> XFERSIZE_W {
+    #[must_use]
+    pub fn xfersize(&mut self) -> XFERSIZE_W<0> {
         XFERSIZE_W::new(self)
     }
     #[doc = "Bits 19:28 - Packet Count"]
     #[inline(always)]
-    pub fn pktcnt(&mut self) -> PKTCNT_W {
+    #[must_use]
+    pub fn pktcnt(&mut self) -> PKTCNT_W<19> {
         PKTCNT_W::new(self)
     }
     #[doc = "Bits 29:30 - Multi Count"]
     #[inline(always)]
-    pub fn mc(&mut self) -> MC_W {
+    #[must_use]
+    pub fn mc(&mut self) -> MC_W<29> {
         MC_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -98,11 +102,10 @@ impl crate::Readable for DIEP3_TSIZ_SPEC {
 #[doc = "`write(|w| ..)` method takes [diep3_tsiz::W](W) writer structure"]
 impl crate::Writable for DIEP3_TSIZ_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DIEP3_TSIZ to value 0"]
 impl crate::Resettable for DIEP3_TSIZ_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

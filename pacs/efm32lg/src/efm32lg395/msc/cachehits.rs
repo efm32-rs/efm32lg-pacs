@@ -19,7 +19,7 @@ impl R {
     #[doc = "Bits 0:19 - Cache hits since last performance counter start command."]
     #[inline(always)]
     pub fn cachehits(&self) -> CACHEHITS_R {
-        CACHEHITS_R::new((self.bits & 0x000f_ffff) as u32)
+        CACHEHITS_R::new(self.bits & 0x000f_ffff)
     }
 }
 #[doc = "Cache Hits Performance Counter\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cachehits](index.html) module"]
@@ -33,8 +33,5 @@ impl crate::Readable for CACHEHITS_SPEC {
 }
 #[doc = "`reset()` method sets CACHEHITS to value 0"]
 impl crate::Resettable for CACHEHITS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

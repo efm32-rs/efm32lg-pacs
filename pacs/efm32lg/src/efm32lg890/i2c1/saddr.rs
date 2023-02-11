@@ -37,7 +37,7 @@ impl From<crate::W<SADDR_SPEC>> for W {
 #[doc = "Field `ADDR` reader - Slave address"]
 pub type ADDR_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `ADDR` writer - Slave address"]
-pub type ADDR_W<'a> = crate::FieldWriter<'a, u32, SADDR_SPEC, u8, u8, 7, 1>;
+pub type ADDR_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SADDR_SPEC, u8, u8, 7, O>;
 impl R {
     #[doc = "Bits 1:7 - Slave address"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 1:7 - Slave address"]
     #[inline(always)]
-    pub fn addr(&mut self) -> ADDR_W {
+    #[must_use]
+    pub fn addr(&mut self) -> ADDR_W<1> {
         ADDR_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for SADDR_SPEC {
 #[doc = "`write(|w| ..)` method takes [saddr::W](W) writer structure"]
 impl crate::Writable for SADDR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SADDR to value 0"]
 impl crate::Resettable for SADDR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

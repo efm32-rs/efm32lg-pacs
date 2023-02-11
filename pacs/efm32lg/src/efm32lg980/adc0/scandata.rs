@@ -33,8 +33,5 @@ impl crate::Readable for SCANDATA_SPEC {
 }
 #[doc = "`reset()` method sets SCANDATA to value 0"]
 impl crate::Resettable for SCANDATA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -33,8 +33,5 @@ impl crate::Readable for BUFDATA_SPEC {
 }
 #[doc = "`reset()` method sets BUFDATA to value 0"]
 impl crate::Resettable for BUFDATA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

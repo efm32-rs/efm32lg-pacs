@@ -33,8 +33,5 @@ impl crate::Readable for ALTCTRLBASE_SPEC {
 }
 #[doc = "`reset()` method sets ALTCTRLBASE to value 0x0100"]
 impl crate::Resettable for ALTCTRLBASE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0100
-    }
+    const RESET_VALUE: Self::Ux = 0x0100;
 }

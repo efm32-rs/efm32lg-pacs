@@ -37,7 +37,7 @@ impl From<crate::W<CHEN_SPEC>> for W {
 #[doc = "Field `CHEN` reader - Enable scan channel"]
 pub type CHEN_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `CHEN` writer - Enable scan channel"]
-pub type CHEN_W<'a> = crate::FieldWriter<'a, u32, CHEN_SPEC, u16, u16, 16, 0>;
+pub type CHEN_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CHEN_SPEC, u16, u16, 16, O>;
 impl R {
     #[doc = "Bits 0:15 - Enable scan channel"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - Enable scan channel"]
     #[inline(always)]
-    pub fn chen(&mut self) -> CHEN_W {
+    #[must_use]
+    pub fn chen(&mut self) -> CHEN_W<0> {
         CHEN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for CHEN_SPEC {
 #[doc = "`write(|w| ..)` method takes [chen::W](W) writer structure"]
 impl crate::Writable for CHEN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CHEN to value 0"]
 impl crate::Resettable for CHEN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

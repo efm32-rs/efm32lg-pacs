@@ -37,15 +37,15 @@ impl From<crate::W<ETMTSEVR_SPEC>> for W {
 #[doc = "Field `RESAEVT` reader - ETM Resource A Event"]
 pub type RESAEVT_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `RESAEVT` writer - ETM Resource A Event"]
-pub type RESAEVT_W<'a> = crate::FieldWriter<'a, u32, ETMTSEVR_SPEC, u8, u8, 7, 0>;
+pub type RESAEVT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ETMTSEVR_SPEC, u8, u8, 7, O>;
 #[doc = "Field `RESBEVT` reader - ETM Resource B Event"]
 pub type RESBEVT_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `RESBEVT` writer - ETM Resource B Event"]
-pub type RESBEVT_W<'a> = crate::FieldWriter<'a, u32, ETMTSEVR_SPEC, u8, u8, 7, 7>;
+pub type RESBEVT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ETMTSEVR_SPEC, u8, u8, 7, O>;
 #[doc = "Field `ETMFCNEVT` reader - ETM Function Event"]
 pub type ETMFCNEVT_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `ETMFCNEVT` writer - ETM Function Event"]
-pub type ETMFCNEVT_W<'a> = crate::FieldWriter<'a, u32, ETMTSEVR_SPEC, u8, u8, 3, 14>;
+pub type ETMFCNEVT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ETMTSEVR_SPEC, u8, u8, 3, O>;
 impl R {
     #[doc = "Bits 0:6 - ETM Resource A Event"]
     #[inline(always)]
@@ -66,17 +66,20 @@ impl R {
 impl W {
     #[doc = "Bits 0:6 - ETM Resource A Event"]
     #[inline(always)]
-    pub fn resaevt(&mut self) -> RESAEVT_W {
+    #[must_use]
+    pub fn resaevt(&mut self) -> RESAEVT_W<0> {
         RESAEVT_W::new(self)
     }
     #[doc = "Bits 7:13 - ETM Resource B Event"]
     #[inline(always)]
-    pub fn resbevt(&mut self) -> RESBEVT_W {
+    #[must_use]
+    pub fn resbevt(&mut self) -> RESBEVT_W<7> {
         RESBEVT_W::new(self)
     }
     #[doc = "Bits 14:16 - ETM Function Event"]
     #[inline(always)]
-    pub fn etmfcnevt(&mut self) -> ETMFCNEVT_W {
+    #[must_use]
+    pub fn etmfcnevt(&mut self) -> ETMFCNEVT_W<14> {
         ETMFCNEVT_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -98,11 +101,10 @@ impl crate::Readable for ETMTSEVR_SPEC {
 #[doc = "`write(|w| ..)` method takes [etmtsevr::W](W) writer structure"]
 impl crate::Writable for ETMTSEVR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ETMTSEVR to value 0"]
 impl crate::Resettable for ETMTSEVR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

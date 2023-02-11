@@ -37,7 +37,7 @@ impl From<crate::W<SEGEN_SPEC>> for W {
 #[doc = "Field `SEGEN` reader - Segment Enable"]
 pub type SEGEN_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `SEGEN` writer - Segment Enable"]
-pub type SEGEN_W<'a> = crate::FieldWriter<'a, u32, SEGEN_SPEC, u16, u16, 10, 0>;
+pub type SEGEN_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SEGEN_SPEC, u16, u16, 10, O>;
 impl R {
     #[doc = "Bits 0:9 - Segment Enable"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:9 - Segment Enable"]
     #[inline(always)]
-    pub fn segen(&mut self) -> SEGEN_W {
+    #[must_use]
+    pub fn segen(&mut self) -> SEGEN_W<0> {
         SEGEN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for SEGEN_SPEC {
 #[doc = "`write(|w| ..)` method takes [segen::W](W) writer structure"]
 impl crate::Writable for SEGEN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SEGEN to value 0"]
 impl crate::Resettable for SEGEN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

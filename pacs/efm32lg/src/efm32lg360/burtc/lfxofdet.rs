@@ -34,8 +34,10 @@ impl From<crate::W<LFXOFDET_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `OSC` reader - LFXO failure detection configuration."]
+pub type OSC_R = crate::FieldReader<u8, OSC_A>;
 #[doc = "LFXO failure detection configuration.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum OSC_A {
     #[doc = "0: LFXO failure detection disabled."]
@@ -51,8 +53,6 @@ impl From<OSC_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `OSC` reader - LFXO failure detection configuration."]
-pub type OSC_R = crate::FieldReader<u8, OSC_A>;
 impl OSC_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -81,8 +81,8 @@ impl OSC_R {
     }
 }
 #[doc = "Field `OSC` writer - LFXO failure detection configuration."]
-pub type OSC_W<'a> = crate::FieldWriter<'a, u32, LFXOFDET_SPEC, u8, OSC_A, 2, 0>;
-impl<'a> OSC_W<'a> {
+pub type OSC_W<'a, const O: u8> = crate::FieldWriter<'a, u32, LFXOFDET_SPEC, u8, OSC_A, 2, O>;
+impl<'a, const O: u8> OSC_W<'a, O> {
     #[doc = "LFXO failure detection disabled."]
     #[inline(always)]
     pub fn disable(self) -> &'a mut W {
@@ -102,7 +102,7 @@ impl<'a> OSC_W<'a> {
 #[doc = "Field `TOP` reader - LFXO failure counter top value."]
 pub type TOP_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `TOP` writer - LFXO failure counter top value."]
-pub type TOP_W<'a> = crate::FieldWriter<'a, u32, LFXOFDET_SPEC, u8, u8, 5, 4>;
+pub type TOP_W<'a, const O: u8> = crate::FieldWriter<'a, u32, LFXOFDET_SPEC, u8, u8, 5, O>;
 impl R {
     #[doc = "Bits 0:1 - LFXO failure detection configuration."]
     #[inline(always)]
@@ -118,12 +118,14 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - LFXO failure detection configuration."]
     #[inline(always)]
-    pub fn osc(&mut self) -> OSC_W {
+    #[must_use]
+    pub fn osc(&mut self) -> OSC_W<0> {
         OSC_W::new(self)
     }
     #[doc = "Bits 4:8 - LFXO failure counter top value."]
     #[inline(always)]
-    pub fn top(&mut self) -> TOP_W {
+    #[must_use]
+    pub fn top(&mut self) -> TOP_W<4> {
         TOP_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -145,11 +147,10 @@ impl crate::Readable for LFXOFDET_SPEC {
 #[doc = "`write(|w| ..)` method takes [lfxofdet::W](W) writer structure"]
 impl crate::Writable for LFXOFDET_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets LFXOFDET to value 0"]
 impl crate::Resettable for LFXOFDET_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

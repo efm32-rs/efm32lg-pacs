@@ -37,43 +37,43 @@ impl From<crate::W<HC7_INT_SPEC>> for W {
 #[doc = "Field `XFERCOMPL` reader - Transfer Completed"]
 pub type XFERCOMPL_R = crate::BitReader<bool>;
 #[doc = "Field `XFERCOMPL` writer - Transfer Completed"]
-pub type XFERCOMPL_W<'a> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, 0>;
+pub type XFERCOMPL_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, O>;
 #[doc = "Field `CHHLTD` reader - Channel Halted"]
 pub type CHHLTD_R = crate::BitReader<bool>;
 #[doc = "Field `CHHLTD` writer - Channel Halted"]
-pub type CHHLTD_W<'a> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, 1>;
+pub type CHHLTD_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, O>;
 #[doc = "Field `AHBERR` reader - AHB Error"]
 pub type AHBERR_R = crate::BitReader<bool>;
 #[doc = "Field `AHBERR` writer - AHB Error"]
-pub type AHBERR_W<'a> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, 2>;
+pub type AHBERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, O>;
 #[doc = "Field `STALL` reader - STALL Response Received Interrupt"]
 pub type STALL_R = crate::BitReader<bool>;
 #[doc = "Field `STALL` writer - STALL Response Received Interrupt"]
-pub type STALL_W<'a> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, 3>;
+pub type STALL_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, O>;
 #[doc = "Field `NAK` reader - NAK Response Received Interrupt"]
 pub type NAK_R = crate::BitReader<bool>;
 #[doc = "Field `NAK` writer - NAK Response Received Interrupt"]
-pub type NAK_W<'a> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, 4>;
+pub type NAK_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, O>;
 #[doc = "Field `ACK` reader - ACK Response Received/Transmitted Interrupt"]
 pub type ACK_R = crate::BitReader<bool>;
 #[doc = "Field `ACK` writer - ACK Response Received/Transmitted Interrupt"]
-pub type ACK_W<'a> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, 5>;
+pub type ACK_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, O>;
 #[doc = "Field `XACTERR` reader - Transaction Error"]
 pub type XACTERR_R = crate::BitReader<bool>;
 #[doc = "Field `XACTERR` writer - Transaction Error"]
-pub type XACTERR_W<'a> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, 7>;
+pub type XACTERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, O>;
 #[doc = "Field `BBLERR` reader - Babble Error"]
 pub type BBLERR_R = crate::BitReader<bool>;
 #[doc = "Field `BBLERR` writer - Babble Error"]
-pub type BBLERR_W<'a> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, 8>;
+pub type BBLERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, O>;
 #[doc = "Field `FRMOVRUN` reader - Frame Overrun"]
 pub type FRMOVRUN_R = crate::BitReader<bool>;
 #[doc = "Field `FRMOVRUN` writer - Frame Overrun"]
-pub type FRMOVRUN_W<'a> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, 9>;
+pub type FRMOVRUN_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, O>;
 #[doc = "Field `DATATGLERR` reader - Data Toggle Error"]
 pub type DATATGLERR_R = crate::BitReader<bool>;
 #[doc = "Field `DATATGLERR` writer - Data Toggle Error"]
-pub type DATATGLERR_W<'a> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, 10>;
+pub type DATATGLERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC7_INT_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Transfer Completed"]
     #[inline(always)]
@@ -129,52 +129,62 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Transfer Completed"]
     #[inline(always)]
-    pub fn xfercompl(&mut self) -> XFERCOMPL_W {
+    #[must_use]
+    pub fn xfercompl(&mut self) -> XFERCOMPL_W<0> {
         XFERCOMPL_W::new(self)
     }
     #[doc = "Bit 1 - Channel Halted"]
     #[inline(always)]
-    pub fn chhltd(&mut self) -> CHHLTD_W {
+    #[must_use]
+    pub fn chhltd(&mut self) -> CHHLTD_W<1> {
         CHHLTD_W::new(self)
     }
     #[doc = "Bit 2 - AHB Error"]
     #[inline(always)]
-    pub fn ahberr(&mut self) -> AHBERR_W {
+    #[must_use]
+    pub fn ahberr(&mut self) -> AHBERR_W<2> {
         AHBERR_W::new(self)
     }
     #[doc = "Bit 3 - STALL Response Received Interrupt"]
     #[inline(always)]
-    pub fn stall(&mut self) -> STALL_W {
+    #[must_use]
+    pub fn stall(&mut self) -> STALL_W<3> {
         STALL_W::new(self)
     }
     #[doc = "Bit 4 - NAK Response Received Interrupt"]
     #[inline(always)]
-    pub fn nak(&mut self) -> NAK_W {
+    #[must_use]
+    pub fn nak(&mut self) -> NAK_W<4> {
         NAK_W::new(self)
     }
     #[doc = "Bit 5 - ACK Response Received/Transmitted Interrupt"]
     #[inline(always)]
-    pub fn ack(&mut self) -> ACK_W {
+    #[must_use]
+    pub fn ack(&mut self) -> ACK_W<5> {
         ACK_W::new(self)
     }
     #[doc = "Bit 7 - Transaction Error"]
     #[inline(always)]
-    pub fn xacterr(&mut self) -> XACTERR_W {
+    #[must_use]
+    pub fn xacterr(&mut self) -> XACTERR_W<7> {
         XACTERR_W::new(self)
     }
     #[doc = "Bit 8 - Babble Error"]
     #[inline(always)]
-    pub fn bblerr(&mut self) -> BBLERR_W {
+    #[must_use]
+    pub fn bblerr(&mut self) -> BBLERR_W<8> {
         BBLERR_W::new(self)
     }
     #[doc = "Bit 9 - Frame Overrun"]
     #[inline(always)]
-    pub fn frmovrun(&mut self) -> FRMOVRUN_W {
+    #[must_use]
+    pub fn frmovrun(&mut self) -> FRMOVRUN_W<9> {
         FRMOVRUN_W::new(self)
     }
     #[doc = "Bit 10 - Data Toggle Error"]
     #[inline(always)]
-    pub fn datatglerr(&mut self) -> DATATGLERR_W {
+    #[must_use]
+    pub fn datatglerr(&mut self) -> DATATGLERR_W<10> {
         DATATGLERR_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -196,11 +206,10 @@ impl crate::Readable for HC7_INT_SPEC {
 #[doc = "`write(|w| ..)` method takes [hc7_int::W](W) writer structure"]
 impl crate::Writable for HC7_INT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets HC7_INT to value 0"]
 impl crate::Resettable for HC7_INT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

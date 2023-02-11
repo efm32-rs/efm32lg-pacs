@@ -20,7 +20,7 @@ impl From<crate::W<CMD_SPEC>> for W {
     }
 }
 #[doc = "HFCLK Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum HFCLKSEL_AW {
     #[doc = "1: Select HFRCO as HFCLK."]
@@ -39,8 +39,8 @@ impl From<HFCLKSEL_AW> for u8 {
     }
 }
 #[doc = "Field `HFCLKSEL` writer - HFCLK Select"]
-pub type HFCLKSEL_W<'a> = crate::FieldWriter<'a, u32, CMD_SPEC, u8, HFCLKSEL_AW, 3, 0>;
-impl<'a> HFCLKSEL_W<'a> {
+pub type HFCLKSEL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CMD_SPEC, u8, HFCLKSEL_AW, 3, O>;
+impl<'a, const O: u8> HFCLKSEL_W<'a, O> {
     #[doc = "Select HFRCO as HFCLK."]
     #[inline(always)]
     pub fn hfrco(self) -> &'a mut W {
@@ -63,23 +63,26 @@ impl<'a> HFCLKSEL_W<'a> {
     }
 }
 #[doc = "Field `CALSTART` writer - Calibration Start"]
-pub type CALSTART_W<'a> = crate::BitWriter<'a, u32, CMD_SPEC, bool, 3>;
+pub type CALSTART_W<'a, const O: u8> = crate::BitWriter<'a, u32, CMD_SPEC, bool, O>;
 #[doc = "Field `CALSTOP` writer - Calibration Stop"]
-pub type CALSTOP_W<'a> = crate::BitWriter<'a, u32, CMD_SPEC, bool, 4>;
+pub type CALSTOP_W<'a, const O: u8> = crate::BitWriter<'a, u32, CMD_SPEC, bool, O>;
 impl W {
     #[doc = "Bits 0:2 - HFCLK Select"]
     #[inline(always)]
-    pub fn hfclksel(&mut self) -> HFCLKSEL_W {
+    #[must_use]
+    pub fn hfclksel(&mut self) -> HFCLKSEL_W<0> {
         HFCLKSEL_W::new(self)
     }
     #[doc = "Bit 3 - Calibration Start"]
     #[inline(always)]
-    pub fn calstart(&mut self) -> CALSTART_W {
+    #[must_use]
+    pub fn calstart(&mut self) -> CALSTART_W<3> {
         CALSTART_W::new(self)
     }
     #[doc = "Bit 4 - Calibration Stop"]
     #[inline(always)]
-    pub fn calstop(&mut self) -> CALSTOP_W {
+    #[must_use]
+    pub fn calstop(&mut self) -> CALSTOP_W<4> {
         CALSTOP_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -97,11 +100,10 @@ impl crate::RegisterSpec for CMD_SPEC {
 #[doc = "`write(|w| ..)` method takes [cmd::W](W) writer structure"]
 impl crate::Writable for CMD_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CMD to value 0"]
 impl crate::Resettable for CMD_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

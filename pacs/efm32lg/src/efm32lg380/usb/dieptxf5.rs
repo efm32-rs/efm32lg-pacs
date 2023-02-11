@@ -37,11 +37,13 @@ impl From<crate::W<DIEPTXF5_SPEC>> for W {
 #[doc = "Field `INEPNTXFSTADDR` reader - IN Endpoint FIFO 5 Transmit RAM Start Address"]
 pub type INEPNTXFSTADDR_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `INEPNTXFSTADDR` writer - IN Endpoint FIFO 5 Transmit RAM Start Address"]
-pub type INEPNTXFSTADDR_W<'a> = crate::FieldWriter<'a, u32, DIEPTXF5_SPEC, u16, u16, 12, 0>;
+pub type INEPNTXFSTADDR_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, DIEPTXF5_SPEC, u16, u16, 12, O>;
 #[doc = "Field `INEPNTXFDEP` reader - IN Endpoint TxFIFO Depth"]
 pub type INEPNTXFDEP_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `INEPNTXFDEP` writer - IN Endpoint TxFIFO Depth"]
-pub type INEPNTXFDEP_W<'a> = crate::FieldWriter<'a, u32, DIEPTXF5_SPEC, u16, u16, 10, 16>;
+pub type INEPNTXFDEP_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, DIEPTXF5_SPEC, u16, u16, 10, O>;
 impl R {
     #[doc = "Bits 0:11 - IN Endpoint FIFO 5 Transmit RAM Start Address"]
     #[inline(always)]
@@ -57,12 +59,14 @@ impl R {
 impl W {
     #[doc = "Bits 0:11 - IN Endpoint FIFO 5 Transmit RAM Start Address"]
     #[inline(always)]
-    pub fn inepntxfstaddr(&mut self) -> INEPNTXFSTADDR_W {
+    #[must_use]
+    pub fn inepntxfstaddr(&mut self) -> INEPNTXFSTADDR_W<0> {
         INEPNTXFSTADDR_W::new(self)
     }
     #[doc = "Bits 16:25 - IN Endpoint TxFIFO Depth"]
     #[inline(always)]
-    pub fn inepntxfdep(&mut self) -> INEPNTXFDEP_W {
+    #[must_use]
+    pub fn inepntxfdep(&mut self) -> INEPNTXFDEP_W<16> {
         INEPNTXFDEP_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -84,11 +88,10 @@ impl crate::Readable for DIEPTXF5_SPEC {
 #[doc = "`write(|w| ..)` method takes [dieptxf5::W](W) writer structure"]
 impl crate::Writable for DIEPTXF5_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DIEPTXF5 to value 0x0200_0c00"]
 impl crate::Resettable for DIEPTXF5_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0200_0c00
-    }
+    const RESET_VALUE: Self::Ux = 0x0200_0c00;
 }

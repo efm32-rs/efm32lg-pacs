@@ -37,9 +37,11 @@ impl From<crate::W<HFRCOCTRL_SPEC>> for W {
 #[doc = "Field `TUNING` reader - HFRCO Tuning Value"]
 pub type TUNING_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `TUNING` writer - HFRCO Tuning Value"]
-pub type TUNING_W<'a> = crate::FieldWriter<'a, u32, HFRCOCTRL_SPEC, u8, u8, 8, 0>;
+pub type TUNING_W<'a, const O: u8> = crate::FieldWriter<'a, u32, HFRCOCTRL_SPEC, u8, u8, 8, O>;
+#[doc = "Field `BAND` reader - HFRCO Band Select"]
+pub type BAND_R = crate::FieldReader<u8, BAND_A>;
 #[doc = "HFRCO Band Select\n\nValue on reset: 3"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum BAND_A {
     #[doc = "0: 1 MHz band. NOTE: Also set the TUNING value (bits 7:0) when changing band."]
@@ -61,8 +63,6 @@ impl From<BAND_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `BAND` reader - HFRCO Band Select"]
-pub type BAND_R = crate::FieldReader<u8, BAND_A>;
 impl BAND_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -109,8 +109,8 @@ impl BAND_R {
     }
 }
 #[doc = "Field `BAND` writer - HFRCO Band Select"]
-pub type BAND_W<'a> = crate::FieldWriter<'a, u32, HFRCOCTRL_SPEC, u8, BAND_A, 3, 8>;
-impl<'a> BAND_W<'a> {
+pub type BAND_W<'a, const O: u8> = crate::FieldWriter<'a, u32, HFRCOCTRL_SPEC, u8, BAND_A, 3, O>;
+impl<'a, const O: u8> BAND_W<'a, O> {
     #[doc = "1 MHz band. NOTE: Also set the TUNING value (bits 7:0) when changing band."]
     #[inline(always)]
     pub fn _1mhz(self) -> &'a mut W {
@@ -145,7 +145,7 @@ impl<'a> BAND_W<'a> {
 #[doc = "Field `SUDELAY` reader - HFRCO Start-up Delay"]
 pub type SUDELAY_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `SUDELAY` writer - HFRCO Start-up Delay"]
-pub type SUDELAY_W<'a> = crate::FieldWriter<'a, u32, HFRCOCTRL_SPEC, u8, u8, 5, 12>;
+pub type SUDELAY_W<'a, const O: u8> = crate::FieldWriter<'a, u32, HFRCOCTRL_SPEC, u8, u8, 5, O>;
 impl R {
     #[doc = "Bits 0:7 - HFRCO Tuning Value"]
     #[inline(always)]
@@ -166,17 +166,20 @@ impl R {
 impl W {
     #[doc = "Bits 0:7 - HFRCO Tuning Value"]
     #[inline(always)]
-    pub fn tuning(&mut self) -> TUNING_W {
+    #[must_use]
+    pub fn tuning(&mut self) -> TUNING_W<0> {
         TUNING_W::new(self)
     }
     #[doc = "Bits 8:10 - HFRCO Band Select"]
     #[inline(always)]
-    pub fn band(&mut self) -> BAND_W {
+    #[must_use]
+    pub fn band(&mut self) -> BAND_W<8> {
         BAND_W::new(self)
     }
     #[doc = "Bits 12:16 - HFRCO Start-up Delay"]
     #[inline(always)]
-    pub fn sudelay(&mut self) -> SUDELAY_W {
+    #[must_use]
+    pub fn sudelay(&mut self) -> SUDELAY_W<12> {
         SUDELAY_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -198,11 +201,10 @@ impl crate::Readable for HFRCOCTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [hfrcoctrl::W](W) writer structure"]
 impl crate::Writable for HFRCOCTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets HFRCOCTRL to value 0x0380"]
 impl crate::Resettable for HFRCOCTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0380
-    }
+    const RESET_VALUE: Self::Ux = 0x0380;
 }

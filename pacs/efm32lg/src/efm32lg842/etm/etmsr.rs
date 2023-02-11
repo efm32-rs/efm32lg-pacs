@@ -41,11 +41,11 @@ pub type ETMPROGBIT_R = crate::BitReader<bool>;
 #[doc = "Field `TRACESTAT` reader - Trace Start/Stop Status"]
 pub type TRACESTAT_R = crate::BitReader<bool>;
 #[doc = "Field `TRACESTAT` writer - Trace Start/Stop Status"]
-pub type TRACESTAT_W<'a> = crate::BitWriter<'a, u32, ETMSR_SPEC, bool, 2>;
+pub type TRACESTAT_W<'a, const O: u8> = crate::BitWriter<'a, u32, ETMSR_SPEC, bool, O>;
 #[doc = "Field `TRIGBIT` reader - Trigger Bit"]
 pub type TRIGBIT_R = crate::BitReader<bool>;
 #[doc = "Field `TRIGBIT` writer - Trigger Bit"]
-pub type TRIGBIT_W<'a> = crate::BitWriter<'a, u32, ETMSR_SPEC, bool, 3>;
+pub type TRIGBIT_W<'a, const O: u8> = crate::BitWriter<'a, u32, ETMSR_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - ETM Overflow"]
     #[inline(always)]
@@ -71,12 +71,14 @@ impl R {
 impl W {
     #[doc = "Bit 2 - Trace Start/Stop Status"]
     #[inline(always)]
-    pub fn tracestat(&mut self) -> TRACESTAT_W {
+    #[must_use]
+    pub fn tracestat(&mut self) -> TRACESTAT_W<2> {
         TRACESTAT_W::new(self)
     }
     #[doc = "Bit 3 - Trigger Bit"]
     #[inline(always)]
-    pub fn trigbit(&mut self) -> TRIGBIT_W {
+    #[must_use]
+    pub fn trigbit(&mut self) -> TRIGBIT_W<3> {
         TRIGBIT_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -98,11 +100,10 @@ impl crate::Readable for ETMSR_SPEC {
 #[doc = "`write(|w| ..)` method takes [etmsr::W](W) writer structure"]
 impl crate::Writable for ETMSR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ETMSR to value 0x02"]
 impl crate::Resettable for ETMSR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x02
-    }
+    const RESET_VALUE: Self::Ux = 0x02;
 }

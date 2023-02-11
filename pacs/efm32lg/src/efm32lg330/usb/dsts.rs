@@ -15,8 +15,10 @@ impl From<crate::R<DSTS_SPEC>> for R {
 }
 #[doc = "Field `SUSPSTS` reader - Suspend Status"]
 pub type SUSPSTS_R = crate::BitReader<bool>;
+#[doc = "Field `ENUMSPD` reader - Enumerated Speed"]
+pub type ENUMSPD_R = crate::FieldReader<u8, ENUMSPD_A>;
 #[doc = "Enumerated Speed\n\nValue on reset: 1"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum ENUMSPD_A {
     #[doc = "2: Low speed (PHY clock is running at 6 MHz)."]
@@ -30,8 +32,6 @@ impl From<ENUMSPD_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `ENUMSPD` reader - Enumerated Speed"]
-pub type ENUMSPD_R = crate::FieldReader<u8, ENUMSPD_A>;
 impl ENUMSPD_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -90,8 +90,5 @@ impl crate::Readable for DSTS_SPEC {
 }
 #[doc = "`reset()` method sets DSTS to value 0x02"]
 impl crate::Resettable for DSTS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x02
-    }
+    const RESET_VALUE: Self::Ux = 0x02;
 }

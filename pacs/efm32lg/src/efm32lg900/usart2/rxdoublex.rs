@@ -68,8 +68,5 @@ impl crate::Readable for RXDOUBLEX_SPEC {
 }
 #[doc = "`reset()` method sets RXDOUBLEX to value 0"]
 impl crate::Resettable for RXDOUBLEX_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

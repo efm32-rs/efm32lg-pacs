@@ -37,13 +37,15 @@ impl From<crate::W<LCDCTRL_SPEC>> for W {
 #[doc = "Field `FDIV` reader - Frame Rate Control"]
 pub type FDIV_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `FDIV` writer - Frame Rate Control"]
-pub type FDIV_W<'a> = crate::FieldWriter<'a, u32, LCDCTRL_SPEC, u8, u8, 3, 0>;
+pub type FDIV_W<'a, const O: u8> = crate::FieldWriter<'a, u32, LCDCTRL_SPEC, u8, u8, 3, O>;
 #[doc = "Field `VBOOSTEN` reader - Voltage Boost Enable"]
 pub type VBOOSTEN_R = crate::BitReader<bool>;
 #[doc = "Field `VBOOSTEN` writer - Voltage Boost Enable"]
-pub type VBOOSTEN_W<'a> = crate::BitWriter<'a, u32, LCDCTRL_SPEC, bool, 3>;
+pub type VBOOSTEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, LCDCTRL_SPEC, bool, O>;
+#[doc = "Field `VBFDIV` reader - Voltage Boost Frequency Division"]
+pub type VBFDIV_R = crate::FieldReader<u8, VBFDIV_A>;
 #[doc = "Voltage Boost Frequency Division\n\nValue on reset: 2"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum VBFDIV_A {
     #[doc = "0: Voltage Boost update Frequency = LFACLK."]
@@ -69,8 +71,6 @@ impl From<VBFDIV_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `VBFDIV` reader - Voltage Boost Frequency Division"]
-pub type VBFDIV_R = crate::FieldReader<u8, VBFDIV_A>;
 impl VBFDIV_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -129,8 +129,9 @@ impl VBFDIV_R {
     }
 }
 #[doc = "Field `VBFDIV` writer - Voltage Boost Frequency Division"]
-pub type VBFDIV_W<'a> = crate::FieldWriterSafe<'a, u32, LCDCTRL_SPEC, u8, VBFDIV_A, 3, 4>;
-impl<'a> VBFDIV_W<'a> {
+pub type VBFDIV_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, LCDCTRL_SPEC, u8, VBFDIV_A, 3, O>;
+impl<'a, const O: u8> VBFDIV_W<'a, O> {
     #[doc = "Voltage Boost update Frequency = LFACLK."]
     #[inline(always)]
     pub fn div1(self) -> &'a mut W {
@@ -192,17 +193,20 @@ impl R {
 impl W {
     #[doc = "Bits 0:2 - Frame Rate Control"]
     #[inline(always)]
-    pub fn fdiv(&mut self) -> FDIV_W {
+    #[must_use]
+    pub fn fdiv(&mut self) -> FDIV_W<0> {
         FDIV_W::new(self)
     }
     #[doc = "Bit 3 - Voltage Boost Enable"]
     #[inline(always)]
-    pub fn vboosten(&mut self) -> VBOOSTEN_W {
+    #[must_use]
+    pub fn vboosten(&mut self) -> VBOOSTEN_W<3> {
         VBOOSTEN_W::new(self)
     }
     #[doc = "Bits 4:6 - Voltage Boost Frequency Division"]
     #[inline(always)]
-    pub fn vbfdiv(&mut self) -> VBFDIV_W {
+    #[must_use]
+    pub fn vbfdiv(&mut self) -> VBFDIV_W<4> {
         VBFDIV_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -224,11 +228,10 @@ impl crate::Readable for LCDCTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [lcdctrl::W](W) writer structure"]
 impl crate::Writable for LCDCTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets LCDCTRL to value 0x20"]
 impl crate::Resettable for LCDCTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x20
-    }
+    const RESET_VALUE: Self::Ux = 0x20;
 }

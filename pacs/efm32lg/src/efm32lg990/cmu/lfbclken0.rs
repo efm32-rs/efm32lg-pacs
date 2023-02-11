@@ -37,11 +37,11 @@ impl From<crate::W<LFBCLKEN0_SPEC>> for W {
 #[doc = "Field `LEUART0` reader - Low Energy UART 0 Clock Enable"]
 pub type LEUART0_R = crate::BitReader<bool>;
 #[doc = "Field `LEUART0` writer - Low Energy UART 0 Clock Enable"]
-pub type LEUART0_W<'a> = crate::BitWriter<'a, u32, LFBCLKEN0_SPEC, bool, 0>;
+pub type LEUART0_W<'a, const O: u8> = crate::BitWriter<'a, u32, LFBCLKEN0_SPEC, bool, O>;
 #[doc = "Field `LEUART1` reader - Low Energy UART 1 Clock Enable"]
 pub type LEUART1_R = crate::BitReader<bool>;
 #[doc = "Field `LEUART1` writer - Low Energy UART 1 Clock Enable"]
-pub type LEUART1_W<'a> = crate::BitWriter<'a, u32, LFBCLKEN0_SPEC, bool, 1>;
+pub type LEUART1_W<'a, const O: u8> = crate::BitWriter<'a, u32, LFBCLKEN0_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Low Energy UART 0 Clock Enable"]
     #[inline(always)]
@@ -57,12 +57,14 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Low Energy UART 0 Clock Enable"]
     #[inline(always)]
-    pub fn leuart0(&mut self) -> LEUART0_W {
+    #[must_use]
+    pub fn leuart0(&mut self) -> LEUART0_W<0> {
         LEUART0_W::new(self)
     }
     #[doc = "Bit 1 - Low Energy UART 1 Clock Enable"]
     #[inline(always)]
-    pub fn leuart1(&mut self) -> LEUART1_W {
+    #[must_use]
+    pub fn leuart1(&mut self) -> LEUART1_W<1> {
         LEUART1_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -84,11 +86,10 @@ impl crate::Readable for LFBCLKEN0_SPEC {
 #[doc = "`write(|w| ..)` method takes [lfbclken0::W](W) writer structure"]
 impl crate::Writable for LFBCLKEN0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets LFBCLKEN0 to value 0"]
 impl crate::Resettable for LFBCLKEN0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

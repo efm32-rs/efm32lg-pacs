@@ -37,27 +37,27 @@ impl From<crate::W<GOTGINT_SPEC>> for W {
 #[doc = "Field `SESENDDET` reader - Session End Detected host and device"]
 pub type SESENDDET_R = crate::BitReader<bool>;
 #[doc = "Field `SESENDDET` writer - Session End Detected host and device"]
-pub type SESENDDET_W<'a> = crate::BitWriter<'a, u32, GOTGINT_SPEC, bool, 2>;
+pub type SESENDDET_W<'a, const O: u8> = crate::BitWriter<'a, u32, GOTGINT_SPEC, bool, O>;
 #[doc = "Field `SESREQSUCSTSCHNG` reader - Session Request Success Status Change host and device"]
 pub type SESREQSUCSTSCHNG_R = crate::BitReader<bool>;
 #[doc = "Field `SESREQSUCSTSCHNG` writer - Session Request Success Status Change host and device"]
-pub type SESREQSUCSTSCHNG_W<'a> = crate::BitWriter<'a, u32, GOTGINT_SPEC, bool, 8>;
+pub type SESREQSUCSTSCHNG_W<'a, const O: u8> = crate::BitWriter<'a, u32, GOTGINT_SPEC, bool, O>;
 #[doc = "Field `HSTNEGSUCSTSCHNG` reader - Host Negotiation Success Status Change host and device"]
 pub type HSTNEGSUCSTSCHNG_R = crate::BitReader<bool>;
 #[doc = "Field `HSTNEGSUCSTSCHNG` writer - Host Negotiation Success Status Change host and device"]
-pub type HSTNEGSUCSTSCHNG_W<'a> = crate::BitWriter<'a, u32, GOTGINT_SPEC, bool, 9>;
+pub type HSTNEGSUCSTSCHNG_W<'a, const O: u8> = crate::BitWriter<'a, u32, GOTGINT_SPEC, bool, O>;
 #[doc = "Field `HSTNEGDET` reader - Host Negotiation Detected host and device"]
 pub type HSTNEGDET_R = crate::BitReader<bool>;
 #[doc = "Field `HSTNEGDET` writer - Host Negotiation Detected host and device"]
-pub type HSTNEGDET_W<'a> = crate::BitWriter<'a, u32, GOTGINT_SPEC, bool, 17>;
+pub type HSTNEGDET_W<'a, const O: u8> = crate::BitWriter<'a, u32, GOTGINT_SPEC, bool, O>;
 #[doc = "Field `ADEVTOUTCHG` reader - A-Device Timeout Change host and device"]
 pub type ADEVTOUTCHG_R = crate::BitReader<bool>;
 #[doc = "Field `ADEVTOUTCHG` writer - A-Device Timeout Change host and device"]
-pub type ADEVTOUTCHG_W<'a> = crate::BitWriter<'a, u32, GOTGINT_SPEC, bool, 18>;
+pub type ADEVTOUTCHG_W<'a, const O: u8> = crate::BitWriter<'a, u32, GOTGINT_SPEC, bool, O>;
 #[doc = "Field `DBNCEDONE` reader - Debounce Done host only"]
 pub type DBNCEDONE_R = crate::BitReader<bool>;
 #[doc = "Field `DBNCEDONE` writer - Debounce Done host only"]
-pub type DBNCEDONE_W<'a> = crate::BitWriter<'a, u32, GOTGINT_SPEC, bool, 19>;
+pub type DBNCEDONE_W<'a, const O: u8> = crate::BitWriter<'a, u32, GOTGINT_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 2 - Session End Detected host and device"]
     #[inline(always)]
@@ -93,32 +93,38 @@ impl R {
 impl W {
     #[doc = "Bit 2 - Session End Detected host and device"]
     #[inline(always)]
-    pub fn sesenddet(&mut self) -> SESENDDET_W {
+    #[must_use]
+    pub fn sesenddet(&mut self) -> SESENDDET_W<2> {
         SESENDDET_W::new(self)
     }
     #[doc = "Bit 8 - Session Request Success Status Change host and device"]
     #[inline(always)]
-    pub fn sesreqsucstschng(&mut self) -> SESREQSUCSTSCHNG_W {
+    #[must_use]
+    pub fn sesreqsucstschng(&mut self) -> SESREQSUCSTSCHNG_W<8> {
         SESREQSUCSTSCHNG_W::new(self)
     }
     #[doc = "Bit 9 - Host Negotiation Success Status Change host and device"]
     #[inline(always)]
-    pub fn hstnegsucstschng(&mut self) -> HSTNEGSUCSTSCHNG_W {
+    #[must_use]
+    pub fn hstnegsucstschng(&mut self) -> HSTNEGSUCSTSCHNG_W<9> {
         HSTNEGSUCSTSCHNG_W::new(self)
     }
     #[doc = "Bit 17 - Host Negotiation Detected host and device"]
     #[inline(always)]
-    pub fn hstnegdet(&mut self) -> HSTNEGDET_W {
+    #[must_use]
+    pub fn hstnegdet(&mut self) -> HSTNEGDET_W<17> {
         HSTNEGDET_W::new(self)
     }
     #[doc = "Bit 18 - A-Device Timeout Change host and device"]
     #[inline(always)]
-    pub fn adevtoutchg(&mut self) -> ADEVTOUTCHG_W {
+    #[must_use]
+    pub fn adevtoutchg(&mut self) -> ADEVTOUTCHG_W<18> {
         ADEVTOUTCHG_W::new(self)
     }
     #[doc = "Bit 19 - Debounce Done host only"]
     #[inline(always)]
-    pub fn dbncedone(&mut self) -> DBNCEDONE_W {
+    #[must_use]
+    pub fn dbncedone(&mut self) -> DBNCEDONE_W<19> {
         DBNCEDONE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -140,11 +146,10 @@ impl crate::Readable for GOTGINT_SPEC {
 #[doc = "`write(|w| ..)` method takes [gotgint::W](W) writer structure"]
 impl crate::Writable for GOTGINT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets GOTGINT to value 0"]
 impl crate::Resettable for GOTGINT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

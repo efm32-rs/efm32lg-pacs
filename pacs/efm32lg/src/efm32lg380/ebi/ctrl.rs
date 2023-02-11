@@ -34,8 +34,10 @@ impl From<crate::W<CTRL_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `MODE` reader - Mode"]
+pub type MODE_R = crate::FieldReader<u8, MODE_A>;
 #[doc = "Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum MODE_A {
     #[doc = "0: EBI_AD drives 8 bit data, 8 bit address, ALE not used. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register."]
@@ -53,8 +55,6 @@ impl From<MODE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `MODE` reader - Mode"]
-pub type MODE_R = crate::FieldReader<u8, MODE_A>;
 impl MODE_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -89,8 +89,8 @@ impl MODE_R {
     }
 }
 #[doc = "Field `MODE` writer - Mode"]
-pub type MODE_W<'a> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, MODE_A, 2, 0>;
-impl<'a> MODE_W<'a> {
+pub type MODE_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, MODE_A, 2, O>;
+impl<'a, const O: u8> MODE_W<'a, O> {
     #[doc = "EBI_AD drives 8 bit data, 8 bit address, ALE not used. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register."]
     #[inline(always)]
     pub fn d8a8(self) -> &'a mut W {
@@ -112,8 +112,10 @@ impl<'a> MODE_W<'a> {
         self.variant(MODE_A::D16)
     }
 }
+#[doc = "Field `MODE1` reader - Mode 1"]
+pub type MODE1_R = crate::FieldReader<u8, MODE1_A>;
 #[doc = "Mode 1\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum MODE1_A {
     #[doc = "0: EBI_AD drives 8 bit data, 8 bit address, ALE not used. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register."]
@@ -131,8 +133,6 @@ impl From<MODE1_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `MODE1` reader - Mode 1"]
-pub type MODE1_R = crate::FieldReader<u8, MODE1_A>;
 impl MODE1_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -167,8 +167,8 @@ impl MODE1_R {
     }
 }
 #[doc = "Field `MODE1` writer - Mode 1"]
-pub type MODE1_W<'a> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, MODE1_A, 2, 2>;
-impl<'a> MODE1_W<'a> {
+pub type MODE1_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, MODE1_A, 2, O>;
+impl<'a, const O: u8> MODE1_W<'a, O> {
     #[doc = "EBI_AD drives 8 bit data, 8 bit address, ALE not used. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register."]
     #[inline(always)]
     pub fn d8a8(self) -> &'a mut W {
@@ -190,8 +190,10 @@ impl<'a> MODE1_W<'a> {
         self.variant(MODE1_A::D16)
     }
 }
+#[doc = "Field `MODE2` reader - Mode 2"]
+pub type MODE2_R = crate::FieldReader<u8, MODE2_A>;
 #[doc = "Mode 2\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum MODE2_A {
     #[doc = "0: EBI_AD drives 8 bit data, 8 bit address, ALE not used. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register."]
@@ -209,8 +211,6 @@ impl From<MODE2_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `MODE2` reader - Mode 2"]
-pub type MODE2_R = crate::FieldReader<u8, MODE2_A>;
 impl MODE2_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -245,8 +245,8 @@ impl MODE2_R {
     }
 }
 #[doc = "Field `MODE2` writer - Mode 2"]
-pub type MODE2_W<'a> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, MODE2_A, 2, 4>;
-impl<'a> MODE2_W<'a> {
+pub type MODE2_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, MODE2_A, 2, O>;
+impl<'a, const O: u8> MODE2_W<'a, O> {
     #[doc = "EBI_AD drives 8 bit data, 8 bit address, ALE not used. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register."]
     #[inline(always)]
     pub fn d8a8(self) -> &'a mut W {
@@ -268,8 +268,10 @@ impl<'a> MODE2_W<'a> {
         self.variant(MODE2_A::D16)
     }
 }
+#[doc = "Field `MODE3` reader - Mode 3"]
+pub type MODE3_R = crate::FieldReader<u8, MODE3_A>;
 #[doc = "Mode 3\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum MODE3_A {
     #[doc = "0: EBI_AD drives 8 bit data, 8 bit address, ALE not used. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register."]
@@ -287,8 +289,6 @@ impl From<MODE3_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `MODE3` reader - Mode 3"]
-pub type MODE3_R = crate::FieldReader<u8, MODE3_A>;
 impl MODE3_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -323,8 +323,8 @@ impl MODE3_R {
     }
 }
 #[doc = "Field `MODE3` writer - Mode 3"]
-pub type MODE3_W<'a> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, MODE3_A, 2, 6>;
-impl<'a> MODE3_W<'a> {
+pub type MODE3_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, MODE3_A, 2, O>;
+impl<'a, const O: u8> MODE3_W<'a, O> {
     #[doc = "EBI_AD drives 8 bit data, 8 bit address, ALE not used. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register."]
     #[inline(always)]
     pub fn d8a8(self) -> &'a mut W {
@@ -349,91 +349,91 @@ impl<'a> MODE3_W<'a> {
 #[doc = "Field `BANK0EN` reader - Bank 0 Enable"]
 pub type BANK0EN_R = crate::BitReader<bool>;
 #[doc = "Field `BANK0EN` writer - Bank 0 Enable"]
-pub type BANK0EN_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 8>;
+pub type BANK0EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `BANK1EN` reader - Bank 1 Enable"]
 pub type BANK1EN_R = crate::BitReader<bool>;
 #[doc = "Field `BANK1EN` writer - Bank 1 Enable"]
-pub type BANK1EN_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 9>;
+pub type BANK1EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `BANK2EN` reader - Bank 2 Enable"]
 pub type BANK2EN_R = crate::BitReader<bool>;
 #[doc = "Field `BANK2EN` writer - Bank 2 Enable"]
-pub type BANK2EN_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 10>;
+pub type BANK2EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `BANK3EN` reader - Bank 3 Enable"]
 pub type BANK3EN_R = crate::BitReader<bool>;
 #[doc = "Field `BANK3EN` writer - Bank 3 Enable"]
-pub type BANK3EN_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 11>;
+pub type BANK3EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `NOIDLE` reader - No idle cycle insertion on bank 0."]
 pub type NOIDLE_R = crate::BitReader<bool>;
 #[doc = "Field `NOIDLE` writer - No idle cycle insertion on bank 0."]
-pub type NOIDLE_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 12>;
+pub type NOIDLE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `NOIDLE1` reader - No idle cycle insertion on bank 1."]
 pub type NOIDLE1_R = crate::BitReader<bool>;
 #[doc = "Field `NOIDLE1` writer - No idle cycle insertion on bank 1."]
-pub type NOIDLE1_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 13>;
+pub type NOIDLE1_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `NOIDLE2` reader - No idle cycle insertion on bank 2."]
 pub type NOIDLE2_R = crate::BitReader<bool>;
 #[doc = "Field `NOIDLE2` writer - No idle cycle insertion on bank 2."]
-pub type NOIDLE2_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 14>;
+pub type NOIDLE2_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `NOIDLE3` reader - No idle cycle insertion on bank 3."]
 pub type NOIDLE3_R = crate::BitReader<bool>;
 #[doc = "Field `NOIDLE3` writer - No idle cycle insertion on bank 3."]
-pub type NOIDLE3_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 15>;
+pub type NOIDLE3_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `ARDYEN` reader - ARDY Enable"]
 pub type ARDYEN_R = crate::BitReader<bool>;
 #[doc = "Field `ARDYEN` writer - ARDY Enable"]
-pub type ARDYEN_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 16>;
+pub type ARDYEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `ARDYTODIS` reader - ARDY Timeout Disable"]
 pub type ARDYTODIS_R = crate::BitReader<bool>;
 #[doc = "Field `ARDYTODIS` writer - ARDY Timeout Disable"]
-pub type ARDYTODIS_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 17>;
+pub type ARDYTODIS_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `ARDY1EN` reader - ARDY Enable for bank 1"]
 pub type ARDY1EN_R = crate::BitReader<bool>;
 #[doc = "Field `ARDY1EN` writer - ARDY Enable for bank 1"]
-pub type ARDY1EN_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 18>;
+pub type ARDY1EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `ARDYTO1DIS` reader - ARDY Timeout Disable for bank 1"]
 pub type ARDYTO1DIS_R = crate::BitReader<bool>;
 #[doc = "Field `ARDYTO1DIS` writer - ARDY Timeout Disable for bank 1"]
-pub type ARDYTO1DIS_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 19>;
+pub type ARDYTO1DIS_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `ARDY2EN` reader - ARDY Enable for bank 2"]
 pub type ARDY2EN_R = crate::BitReader<bool>;
 #[doc = "Field `ARDY2EN` writer - ARDY Enable for bank 2"]
-pub type ARDY2EN_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 20>;
+pub type ARDY2EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `ARDYTO2DIS` reader - ARDY Timeout Disable for bank 2"]
 pub type ARDYTO2DIS_R = crate::BitReader<bool>;
 #[doc = "Field `ARDYTO2DIS` writer - ARDY Timeout Disable for bank 2"]
-pub type ARDYTO2DIS_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 21>;
+pub type ARDYTO2DIS_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `ARDY3EN` reader - ARDY Enable for bank 3"]
 pub type ARDY3EN_R = crate::BitReader<bool>;
 #[doc = "Field `ARDY3EN` writer - ARDY Enable for bank 3"]
-pub type ARDY3EN_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 22>;
+pub type ARDY3EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `ARDYTO3DIS` reader - ARDY Timeout Disable for bank 3"]
 pub type ARDYTO3DIS_R = crate::BitReader<bool>;
 #[doc = "Field `ARDYTO3DIS` writer - ARDY Timeout Disable for bank 3"]
-pub type ARDYTO3DIS_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 23>;
+pub type ARDYTO3DIS_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `BL` reader - Byte Lane Enable for bank 0"]
 pub type BL_R = crate::BitReader<bool>;
 #[doc = "Field `BL` writer - Byte Lane Enable for bank 0"]
-pub type BL_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 24>;
+pub type BL_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `BL1` reader - Byte Lane Enable for bank 1"]
 pub type BL1_R = crate::BitReader<bool>;
 #[doc = "Field `BL1` writer - Byte Lane Enable for bank 1"]
-pub type BL1_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 25>;
+pub type BL1_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `BL2` reader - Byte Lane Enable for bank 2"]
 pub type BL2_R = crate::BitReader<bool>;
 #[doc = "Field `BL2` writer - Byte Lane Enable for bank 2"]
-pub type BL2_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 26>;
+pub type BL2_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `BL3` reader - Byte Lane Enable for bank 3"]
 pub type BL3_R = crate::BitReader<bool>;
 #[doc = "Field `BL3` writer - Byte Lane Enable for bank 3"]
-pub type BL3_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 27>;
+pub type BL3_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `ITS` reader - Individual Timing Set, Line Polarity and Mode Definition Enable"]
 pub type ITS_R = crate::BitReader<bool>;
 #[doc = "Field `ITS` writer - Individual Timing Set, Line Polarity and Mode Definition Enable"]
-pub type ITS_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 30>;
+pub type ITS_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `ALTMAP` reader - Alternative Address Map Enable"]
 pub type ALTMAP_R = crate::BitReader<bool>;
 #[doc = "Field `ALTMAP` writer - Alternative Address Map Enable"]
-pub type ALTMAP_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 31>;
+pub type ALTMAP_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 impl R {
     #[doc = "Bits 0:1 - Mode"]
     #[inline(always)]
@@ -569,132 +569,158 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - Mode"]
     #[inline(always)]
-    pub fn mode(&mut self) -> MODE_W {
+    #[must_use]
+    pub fn mode(&mut self) -> MODE_W<0> {
         MODE_W::new(self)
     }
     #[doc = "Bits 2:3 - Mode 1"]
     #[inline(always)]
-    pub fn mode1(&mut self) -> MODE1_W {
+    #[must_use]
+    pub fn mode1(&mut self) -> MODE1_W<2> {
         MODE1_W::new(self)
     }
     #[doc = "Bits 4:5 - Mode 2"]
     #[inline(always)]
-    pub fn mode2(&mut self) -> MODE2_W {
+    #[must_use]
+    pub fn mode2(&mut self) -> MODE2_W<4> {
         MODE2_W::new(self)
     }
     #[doc = "Bits 6:7 - Mode 3"]
     #[inline(always)]
-    pub fn mode3(&mut self) -> MODE3_W {
+    #[must_use]
+    pub fn mode3(&mut self) -> MODE3_W<6> {
         MODE3_W::new(self)
     }
     #[doc = "Bit 8 - Bank 0 Enable"]
     #[inline(always)]
-    pub fn bank0en(&mut self) -> BANK0EN_W {
+    #[must_use]
+    pub fn bank0en(&mut self) -> BANK0EN_W<8> {
         BANK0EN_W::new(self)
     }
     #[doc = "Bit 9 - Bank 1 Enable"]
     #[inline(always)]
-    pub fn bank1en(&mut self) -> BANK1EN_W {
+    #[must_use]
+    pub fn bank1en(&mut self) -> BANK1EN_W<9> {
         BANK1EN_W::new(self)
     }
     #[doc = "Bit 10 - Bank 2 Enable"]
     #[inline(always)]
-    pub fn bank2en(&mut self) -> BANK2EN_W {
+    #[must_use]
+    pub fn bank2en(&mut self) -> BANK2EN_W<10> {
         BANK2EN_W::new(self)
     }
     #[doc = "Bit 11 - Bank 3 Enable"]
     #[inline(always)]
-    pub fn bank3en(&mut self) -> BANK3EN_W {
+    #[must_use]
+    pub fn bank3en(&mut self) -> BANK3EN_W<11> {
         BANK3EN_W::new(self)
     }
     #[doc = "Bit 12 - No idle cycle insertion on bank 0."]
     #[inline(always)]
-    pub fn noidle(&mut self) -> NOIDLE_W {
+    #[must_use]
+    pub fn noidle(&mut self) -> NOIDLE_W<12> {
         NOIDLE_W::new(self)
     }
     #[doc = "Bit 13 - No idle cycle insertion on bank 1."]
     #[inline(always)]
-    pub fn noidle1(&mut self) -> NOIDLE1_W {
+    #[must_use]
+    pub fn noidle1(&mut self) -> NOIDLE1_W<13> {
         NOIDLE1_W::new(self)
     }
     #[doc = "Bit 14 - No idle cycle insertion on bank 2."]
     #[inline(always)]
-    pub fn noidle2(&mut self) -> NOIDLE2_W {
+    #[must_use]
+    pub fn noidle2(&mut self) -> NOIDLE2_W<14> {
         NOIDLE2_W::new(self)
     }
     #[doc = "Bit 15 - No idle cycle insertion on bank 3."]
     #[inline(always)]
-    pub fn noidle3(&mut self) -> NOIDLE3_W {
+    #[must_use]
+    pub fn noidle3(&mut self) -> NOIDLE3_W<15> {
         NOIDLE3_W::new(self)
     }
     #[doc = "Bit 16 - ARDY Enable"]
     #[inline(always)]
-    pub fn ardyen(&mut self) -> ARDYEN_W {
+    #[must_use]
+    pub fn ardyen(&mut self) -> ARDYEN_W<16> {
         ARDYEN_W::new(self)
     }
     #[doc = "Bit 17 - ARDY Timeout Disable"]
     #[inline(always)]
-    pub fn ardytodis(&mut self) -> ARDYTODIS_W {
+    #[must_use]
+    pub fn ardytodis(&mut self) -> ARDYTODIS_W<17> {
         ARDYTODIS_W::new(self)
     }
     #[doc = "Bit 18 - ARDY Enable for bank 1"]
     #[inline(always)]
-    pub fn ardy1en(&mut self) -> ARDY1EN_W {
+    #[must_use]
+    pub fn ardy1en(&mut self) -> ARDY1EN_W<18> {
         ARDY1EN_W::new(self)
     }
     #[doc = "Bit 19 - ARDY Timeout Disable for bank 1"]
     #[inline(always)]
-    pub fn ardyto1dis(&mut self) -> ARDYTO1DIS_W {
+    #[must_use]
+    pub fn ardyto1dis(&mut self) -> ARDYTO1DIS_W<19> {
         ARDYTO1DIS_W::new(self)
     }
     #[doc = "Bit 20 - ARDY Enable for bank 2"]
     #[inline(always)]
-    pub fn ardy2en(&mut self) -> ARDY2EN_W {
+    #[must_use]
+    pub fn ardy2en(&mut self) -> ARDY2EN_W<20> {
         ARDY2EN_W::new(self)
     }
     #[doc = "Bit 21 - ARDY Timeout Disable for bank 2"]
     #[inline(always)]
-    pub fn ardyto2dis(&mut self) -> ARDYTO2DIS_W {
+    #[must_use]
+    pub fn ardyto2dis(&mut self) -> ARDYTO2DIS_W<21> {
         ARDYTO2DIS_W::new(self)
     }
     #[doc = "Bit 22 - ARDY Enable for bank 3"]
     #[inline(always)]
-    pub fn ardy3en(&mut self) -> ARDY3EN_W {
+    #[must_use]
+    pub fn ardy3en(&mut self) -> ARDY3EN_W<22> {
         ARDY3EN_W::new(self)
     }
     #[doc = "Bit 23 - ARDY Timeout Disable for bank 3"]
     #[inline(always)]
-    pub fn ardyto3dis(&mut self) -> ARDYTO3DIS_W {
+    #[must_use]
+    pub fn ardyto3dis(&mut self) -> ARDYTO3DIS_W<23> {
         ARDYTO3DIS_W::new(self)
     }
     #[doc = "Bit 24 - Byte Lane Enable for bank 0"]
     #[inline(always)]
-    pub fn bl(&mut self) -> BL_W {
+    #[must_use]
+    pub fn bl(&mut self) -> BL_W<24> {
         BL_W::new(self)
     }
     #[doc = "Bit 25 - Byte Lane Enable for bank 1"]
     #[inline(always)]
-    pub fn bl1(&mut self) -> BL1_W {
+    #[must_use]
+    pub fn bl1(&mut self) -> BL1_W<25> {
         BL1_W::new(self)
     }
     #[doc = "Bit 26 - Byte Lane Enable for bank 2"]
     #[inline(always)]
-    pub fn bl2(&mut self) -> BL2_W {
+    #[must_use]
+    pub fn bl2(&mut self) -> BL2_W<26> {
         BL2_W::new(self)
     }
     #[doc = "Bit 27 - Byte Lane Enable for bank 3"]
     #[inline(always)]
-    pub fn bl3(&mut self) -> BL3_W {
+    #[must_use]
+    pub fn bl3(&mut self) -> BL3_W<27> {
         BL3_W::new(self)
     }
     #[doc = "Bit 30 - Individual Timing Set, Line Polarity and Mode Definition Enable"]
     #[inline(always)]
-    pub fn its(&mut self) -> ITS_W {
+    #[must_use]
+    pub fn its(&mut self) -> ITS_W<30> {
         ITS_W::new(self)
     }
     #[doc = "Bit 31 - Alternative Address Map Enable"]
     #[inline(always)]
-    pub fn altmap(&mut self) -> ALTMAP_W {
+    #[must_use]
+    pub fn altmap(&mut self) -> ALTMAP_W<31> {
         ALTMAP_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -716,11 +742,10 @@ impl crate::Readable for CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
 impl crate::Writable for CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CTRL to value 0"]
 impl crate::Resettable for CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

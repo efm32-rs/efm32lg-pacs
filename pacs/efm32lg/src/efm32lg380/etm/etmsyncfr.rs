@@ -37,7 +37,7 @@ impl From<crate::W<ETMSYNCFR_SPEC>> for W {
 #[doc = "Field `FREQ` reader - Synchronisation Frequency Value"]
 pub type FREQ_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `FREQ` writer - Synchronisation Frequency Value"]
-pub type FREQ_W<'a> = crate::FieldWriter<'a, u32, ETMSYNCFR_SPEC, u16, u16, 12, 0>;
+pub type FREQ_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ETMSYNCFR_SPEC, u16, u16, 12, O>;
 impl R {
     #[doc = "Bits 0:11 - Synchronisation Frequency Value"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:11 - Synchronisation Frequency Value"]
     #[inline(always)]
-    pub fn freq(&mut self) -> FREQ_W {
+    #[must_use]
+    pub fn freq(&mut self) -> FREQ_W<0> {
         FREQ_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for ETMSYNCFR_SPEC {
 #[doc = "`write(|w| ..)` method takes [etmsyncfr::W](W) writer structure"]
 impl crate::Writable for ETMSYNCFR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ETMSYNCFR to value 0x0400"]
 impl crate::Resettable for ETMSYNCFR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0400
-    }
+    const RESET_VALUE: Self::Ux = 0x0400;
 }

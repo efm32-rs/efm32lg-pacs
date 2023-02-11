@@ -37,7 +37,8 @@ impl From<crate::W<PC_PINLOCKN_SPEC>> for W {
 #[doc = "Field `PINLOCKN` reader - Unlocked Pins"]
 pub type PINLOCKN_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `PINLOCKN` writer - Unlocked Pins"]
-pub type PINLOCKN_W<'a> = crate::FieldWriter<'a, u32, PC_PINLOCKN_SPEC, u16, u16, 16, 0>;
+pub type PINLOCKN_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, PC_PINLOCKN_SPEC, u16, u16, 16, O>;
 impl R {
     #[doc = "Bits 0:15 - Unlocked Pins"]
     #[inline(always)]
@@ -48,7 +49,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - Unlocked Pins"]
     #[inline(always)]
-    pub fn pinlockn(&mut self) -> PINLOCKN_W {
+    #[must_use]
+    pub fn pinlockn(&mut self) -> PINLOCKN_W<0> {
         PINLOCKN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +72,10 @@ impl crate::Readable for PC_PINLOCKN_SPEC {
 #[doc = "`write(|w| ..)` method takes [pc_pinlockn::W](W) writer structure"]
 impl crate::Writable for PC_PINLOCKN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PC_PINLOCKN to value 0xffff"]
 impl crate::Resettable for PC_PINLOCKN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0xffff
-    }
+    const RESET_VALUE: Self::Ux = 0xffff;
 }

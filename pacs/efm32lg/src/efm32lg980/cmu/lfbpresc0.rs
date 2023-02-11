@@ -34,8 +34,10 @@ impl From<crate::W<LFBPRESC0_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `LEUART0` reader - Low Energy UART 0 Prescaler"]
+pub type LEUART0_R = crate::FieldReader<u8, LEUART0_A>;
 #[doc = "Low Energy UART 0 Prescaler\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LEUART0_A {
     #[doc = "0: LFBCLKLEUART0 = LFBCLK"]
@@ -53,8 +55,6 @@ impl From<LEUART0_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `LEUART0` reader - Low Energy UART 0 Prescaler"]
-pub type LEUART0_R = crate::FieldReader<u8, LEUART0_A>;
 impl LEUART0_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -89,8 +89,9 @@ impl LEUART0_R {
     }
 }
 #[doc = "Field `LEUART0` writer - Low Energy UART 0 Prescaler"]
-pub type LEUART0_W<'a> = crate::FieldWriterSafe<'a, u32, LFBPRESC0_SPEC, u8, LEUART0_A, 2, 0>;
-impl<'a> LEUART0_W<'a> {
+pub type LEUART0_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, LFBPRESC0_SPEC, u8, LEUART0_A, 2, O>;
+impl<'a, const O: u8> LEUART0_W<'a, O> {
     #[doc = "LFBCLKLEUART0 = LFBCLK"]
     #[inline(always)]
     pub fn div1(self) -> &'a mut W {
@@ -112,8 +113,10 @@ impl<'a> LEUART0_W<'a> {
         self.variant(LEUART0_A::DIV8)
     }
 }
+#[doc = "Field `LEUART1` reader - Low Energy UART 1 Prescaler"]
+pub type LEUART1_R = crate::FieldReader<u8, LEUART1_A>;
 #[doc = "Low Energy UART 1 Prescaler\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LEUART1_A {
     #[doc = "0: LFBCLKLEUART1 = LFBCLK"]
@@ -131,8 +134,6 @@ impl From<LEUART1_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `LEUART1` reader - Low Energy UART 1 Prescaler"]
-pub type LEUART1_R = crate::FieldReader<u8, LEUART1_A>;
 impl LEUART1_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -167,8 +168,9 @@ impl LEUART1_R {
     }
 }
 #[doc = "Field `LEUART1` writer - Low Energy UART 1 Prescaler"]
-pub type LEUART1_W<'a> = crate::FieldWriterSafe<'a, u32, LFBPRESC0_SPEC, u8, LEUART1_A, 2, 4>;
-impl<'a> LEUART1_W<'a> {
+pub type LEUART1_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, LFBPRESC0_SPEC, u8, LEUART1_A, 2, O>;
+impl<'a, const O: u8> LEUART1_W<'a, O> {
     #[doc = "LFBCLKLEUART1 = LFBCLK"]
     #[inline(always)]
     pub fn div1(self) -> &'a mut W {
@@ -205,12 +207,14 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - Low Energy UART 0 Prescaler"]
     #[inline(always)]
-    pub fn leuart0(&mut self) -> LEUART0_W {
+    #[must_use]
+    pub fn leuart0(&mut self) -> LEUART0_W<0> {
         LEUART0_W::new(self)
     }
     #[doc = "Bits 4:5 - Low Energy UART 1 Prescaler"]
     #[inline(always)]
-    pub fn leuart1(&mut self) -> LEUART1_W {
+    #[must_use]
+    pub fn leuart1(&mut self) -> LEUART1_W<4> {
         LEUART1_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -232,11 +236,10 @@ impl crate::Readable for LFBPRESC0_SPEC {
 #[doc = "`write(|w| ..)` method takes [lfbpresc0::W](W) writer structure"]
 impl crate::Writable for LFBPRESC0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets LFBPRESC0 to value 0"]
 impl crate::Resettable for LFBPRESC0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,15 +37,15 @@ impl From<crate::W<CAL_SPEC>> for W {
 #[doc = "Field `CH0OFFSET` reader - Channel 0 Offset Calibration Value"]
 pub type CH0OFFSET_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `CH0OFFSET` writer - Channel 0 Offset Calibration Value"]
-pub type CH0OFFSET_W<'a> = crate::FieldWriter<'a, u32, CAL_SPEC, u8, u8, 6, 0>;
+pub type CH0OFFSET_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CAL_SPEC, u8, u8, 6, O>;
 #[doc = "Field `CH1OFFSET` reader - Channel 1 Offset Calibration Value"]
 pub type CH1OFFSET_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `CH1OFFSET` writer - Channel 1 Offset Calibration Value"]
-pub type CH1OFFSET_W<'a> = crate::FieldWriter<'a, u32, CAL_SPEC, u8, u8, 6, 8>;
+pub type CH1OFFSET_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CAL_SPEC, u8, u8, 6, O>;
 #[doc = "Field `GAIN` reader - Gain Calibration Value"]
 pub type GAIN_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `GAIN` writer - Gain Calibration Value"]
-pub type GAIN_W<'a> = crate::FieldWriter<'a, u32, CAL_SPEC, u8, u8, 7, 16>;
+pub type GAIN_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CAL_SPEC, u8, u8, 7, O>;
 impl R {
     #[doc = "Bits 0:5 - Channel 0 Offset Calibration Value"]
     #[inline(always)]
@@ -66,17 +66,20 @@ impl R {
 impl W {
     #[doc = "Bits 0:5 - Channel 0 Offset Calibration Value"]
     #[inline(always)]
-    pub fn ch0offset(&mut self) -> CH0OFFSET_W {
+    #[must_use]
+    pub fn ch0offset(&mut self) -> CH0OFFSET_W<0> {
         CH0OFFSET_W::new(self)
     }
     #[doc = "Bits 8:13 - Channel 1 Offset Calibration Value"]
     #[inline(always)]
-    pub fn ch1offset(&mut self) -> CH1OFFSET_W {
+    #[must_use]
+    pub fn ch1offset(&mut self) -> CH1OFFSET_W<8> {
         CH1OFFSET_W::new(self)
     }
     #[doc = "Bits 16:22 - Gain Calibration Value"]
     #[inline(always)]
-    pub fn gain(&mut self) -> GAIN_W {
+    #[must_use]
+    pub fn gain(&mut self) -> GAIN_W<16> {
         GAIN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -98,11 +101,10 @@ impl crate::Readable for CAL_SPEC {
 #[doc = "`write(|w| ..)` method takes [cal::W](W) writer structure"]
 impl crate::Writable for CAL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CAL to value 0x0040_0000"]
 impl crate::Resettable for CAL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0040_0000
-    }
+    const RESET_VALUE: Self::Ux = 0x0040_0000;
 }

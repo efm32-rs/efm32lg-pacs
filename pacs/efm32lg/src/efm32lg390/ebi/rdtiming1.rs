@@ -37,27 +37,27 @@ impl From<crate::W<RDTIMING1_SPEC>> for W {
 #[doc = "Field `RDSETUP` reader - Read Setup Time"]
 pub type RDSETUP_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `RDSETUP` writer - Read Setup Time"]
-pub type RDSETUP_W<'a> = crate::FieldWriter<'a, u32, RDTIMING1_SPEC, u8, u8, 2, 0>;
+pub type RDSETUP_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RDTIMING1_SPEC, u8, u8, 2, O>;
 #[doc = "Field `RDSTRB` reader - Read Strobe Time"]
 pub type RDSTRB_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `RDSTRB` writer - Read Strobe Time"]
-pub type RDSTRB_W<'a> = crate::FieldWriter<'a, u32, RDTIMING1_SPEC, u8, u8, 6, 8>;
+pub type RDSTRB_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RDTIMING1_SPEC, u8, u8, 6, O>;
 #[doc = "Field `RDHOLD` reader - Read Hold Time"]
 pub type RDHOLD_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `RDHOLD` writer - Read Hold Time"]
-pub type RDHOLD_W<'a> = crate::FieldWriter<'a, u32, RDTIMING1_SPEC, u8, u8, 2, 16>;
+pub type RDHOLD_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RDTIMING1_SPEC, u8, u8, 2, O>;
 #[doc = "Field `HALFRE` reader - Half Cycle REn Strobe Duration Enable"]
 pub type HALFRE_R = crate::BitReader<bool>;
 #[doc = "Field `HALFRE` writer - Half Cycle REn Strobe Duration Enable"]
-pub type HALFRE_W<'a> = crate::BitWriter<'a, u32, RDTIMING1_SPEC, bool, 28>;
+pub type HALFRE_W<'a, const O: u8> = crate::BitWriter<'a, u32, RDTIMING1_SPEC, bool, O>;
 #[doc = "Field `PREFETCH` reader - Prefetch Enable"]
 pub type PREFETCH_R = crate::BitReader<bool>;
 #[doc = "Field `PREFETCH` writer - Prefetch Enable"]
-pub type PREFETCH_W<'a> = crate::BitWriter<'a, u32, RDTIMING1_SPEC, bool, 29>;
+pub type PREFETCH_W<'a, const O: u8> = crate::BitWriter<'a, u32, RDTIMING1_SPEC, bool, O>;
 #[doc = "Field `PAGEMODE` reader - Page Mode Access Enable"]
 pub type PAGEMODE_R = crate::BitReader<bool>;
 #[doc = "Field `PAGEMODE` writer - Page Mode Access Enable"]
-pub type PAGEMODE_W<'a> = crate::BitWriter<'a, u32, RDTIMING1_SPEC, bool, 30>;
+pub type PAGEMODE_W<'a, const O: u8> = crate::BitWriter<'a, u32, RDTIMING1_SPEC, bool, O>;
 impl R {
     #[doc = "Bits 0:1 - Read Setup Time"]
     #[inline(always)]
@@ -93,32 +93,38 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - Read Setup Time"]
     #[inline(always)]
-    pub fn rdsetup(&mut self) -> RDSETUP_W {
+    #[must_use]
+    pub fn rdsetup(&mut self) -> RDSETUP_W<0> {
         RDSETUP_W::new(self)
     }
     #[doc = "Bits 8:13 - Read Strobe Time"]
     #[inline(always)]
-    pub fn rdstrb(&mut self) -> RDSTRB_W {
+    #[must_use]
+    pub fn rdstrb(&mut self) -> RDSTRB_W<8> {
         RDSTRB_W::new(self)
     }
     #[doc = "Bits 16:17 - Read Hold Time"]
     #[inline(always)]
-    pub fn rdhold(&mut self) -> RDHOLD_W {
+    #[must_use]
+    pub fn rdhold(&mut self) -> RDHOLD_W<16> {
         RDHOLD_W::new(self)
     }
     #[doc = "Bit 28 - Half Cycle REn Strobe Duration Enable"]
     #[inline(always)]
-    pub fn halfre(&mut self) -> HALFRE_W {
+    #[must_use]
+    pub fn halfre(&mut self) -> HALFRE_W<28> {
         HALFRE_W::new(self)
     }
     #[doc = "Bit 29 - Prefetch Enable"]
     #[inline(always)]
-    pub fn prefetch(&mut self) -> PREFETCH_W {
+    #[must_use]
+    pub fn prefetch(&mut self) -> PREFETCH_W<29> {
         PREFETCH_W::new(self)
     }
     #[doc = "Bit 30 - Page Mode Access Enable"]
     #[inline(always)]
-    pub fn pagemode(&mut self) -> PAGEMODE_W {
+    #[must_use]
+    pub fn pagemode(&mut self) -> PAGEMODE_W<30> {
         PAGEMODE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -140,11 +146,10 @@ impl crate::Readable for RDTIMING1_SPEC {
 #[doc = "`write(|w| ..)` method takes [rdtiming1::W](W) writer structure"]
 impl crate::Writable for RDTIMING1_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RDTIMING1 to value 0x0003_3f03"]
 impl crate::Resettable for RDTIMING1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0003_3f03
-    }
+    const RESET_VALUE: Self::Ux = 0x0003_3f03;
 }

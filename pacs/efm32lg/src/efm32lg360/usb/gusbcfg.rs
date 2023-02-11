@@ -37,41 +37,41 @@ impl From<crate::W<GUSBCFG_SPEC>> for W {
 #[doc = "Field `TOUTCAL` reader - Timeout Calibration host and device"]
 pub type TOUTCAL_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `TOUTCAL` writer - Timeout Calibration host and device"]
-pub type TOUTCAL_W<'a> = crate::FieldWriter<'a, u32, GUSBCFG_SPEC, u8, u8, 3, 0>;
+pub type TOUTCAL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, GUSBCFG_SPEC, u8, u8, 3, O>;
 #[doc = "Field `FSINTF` reader - Full-Speed Serial Interface Select host and device"]
 pub type FSINTF_R = crate::BitReader<bool>;
 #[doc = "Field `FSINTF` writer - Full-Speed Serial Interface Select host and device"]
-pub type FSINTF_W<'a> = crate::BitWriter<'a, u32, GUSBCFG_SPEC, bool, 5>;
+pub type FSINTF_W<'a, const O: u8> = crate::BitWriter<'a, u32, GUSBCFG_SPEC, bool, O>;
 #[doc = "Field `SRPCAP` reader - SRP-Capable host and device"]
 pub type SRPCAP_R = crate::BitReader<bool>;
 #[doc = "Field `SRPCAP` writer - SRP-Capable host and device"]
-pub type SRPCAP_W<'a> = crate::BitWriter<'a, u32, GUSBCFG_SPEC, bool, 8>;
+pub type SRPCAP_W<'a, const O: u8> = crate::BitWriter<'a, u32, GUSBCFG_SPEC, bool, O>;
 #[doc = "Field `HNPCAP` reader - HNP-Capable host and device"]
 pub type HNPCAP_R = crate::BitReader<bool>;
 #[doc = "Field `HNPCAP` writer - HNP-Capable host and device"]
-pub type HNPCAP_W<'a> = crate::BitWriter<'a, u32, GUSBCFG_SPEC, bool, 9>;
+pub type HNPCAP_W<'a, const O: u8> = crate::BitWriter<'a, u32, GUSBCFG_SPEC, bool, O>;
 #[doc = "Field `USBTRDTIM` reader - USB Turnaround Time device only"]
 pub type USBTRDTIM_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `USBTRDTIM` writer - USB Turnaround Time device only"]
-pub type USBTRDTIM_W<'a> = crate::FieldWriter<'a, u32, GUSBCFG_SPEC, u8, u8, 4, 10>;
+pub type USBTRDTIM_W<'a, const O: u8> = crate::FieldWriter<'a, u32, GUSBCFG_SPEC, u8, u8, 4, O>;
 #[doc = "Field `TERMSELDLPULSE` reader - TermSel DLine Pulsing Selection device only"]
 pub type TERMSELDLPULSE_R = crate::BitReader<bool>;
 #[doc = "Field `TERMSELDLPULSE` writer - TermSel DLine Pulsing Selection device only"]
-pub type TERMSELDLPULSE_W<'a> = crate::BitWriter<'a, u32, GUSBCFG_SPEC, bool, 22>;
+pub type TERMSELDLPULSE_W<'a, const O: u8> = crate::BitWriter<'a, u32, GUSBCFG_SPEC, bool, O>;
 #[doc = "Field `TXENDDELAY` reader - Tx End Delay device only"]
 pub type TXENDDELAY_R = crate::BitReader<bool>;
 #[doc = "Field `TXENDDELAY` writer - Tx End Delay device only"]
-pub type TXENDDELAY_W<'a> = crate::BitWriter<'a, u32, GUSBCFG_SPEC, bool, 28>;
+pub type TXENDDELAY_W<'a, const O: u8> = crate::BitWriter<'a, u32, GUSBCFG_SPEC, bool, O>;
 #[doc = "Field `FORCEHSTMODE` reader - Force Host Mode host and device"]
 pub type FORCEHSTMODE_R = crate::BitReader<bool>;
 #[doc = "Field `FORCEHSTMODE` writer - Force Host Mode host and device"]
-pub type FORCEHSTMODE_W<'a> = crate::BitWriter<'a, u32, GUSBCFG_SPEC, bool, 29>;
+pub type FORCEHSTMODE_W<'a, const O: u8> = crate::BitWriter<'a, u32, GUSBCFG_SPEC, bool, O>;
 #[doc = "Field `FORCEDEVMODE` reader - Force Device Mode host and device"]
 pub type FORCEDEVMODE_R = crate::BitReader<bool>;
 #[doc = "Field `FORCEDEVMODE` writer - Force Device Mode host and device"]
-pub type FORCEDEVMODE_W<'a> = crate::BitWriter<'a, u32, GUSBCFG_SPEC, bool, 30>;
+pub type FORCEDEVMODE_W<'a, const O: u8> = crate::BitWriter<'a, u32, GUSBCFG_SPEC, bool, O>;
 #[doc = "Field `CORRUPTTXPKT` writer - Corrupt Tx packet host and device"]
-pub type CORRUPTTXPKT_W<'a> = crate::BitWriter<'a, u32, GUSBCFG_SPEC, bool, 31>;
+pub type CORRUPTTXPKT_W<'a, const O: u8> = crate::BitWriter<'a, u32, GUSBCFG_SPEC, bool, O>;
 impl R {
     #[doc = "Bits 0:2 - Timeout Calibration host and device"]
     #[inline(always)]
@@ -122,52 +122,62 @@ impl R {
 impl W {
     #[doc = "Bits 0:2 - Timeout Calibration host and device"]
     #[inline(always)]
-    pub fn toutcal(&mut self) -> TOUTCAL_W {
+    #[must_use]
+    pub fn toutcal(&mut self) -> TOUTCAL_W<0> {
         TOUTCAL_W::new(self)
     }
     #[doc = "Bit 5 - Full-Speed Serial Interface Select host and device"]
     #[inline(always)]
-    pub fn fsintf(&mut self) -> FSINTF_W {
+    #[must_use]
+    pub fn fsintf(&mut self) -> FSINTF_W<5> {
         FSINTF_W::new(self)
     }
     #[doc = "Bit 8 - SRP-Capable host and device"]
     #[inline(always)]
-    pub fn srpcap(&mut self) -> SRPCAP_W {
+    #[must_use]
+    pub fn srpcap(&mut self) -> SRPCAP_W<8> {
         SRPCAP_W::new(self)
     }
     #[doc = "Bit 9 - HNP-Capable host and device"]
     #[inline(always)]
-    pub fn hnpcap(&mut self) -> HNPCAP_W {
+    #[must_use]
+    pub fn hnpcap(&mut self) -> HNPCAP_W<9> {
         HNPCAP_W::new(self)
     }
     #[doc = "Bits 10:13 - USB Turnaround Time device only"]
     #[inline(always)]
-    pub fn usbtrdtim(&mut self) -> USBTRDTIM_W {
+    #[must_use]
+    pub fn usbtrdtim(&mut self) -> USBTRDTIM_W<10> {
         USBTRDTIM_W::new(self)
     }
     #[doc = "Bit 22 - TermSel DLine Pulsing Selection device only"]
     #[inline(always)]
-    pub fn termseldlpulse(&mut self) -> TERMSELDLPULSE_W {
+    #[must_use]
+    pub fn termseldlpulse(&mut self) -> TERMSELDLPULSE_W<22> {
         TERMSELDLPULSE_W::new(self)
     }
     #[doc = "Bit 28 - Tx End Delay device only"]
     #[inline(always)]
-    pub fn txenddelay(&mut self) -> TXENDDELAY_W {
+    #[must_use]
+    pub fn txenddelay(&mut self) -> TXENDDELAY_W<28> {
         TXENDDELAY_W::new(self)
     }
     #[doc = "Bit 29 - Force Host Mode host and device"]
     #[inline(always)]
-    pub fn forcehstmode(&mut self) -> FORCEHSTMODE_W {
+    #[must_use]
+    pub fn forcehstmode(&mut self) -> FORCEHSTMODE_W<29> {
         FORCEHSTMODE_W::new(self)
     }
     #[doc = "Bit 30 - Force Device Mode host and device"]
     #[inline(always)]
-    pub fn forcedevmode(&mut self) -> FORCEDEVMODE_W {
+    #[must_use]
+    pub fn forcedevmode(&mut self) -> FORCEDEVMODE_W<30> {
         FORCEDEVMODE_W::new(self)
     }
     #[doc = "Bit 31 - Corrupt Tx packet host and device"]
     #[inline(always)]
-    pub fn corrupttxpkt(&mut self) -> CORRUPTTXPKT_W {
+    #[must_use]
+    pub fn corrupttxpkt(&mut self) -> CORRUPTTXPKT_W<31> {
         CORRUPTTXPKT_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -189,11 +199,10 @@ impl crate::Readable for GUSBCFG_SPEC {
 #[doc = "`write(|w| ..)` method takes [gusbcfg::W](W) writer structure"]
 impl crate::Writable for GUSBCFG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets GUSBCFG to value 0x1440"]
 impl crate::Resettable for GUSBCFG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x1440
-    }
+    const RESET_VALUE: Self::Ux = 0x1440;
 }

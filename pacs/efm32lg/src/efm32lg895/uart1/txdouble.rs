@@ -20,18 +20,20 @@ impl From<crate::W<TXDOUBLE_SPEC>> for W {
     }
 }
 #[doc = "Field `TXDATA0` writer - TX Data"]
-pub type TXDATA0_W<'a> = crate::FieldWriter<'a, u32, TXDOUBLE_SPEC, u8, u8, 8, 0>;
+pub type TXDATA0_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TXDOUBLE_SPEC, u8, u8, 8, O>;
 #[doc = "Field `TXDATA1` writer - TX Data"]
-pub type TXDATA1_W<'a> = crate::FieldWriter<'a, u32, TXDOUBLE_SPEC, u8, u8, 8, 8>;
+pub type TXDATA1_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TXDOUBLE_SPEC, u8, u8, 8, O>;
 impl W {
     #[doc = "Bits 0:7 - TX Data"]
     #[inline(always)]
-    pub fn txdata0(&mut self) -> TXDATA0_W {
+    #[must_use]
+    pub fn txdata0(&mut self) -> TXDATA0_W<0> {
         TXDATA0_W::new(self)
     }
     #[doc = "Bits 8:15 - TX Data"]
     #[inline(always)]
-    pub fn txdata1(&mut self) -> TXDATA1_W {
+    #[must_use]
+    pub fn txdata1(&mut self) -> TXDATA1_W<8> {
         TXDATA1_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -49,11 +51,10 @@ impl crate::RegisterSpec for TXDOUBLE_SPEC {
 #[doc = "`write(|w| ..)` method takes [txdouble::W](W) writer structure"]
 impl crate::Writable for TXDOUBLE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TXDOUBLE to value 0"]
 impl crate::Resettable for TXDOUBLE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

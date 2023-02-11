@@ -20,32 +20,36 @@ impl From<crate::W<DTFAULTC_SPEC>> for W {
     }
 }
 #[doc = "Field `DTPRS0FC` writer - DTI PRS0 Fault Clear"]
-pub type DTPRS0FC_W<'a> = crate::BitWriter<'a, u32, DTFAULTC_SPEC, bool, 0>;
+pub type DTPRS0FC_W<'a, const O: u8> = crate::BitWriter<'a, u32, DTFAULTC_SPEC, bool, O>;
 #[doc = "Field `DTPRS1FC` writer - DTI PRS1 Fault Clear"]
-pub type DTPRS1FC_W<'a> = crate::BitWriter<'a, u32, DTFAULTC_SPEC, bool, 1>;
+pub type DTPRS1FC_W<'a, const O: u8> = crate::BitWriter<'a, u32, DTFAULTC_SPEC, bool, O>;
 #[doc = "Field `DTDBGFC` writer - DTI Debugger Fault Clear"]
-pub type DTDBGFC_W<'a> = crate::BitWriter<'a, u32, DTFAULTC_SPEC, bool, 2>;
+pub type DTDBGFC_W<'a, const O: u8> = crate::BitWriter<'a, u32, DTFAULTC_SPEC, bool, O>;
 #[doc = "Field `TLOCKUPFC` writer - DTI Lockup Fault Clear"]
-pub type TLOCKUPFC_W<'a> = crate::BitWriter<'a, u32, DTFAULTC_SPEC, bool, 3>;
+pub type TLOCKUPFC_W<'a, const O: u8> = crate::BitWriter<'a, u32, DTFAULTC_SPEC, bool, O>;
 impl W {
     #[doc = "Bit 0 - DTI PRS0 Fault Clear"]
     #[inline(always)]
-    pub fn dtprs0fc(&mut self) -> DTPRS0FC_W {
+    #[must_use]
+    pub fn dtprs0fc(&mut self) -> DTPRS0FC_W<0> {
         DTPRS0FC_W::new(self)
     }
     #[doc = "Bit 1 - DTI PRS1 Fault Clear"]
     #[inline(always)]
-    pub fn dtprs1fc(&mut self) -> DTPRS1FC_W {
+    #[must_use]
+    pub fn dtprs1fc(&mut self) -> DTPRS1FC_W<1> {
         DTPRS1FC_W::new(self)
     }
     #[doc = "Bit 2 - DTI Debugger Fault Clear"]
     #[inline(always)]
-    pub fn dtdbgfc(&mut self) -> DTDBGFC_W {
+    #[must_use]
+    pub fn dtdbgfc(&mut self) -> DTDBGFC_W<2> {
         DTDBGFC_W::new(self)
     }
     #[doc = "Bit 3 - DTI Lockup Fault Clear"]
     #[inline(always)]
-    pub fn tlockupfc(&mut self) -> TLOCKUPFC_W {
+    #[must_use]
+    pub fn tlockupfc(&mut self) -> TLOCKUPFC_W<3> {
         TLOCKUPFC_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -63,11 +67,10 @@ impl crate::RegisterSpec for DTFAULTC_SPEC {
 #[doc = "`write(|w| ..)` method takes [dtfaultc::W](W) writer structure"]
 impl crate::Writable for DTFAULTC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DTFAULTC to value 0"]
 impl crate::Resettable for DTFAULTC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

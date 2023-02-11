@@ -117,8 +117,5 @@ impl crate::Readable for STATUS_SPEC {
 }
 #[doc = "`reset()` method sets STATUS to value 0x40"]
 impl crate::Resettable for STATUS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x40
-    }
+    const RESET_VALUE: Self::Ux = 0x40;
 }

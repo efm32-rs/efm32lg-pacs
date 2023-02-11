@@ -37,23 +37,24 @@ impl From<crate::W<CH10_EVAL_SPEC>> for W {
 #[doc = "Field `COMPTHRES` reader - Decision threshold for counter"]
 pub type COMPTHRES_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `COMPTHRES` writer - Decision threshold for counter"]
-pub type COMPTHRES_W<'a> = crate::FieldWriter<'a, u32, CH10_EVAL_SPEC, u16, u16, 16, 0>;
+pub type COMPTHRES_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, CH10_EVAL_SPEC, u16, u16, 16, O>;
 #[doc = "Field `COMP` reader - Select mode for counter comparison"]
 pub type COMP_R = crate::BitReader<bool>;
 #[doc = "Field `COMP` writer - Select mode for counter comparison"]
-pub type COMP_W<'a> = crate::BitWriter<'a, u32, CH10_EVAL_SPEC, bool, 16>;
+pub type COMP_W<'a, const O: u8> = crate::BitWriter<'a, u32, CH10_EVAL_SPEC, bool, O>;
 #[doc = "Field `DECODE` reader - Send result to decoder"]
 pub type DECODE_R = crate::BitReader<bool>;
 #[doc = "Field `DECODE` writer - Send result to decoder"]
-pub type DECODE_W<'a> = crate::BitWriter<'a, u32, CH10_EVAL_SPEC, bool, 17>;
+pub type DECODE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CH10_EVAL_SPEC, bool, O>;
 #[doc = "Field `STRSAMPLE` reader - Select if counter result should be stored"]
 pub type STRSAMPLE_R = crate::BitReader<bool>;
 #[doc = "Field `STRSAMPLE` writer - Select if counter result should be stored"]
-pub type STRSAMPLE_W<'a> = crate::BitWriter<'a, u32, CH10_EVAL_SPEC, bool, 18>;
+pub type STRSAMPLE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CH10_EVAL_SPEC, bool, O>;
 #[doc = "Field `SCANRESINV` reader - Enable inversion of result"]
 pub type SCANRESINV_R = crate::BitReader<bool>;
 #[doc = "Field `SCANRESINV` writer - Enable inversion of result"]
-pub type SCANRESINV_W<'a> = crate::BitWriter<'a, u32, CH10_EVAL_SPEC, bool, 19>;
+pub type SCANRESINV_W<'a, const O: u8> = crate::BitWriter<'a, u32, CH10_EVAL_SPEC, bool, O>;
 impl R {
     #[doc = "Bits 0:15 - Decision threshold for counter"]
     #[inline(always)]
@@ -84,27 +85,32 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - Decision threshold for counter"]
     #[inline(always)]
-    pub fn compthres(&mut self) -> COMPTHRES_W {
+    #[must_use]
+    pub fn compthres(&mut self) -> COMPTHRES_W<0> {
         COMPTHRES_W::new(self)
     }
     #[doc = "Bit 16 - Select mode for counter comparison"]
     #[inline(always)]
-    pub fn comp(&mut self) -> COMP_W {
+    #[must_use]
+    pub fn comp(&mut self) -> COMP_W<16> {
         COMP_W::new(self)
     }
     #[doc = "Bit 17 - Send result to decoder"]
     #[inline(always)]
-    pub fn decode(&mut self) -> DECODE_W {
+    #[must_use]
+    pub fn decode(&mut self) -> DECODE_W<17> {
         DECODE_W::new(self)
     }
     #[doc = "Bit 18 - Select if counter result should be stored"]
     #[inline(always)]
-    pub fn strsample(&mut self) -> STRSAMPLE_W {
+    #[must_use]
+    pub fn strsample(&mut self) -> STRSAMPLE_W<18> {
         STRSAMPLE_W::new(self)
     }
     #[doc = "Bit 19 - Enable inversion of result"]
     #[inline(always)]
-    pub fn scanresinv(&mut self) -> SCANRESINV_W {
+    #[must_use]
+    pub fn scanresinv(&mut self) -> SCANRESINV_W<19> {
         SCANRESINV_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -126,11 +132,10 @@ impl crate::Readable for CH10_EVAL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ch10_eval::W](W) writer structure"]
 impl crate::Writable for CH10_EVAL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CH10_EVAL to value 0"]
 impl crate::Resettable for CH10_EVAL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,11 +37,11 @@ impl From<crate::W<WRITECTRL_SPEC>> for W {
 #[doc = "Field `WREN` reader - Enable Write/Erase Controller"]
 pub type WREN_R = crate::BitReader<bool>;
 #[doc = "Field `WREN` writer - Enable Write/Erase Controller"]
-pub type WREN_W<'a> = crate::BitWriter<'a, u32, WRITECTRL_SPEC, bool, 0>;
+pub type WREN_W<'a, const O: u8> = crate::BitWriter<'a, u32, WRITECTRL_SPEC, bool, O>;
 #[doc = "Field `IRQERASEABORT` reader - Abort Page Erase on Interrupt"]
 pub type IRQERASEABORT_R = crate::BitReader<bool>;
 #[doc = "Field `IRQERASEABORT` writer - Abort Page Erase on Interrupt"]
-pub type IRQERASEABORT_W<'a> = crate::BitWriter<'a, u32, WRITECTRL_SPEC, bool, 1>;
+pub type IRQERASEABORT_W<'a, const O: u8> = crate::BitWriter<'a, u32, WRITECTRL_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Enable Write/Erase Controller"]
     #[inline(always)]
@@ -57,12 +57,14 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Enable Write/Erase Controller"]
     #[inline(always)]
-    pub fn wren(&mut self) -> WREN_W {
+    #[must_use]
+    pub fn wren(&mut self) -> WREN_W<0> {
         WREN_W::new(self)
     }
     #[doc = "Bit 1 - Abort Page Erase on Interrupt"]
     #[inline(always)]
-    pub fn irqeraseabort(&mut self) -> IRQERASEABORT_W {
+    #[must_use]
+    pub fn irqeraseabort(&mut self) -> IRQERASEABORT_W<1> {
         IRQERASEABORT_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -84,11 +86,10 @@ impl crate::Readable for WRITECTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [writectrl::W](W) writer structure"]
 impl crate::Writable for WRITECTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets WRITECTRL to value 0"]
 impl crate::Resettable for WRITECTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

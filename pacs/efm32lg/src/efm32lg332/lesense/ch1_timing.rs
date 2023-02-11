@@ -37,15 +37,15 @@ impl From<crate::W<CH1_TIMING_SPEC>> for W {
 #[doc = "Field `EXTIME` reader - Set excitation time"]
 pub type EXTIME_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `EXTIME` writer - Set excitation time"]
-pub type EXTIME_W<'a> = crate::FieldWriter<'a, u32, CH1_TIMING_SPEC, u8, u8, 6, 0>;
+pub type EXTIME_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CH1_TIMING_SPEC, u8, u8, 6, O>;
 #[doc = "Field `SAMPLEDLY` reader - Set sample delay"]
 pub type SAMPLEDLY_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `SAMPLEDLY` writer - Set sample delay"]
-pub type SAMPLEDLY_W<'a> = crate::FieldWriter<'a, u32, CH1_TIMING_SPEC, u8, u8, 7, 6>;
+pub type SAMPLEDLY_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CH1_TIMING_SPEC, u8, u8, 7, O>;
 #[doc = "Field `MEASUREDLY` reader - Set measure delay"]
 pub type MEASUREDLY_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `MEASUREDLY` writer - Set measure delay"]
-pub type MEASUREDLY_W<'a> = crate::FieldWriter<'a, u32, CH1_TIMING_SPEC, u8, u8, 7, 13>;
+pub type MEASUREDLY_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CH1_TIMING_SPEC, u8, u8, 7, O>;
 impl R {
     #[doc = "Bits 0:5 - Set excitation time"]
     #[inline(always)]
@@ -66,17 +66,20 @@ impl R {
 impl W {
     #[doc = "Bits 0:5 - Set excitation time"]
     #[inline(always)]
-    pub fn extime(&mut self) -> EXTIME_W {
+    #[must_use]
+    pub fn extime(&mut self) -> EXTIME_W<0> {
         EXTIME_W::new(self)
     }
     #[doc = "Bits 6:12 - Set sample delay"]
     #[inline(always)]
-    pub fn sampledly(&mut self) -> SAMPLEDLY_W {
+    #[must_use]
+    pub fn sampledly(&mut self) -> SAMPLEDLY_W<6> {
         SAMPLEDLY_W::new(self)
     }
     #[doc = "Bits 13:19 - Set measure delay"]
     #[inline(always)]
-    pub fn measuredly(&mut self) -> MEASUREDLY_W {
+    #[must_use]
+    pub fn measuredly(&mut self) -> MEASUREDLY_W<13> {
         MEASUREDLY_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -98,11 +101,10 @@ impl crate::Readable for CH1_TIMING_SPEC {
 #[doc = "`write(|w| ..)` method takes [ch1_timing::W](W) writer structure"]
 impl crate::Writable for CH1_TIMING_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CH1_TIMING to value 0"]
 impl crate::Resettable for CH1_TIMING_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

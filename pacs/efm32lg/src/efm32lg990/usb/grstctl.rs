@@ -37,21 +37,23 @@ impl From<crate::W<GRSTCTL_SPEC>> for W {
 #[doc = "Field `CSFTRST` reader - Core Soft Reset host and device"]
 pub type CSFTRST_R = crate::BitReader<bool>;
 #[doc = "Field `CSFTRST` writer - Core Soft Reset host and device"]
-pub type CSFTRST_W<'a> = crate::BitWriter<'a, u32, GRSTCTL_SPEC, bool, 0>;
+pub type CSFTRST_W<'a, const O: u8> = crate::BitWriter<'a, u32, GRSTCTL_SPEC, bool, O>;
 #[doc = "Field `FRMCNTRRST` reader - Host Frame Counter Reset host only"]
 pub type FRMCNTRRST_R = crate::BitReader<bool>;
 #[doc = "Field `FRMCNTRRST` writer - Host Frame Counter Reset host only"]
-pub type FRMCNTRRST_W<'a> = crate::BitWriter<'a, u32, GRSTCTL_SPEC, bool, 2>;
+pub type FRMCNTRRST_W<'a, const O: u8> = crate::BitWriter<'a, u32, GRSTCTL_SPEC, bool, O>;
 #[doc = "Field `RXFFLSH` reader - RxFIFO Flush host and device"]
 pub type RXFFLSH_R = crate::BitReader<bool>;
 #[doc = "Field `RXFFLSH` writer - RxFIFO Flush host and device"]
-pub type RXFFLSH_W<'a> = crate::BitWriter<'a, u32, GRSTCTL_SPEC, bool, 4>;
+pub type RXFFLSH_W<'a, const O: u8> = crate::BitWriter<'a, u32, GRSTCTL_SPEC, bool, O>;
 #[doc = "Field `TXFFLSH` reader - TxFIFO Flush host and device"]
 pub type TXFFLSH_R = crate::BitReader<bool>;
 #[doc = "Field `TXFFLSH` writer - TxFIFO Flush host and device"]
-pub type TXFFLSH_W<'a> = crate::BitWriter<'a, u32, GRSTCTL_SPEC, bool, 5>;
+pub type TXFFLSH_W<'a, const O: u8> = crate::BitWriter<'a, u32, GRSTCTL_SPEC, bool, O>;
+#[doc = "Field `TXFNUM` reader - TxFIFO Number host and device"]
+pub type TXFNUM_R = crate::FieldReader<u8, TXFNUM_A>;
 #[doc = "TxFIFO Number host and device\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TXFNUM_A {
     #[doc = "0: Host mode: Non-periodic TxFIFO flush. Device: Tx FIFO 0 flush"]
@@ -77,8 +79,6 @@ impl From<TXFNUM_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `TXFNUM` reader - TxFIFO Number host and device"]
-pub type TXFNUM_R = crate::FieldReader<u8, TXFNUM_A>;
 impl TXFNUM_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -137,8 +137,8 @@ impl TXFNUM_R {
     }
 }
 #[doc = "Field `TXFNUM` writer - TxFIFO Number host and device"]
-pub type TXFNUM_W<'a> = crate::FieldWriter<'a, u32, GRSTCTL_SPEC, u8, TXFNUM_A, 5, 6>;
-impl<'a> TXFNUM_W<'a> {
+pub type TXFNUM_W<'a, const O: u8> = crate::FieldWriter<'a, u32, GRSTCTL_SPEC, u8, TXFNUM_A, 5, O>;
+impl<'a, const O: u8> TXFNUM_W<'a, O> {
     #[doc = "Host mode: Non-periodic TxFIFO flush. Device: Tx FIFO 0 flush"]
     #[inline(always)]
     pub fn f0(self) -> &'a mut W {
@@ -224,27 +224,32 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Core Soft Reset host and device"]
     #[inline(always)]
-    pub fn csftrst(&mut self) -> CSFTRST_W {
+    #[must_use]
+    pub fn csftrst(&mut self) -> CSFTRST_W<0> {
         CSFTRST_W::new(self)
     }
     #[doc = "Bit 2 - Host Frame Counter Reset host only"]
     #[inline(always)]
-    pub fn frmcntrrst(&mut self) -> FRMCNTRRST_W {
+    #[must_use]
+    pub fn frmcntrrst(&mut self) -> FRMCNTRRST_W<2> {
         FRMCNTRRST_W::new(self)
     }
     #[doc = "Bit 4 - RxFIFO Flush host and device"]
     #[inline(always)]
-    pub fn rxfflsh(&mut self) -> RXFFLSH_W {
+    #[must_use]
+    pub fn rxfflsh(&mut self) -> RXFFLSH_W<4> {
         RXFFLSH_W::new(self)
     }
     #[doc = "Bit 5 - TxFIFO Flush host and device"]
     #[inline(always)]
-    pub fn txfflsh(&mut self) -> TXFFLSH_W {
+    #[must_use]
+    pub fn txfflsh(&mut self) -> TXFFLSH_W<5> {
         TXFFLSH_W::new(self)
     }
     #[doc = "Bits 6:10 - TxFIFO Number host and device"]
     #[inline(always)]
-    pub fn txfnum(&mut self) -> TXFNUM_W {
+    #[must_use]
+    pub fn txfnum(&mut self) -> TXFNUM_W<6> {
         TXFNUM_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -266,11 +271,10 @@ impl crate::Readable for GRSTCTL_SPEC {
 #[doc = "`write(|w| ..)` method takes [grstctl::W](W) writer structure"]
 impl crate::Writable for GRSTCTL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets GRSTCTL to value 0x8000_0000"]
 impl crate::Resettable for GRSTCTL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x8000_0000
-    }
+    const RESET_VALUE: Self::Ux = 0x8000_0000;
 }

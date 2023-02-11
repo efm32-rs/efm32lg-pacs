@@ -34,8 +34,10 @@ impl From<crate::W<LPMODE_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `LPMODE` reader - Low power mode configuration."]
+pub type LPMODE_R = crate::FieldReader<u8, LPMODE_A>;
 #[doc = "Low power mode configuration.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LPMODE_A {
     #[doc = "0: Low power mode is disabled."]
@@ -51,8 +53,6 @@ impl From<LPMODE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `LPMODE` reader - Low power mode configuration."]
-pub type LPMODE_R = crate::FieldReader<u8, LPMODE_A>;
 impl LPMODE_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -81,8 +81,8 @@ impl LPMODE_R {
     }
 }
 #[doc = "Field `LPMODE` writer - Low power mode configuration."]
-pub type LPMODE_W<'a> = crate::FieldWriter<'a, u32, LPMODE_SPEC, u8, LPMODE_A, 2, 0>;
-impl<'a> LPMODE_W<'a> {
+pub type LPMODE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, LPMODE_SPEC, u8, LPMODE_A, 2, O>;
+impl<'a, const O: u8> LPMODE_W<'a, O> {
     #[doc = "Low power mode is disabled."]
     #[inline(always)]
     pub fn disable(self) -> &'a mut W {
@@ -109,7 +109,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - Low power mode configuration."]
     #[inline(always)]
-    pub fn lpmode(&mut self) -> LPMODE_W {
+    #[must_use]
+    pub fn lpmode(&mut self) -> LPMODE_W<0> {
         LPMODE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -131,11 +132,10 @@ impl crate::Readable for LPMODE_SPEC {
 #[doc = "`write(|w| ..)` method takes [lpmode::W](W) writer structure"]
 impl crate::Writable for LPMODE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets LPMODE to value 0"]
 impl crate::Resettable for LPMODE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

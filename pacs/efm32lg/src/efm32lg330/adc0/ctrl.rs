@@ -34,8 +34,10 @@ impl From<crate::W<CTRL_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `WARMUPMODE` reader - Warm-up Mode"]
+pub type WARMUPMODE_R = crate::FieldReader<u8, WARMUPMODE_A>;
 #[doc = "Warm-up Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum WARMUPMODE_A {
     #[doc = "0: ADC is shut down after each conversion"]
@@ -53,8 +55,6 @@ impl From<WARMUPMODE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `WARMUPMODE` reader - Warm-up Mode"]
-pub type WARMUPMODE_R = crate::FieldReader<u8, WARMUPMODE_A>;
 impl WARMUPMODE_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -89,8 +89,9 @@ impl WARMUPMODE_R {
     }
 }
 #[doc = "Field `WARMUPMODE` writer - Warm-up Mode"]
-pub type WARMUPMODE_W<'a> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, WARMUPMODE_A, 2, 0>;
-impl<'a> WARMUPMODE_W<'a> {
+pub type WARMUPMODE_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, WARMUPMODE_A, 2, O>;
+impl<'a, const O: u8> WARMUPMODE_W<'a, O> {
     #[doc = "ADC is shut down after each conversion"]
     #[inline(always)]
     pub fn normal(self) -> &'a mut W {
@@ -115,9 +116,11 @@ impl<'a> WARMUPMODE_W<'a> {
 #[doc = "Field `TAILGATE` reader - Conversion Tailgating"]
 pub type TAILGATE_R = crate::BitReader<bool>;
 #[doc = "Field `TAILGATE` writer - Conversion Tailgating"]
-pub type TAILGATE_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 3>;
+pub type TAILGATE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
+#[doc = "Field `LPFMODE` reader - Low Pass Filter Mode"]
+pub type LPFMODE_R = crate::FieldReader<u8, LPFMODE_A>;
 #[doc = "Low Pass Filter Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LPFMODE_A {
     #[doc = "0: No filter or decoupling capacitor"]
@@ -133,8 +136,6 @@ impl From<LPFMODE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `LPFMODE` reader - Low Pass Filter Mode"]
-pub type LPFMODE_R = crate::FieldReader<u8, LPFMODE_A>;
 impl LPFMODE_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -163,8 +164,8 @@ impl LPFMODE_R {
     }
 }
 #[doc = "Field `LPFMODE` writer - Low Pass Filter Mode"]
-pub type LPFMODE_W<'a> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, LPFMODE_A, 2, 4>;
-impl<'a> LPFMODE_W<'a> {
+pub type LPFMODE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, LPFMODE_A, 2, O>;
+impl<'a, const O: u8> LPFMODE_W<'a, O> {
     #[doc = "No filter or decoupling capacitor"]
     #[inline(always)]
     pub fn bypass(self) -> &'a mut W {
@@ -181,8 +182,10 @@ impl<'a> LPFMODE_W<'a> {
         self.variant(LPFMODE_A::RCFILT)
     }
 }
+#[doc = "Field `PRESC` reader - Prescaler Setting"]
+pub type PRESC_R = crate::FieldReader<u8, PRESC_A>;
 #[doc = "Prescaler Setting\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PRESC_A {
     #[doc = "0: `0`"]
@@ -194,8 +197,6 @@ impl From<PRESC_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `PRESC` reader - Prescaler Setting"]
-pub type PRESC_R = crate::FieldReader<u8, PRESC_A>;
 impl PRESC_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -212,8 +213,8 @@ impl PRESC_R {
     }
 }
 #[doc = "Field `PRESC` writer - Prescaler Setting"]
-pub type PRESC_W<'a> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, PRESC_A, 7, 8>;
-impl<'a> PRESC_W<'a> {
+pub type PRESC_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, PRESC_A, 7, O>;
+impl<'a, const O: u8> PRESC_W<'a, O> {
     #[doc = "`0`"]
     #[inline(always)]
     pub fn nodivision(self) -> &'a mut W {
@@ -223,9 +224,11 @@ impl<'a> PRESC_W<'a> {
 #[doc = "Field `TIMEBASE` reader - Time Base"]
 pub type TIMEBASE_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `TIMEBASE` writer - Time Base"]
-pub type TIMEBASE_W<'a> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, u8, 7, 16>;
+pub type TIMEBASE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, u8, 7, O>;
+#[doc = "Field `OVSRSEL` reader - Oversample Rate Select"]
+pub type OVSRSEL_R = crate::FieldReader<u8, OVSRSEL_A>;
 #[doc = "Oversample Rate Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum OVSRSEL_A {
     #[doc = "0: 2 samples for each conversion result"]
@@ -259,8 +262,6 @@ impl From<OVSRSEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `OVSRSEL` reader - Oversample Rate Select"]
-pub type OVSRSEL_R = crate::FieldReader<u8, OVSRSEL_A>;
 impl OVSRSEL_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -343,8 +344,8 @@ impl OVSRSEL_R {
     }
 }
 #[doc = "Field `OVSRSEL` writer - Oversample Rate Select"]
-pub type OVSRSEL_W<'a> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, OVSRSEL_A, 4, 24>;
-impl<'a> OVSRSEL_W<'a> {
+pub type OVSRSEL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, OVSRSEL_A, 4, O>;
+impl<'a, const O: u8> OVSRSEL_W<'a, O> {
     #[doc = "2 samples for each conversion result"]
     #[inline(always)]
     pub fn x2(self) -> &'a mut W {
@@ -441,32 +442,38 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - Warm-up Mode"]
     #[inline(always)]
-    pub fn warmupmode(&mut self) -> WARMUPMODE_W {
+    #[must_use]
+    pub fn warmupmode(&mut self) -> WARMUPMODE_W<0> {
         WARMUPMODE_W::new(self)
     }
     #[doc = "Bit 3 - Conversion Tailgating"]
     #[inline(always)]
-    pub fn tailgate(&mut self) -> TAILGATE_W {
+    #[must_use]
+    pub fn tailgate(&mut self) -> TAILGATE_W<3> {
         TAILGATE_W::new(self)
     }
     #[doc = "Bits 4:5 - Low Pass Filter Mode"]
     #[inline(always)]
-    pub fn lpfmode(&mut self) -> LPFMODE_W {
+    #[must_use]
+    pub fn lpfmode(&mut self) -> LPFMODE_W<4> {
         LPFMODE_W::new(self)
     }
     #[doc = "Bits 8:14 - Prescaler Setting"]
     #[inline(always)]
-    pub fn presc(&mut self) -> PRESC_W {
+    #[must_use]
+    pub fn presc(&mut self) -> PRESC_W<8> {
         PRESC_W::new(self)
     }
     #[doc = "Bits 16:22 - Time Base"]
     #[inline(always)]
-    pub fn timebase(&mut self) -> TIMEBASE_W {
+    #[must_use]
+    pub fn timebase(&mut self) -> TIMEBASE_W<16> {
         TIMEBASE_W::new(self)
     }
     #[doc = "Bits 24:27 - Oversample Rate Select"]
     #[inline(always)]
-    pub fn ovsrsel(&mut self) -> OVSRSEL_W {
+    #[must_use]
+    pub fn ovsrsel(&mut self) -> OVSRSEL_W<24> {
         OVSRSEL_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -488,11 +495,10 @@ impl crate::Readable for CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
 impl crate::Writable for CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CTRL to value 0x001f_0000"]
 impl crate::Resettable for CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x001f_0000
-    }
+    const RESET_VALUE: Self::Ux = 0x001f_0000;
 }

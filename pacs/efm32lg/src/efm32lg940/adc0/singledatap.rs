@@ -33,8 +33,5 @@ impl crate::Readable for SINGLEDATAP_SPEC {
 }
 #[doc = "`reset()` method sets SINGLEDATAP to value 0"]
 impl crate::Resettable for SINGLEDATAP_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

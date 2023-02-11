@@ -37,9 +37,11 @@ impl From<crate::W<IRCTRL_SPEC>> for W {
 #[doc = "Field `IREN` reader - Enable IrDA Module"]
 pub type IREN_R = crate::BitReader<bool>;
 #[doc = "Field `IREN` writer - Enable IrDA Module"]
-pub type IREN_W<'a> = crate::BitWriter<'a, u32, IRCTRL_SPEC, bool, 0>;
+pub type IREN_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRCTRL_SPEC, bool, O>;
+#[doc = "Field `IRPW` reader - IrDA TX Pulse Width"]
+pub type IRPW_R = crate::FieldReader<u8, IRPW_A>;
 #[doc = "IrDA TX Pulse Width\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum IRPW_A {
     #[doc = "0: IrDA pulse width is 1/16 for OVS=0 and 1/8 for OVS=1"]
@@ -57,8 +59,6 @@ impl From<IRPW_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `IRPW` reader - IrDA TX Pulse Width"]
-pub type IRPW_R = crate::FieldReader<u8, IRPW_A>;
 impl IRPW_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -93,8 +93,8 @@ impl IRPW_R {
     }
 }
 #[doc = "Field `IRPW` writer - IrDA TX Pulse Width"]
-pub type IRPW_W<'a> = crate::FieldWriterSafe<'a, u32, IRCTRL_SPEC, u8, IRPW_A, 2, 1>;
-impl<'a> IRPW_W<'a> {
+pub type IRPW_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, IRCTRL_SPEC, u8, IRPW_A, 2, O>;
+impl<'a, const O: u8> IRPW_W<'a, O> {
     #[doc = "IrDA pulse width is 1/16 for OVS=0 and 1/8 for OVS=1"]
     #[inline(always)]
     pub fn one(self) -> &'a mut W {
@@ -119,9 +119,11 @@ impl<'a> IRPW_W<'a> {
 #[doc = "Field `IRFILT` reader - IrDA RX Filter"]
 pub type IRFILT_R = crate::BitReader<bool>;
 #[doc = "Field `IRFILT` writer - IrDA RX Filter"]
-pub type IRFILT_W<'a> = crate::BitWriter<'a, u32, IRCTRL_SPEC, bool, 3>;
+pub type IRFILT_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRCTRL_SPEC, bool, O>;
+#[doc = "Field `IRPRSSEL` reader - IrDA PRS Channel Select"]
+pub type IRPRSSEL_R = crate::FieldReader<u8, IRPRSSEL_A>;
 #[doc = "IrDA PRS Channel Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum IRPRSSEL_A {
     #[doc = "0: PRS Channel 0 selected"]
@@ -147,8 +149,6 @@ impl From<IRPRSSEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `IRPRSSEL` reader - IrDA PRS Channel Select"]
-pub type IRPRSSEL_R = crate::FieldReader<u8, IRPRSSEL_A>;
 impl IRPRSSEL_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -207,8 +207,9 @@ impl IRPRSSEL_R {
     }
 }
 #[doc = "Field `IRPRSSEL` writer - IrDA PRS Channel Select"]
-pub type IRPRSSEL_W<'a> = crate::FieldWriterSafe<'a, u32, IRCTRL_SPEC, u8, IRPRSSEL_A, 3, 4>;
-impl<'a> IRPRSSEL_W<'a> {
+pub type IRPRSSEL_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, IRCTRL_SPEC, u8, IRPRSSEL_A, 3, O>;
+impl<'a, const O: u8> IRPRSSEL_W<'a, O> {
     #[doc = "PRS Channel 0 selected"]
     #[inline(always)]
     pub fn prsch0(self) -> &'a mut W {
@@ -253,7 +254,7 @@ impl<'a> IRPRSSEL_W<'a> {
 #[doc = "Field `IRPRSEN` reader - IrDA PRS Channel Enable"]
 pub type IRPRSEN_R = crate::BitReader<bool>;
 #[doc = "Field `IRPRSEN` writer - IrDA PRS Channel Enable"]
-pub type IRPRSEN_W<'a> = crate::BitWriter<'a, u32, IRCTRL_SPEC, bool, 7>;
+pub type IRPRSEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRCTRL_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Enable IrDA Module"]
     #[inline(always)]
@@ -284,27 +285,32 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Enable IrDA Module"]
     #[inline(always)]
-    pub fn iren(&mut self) -> IREN_W {
+    #[must_use]
+    pub fn iren(&mut self) -> IREN_W<0> {
         IREN_W::new(self)
     }
     #[doc = "Bits 1:2 - IrDA TX Pulse Width"]
     #[inline(always)]
-    pub fn irpw(&mut self) -> IRPW_W {
+    #[must_use]
+    pub fn irpw(&mut self) -> IRPW_W<1> {
         IRPW_W::new(self)
     }
     #[doc = "Bit 3 - IrDA RX Filter"]
     #[inline(always)]
-    pub fn irfilt(&mut self) -> IRFILT_W {
+    #[must_use]
+    pub fn irfilt(&mut self) -> IRFILT_W<3> {
         IRFILT_W::new(self)
     }
     #[doc = "Bits 4:6 - IrDA PRS Channel Select"]
     #[inline(always)]
-    pub fn irprssel(&mut self) -> IRPRSSEL_W {
+    #[must_use]
+    pub fn irprssel(&mut self) -> IRPRSSEL_W<4> {
         IRPRSSEL_W::new(self)
     }
     #[doc = "Bit 7 - IrDA PRS Channel Enable"]
     #[inline(always)]
-    pub fn irprsen(&mut self) -> IRPRSEN_W {
+    #[must_use]
+    pub fn irprsen(&mut self) -> IRPRSEN_W<7> {
         IRPRSEN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -326,11 +332,10 @@ impl crate::Readable for IRCTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [irctrl::W](W) writer structure"]
 impl crate::Writable for IRCTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IRCTRL to value 0"]
 impl crate::Resettable for IRCTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

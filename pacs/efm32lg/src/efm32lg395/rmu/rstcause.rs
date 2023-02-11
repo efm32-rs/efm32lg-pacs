@@ -138,8 +138,5 @@ impl crate::Readable for RSTCAUSE_SPEC {
 }
 #[doc = "`reset()` method sets RSTCAUSE to value 0"]
 impl crate::Resettable for RSTCAUSE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

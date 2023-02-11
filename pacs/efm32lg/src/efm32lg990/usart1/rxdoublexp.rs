@@ -68,8 +68,5 @@ impl crate::Readable for RXDOUBLEXP_SPEC {
 }
 #[doc = "`reset()` method sets RXDOUBLEXP to value 0"]
 impl crate::Resettable for RXDOUBLEXP_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

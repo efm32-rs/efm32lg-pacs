@@ -37,7 +37,7 @@ impl From<crate::W<ETMCLAIMSET_SPEC>> for W {
 #[doc = "Field `SETTAG` reader - Tag Bits"]
 pub type SETTAG_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `SETTAG` writer - Tag Bits"]
-pub type SETTAG_W<'a> = crate::FieldWriter<'a, u32, ETMCLAIMSET_SPEC, u8, u8, 8, 0>;
+pub type SETTAG_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ETMCLAIMSET_SPEC, u8, u8, 8, O>;
 impl R {
     #[doc = "Bits 0:7 - Tag Bits"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:7 - Tag Bits"]
     #[inline(always)]
-    pub fn settag(&mut self) -> SETTAG_W {
+    #[must_use]
+    pub fn settag(&mut self) -> SETTAG_W<0> {
         SETTAG_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for ETMCLAIMSET_SPEC {
 #[doc = "`write(|w| ..)` method takes [etmclaimset::W](W) writer structure"]
 impl crate::Writable for ETMCLAIMSET_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ETMCLAIMSET to value 0x0f"]
 impl crate::Resettable for ETMCLAIMSET_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0f
-    }
+    const RESET_VALUE: Self::Ux = 0x0f;
 }

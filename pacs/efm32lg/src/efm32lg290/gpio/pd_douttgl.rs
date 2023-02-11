@@ -20,11 +20,12 @@ impl From<crate::W<PD_DOUTTGL_SPEC>> for W {
     }
 }
 #[doc = "Field `DOUTTGL` writer - Data Out Toggle"]
-pub type DOUTTGL_W<'a> = crate::FieldWriter<'a, u32, PD_DOUTTGL_SPEC, u16, u16, 16, 0>;
+pub type DOUTTGL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, PD_DOUTTGL_SPEC, u16, u16, 16, O>;
 impl W {
     #[doc = "Bits 0:15 - Data Out Toggle"]
     #[inline(always)]
-    pub fn douttgl(&mut self) -> DOUTTGL_W {
+    #[must_use]
+    pub fn douttgl(&mut self) -> DOUTTGL_W<0> {
         DOUTTGL_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -42,11 +43,10 @@ impl crate::RegisterSpec for PD_DOUTTGL_SPEC {
 #[doc = "`write(|w| ..)` method takes [pd_douttgl::W](W) writer structure"]
 impl crate::Writable for PD_DOUTTGL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PD_DOUTTGL to value 0"]
 impl crate::Resettable for PD_DOUTTGL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,11 +37,11 @@ impl From<crate::W<TFTSIZE_SPEC>> for W {
 #[doc = "Field `HSZ` reader - Horizontal Size (excluding porches)"]
 pub type HSZ_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `HSZ` writer - Horizontal Size (excluding porches)"]
-pub type HSZ_W<'a> = crate::FieldWriter<'a, u32, TFTSIZE_SPEC, u16, u16, 10, 0>;
+pub type HSZ_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TFTSIZE_SPEC, u16, u16, 10, O>;
 #[doc = "Field `VSZ` reader - Vertical Size (excluding porches)"]
 pub type VSZ_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `VSZ` writer - Vertical Size (excluding porches)"]
-pub type VSZ_W<'a> = crate::FieldWriter<'a, u32, TFTSIZE_SPEC, u16, u16, 10, 16>;
+pub type VSZ_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TFTSIZE_SPEC, u16, u16, 10, O>;
 impl R {
     #[doc = "Bits 0:9 - Horizontal Size (excluding porches)"]
     #[inline(always)]
@@ -57,12 +57,14 @@ impl R {
 impl W {
     #[doc = "Bits 0:9 - Horizontal Size (excluding porches)"]
     #[inline(always)]
-    pub fn hsz(&mut self) -> HSZ_W {
+    #[must_use]
+    pub fn hsz(&mut self) -> HSZ_W<0> {
         HSZ_W::new(self)
     }
     #[doc = "Bits 16:25 - Vertical Size (excluding porches)"]
     #[inline(always)]
-    pub fn vsz(&mut self) -> VSZ_W {
+    #[must_use]
+    pub fn vsz(&mut self) -> VSZ_W<16> {
         VSZ_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -84,11 +86,10 @@ impl crate::Readable for TFTSIZE_SPEC {
 #[doc = "`write(|w| ..)` method takes [tftsize::W](W) writer structure"]
 impl crate::Writable for TFTSIZE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TFTSIZE to value 0"]
 impl crate::Resettable for TFTSIZE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,11 +37,11 @@ impl From<crate::W<ETMTESSEICR_SPEC>> for W {
 #[doc = "Field `STARTRSEL` reader - Stop Resource Selection"]
 pub type STARTRSEL_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `STARTRSEL` writer - Stop Resource Selection"]
-pub type STARTRSEL_W<'a> = crate::FieldWriter<'a, u32, ETMTESSEICR_SPEC, u8, u8, 4, 0>;
+pub type STARTRSEL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ETMTESSEICR_SPEC, u8, u8, 4, O>;
 #[doc = "Field `STOPRSEL` reader - Stop Resource Selection"]
 pub type STOPRSEL_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `STOPRSEL` writer - Stop Resource Selection"]
-pub type STOPRSEL_W<'a> = crate::FieldWriter<'a, u32, ETMTESSEICR_SPEC, u8, u8, 4, 16>;
+pub type STOPRSEL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ETMTESSEICR_SPEC, u8, u8, 4, O>;
 impl R {
     #[doc = "Bits 0:3 - Stop Resource Selection"]
     #[inline(always)]
@@ -57,12 +57,14 @@ impl R {
 impl W {
     #[doc = "Bits 0:3 - Stop Resource Selection"]
     #[inline(always)]
-    pub fn startrsel(&mut self) -> STARTRSEL_W {
+    #[must_use]
+    pub fn startrsel(&mut self) -> STARTRSEL_W<0> {
         STARTRSEL_W::new(self)
     }
     #[doc = "Bits 16:19 - Stop Resource Selection"]
     #[inline(always)]
-    pub fn stoprsel(&mut self) -> STOPRSEL_W {
+    #[must_use]
+    pub fn stoprsel(&mut self) -> STOPRSEL_W<16> {
         STOPRSEL_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -84,11 +86,10 @@ impl crate::Readable for ETMTESSEICR_SPEC {
 #[doc = "`write(|w| ..)` method takes [etmtesseicr::W](W) writer structure"]
 impl crate::Writable for ETMTESSEICR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ETMTESSEICR to value 0"]
 impl crate::Resettable for ETMTESSEICR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

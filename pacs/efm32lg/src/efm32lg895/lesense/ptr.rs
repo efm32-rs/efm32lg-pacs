@@ -40,8 +40,5 @@ impl crate::Readable for PTR_SPEC {
 }
 #[doc = "`reset()` method sets PTR to value 0"]
 impl crate::Resettable for PTR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

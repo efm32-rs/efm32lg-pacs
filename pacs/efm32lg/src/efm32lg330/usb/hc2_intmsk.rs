@@ -37,43 +37,43 @@ impl From<crate::W<HC2_INTMSK_SPEC>> for W {
 #[doc = "Field `XFERCOMPLMSK` reader - Transfer Completed Mask"]
 pub type XFERCOMPLMSK_R = crate::BitReader<bool>;
 #[doc = "Field `XFERCOMPLMSK` writer - Transfer Completed Mask"]
-pub type XFERCOMPLMSK_W<'a> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, 0>;
+pub type XFERCOMPLMSK_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, O>;
 #[doc = "Field `CHHLTDMSK` reader - Channel Halted Mask"]
 pub type CHHLTDMSK_R = crate::BitReader<bool>;
 #[doc = "Field `CHHLTDMSK` writer - Channel Halted Mask"]
-pub type CHHLTDMSK_W<'a> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, 1>;
+pub type CHHLTDMSK_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, O>;
 #[doc = "Field `AHBERRMSK` reader - AHB Error Mask"]
 pub type AHBERRMSK_R = crate::BitReader<bool>;
 #[doc = "Field `AHBERRMSK` writer - AHB Error Mask"]
-pub type AHBERRMSK_W<'a> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, 2>;
+pub type AHBERRMSK_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, O>;
 #[doc = "Field `STALLMSK` reader - STALL Response Received Interrupt Mask"]
 pub type STALLMSK_R = crate::BitReader<bool>;
 #[doc = "Field `STALLMSK` writer - STALL Response Received Interrupt Mask"]
-pub type STALLMSK_W<'a> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, 3>;
+pub type STALLMSK_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, O>;
 #[doc = "Field `NAKMSK` reader - NAK Response Received Interrupt Mask"]
 pub type NAKMSK_R = crate::BitReader<bool>;
 #[doc = "Field `NAKMSK` writer - NAK Response Received Interrupt Mask"]
-pub type NAKMSK_W<'a> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, 4>;
+pub type NAKMSK_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, O>;
 #[doc = "Field `ACKMSK` reader - ACK Response Received/Transmitted Interrupt Mask"]
 pub type ACKMSK_R = crate::BitReader<bool>;
 #[doc = "Field `ACKMSK` writer - ACK Response Received/Transmitted Interrupt Mask"]
-pub type ACKMSK_W<'a> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, 5>;
+pub type ACKMSK_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, O>;
 #[doc = "Field `XACTERRMSK` reader - Transaction Error Mask"]
 pub type XACTERRMSK_R = crate::BitReader<bool>;
 #[doc = "Field `XACTERRMSK` writer - Transaction Error Mask"]
-pub type XACTERRMSK_W<'a> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, 7>;
+pub type XACTERRMSK_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, O>;
 #[doc = "Field `BBLERRMSK` reader - Babble Error Mask"]
 pub type BBLERRMSK_R = crate::BitReader<bool>;
 #[doc = "Field `BBLERRMSK` writer - Babble Error Mask"]
-pub type BBLERRMSK_W<'a> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, 8>;
+pub type BBLERRMSK_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, O>;
 #[doc = "Field `FRMOVRUNMSK` reader - Frame Overrun Mask"]
 pub type FRMOVRUNMSK_R = crate::BitReader<bool>;
 #[doc = "Field `FRMOVRUNMSK` writer - Frame Overrun Mask"]
-pub type FRMOVRUNMSK_W<'a> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, 9>;
+pub type FRMOVRUNMSK_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, O>;
 #[doc = "Field `DATATGLERRMSK` reader - Data Toggle Error Mask"]
 pub type DATATGLERRMSK_R = crate::BitReader<bool>;
 #[doc = "Field `DATATGLERRMSK` writer - Data Toggle Error Mask"]
-pub type DATATGLERRMSK_W<'a> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, 10>;
+pub type DATATGLERRMSK_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC2_INTMSK_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Transfer Completed Mask"]
     #[inline(always)]
@@ -129,52 +129,62 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Transfer Completed Mask"]
     #[inline(always)]
-    pub fn xfercomplmsk(&mut self) -> XFERCOMPLMSK_W {
+    #[must_use]
+    pub fn xfercomplmsk(&mut self) -> XFERCOMPLMSK_W<0> {
         XFERCOMPLMSK_W::new(self)
     }
     #[doc = "Bit 1 - Channel Halted Mask"]
     #[inline(always)]
-    pub fn chhltdmsk(&mut self) -> CHHLTDMSK_W {
+    #[must_use]
+    pub fn chhltdmsk(&mut self) -> CHHLTDMSK_W<1> {
         CHHLTDMSK_W::new(self)
     }
     #[doc = "Bit 2 - AHB Error Mask"]
     #[inline(always)]
-    pub fn ahberrmsk(&mut self) -> AHBERRMSK_W {
+    #[must_use]
+    pub fn ahberrmsk(&mut self) -> AHBERRMSK_W<2> {
         AHBERRMSK_W::new(self)
     }
     #[doc = "Bit 3 - STALL Response Received Interrupt Mask"]
     #[inline(always)]
-    pub fn stallmsk(&mut self) -> STALLMSK_W {
+    #[must_use]
+    pub fn stallmsk(&mut self) -> STALLMSK_W<3> {
         STALLMSK_W::new(self)
     }
     #[doc = "Bit 4 - NAK Response Received Interrupt Mask"]
     #[inline(always)]
-    pub fn nakmsk(&mut self) -> NAKMSK_W {
+    #[must_use]
+    pub fn nakmsk(&mut self) -> NAKMSK_W<4> {
         NAKMSK_W::new(self)
     }
     #[doc = "Bit 5 - ACK Response Received/Transmitted Interrupt Mask"]
     #[inline(always)]
-    pub fn ackmsk(&mut self) -> ACKMSK_W {
+    #[must_use]
+    pub fn ackmsk(&mut self) -> ACKMSK_W<5> {
         ACKMSK_W::new(self)
     }
     #[doc = "Bit 7 - Transaction Error Mask"]
     #[inline(always)]
-    pub fn xacterrmsk(&mut self) -> XACTERRMSK_W {
+    #[must_use]
+    pub fn xacterrmsk(&mut self) -> XACTERRMSK_W<7> {
         XACTERRMSK_W::new(self)
     }
     #[doc = "Bit 8 - Babble Error Mask"]
     #[inline(always)]
-    pub fn bblerrmsk(&mut self) -> BBLERRMSK_W {
+    #[must_use]
+    pub fn bblerrmsk(&mut self) -> BBLERRMSK_W<8> {
         BBLERRMSK_W::new(self)
     }
     #[doc = "Bit 9 - Frame Overrun Mask"]
     #[inline(always)]
-    pub fn frmovrunmsk(&mut self) -> FRMOVRUNMSK_W {
+    #[must_use]
+    pub fn frmovrunmsk(&mut self) -> FRMOVRUNMSK_W<9> {
         FRMOVRUNMSK_W::new(self)
     }
     #[doc = "Bit 10 - Data Toggle Error Mask"]
     #[inline(always)]
-    pub fn datatglerrmsk(&mut self) -> DATATGLERRMSK_W {
+    #[must_use]
+    pub fn datatglerrmsk(&mut self) -> DATATGLERRMSK_W<10> {
         DATATGLERRMSK_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -196,11 +206,10 @@ impl crate::Readable for HC2_INTMSK_SPEC {
 #[doc = "`write(|w| ..)` method takes [hc2_intmsk::W](W) writer structure"]
 impl crate::Writable for HC2_INTMSK_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets HC2_INTMSK to value 0"]
 impl crate::Resettable for HC2_INTMSK_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

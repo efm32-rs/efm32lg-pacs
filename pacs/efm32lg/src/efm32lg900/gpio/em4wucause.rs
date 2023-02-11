@@ -13,8 +13,10 @@ impl From<crate::R<EM4WUCAUSE_SPEC>> for R {
         R(reader)
     }
 }
+#[doc = "Field `EM4WUCAUSE` reader - EM4 wake-up cause"]
+pub type EM4WUCAUSE_R = crate::FieldReader<u8, EM4WUCAUSE_A>;
 #[doc = "EM4 wake-up cause\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum EM4WUCAUSE_A {
     #[doc = "1: This bit indicates an em4 wake-up request occurred on pin A0"]
@@ -36,8 +38,6 @@ impl From<EM4WUCAUSE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `EM4WUCAUSE` reader - EM4 wake-up cause"]
-pub type EM4WUCAUSE_R = crate::FieldReader<u8, EM4WUCAUSE_A>;
 impl EM4WUCAUSE_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -101,8 +101,5 @@ impl crate::Readable for EM4WUCAUSE_SPEC {
 }
 #[doc = "`reset()` method sets EM4WUCAUSE to value 0"]
 impl crate::Resettable for EM4WUCAUSE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

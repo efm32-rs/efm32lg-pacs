@@ -37,11 +37,11 @@ impl From<crate::W<TIMEBASE_SPEC>> for W {
 #[doc = "Field `BASE` reader - Timebase used by MSC to time flash writes and erases"]
 pub type BASE_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `BASE` writer - Timebase used by MSC to time flash writes and erases"]
-pub type BASE_W<'a> = crate::FieldWriter<'a, u32, TIMEBASE_SPEC, u8, u8, 6, 0>;
+pub type BASE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TIMEBASE_SPEC, u8, u8, 6, O>;
 #[doc = "Field `PERIOD` reader - Sets the timebase period"]
 pub type PERIOD_R = crate::BitReader<bool>;
 #[doc = "Field `PERIOD` writer - Sets the timebase period"]
-pub type PERIOD_W<'a> = crate::BitWriter<'a, u32, TIMEBASE_SPEC, bool, 16>;
+pub type PERIOD_W<'a, const O: u8> = crate::BitWriter<'a, u32, TIMEBASE_SPEC, bool, O>;
 impl R {
     #[doc = "Bits 0:5 - Timebase used by MSC to time flash writes and erases"]
     #[inline(always)]
@@ -57,12 +57,14 @@ impl R {
 impl W {
     #[doc = "Bits 0:5 - Timebase used by MSC to time flash writes and erases"]
     #[inline(always)]
-    pub fn base(&mut self) -> BASE_W {
+    #[must_use]
+    pub fn base(&mut self) -> BASE_W<0> {
         BASE_W::new(self)
     }
     #[doc = "Bit 16 - Sets the timebase period"]
     #[inline(always)]
-    pub fn period(&mut self) -> PERIOD_W {
+    #[must_use]
+    pub fn period(&mut self) -> PERIOD_W<16> {
         PERIOD_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -84,11 +86,10 @@ impl crate::Readable for TIMEBASE_SPEC {
 #[doc = "`write(|w| ..)` method takes [timebase::W](W) writer structure"]
 impl crate::Writable for TIMEBASE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TIMEBASE to value 0x10"]
 impl crate::Resettable for TIMEBASE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x10
-    }
+    const RESET_VALUE: Self::Ux = 0x10;
 }

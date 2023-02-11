@@ -23,8 +23,10 @@ pub type MMDECCNT_R = crate::FieldReader<u8, u8>;
 pub type COUNTNUM_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `SEQPRES` reader - Sequencer Present"]
 pub type SEQPRES_R = crate::BitReader<bool>;
+#[doc = "Field `EXTINPNUM` reader - Number of External Inputs"]
+pub type EXTINPNUM_R = crate::FieldReader<u8, EXTINPNUM_A>;
 #[doc = "Number of External Inputs\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum EXTINPNUM_A {
     #[doc = "0: Zero inputs presents"]
@@ -40,8 +42,6 @@ impl From<EXTINPNUM_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `EXTINPNUM` reader - Number of External Inputs"]
-pub type EXTINPNUM_R = crate::FieldReader<u8, EXTINPNUM_A>;
 impl EXTINPNUM_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -154,8 +154,5 @@ impl crate::Readable for ETMCCR_SPEC {
 }
 #[doc = "`reset()` method sets ETMCCR to value 0x8c80_2000"]
 impl crate::Resettable for ETMCCR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x8c80_2000
-    }
+    const RESET_VALUE: Self::Ux = 0x8c80_2000;
 }

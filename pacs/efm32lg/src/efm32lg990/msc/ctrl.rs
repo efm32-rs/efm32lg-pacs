@@ -37,7 +37,7 @@ impl From<crate::W<CTRL_SPEC>> for W {
 #[doc = "Field `BUSFAULT` reader - Bus Fault Response Enable"]
 pub type BUSFAULT_R = crate::BitReader<bool>;
 #[doc = "Field `BUSFAULT` writer - Bus Fault Response Enable"]
-pub type BUSFAULT_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 0>;
+pub type BUSFAULT_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Bus Fault Response Enable"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Bus Fault Response Enable"]
     #[inline(always)]
-    pub fn busfault(&mut self) -> BUSFAULT_W {
+    #[must_use]
+    pub fn busfault(&mut self) -> BUSFAULT_W<0> {
         BUSFAULT_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
 impl crate::Writable for CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CTRL to value 0x01"]
 impl crate::Resettable for CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x01
-    }
+    const RESET_VALUE: Self::Ux = 0x01;
 }

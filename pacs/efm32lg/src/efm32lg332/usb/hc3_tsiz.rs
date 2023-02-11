@@ -37,13 +37,15 @@ impl From<crate::W<HC3_TSIZ_SPEC>> for W {
 #[doc = "Field `XFERSIZE` reader - Transfer Size"]
 pub type XFERSIZE_R = crate::FieldReader<u32, u32>;
 #[doc = "Field `XFERSIZE` writer - Transfer Size"]
-pub type XFERSIZE_W<'a> = crate::FieldWriter<'a, u32, HC3_TSIZ_SPEC, u32, u32, 19, 0>;
+pub type XFERSIZE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, HC3_TSIZ_SPEC, u32, u32, 19, O>;
 #[doc = "Field `PKTCNT` reader - Packet Count"]
 pub type PKTCNT_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `PKTCNT` writer - Packet Count"]
-pub type PKTCNT_W<'a> = crate::FieldWriter<'a, u32, HC3_TSIZ_SPEC, u16, u16, 10, 19>;
+pub type PKTCNT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, HC3_TSIZ_SPEC, u16, u16, 10, O>;
+#[doc = "Field `PID` reader - Packet ID"]
+pub type PID_R = crate::FieldReader<u8, PID_A>;
 #[doc = "Packet ID\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PID_A {
     #[doc = "0: DATA0 PID."]
@@ -61,8 +63,6 @@ impl From<PID_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `PID` reader - Packet ID"]
-pub type PID_R = crate::FieldReader<u8, PID_A>;
 impl PID_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -97,8 +97,8 @@ impl PID_R {
     }
 }
 #[doc = "Field `PID` writer - Packet ID"]
-pub type PID_W<'a> = crate::FieldWriterSafe<'a, u32, HC3_TSIZ_SPEC, u8, PID_A, 2, 29>;
-impl<'a> PID_W<'a> {
+pub type PID_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, HC3_TSIZ_SPEC, u8, PID_A, 2, O>;
+impl<'a, const O: u8> PID_W<'a, O> {
     #[doc = "DATA0 PID."]
     #[inline(always)]
     pub fn data0(self) -> &'a mut W {
@@ -124,7 +124,7 @@ impl R {
     #[doc = "Bits 0:18 - Transfer Size"]
     #[inline(always)]
     pub fn xfersize(&self) -> XFERSIZE_R {
-        XFERSIZE_R::new((self.bits & 0x0007_ffff) as u32)
+        XFERSIZE_R::new(self.bits & 0x0007_ffff)
     }
     #[doc = "Bits 19:28 - Packet Count"]
     #[inline(always)]
@@ -140,17 +140,20 @@ impl R {
 impl W {
     #[doc = "Bits 0:18 - Transfer Size"]
     #[inline(always)]
-    pub fn xfersize(&mut self) -> XFERSIZE_W {
+    #[must_use]
+    pub fn xfersize(&mut self) -> XFERSIZE_W<0> {
         XFERSIZE_W::new(self)
     }
     #[doc = "Bits 19:28 - Packet Count"]
     #[inline(always)]
-    pub fn pktcnt(&mut self) -> PKTCNT_W {
+    #[must_use]
+    pub fn pktcnt(&mut self) -> PKTCNT_W<19> {
         PKTCNT_W::new(self)
     }
     #[doc = "Bits 29:30 - Packet ID"]
     #[inline(always)]
-    pub fn pid(&mut self) -> PID_W {
+    #[must_use]
+    pub fn pid(&mut self) -> PID_W<29> {
         PID_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -172,11 +175,10 @@ impl crate::Readable for HC3_TSIZ_SPEC {
 #[doc = "`write(|w| ..)` method takes [hc3_tsiz::W](W) writer structure"]
 impl crate::Writable for HC3_TSIZ_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets HC3_TSIZ to value 0"]
 impl crate::Resettable for HC3_TSIZ_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

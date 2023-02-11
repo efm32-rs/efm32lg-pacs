@@ -37,17 +37,19 @@ impl From<crate::W<PWRCONF_SPEC>> for W {
 #[doc = "Field `VOUTWEAK` reader - BU_VOUT weak enable"]
 pub type VOUTWEAK_R = crate::BitReader<bool>;
 #[doc = "Field `VOUTWEAK` writer - BU_VOUT weak enable"]
-pub type VOUTWEAK_W<'a> = crate::BitWriter<'a, u32, PWRCONF_SPEC, bool, 0>;
+pub type VOUTWEAK_W<'a, const O: u8> = crate::BitWriter<'a, u32, PWRCONF_SPEC, bool, O>;
 #[doc = "Field `VOUTMED` reader - BU_VOUT medium enable"]
 pub type VOUTMED_R = crate::BitReader<bool>;
 #[doc = "Field `VOUTMED` writer - BU_VOUT medium enable"]
-pub type VOUTMED_W<'a> = crate::BitWriter<'a, u32, PWRCONF_SPEC, bool, 1>;
+pub type VOUTMED_W<'a, const O: u8> = crate::BitWriter<'a, u32, PWRCONF_SPEC, bool, O>;
 #[doc = "Field `VOUTSTRONG` reader - BU_VOUT strong enable"]
 pub type VOUTSTRONG_R = crate::BitReader<bool>;
 #[doc = "Field `VOUTSTRONG` writer - BU_VOUT strong enable"]
-pub type VOUTSTRONG_W<'a> = crate::BitWriter<'a, u32, PWRCONF_SPEC, bool, 2>;
+pub type VOUTSTRONG_W<'a, const O: u8> = crate::BitWriter<'a, u32, PWRCONF_SPEC, bool, O>;
+#[doc = "Field `PWRRES` reader - Power domain resistor select"]
+pub type PWRRES_R = crate::FieldReader<u8, PWRRES_A>;
 #[doc = "Power domain resistor select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PWRRES_A {
     #[doc = "0: Main power and backup power connected with RES0 series resistance."]
@@ -65,8 +67,6 @@ impl From<PWRRES_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `PWRRES` reader - Power domain resistor select"]
-pub type PWRRES_R = crate::FieldReader<u8, PWRRES_A>;
 impl PWRRES_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -101,8 +101,9 @@ impl PWRRES_R {
     }
 }
 #[doc = "Field `PWRRES` writer - Power domain resistor select"]
-pub type PWRRES_W<'a> = crate::FieldWriterSafe<'a, u32, PWRCONF_SPEC, u8, PWRRES_A, 2, 3>;
-impl<'a> PWRRES_W<'a> {
+pub type PWRRES_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, PWRCONF_SPEC, u8, PWRRES_A, 2, O>;
+impl<'a, const O: u8> PWRRES_W<'a, O> {
     #[doc = "Main power and backup power connected with RES0 series resistance."]
     #[inline(always)]
     pub fn res0(self) -> &'a mut W {
@@ -149,22 +150,26 @@ impl R {
 impl W {
     #[doc = "Bit 0 - BU_VOUT weak enable"]
     #[inline(always)]
-    pub fn voutweak(&mut self) -> VOUTWEAK_W {
+    #[must_use]
+    pub fn voutweak(&mut self) -> VOUTWEAK_W<0> {
         VOUTWEAK_W::new(self)
     }
     #[doc = "Bit 1 - BU_VOUT medium enable"]
     #[inline(always)]
-    pub fn voutmed(&mut self) -> VOUTMED_W {
+    #[must_use]
+    pub fn voutmed(&mut self) -> VOUTMED_W<1> {
         VOUTMED_W::new(self)
     }
     #[doc = "Bit 2 - BU_VOUT strong enable"]
     #[inline(always)]
-    pub fn voutstrong(&mut self) -> VOUTSTRONG_W {
+    #[must_use]
+    pub fn voutstrong(&mut self) -> VOUTSTRONG_W<2> {
         VOUTSTRONG_W::new(self)
     }
     #[doc = "Bits 3:4 - Power domain resistor select"]
     #[inline(always)]
-    pub fn pwrres(&mut self) -> PWRRES_W {
+    #[must_use]
+    pub fn pwrres(&mut self) -> PWRRES_W<3> {
         PWRRES_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -186,11 +191,10 @@ impl crate::Readable for PWRCONF_SPEC {
 #[doc = "`write(|w| ..)` method takes [pwrconf::W](W) writer structure"]
 impl crate::Writable for PWRCONF_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PWRCONF to value 0"]
 impl crate::Resettable for PWRCONF_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

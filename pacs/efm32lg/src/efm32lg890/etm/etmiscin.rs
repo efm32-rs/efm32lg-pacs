@@ -37,11 +37,11 @@ impl From<crate::W<ETMISCIN_SPEC>> for W {
 #[doc = "Field `EXTIN` reader - EXTIN Value"]
 pub type EXTIN_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `EXTIN` writer - EXTIN Value"]
-pub type EXTIN_W<'a> = crate::FieldWriter<'a, u32, ETMISCIN_SPEC, u8, u8, 2, 0>;
+pub type EXTIN_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ETMISCIN_SPEC, u8, u8, 2, O>;
 #[doc = "Field `COREHALT` reader - Core Halt"]
 pub type COREHALT_R = crate::BitReader<bool>;
 #[doc = "Field `COREHALT` writer - Core Halt"]
-pub type COREHALT_W<'a> = crate::BitWriter<'a, u32, ETMISCIN_SPEC, bool, 4>;
+pub type COREHALT_W<'a, const O: u8> = crate::BitWriter<'a, u32, ETMISCIN_SPEC, bool, O>;
 impl R {
     #[doc = "Bits 0:1 - EXTIN Value"]
     #[inline(always)]
@@ -57,12 +57,14 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - EXTIN Value"]
     #[inline(always)]
-    pub fn extin(&mut self) -> EXTIN_W {
+    #[must_use]
+    pub fn extin(&mut self) -> EXTIN_W<0> {
         EXTIN_W::new(self)
     }
     #[doc = "Bit 4 - Core Halt"]
     #[inline(always)]
-    pub fn corehalt(&mut self) -> COREHALT_W {
+    #[must_use]
+    pub fn corehalt(&mut self) -> COREHALT_W<4> {
         COREHALT_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -84,11 +86,10 @@ impl crate::Readable for ETMISCIN_SPEC {
 #[doc = "`write(|w| ..)` method takes [etmiscin::W](W) writer structure"]
 impl crate::Writable for ETMISCIN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ETMISCIN to value 0"]
 impl crate::Resettable for ETMISCIN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

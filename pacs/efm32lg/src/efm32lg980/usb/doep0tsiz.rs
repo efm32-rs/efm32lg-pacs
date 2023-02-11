@@ -37,15 +37,15 @@ impl From<crate::W<DOEP0TSIZ_SPEC>> for W {
 #[doc = "Field `XFERSIZE` reader - Transfer Size"]
 pub type XFERSIZE_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `XFERSIZE` writer - Transfer Size"]
-pub type XFERSIZE_W<'a> = crate::FieldWriter<'a, u32, DOEP0TSIZ_SPEC, u8, u8, 7, 0>;
+pub type XFERSIZE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DOEP0TSIZ_SPEC, u8, u8, 7, O>;
 #[doc = "Field `PKTCNT` reader - Packet Count"]
 pub type PKTCNT_R = crate::BitReader<bool>;
 #[doc = "Field `PKTCNT` writer - Packet Count"]
-pub type PKTCNT_W<'a> = crate::BitWriter<'a, u32, DOEP0TSIZ_SPEC, bool, 19>;
+pub type PKTCNT_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOEP0TSIZ_SPEC, bool, O>;
 #[doc = "Field `SUPCNT` reader - SETUP Packet Count"]
 pub type SUPCNT_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `SUPCNT` writer - SETUP Packet Count"]
-pub type SUPCNT_W<'a> = crate::FieldWriter<'a, u32, DOEP0TSIZ_SPEC, u8, u8, 2, 29>;
+pub type SUPCNT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DOEP0TSIZ_SPEC, u8, u8, 2, O>;
 impl R {
     #[doc = "Bits 0:6 - Transfer Size"]
     #[inline(always)]
@@ -66,17 +66,20 @@ impl R {
 impl W {
     #[doc = "Bits 0:6 - Transfer Size"]
     #[inline(always)]
-    pub fn xfersize(&mut self) -> XFERSIZE_W {
+    #[must_use]
+    pub fn xfersize(&mut self) -> XFERSIZE_W<0> {
         XFERSIZE_W::new(self)
     }
     #[doc = "Bit 19 - Packet Count"]
     #[inline(always)]
-    pub fn pktcnt(&mut self) -> PKTCNT_W {
+    #[must_use]
+    pub fn pktcnt(&mut self) -> PKTCNT_W<19> {
         PKTCNT_W::new(self)
     }
     #[doc = "Bits 29:30 - SETUP Packet Count"]
     #[inline(always)]
-    pub fn supcnt(&mut self) -> SUPCNT_W {
+    #[must_use]
+    pub fn supcnt(&mut self) -> SUPCNT_W<29> {
         SUPCNT_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -98,11 +101,10 @@ impl crate::Readable for DOEP0TSIZ_SPEC {
 #[doc = "`write(|w| ..)` method takes [doep0tsiz::W](W) writer structure"]
 impl crate::Writable for DOEP0TSIZ_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DOEP0TSIZ to value 0"]
 impl crate::Resettable for DOEP0TSIZ_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

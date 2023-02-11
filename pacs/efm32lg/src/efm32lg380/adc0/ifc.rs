@@ -20,32 +20,36 @@ impl From<crate::W<IFC_SPEC>> for W {
     }
 }
 #[doc = "Field `SINGLE` writer - Single Conversion Complete Interrupt Flag Clear"]
-pub type SINGLE_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 0>;
+pub type SINGLE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `SCAN` writer - Scan Conversion Complete Interrupt Flag Clear"]
-pub type SCAN_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 1>;
+pub type SCAN_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `SINGLEOF` writer - Single Result Overflow Interrupt Flag Clear"]
-pub type SINGLEOF_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 8>;
+pub type SINGLEOF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `SCANOF` writer - Scan Result Overflow Interrupt Flag Clear"]
-pub type SCANOF_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 9>;
+pub type SCANOF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 impl W {
     #[doc = "Bit 0 - Single Conversion Complete Interrupt Flag Clear"]
     #[inline(always)]
-    pub fn single(&mut self) -> SINGLE_W {
+    #[must_use]
+    pub fn single(&mut self) -> SINGLE_W<0> {
         SINGLE_W::new(self)
     }
     #[doc = "Bit 1 - Scan Conversion Complete Interrupt Flag Clear"]
     #[inline(always)]
-    pub fn scan(&mut self) -> SCAN_W {
+    #[must_use]
+    pub fn scan(&mut self) -> SCAN_W<1> {
         SCAN_W::new(self)
     }
     #[doc = "Bit 8 - Single Result Overflow Interrupt Flag Clear"]
     #[inline(always)]
-    pub fn singleof(&mut self) -> SINGLEOF_W {
+    #[must_use]
+    pub fn singleof(&mut self) -> SINGLEOF_W<8> {
         SINGLEOF_W::new(self)
     }
     #[doc = "Bit 9 - Scan Result Overflow Interrupt Flag Clear"]
     #[inline(always)]
-    pub fn scanof(&mut self) -> SCANOF_W {
+    #[must_use]
+    pub fn scanof(&mut self) -> SCANOF_W<9> {
         SCANOF_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -63,11 +67,10 @@ impl crate::RegisterSpec for IFC_SPEC {
 #[doc = "`write(|w| ..)` method takes [ifc::W](W) writer structure"]
 impl crate::Writable for IFC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IFC to value 0"]
 impl crate::Resettable for IFC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

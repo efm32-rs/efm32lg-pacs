@@ -15,8 +15,10 @@ impl From<crate::R<STATUS_SPEC>> for R {
 }
 #[doc = "Field `EN` reader - DMA Enable Status"]
 pub type EN_R = crate::BitReader<bool>;
+#[doc = "Field `STATE` reader - Control Current State"]
+pub type STATE_R = crate::FieldReader<u8, STATE_A>;
 #[doc = "Control Current State\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum STATE_A {
     #[doc = "0: Idle"]
@@ -48,8 +50,6 @@ impl From<STATE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `STATE` reader - Control Current State"]
-pub type STATE_R = crate::FieldReader<u8, STATE_A>;
 impl STATE_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -155,8 +155,5 @@ impl crate::Readable for STATUS_SPEC {
 }
 #[doc = "`reset()` method sets STATUS to value 0x100b_0000"]
 impl crate::Resettable for STATUS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x100b_0000
-    }
+    const RESET_VALUE: Self::Ux = 0x100b_0000;
 }

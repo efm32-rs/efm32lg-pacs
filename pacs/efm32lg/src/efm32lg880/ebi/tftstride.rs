@@ -37,7 +37,7 @@ impl From<crate::W<TFTSTRIDE_SPEC>> for W {
 #[doc = "Field `HSTRIDE` reader - Horizontal Stride"]
 pub type HSTRIDE_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `HSTRIDE` writer - Horizontal Stride"]
-pub type HSTRIDE_W<'a> = crate::FieldWriter<'a, u32, TFTSTRIDE_SPEC, u16, u16, 12, 0>;
+pub type HSTRIDE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TFTSTRIDE_SPEC, u16, u16, 12, O>;
 impl R {
     #[doc = "Bits 0:11 - Horizontal Stride"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:11 - Horizontal Stride"]
     #[inline(always)]
-    pub fn hstride(&mut self) -> HSTRIDE_W {
+    #[must_use]
+    pub fn hstride(&mut self) -> HSTRIDE_W<0> {
         HSTRIDE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for TFTSTRIDE_SPEC {
 #[doc = "`write(|w| ..)` method takes [tftstride::W](W) writer structure"]
 impl crate::Writable for TFTSTRIDE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TFTSTRIDE to value 0"]
 impl crate::Resettable for TFTSTRIDE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

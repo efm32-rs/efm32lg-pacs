@@ -37,13 +37,15 @@ impl From<crate::W<CTRL_SPEC>> for W {
 #[doc = "Field `DIFF` reader - Differential Mode"]
 pub type DIFF_R = crate::BitReader<bool>;
 #[doc = "Field `DIFF` writer - Differential Mode"]
-pub type DIFF_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 0>;
+pub type DIFF_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `SINEMODE` reader - Sine Mode"]
 pub type SINEMODE_R = crate::BitReader<bool>;
 #[doc = "Field `SINEMODE` writer - Sine Mode"]
-pub type SINEMODE_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 1>;
+pub type SINEMODE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
+#[doc = "Field `CONVMODE` reader - Conversion Mode"]
+pub type CONVMODE_R = crate::FieldReader<u8, CONVMODE_A>;
 #[doc = "Conversion Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CONVMODE_A {
     #[doc = "0: DAC is set in continuous mode"]
@@ -59,8 +61,6 @@ impl From<CONVMODE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `CONVMODE` reader - Conversion Mode"]
-pub type CONVMODE_R = crate::FieldReader<u8, CONVMODE_A>;
 impl CONVMODE_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -89,8 +89,8 @@ impl CONVMODE_R {
     }
 }
 #[doc = "Field `CONVMODE` writer - Conversion Mode"]
-pub type CONVMODE_W<'a> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, CONVMODE_A, 2, 2>;
-impl<'a> CONVMODE_W<'a> {
+pub type CONVMODE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, CONVMODE_A, 2, O>;
+impl<'a, const O: u8> CONVMODE_W<'a, O> {
     #[doc = "DAC is set in continuous mode"]
     #[inline(always)]
     pub fn continuous(self) -> &'a mut W {
@@ -107,8 +107,10 @@ impl<'a> CONVMODE_W<'a> {
         self.variant(CONVMODE_A::SAMPLEOFF)
     }
 }
+#[doc = "Field `OUTMODE` reader - Output Mode"]
+pub type OUTMODE_R = crate::FieldReader<u8, OUTMODE_A>;
 #[doc = "Output Mode\n\nValue on reset: 1"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum OUTMODE_A {
     #[doc = "0: DAC output to pin and ADC disabled"]
@@ -126,8 +128,6 @@ impl From<OUTMODE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `OUTMODE` reader - Output Mode"]
-pub type OUTMODE_R = crate::FieldReader<u8, OUTMODE_A>;
 impl OUTMODE_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -162,8 +162,9 @@ impl OUTMODE_R {
     }
 }
 #[doc = "Field `OUTMODE` writer - Output Mode"]
-pub type OUTMODE_W<'a> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, OUTMODE_A, 2, 4>;
-impl<'a> OUTMODE_W<'a> {
+pub type OUTMODE_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, OUTMODE_A, 2, O>;
+impl<'a, const O: u8> OUTMODE_W<'a, O> {
     #[doc = "DAC output to pin and ADC disabled"]
     #[inline(always)]
     pub fn disable(self) -> &'a mut W {
@@ -188,13 +189,15 @@ impl<'a> OUTMODE_W<'a> {
 #[doc = "Field `OUTENPRS` reader - PRS Controlled Output Enable"]
 pub type OUTENPRS_R = crate::BitReader<bool>;
 #[doc = "Field `OUTENPRS` writer - PRS Controlled Output Enable"]
-pub type OUTENPRS_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 6>;
+pub type OUTENPRS_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
 #[doc = "Field `CH0PRESCRST` reader - Channel 0 Start Reset Prescaler"]
 pub type CH0PRESCRST_R = crate::BitReader<bool>;
 #[doc = "Field `CH0PRESCRST` writer - Channel 0 Start Reset Prescaler"]
-pub type CH0PRESCRST_W<'a> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, 7>;
+pub type CH0PRESCRST_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL_SPEC, bool, O>;
+#[doc = "Field `REFSEL` reader - Reference Selection"]
+pub type REFSEL_R = crate::FieldReader<u8, REFSEL_A>;
 #[doc = "Reference Selection\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum REFSEL_A {
     #[doc = "0: Internal 1.25 V bandgap reference"]
@@ -210,8 +213,6 @@ impl From<REFSEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `REFSEL` reader - Reference Selection"]
-pub type REFSEL_R = crate::FieldReader<u8, REFSEL_A>;
 impl REFSEL_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -240,8 +241,8 @@ impl REFSEL_R {
     }
 }
 #[doc = "Field `REFSEL` writer - Reference Selection"]
-pub type REFSEL_W<'a> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, REFSEL_A, 2, 8>;
-impl<'a> REFSEL_W<'a> {
+pub type REFSEL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, REFSEL_A, 2, O>;
+impl<'a, const O: u8> REFSEL_W<'a, O> {
     #[doc = "Internal 1.25 V bandgap reference"]
     #[inline(always)]
     pub fn _1v25(self) -> &'a mut W {
@@ -258,8 +259,10 @@ impl<'a> REFSEL_W<'a> {
         self.variant(REFSEL_A::VDD)
     }
 }
+#[doc = "Field `PRESC` reader - Prescaler Setting"]
+pub type PRESC_R = crate::FieldReader<u8, PRESC_A>;
 #[doc = "Prescaler Setting\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PRESC_A {
     #[doc = "0: `0`"]
@@ -271,8 +274,6 @@ impl From<PRESC_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `PRESC` reader - Prescaler Setting"]
-pub type PRESC_R = crate::FieldReader<u8, PRESC_A>;
 impl PRESC_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -289,16 +290,18 @@ impl PRESC_R {
     }
 }
 #[doc = "Field `PRESC` writer - Prescaler Setting"]
-pub type PRESC_W<'a> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, PRESC_A, 3, 16>;
-impl<'a> PRESC_W<'a> {
+pub type PRESC_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTRL_SPEC, u8, PRESC_A, 3, O>;
+impl<'a, const O: u8> PRESC_W<'a, O> {
     #[doc = "`0`"]
     #[inline(always)]
     pub fn nodivision(self) -> &'a mut W {
         self.variant(PRESC_A::NODIVISION)
     }
 }
+#[doc = "Field `REFRSEL` reader - Refresh Interval Select"]
+pub type REFRSEL_R = crate::FieldReader<u8, REFRSEL_A>;
 #[doc = "Refresh Interval Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum REFRSEL_A {
     #[doc = "0: All channels with enabled refresh are refreshed every 8 prescaled cycles"]
@@ -316,8 +319,6 @@ impl From<REFRSEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `REFRSEL` reader - Refresh Interval Select"]
-pub type REFRSEL_R = crate::FieldReader<u8, REFRSEL_A>;
 impl REFRSEL_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -352,8 +353,9 @@ impl REFRSEL_R {
     }
 }
 #[doc = "Field `REFRSEL` writer - Refresh Interval Select"]
-pub type REFRSEL_W<'a> = crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, REFRSEL_A, 2, 20>;
-impl<'a> REFRSEL_W<'a> {
+pub type REFRSEL_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, CTRL_SPEC, u8, REFRSEL_A, 2, O>;
+impl<'a, const O: u8> REFRSEL_W<'a, O> {
     #[doc = "All channels with enabled refresh are refreshed every 8 prescaled cycles"]
     #[inline(always)]
     pub fn _8cycles(self) -> &'a mut W {
@@ -425,47 +427,56 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Differential Mode"]
     #[inline(always)]
-    pub fn diff(&mut self) -> DIFF_W {
+    #[must_use]
+    pub fn diff(&mut self) -> DIFF_W<0> {
         DIFF_W::new(self)
     }
     #[doc = "Bit 1 - Sine Mode"]
     #[inline(always)]
-    pub fn sinemode(&mut self) -> SINEMODE_W {
+    #[must_use]
+    pub fn sinemode(&mut self) -> SINEMODE_W<1> {
         SINEMODE_W::new(self)
     }
     #[doc = "Bits 2:3 - Conversion Mode"]
     #[inline(always)]
-    pub fn convmode(&mut self) -> CONVMODE_W {
+    #[must_use]
+    pub fn convmode(&mut self) -> CONVMODE_W<2> {
         CONVMODE_W::new(self)
     }
     #[doc = "Bits 4:5 - Output Mode"]
     #[inline(always)]
-    pub fn outmode(&mut self) -> OUTMODE_W {
+    #[must_use]
+    pub fn outmode(&mut self) -> OUTMODE_W<4> {
         OUTMODE_W::new(self)
     }
     #[doc = "Bit 6 - PRS Controlled Output Enable"]
     #[inline(always)]
-    pub fn outenprs(&mut self) -> OUTENPRS_W {
+    #[must_use]
+    pub fn outenprs(&mut self) -> OUTENPRS_W<6> {
         OUTENPRS_W::new(self)
     }
     #[doc = "Bit 7 - Channel 0 Start Reset Prescaler"]
     #[inline(always)]
-    pub fn ch0prescrst(&mut self) -> CH0PRESCRST_W {
+    #[must_use]
+    pub fn ch0prescrst(&mut self) -> CH0PRESCRST_W<7> {
         CH0PRESCRST_W::new(self)
     }
     #[doc = "Bits 8:9 - Reference Selection"]
     #[inline(always)]
-    pub fn refsel(&mut self) -> REFSEL_W {
+    #[must_use]
+    pub fn refsel(&mut self) -> REFSEL_W<8> {
         REFSEL_W::new(self)
     }
     #[doc = "Bits 16:18 - Prescaler Setting"]
     #[inline(always)]
-    pub fn presc(&mut self) -> PRESC_W {
+    #[must_use]
+    pub fn presc(&mut self) -> PRESC_W<16> {
         PRESC_W::new(self)
     }
     #[doc = "Bits 20:21 - Refresh Interval Select"]
     #[inline(always)]
-    pub fn refrsel(&mut self) -> REFRSEL_W {
+    #[must_use]
+    pub fn refrsel(&mut self) -> REFRSEL_W<20> {
         REFRSEL_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -487,11 +498,10 @@ impl crate::Readable for CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
 impl crate::Writable for CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CTRL to value 0x10"]
 impl crate::Resettable for CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x10
-    }
+    const RESET_VALUE: Self::Ux = 0x10;
 }

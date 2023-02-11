@@ -37,17 +37,19 @@ impl From<crate::W<SINGLECTRL_SPEC>> for W {
 #[doc = "Field `REP` reader - Single Sample Repetitive Mode"]
 pub type REP_R = crate::BitReader<bool>;
 #[doc = "Field `REP` writer - Single Sample Repetitive Mode"]
-pub type REP_W<'a> = crate::BitWriter<'a, u32, SINGLECTRL_SPEC, bool, 0>;
+pub type REP_W<'a, const O: u8> = crate::BitWriter<'a, u32, SINGLECTRL_SPEC, bool, O>;
 #[doc = "Field `DIFF` reader - Single Sample Differential Mode"]
 pub type DIFF_R = crate::BitReader<bool>;
 #[doc = "Field `DIFF` writer - Single Sample Differential Mode"]
-pub type DIFF_W<'a> = crate::BitWriter<'a, u32, SINGLECTRL_SPEC, bool, 1>;
+pub type DIFF_W<'a, const O: u8> = crate::BitWriter<'a, u32, SINGLECTRL_SPEC, bool, O>;
 #[doc = "Field `ADJ` reader - Single Sample Result Adjustment"]
 pub type ADJ_R = crate::BitReader<bool>;
 #[doc = "Field `ADJ` writer - Single Sample Result Adjustment"]
-pub type ADJ_W<'a> = crate::BitWriter<'a, u32, SINGLECTRL_SPEC, bool, 2>;
+pub type ADJ_W<'a, const O: u8> = crate::BitWriter<'a, u32, SINGLECTRL_SPEC, bool, O>;
+#[doc = "Field `RES` reader - Single Sample Resolution Select"]
+pub type RES_R = crate::FieldReader<u8, RES_A>;
 #[doc = "Single Sample Resolution Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum RES_A {
     #[doc = "0: 12-bit resolution"]
@@ -65,8 +67,6 @@ impl From<RES_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `RES` reader - Single Sample Resolution Select"]
-pub type RES_R = crate::FieldReader<u8, RES_A>;
 impl RES_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -101,8 +101,8 @@ impl RES_R {
     }
 }
 #[doc = "Field `RES` writer - Single Sample Resolution Select"]
-pub type RES_W<'a> = crate::FieldWriterSafe<'a, u32, SINGLECTRL_SPEC, u8, RES_A, 2, 4>;
-impl<'a> RES_W<'a> {
+pub type RES_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, SINGLECTRL_SPEC, u8, RES_A, 2, O>;
+impl<'a, const O: u8> RES_W<'a, O> {
     #[doc = "12-bit resolution"]
     #[inline(always)]
     pub fn _12bit(self) -> &'a mut W {
@@ -127,9 +127,11 @@ impl<'a> RES_W<'a> {
 #[doc = "Field `INPUTSEL` reader - Single Sample Input Selection"]
 pub type INPUTSEL_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `INPUTSEL` writer - Single Sample Input Selection"]
-pub type INPUTSEL_W<'a> = crate::FieldWriter<'a, u32, SINGLECTRL_SPEC, u8, u8, 4, 8>;
+pub type INPUTSEL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SINGLECTRL_SPEC, u8, u8, 4, O>;
+#[doc = "Field `REF` reader - Single Sample Reference Selection"]
+pub type REF_R = crate::FieldReader<u8, REF_A>;
 #[doc = "Single Sample Reference Selection\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum REF_A {
     #[doc = "0: Internal 1.25 V reference"]
@@ -153,8 +155,6 @@ impl From<REF_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `REF` reader - Single Sample Reference Selection"]
-pub type REF_R = crate::FieldReader<u8, REF_A>;
 impl REF_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -207,8 +207,8 @@ impl REF_R {
     }
 }
 #[doc = "Field `REF` writer - Single Sample Reference Selection"]
-pub type REF_W<'a> = crate::FieldWriter<'a, u32, SINGLECTRL_SPEC, u8, REF_A, 3, 16>;
-impl<'a> REF_W<'a> {
+pub type REF_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SINGLECTRL_SPEC, u8, REF_A, 3, O>;
+impl<'a, const O: u8> REF_W<'a, O> {
     #[doc = "Internal 1.25 V reference"]
     #[inline(always)]
     pub fn _1v25(self) -> &'a mut W {
@@ -245,8 +245,10 @@ impl<'a> REF_W<'a> {
         self.variant(REF_A::_2XVDD)
     }
 }
+#[doc = "Field `AT` reader - Single Sample Acquisition Time"]
+pub type AT_R = crate::FieldReader<u8, AT_A>;
 #[doc = "Single Sample Acquisition Time\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum AT_A {
     #[doc = "0: 1 ADC_CLK cycle acquisition time for single sample"]
@@ -274,8 +276,6 @@ impl From<AT_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `AT` reader - Single Sample Acquisition Time"]
-pub type AT_R = crate::FieldReader<u8, AT_A>;
 impl AT_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -340,8 +340,8 @@ impl AT_R {
     }
 }
 #[doc = "Field `AT` writer - Single Sample Acquisition Time"]
-pub type AT_W<'a> = crate::FieldWriter<'a, u32, SINGLECTRL_SPEC, u8, AT_A, 4, 20>;
-impl<'a> AT_W<'a> {
+pub type AT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SINGLECTRL_SPEC, u8, AT_A, 4, O>;
+impl<'a, const O: u8> AT_W<'a, O> {
     #[doc = "1 ADC_CLK cycle acquisition time for single sample"]
     #[inline(always)]
     pub fn _1cycle(self) -> &'a mut W {
@@ -391,9 +391,11 @@ impl<'a> AT_W<'a> {
 #[doc = "Field `PRSEN` reader - Single Sample PRS Trigger Enable"]
 pub type PRSEN_R = crate::BitReader<bool>;
 #[doc = "Field `PRSEN` writer - Single Sample PRS Trigger Enable"]
-pub type PRSEN_W<'a> = crate::BitWriter<'a, u32, SINGLECTRL_SPEC, bool, 24>;
+pub type PRSEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, SINGLECTRL_SPEC, bool, O>;
+#[doc = "Field `PRSSEL` reader - Single Sample PRS Trigger Select"]
+pub type PRSSEL_R = crate::FieldReader<u8, PRSSEL_A>;
 #[doc = "Single Sample PRS Trigger Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PRSSEL_A {
     #[doc = "0: PRS ch 0 triggers single sample"]
@@ -427,8 +429,6 @@ impl From<PRSSEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `PRSSEL` reader - Single Sample PRS Trigger Select"]
-pub type PRSSEL_R = crate::FieldReader<u8, PRSSEL_A>;
 impl PRSSEL_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -511,8 +511,9 @@ impl PRSSEL_R {
     }
 }
 #[doc = "Field `PRSSEL` writer - Single Sample PRS Trigger Select"]
-pub type PRSSEL_W<'a> = crate::FieldWriter<'a, u32, SINGLECTRL_SPEC, u8, PRSSEL_A, 4, 28>;
-impl<'a> PRSSEL_W<'a> {
+pub type PRSSEL_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, SINGLECTRL_SPEC, u8, PRSSEL_A, 4, O>;
+impl<'a, const O: u8> PRSSEL_W<'a, O> {
     #[doc = "PRS ch 0 triggers single sample"]
     #[inline(always)]
     pub fn prsch0(self) -> &'a mut W {
@@ -624,47 +625,56 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Single Sample Repetitive Mode"]
     #[inline(always)]
-    pub fn rep(&mut self) -> REP_W {
+    #[must_use]
+    pub fn rep(&mut self) -> REP_W<0> {
         REP_W::new(self)
     }
     #[doc = "Bit 1 - Single Sample Differential Mode"]
     #[inline(always)]
-    pub fn diff(&mut self) -> DIFF_W {
+    #[must_use]
+    pub fn diff(&mut self) -> DIFF_W<1> {
         DIFF_W::new(self)
     }
     #[doc = "Bit 2 - Single Sample Result Adjustment"]
     #[inline(always)]
-    pub fn adj(&mut self) -> ADJ_W {
+    #[must_use]
+    pub fn adj(&mut self) -> ADJ_W<2> {
         ADJ_W::new(self)
     }
     #[doc = "Bits 4:5 - Single Sample Resolution Select"]
     #[inline(always)]
-    pub fn res(&mut self) -> RES_W {
+    #[must_use]
+    pub fn res(&mut self) -> RES_W<4> {
         RES_W::new(self)
     }
     #[doc = "Bits 8:11 - Single Sample Input Selection"]
     #[inline(always)]
-    pub fn inputsel(&mut self) -> INPUTSEL_W {
+    #[must_use]
+    pub fn inputsel(&mut self) -> INPUTSEL_W<8> {
         INPUTSEL_W::new(self)
     }
     #[doc = "Bits 16:18 - Single Sample Reference Selection"]
     #[inline(always)]
-    pub fn ref_(&mut self) -> REF_W {
+    #[must_use]
+    pub fn ref_(&mut self) -> REF_W<16> {
         REF_W::new(self)
     }
     #[doc = "Bits 20:23 - Single Sample Acquisition Time"]
     #[inline(always)]
-    pub fn at(&mut self) -> AT_W {
+    #[must_use]
+    pub fn at(&mut self) -> AT_W<20> {
         AT_W::new(self)
     }
     #[doc = "Bit 24 - Single Sample PRS Trigger Enable"]
     #[inline(always)]
-    pub fn prsen(&mut self) -> PRSEN_W {
+    #[must_use]
+    pub fn prsen(&mut self) -> PRSEN_W<24> {
         PRSEN_W::new(self)
     }
     #[doc = "Bits 28:31 - Single Sample PRS Trigger Select"]
     #[inline(always)]
-    pub fn prssel(&mut self) -> PRSSEL_W {
+    #[must_use]
+    pub fn prssel(&mut self) -> PRSSEL_W<28> {
         PRSSEL_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -686,11 +696,10 @@ impl crate::Readable for SINGLECTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [singlectrl::W](W) writer structure"]
 impl crate::Writable for SINGLECTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SINGLECTRL to value 0"]
 impl crate::Resettable for SINGLECTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

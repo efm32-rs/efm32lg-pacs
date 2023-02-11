@@ -37,7 +37,7 @@ impl From<crate::W<TFTMASK_SPEC>> for W {
 #[doc = "Field `TFTMASK` reader - TFT Mask Value"]
 pub type TFTMASK_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `TFTMASK` writer - TFT Mask Value"]
-pub type TFTMASK_W<'a> = crate::FieldWriter<'a, u32, TFTMASK_SPEC, u16, u16, 16, 0>;
+pub type TFTMASK_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TFTMASK_SPEC, u16, u16, 16, O>;
 impl R {
     #[doc = "Bits 0:15 - TFT Mask Value"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - TFT Mask Value"]
     #[inline(always)]
-    pub fn tftmask(&mut self) -> TFTMASK_W {
+    #[must_use]
+    pub fn tftmask(&mut self) -> TFTMASK_W<0> {
         TFTMASK_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for TFTMASK_SPEC {
 #[doc = "`write(|w| ..)` method takes [tftmask::W](W) writer structure"]
 impl crate::Writable for TFTMASK_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TFTMASK to value 0"]
 impl crate::Resettable for TFTMASK_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,7 +37,7 @@ impl From<crate::W<OPAOFFSET_SPEC>> for W {
 #[doc = "Field `OPA2OFFSET` reader - OPA2 Offset Configuration Value"]
 pub type OPA2OFFSET_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `OPA2OFFSET` writer - OPA2 Offset Configuration Value"]
-pub type OPA2OFFSET_W<'a> = crate::FieldWriter<'a, u32, OPAOFFSET_SPEC, u8, u8, 6, 0>;
+pub type OPA2OFFSET_W<'a, const O: u8> = crate::FieldWriter<'a, u32, OPAOFFSET_SPEC, u8, u8, 6, O>;
 impl R {
     #[doc = "Bits 0:5 - OPA2 Offset Configuration Value"]
     #[inline(always)]
@@ -48,7 +48,8 @@ impl R {
 impl W {
     #[doc = "Bits 0:5 - OPA2 Offset Configuration Value"]
     #[inline(always)]
-    pub fn opa2offset(&mut self) -> OPA2OFFSET_W {
+    #[must_use]
+    pub fn opa2offset(&mut self) -> OPA2OFFSET_W<0> {
         OPA2OFFSET_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -70,11 +71,10 @@ impl crate::Readable for OPAOFFSET_SPEC {
 #[doc = "`write(|w| ..)` method takes [opaoffset::W](W) writer structure"]
 impl crate::Writable for OPAOFFSET_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets OPAOFFSET to value 0x20"]
 impl crate::Resettable for OPAOFFSET_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x20
-    }
+    const RESET_VALUE: Self::Ux = 0x20;
 }

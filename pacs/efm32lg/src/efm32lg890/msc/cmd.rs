@@ -20,25 +20,28 @@ impl From<crate::W<CMD_SPEC>> for W {
     }
 }
 #[doc = "Field `INVCACHE` writer - Invalidate Instruction Cache"]
-pub type INVCACHE_W<'a> = crate::BitWriter<'a, u32, CMD_SPEC, bool, 0>;
+pub type INVCACHE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CMD_SPEC, bool, O>;
 #[doc = "Field `STARTPC` writer - Start Performance Counters"]
-pub type STARTPC_W<'a> = crate::BitWriter<'a, u32, CMD_SPEC, bool, 1>;
+pub type STARTPC_W<'a, const O: u8> = crate::BitWriter<'a, u32, CMD_SPEC, bool, O>;
 #[doc = "Field `STOPPC` writer - Stop Performance Counters"]
-pub type STOPPC_W<'a> = crate::BitWriter<'a, u32, CMD_SPEC, bool, 2>;
+pub type STOPPC_W<'a, const O: u8> = crate::BitWriter<'a, u32, CMD_SPEC, bool, O>;
 impl W {
     #[doc = "Bit 0 - Invalidate Instruction Cache"]
     #[inline(always)]
-    pub fn invcache(&mut self) -> INVCACHE_W {
+    #[must_use]
+    pub fn invcache(&mut self) -> INVCACHE_W<0> {
         INVCACHE_W::new(self)
     }
     #[doc = "Bit 1 - Start Performance Counters"]
     #[inline(always)]
-    pub fn startpc(&mut self) -> STARTPC_W {
+    #[must_use]
+    pub fn startpc(&mut self) -> STARTPC_W<1> {
         STARTPC_W::new(self)
     }
     #[doc = "Bit 2 - Stop Performance Counters"]
     #[inline(always)]
-    pub fn stoppc(&mut self) -> STOPPC_W {
+    #[must_use]
+    pub fn stoppc(&mut self) -> STOPPC_W<2> {
         STOPPC_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -56,11 +59,10 @@ impl crate::RegisterSpec for CMD_SPEC {
 #[doc = "`write(|w| ..)` method takes [cmd::W](W) writer structure"]
 impl crate::Writable for CMD_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CMD to value 0"]
 impl crate::Resettable for CMD_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

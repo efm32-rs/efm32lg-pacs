@@ -37,43 +37,45 @@ impl From<crate::W<ROUTE_SPEC>> for W {
 #[doc = "Field `EBIPEN` reader - EBI Pin Enable"]
 pub type EBIPEN_R = crate::BitReader<bool>;
 #[doc = "Field `EBIPEN` writer - EBI Pin Enable"]
-pub type EBIPEN_W<'a> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, 0>;
+pub type EBIPEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, O>;
 #[doc = "Field `CS0PEN` reader - EBI_CS0 Pin Enable"]
 pub type CS0PEN_R = crate::BitReader<bool>;
 #[doc = "Field `CS0PEN` writer - EBI_CS0 Pin Enable"]
-pub type CS0PEN_W<'a> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, 1>;
+pub type CS0PEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, O>;
 #[doc = "Field `CS1PEN` reader - EBI_CS1 Pin Enable"]
 pub type CS1PEN_R = crate::BitReader<bool>;
 #[doc = "Field `CS1PEN` writer - EBI_CS1 Pin Enable"]
-pub type CS1PEN_W<'a> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, 2>;
+pub type CS1PEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, O>;
 #[doc = "Field `CS2PEN` reader - EBI_CS2 Pin Enable"]
 pub type CS2PEN_R = crate::BitReader<bool>;
 #[doc = "Field `CS2PEN` writer - EBI_CS2 Pin Enable"]
-pub type CS2PEN_W<'a> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, 3>;
+pub type CS2PEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, O>;
 #[doc = "Field `CS3PEN` reader - EBI_CS3 Pin Enable"]
 pub type CS3PEN_R = crate::BitReader<bool>;
 #[doc = "Field `CS3PEN` writer - EBI_CS3 Pin Enable"]
-pub type CS3PEN_W<'a> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, 4>;
+pub type CS3PEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, O>;
 #[doc = "Field `ALEPEN` reader - EBI_ALE Pin Enable"]
 pub type ALEPEN_R = crate::BitReader<bool>;
 #[doc = "Field `ALEPEN` writer - EBI_ALE Pin Enable"]
-pub type ALEPEN_W<'a> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, 5>;
+pub type ALEPEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, O>;
 #[doc = "Field `ARDYPEN` reader - EBI_ARDY Pin Enable"]
 pub type ARDYPEN_R = crate::BitReader<bool>;
 #[doc = "Field `ARDYPEN` writer - EBI_ARDY Pin Enable"]
-pub type ARDYPEN_W<'a> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, 6>;
+pub type ARDYPEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, O>;
 #[doc = "Field `BLPEN` reader - EBI_BL\\[1:0\\]
 Pin Enable"]
 pub type BLPEN_R = crate::BitReader<bool>;
 #[doc = "Field `BLPEN` writer - EBI_BL\\[1:0\\]
 Pin Enable"]
-pub type BLPEN_W<'a> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, 7>;
+pub type BLPEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, O>;
 #[doc = "Field `NANDPEN` reader - NANDRE and NANDWE Pin Enable"]
 pub type NANDPEN_R = crate::BitReader<bool>;
 #[doc = "Field `NANDPEN` writer - NANDRE and NANDWE Pin Enable"]
-pub type NANDPEN_W<'a> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, 12>;
+pub type NANDPEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, O>;
+#[doc = "Field `ALB` reader - Sets the lower bound for EBI_A enabling"]
+pub type ALB_R = crate::FieldReader<u8, ALB_A>;
 #[doc = "Sets the lower bound for EBI_A enabling\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum ALB_A {
     #[doc = "0: Address lines from EBI_A\\[0\\]
@@ -95,8 +97,6 @@ impl From<ALB_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `ALB` reader - Sets the lower bound for EBI_A enabling"]
-pub type ALB_R = crate::FieldReader<u8, ALB_A>;
 impl ALB_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -131,8 +131,8 @@ impl ALB_R {
     }
 }
 #[doc = "Field `ALB` writer - Sets the lower bound for EBI_A enabling"]
-pub type ALB_W<'a> = crate::FieldWriterSafe<'a, u32, ROUTE_SPEC, u8, ALB_A, 2, 16>;
-impl<'a> ALB_W<'a> {
+pub type ALB_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, ROUTE_SPEC, u8, ALB_A, 2, O>;
+impl<'a, const O: u8> ALB_W<'a, O> {
     #[doc = "Address lines from EBI_A\\[0\\]
 and upwards can be enabled via APEN."]
     #[inline(always)]
@@ -158,8 +158,10 @@ and upwards can be enabled via APEN."]
         self.variant(ALB_A::A24)
     }
 }
+#[doc = "Field `APEN` reader - EBI_A Pin Enable"]
+pub type APEN_R = crate::FieldReader<u8, APEN_A>;
 #[doc = "EBI_A Pin Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum APEN_A {
     #[doc = "0: All EBI_A pins are disabled."]
@@ -243,8 +245,6 @@ impl From<APEN_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `APEN` reader - EBI_A Pin Enable"]
-pub type APEN_R = crate::FieldReader<u8, APEN_A>;
 impl APEN_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -405,8 +405,8 @@ impl APEN_R {
     }
 }
 #[doc = "Field `APEN` writer - EBI_A Pin Enable"]
-pub type APEN_W<'a> = crate::FieldWriter<'a, u32, ROUTE_SPEC, u8, APEN_A, 5, 18>;
-impl<'a> APEN_W<'a> {
+pub type APEN_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ROUTE_SPEC, u8, APEN_A, 5, O>;
+impl<'a, const O: u8> APEN_W<'a, O> {
     #[doc = "All EBI_A pins are disabled."]
     #[inline(always)]
     pub fn a0(self) -> &'a mut W {
@@ -560,17 +560,19 @@ pins enabled."]
 #[doc = "Field `TFTPEN` reader - EBI_TFT Pin Enable"]
 pub type TFTPEN_R = crate::BitReader<bool>;
 #[doc = "Field `TFTPEN` writer - EBI_TFT Pin Enable"]
-pub type TFTPEN_W<'a> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, 24>;
+pub type TFTPEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, O>;
 #[doc = "Field `DATAENPEN` reader - EBI_TFT Pin Enable"]
 pub type DATAENPEN_R = crate::BitReader<bool>;
 #[doc = "Field `DATAENPEN` writer - EBI_TFT Pin Enable"]
-pub type DATAENPEN_W<'a> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, 25>;
+pub type DATAENPEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, O>;
 #[doc = "Field `CSTFTPEN` reader - EBI_CSTFT Pin Enable"]
 pub type CSTFTPEN_R = crate::BitReader<bool>;
 #[doc = "Field `CSTFTPEN` writer - EBI_CSTFT Pin Enable"]
-pub type CSTFTPEN_W<'a> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, 26>;
+pub type CSTFTPEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ROUTE_SPEC, bool, O>;
+#[doc = "Field `LOCATION` reader - I/O Location"]
+pub type LOCATION_R = crate::FieldReader<u8, LOCATION_A>;
 #[doc = "I/O Location\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LOCATION_A {
     #[doc = "0: Location 0"]
@@ -586,8 +588,6 @@ impl From<LOCATION_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `LOCATION` reader - I/O Location"]
-pub type LOCATION_R = crate::FieldReader<u8, LOCATION_A>;
 impl LOCATION_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -616,8 +616,9 @@ impl LOCATION_R {
     }
 }
 #[doc = "Field `LOCATION` writer - I/O Location"]
-pub type LOCATION_W<'a> = crate::FieldWriter<'a, u32, ROUTE_SPEC, u8, LOCATION_A, 3, 28>;
-impl<'a> LOCATION_W<'a> {
+pub type LOCATION_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, ROUTE_SPEC, u8, LOCATION_A, 3, O>;
+impl<'a, const O: u8> LOCATION_W<'a, O> {
     #[doc = "Location 0"]
     #[inline(always)]
     pub fn loc0(self) -> &'a mut W {
@@ -715,78 +716,93 @@ Pin Enable"]
 impl W {
     #[doc = "Bit 0 - EBI Pin Enable"]
     #[inline(always)]
-    pub fn ebipen(&mut self) -> EBIPEN_W {
+    #[must_use]
+    pub fn ebipen(&mut self) -> EBIPEN_W<0> {
         EBIPEN_W::new(self)
     }
     #[doc = "Bit 1 - EBI_CS0 Pin Enable"]
     #[inline(always)]
-    pub fn cs0pen(&mut self) -> CS0PEN_W {
+    #[must_use]
+    pub fn cs0pen(&mut self) -> CS0PEN_W<1> {
         CS0PEN_W::new(self)
     }
     #[doc = "Bit 2 - EBI_CS1 Pin Enable"]
     #[inline(always)]
-    pub fn cs1pen(&mut self) -> CS1PEN_W {
+    #[must_use]
+    pub fn cs1pen(&mut self) -> CS1PEN_W<2> {
         CS1PEN_W::new(self)
     }
     #[doc = "Bit 3 - EBI_CS2 Pin Enable"]
     #[inline(always)]
-    pub fn cs2pen(&mut self) -> CS2PEN_W {
+    #[must_use]
+    pub fn cs2pen(&mut self) -> CS2PEN_W<3> {
         CS2PEN_W::new(self)
     }
     #[doc = "Bit 4 - EBI_CS3 Pin Enable"]
     #[inline(always)]
-    pub fn cs3pen(&mut self) -> CS3PEN_W {
+    #[must_use]
+    pub fn cs3pen(&mut self) -> CS3PEN_W<4> {
         CS3PEN_W::new(self)
     }
     #[doc = "Bit 5 - EBI_ALE Pin Enable"]
     #[inline(always)]
-    pub fn alepen(&mut self) -> ALEPEN_W {
+    #[must_use]
+    pub fn alepen(&mut self) -> ALEPEN_W<5> {
         ALEPEN_W::new(self)
     }
     #[doc = "Bit 6 - EBI_ARDY Pin Enable"]
     #[inline(always)]
-    pub fn ardypen(&mut self) -> ARDYPEN_W {
+    #[must_use]
+    pub fn ardypen(&mut self) -> ARDYPEN_W<6> {
         ARDYPEN_W::new(self)
     }
     #[doc = "Bit 7 - EBI_BL\\[1:0\\]
 Pin Enable"]
     #[inline(always)]
-    pub fn blpen(&mut self) -> BLPEN_W {
+    #[must_use]
+    pub fn blpen(&mut self) -> BLPEN_W<7> {
         BLPEN_W::new(self)
     }
     #[doc = "Bit 12 - NANDRE and NANDWE Pin Enable"]
     #[inline(always)]
-    pub fn nandpen(&mut self) -> NANDPEN_W {
+    #[must_use]
+    pub fn nandpen(&mut self) -> NANDPEN_W<12> {
         NANDPEN_W::new(self)
     }
     #[doc = "Bits 16:17 - Sets the lower bound for EBI_A enabling"]
     #[inline(always)]
-    pub fn alb(&mut self) -> ALB_W {
+    #[must_use]
+    pub fn alb(&mut self) -> ALB_W<16> {
         ALB_W::new(self)
     }
     #[doc = "Bits 18:22 - EBI_A Pin Enable"]
     #[inline(always)]
-    pub fn apen(&mut self) -> APEN_W {
+    #[must_use]
+    pub fn apen(&mut self) -> APEN_W<18> {
         APEN_W::new(self)
     }
     #[doc = "Bit 24 - EBI_TFT Pin Enable"]
     #[inline(always)]
-    pub fn tftpen(&mut self) -> TFTPEN_W {
+    #[must_use]
+    pub fn tftpen(&mut self) -> TFTPEN_W<24> {
         TFTPEN_W::new(self)
     }
     #[doc = "Bit 25 - EBI_TFT Pin Enable"]
     #[inline(always)]
-    pub fn dataenpen(&mut self) -> DATAENPEN_W {
+    #[must_use]
+    pub fn dataenpen(&mut self) -> DATAENPEN_W<25> {
         DATAENPEN_W::new(self)
     }
     #[doc = "Bit 26 - EBI_CSTFT Pin Enable"]
     #[inline(always)]
-    pub fn cstftpen(&mut self) -> CSTFTPEN_W {
+    #[must_use]
+    pub fn cstftpen(&mut self) -> CSTFTPEN_W<26> {
         CSTFTPEN_W::new(self)
     }
     #[doc = "Bits 28:30 - I/O Location"]
     #[inline(always)]
-    pub fn location(&mut self) -> LOCATION_W {
+    #[must_use]
+    pub fn location(&mut self) -> LOCATION_W<28> {
         LOCATION_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -808,11 +824,10 @@ impl crate::Readable for ROUTE_SPEC {
 #[doc = "`write(|w| ..)` method takes [route::W](W) writer structure"]
 impl crate::Writable for ROUTE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ROUTE to value 0"]
 impl crate::Resettable for ROUTE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

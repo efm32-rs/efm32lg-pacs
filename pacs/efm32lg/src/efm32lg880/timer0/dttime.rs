@@ -34,8 +34,10 @@ impl From<crate::W<DTTIME_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `DTPRESC` reader - DTI Prescaler Setting"]
+pub type DTPRESC_R = crate::FieldReader<u8, DTPRESC_A>;
 #[doc = "DTI Prescaler Setting\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum DTPRESC_A {
     #[doc = "0: The HFPERCLK is undivided"]
@@ -67,8 +69,6 @@ impl From<DTPRESC_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `DTPRESC` reader - DTI Prescaler Setting"]
-pub type DTPRESC_R = crate::FieldReader<u8, DTPRESC_A>;
 impl DTPRESC_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -145,8 +145,8 @@ impl DTPRESC_R {
     }
 }
 #[doc = "Field `DTPRESC` writer - DTI Prescaler Setting"]
-pub type DTPRESC_W<'a> = crate::FieldWriter<'a, u32, DTTIME_SPEC, u8, DTPRESC_A, 4, 0>;
-impl<'a> DTPRESC_W<'a> {
+pub type DTPRESC_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DTTIME_SPEC, u8, DTPRESC_A, 4, O>;
+impl<'a, const O: u8> DTPRESC_W<'a, O> {
     #[doc = "The HFPERCLK is undivided"]
     #[inline(always)]
     pub fn div1(self) -> &'a mut W {
@@ -206,11 +206,11 @@ impl<'a> DTPRESC_W<'a> {
 #[doc = "Field `DTRISET` reader - DTI Rise-time"]
 pub type DTRISET_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `DTRISET` writer - DTI Rise-time"]
-pub type DTRISET_W<'a> = crate::FieldWriter<'a, u32, DTTIME_SPEC, u8, u8, 6, 8>;
+pub type DTRISET_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DTTIME_SPEC, u8, u8, 6, O>;
 #[doc = "Field `DTFALLT` reader - DTI Fall-time"]
 pub type DTFALLT_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `DTFALLT` writer - DTI Fall-time"]
-pub type DTFALLT_W<'a> = crate::FieldWriter<'a, u32, DTTIME_SPEC, u8, u8, 6, 16>;
+pub type DTFALLT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DTTIME_SPEC, u8, u8, 6, O>;
 impl R {
     #[doc = "Bits 0:3 - DTI Prescaler Setting"]
     #[inline(always)]
@@ -231,17 +231,20 @@ impl R {
 impl W {
     #[doc = "Bits 0:3 - DTI Prescaler Setting"]
     #[inline(always)]
-    pub fn dtpresc(&mut self) -> DTPRESC_W {
+    #[must_use]
+    pub fn dtpresc(&mut self) -> DTPRESC_W<0> {
         DTPRESC_W::new(self)
     }
     #[doc = "Bits 8:13 - DTI Rise-time"]
     #[inline(always)]
-    pub fn dtriset(&mut self) -> DTRISET_W {
+    #[must_use]
+    pub fn dtriset(&mut self) -> DTRISET_W<8> {
         DTRISET_W::new(self)
     }
     #[doc = "Bits 16:21 - DTI Fall-time"]
     #[inline(always)]
-    pub fn dtfallt(&mut self) -> DTFALLT_W {
+    #[must_use]
+    pub fn dtfallt(&mut self) -> DTFALLT_W<16> {
         DTFALLT_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -263,11 +266,10 @@ impl crate::Readable for DTTIME_SPEC {
 #[doc = "`write(|w| ..)` method takes [dttime::W](W) writer structure"]
 impl crate::Writable for DTTIME_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DTTIME to value 0"]
 impl crate::Resettable for DTTIME_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

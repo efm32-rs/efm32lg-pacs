@@ -20,67 +20,76 @@ impl From<crate::W<IFC_SPEC>> for W {
     }
 }
 #[doc = "Field `TXC` writer - Clear TX Complete Interrupt Flag"]
-pub type TXC_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 0>;
+pub type TXC_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `RXOF` writer - Clear RX Overflow Interrupt Flag"]
-pub type RXOF_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 3>;
+pub type RXOF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `RXUF` writer - Clear RX Underflow Interrupt Flag"]
-pub type RXUF_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 4>;
+pub type RXUF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `TXOF` writer - Clear TX Overflow Interrupt Flag"]
-pub type TXOF_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 5>;
+pub type TXOF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `PERR` writer - Clear Parity Error Interrupt Flag"]
-pub type PERR_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 6>;
+pub type PERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `FERR` writer - Clear Framing Error Interrupt Flag"]
-pub type FERR_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 7>;
+pub type FERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `MPAF` writer - Clear Multi-Processor Address Frame Interrupt Flag"]
-pub type MPAF_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 8>;
+pub type MPAF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `STARTF` writer - Clear Start-Frame Interrupt Flag"]
-pub type STARTF_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 9>;
+pub type STARTF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 #[doc = "Field `SIGF` writer - Clear Signal-Frame Interrupt Flag"]
-pub type SIGF_W<'a> = crate::BitWriter<'a, u32, IFC_SPEC, bool, 10>;
+pub type SIGF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IFC_SPEC, bool, O>;
 impl W {
     #[doc = "Bit 0 - Clear TX Complete Interrupt Flag"]
     #[inline(always)]
-    pub fn txc(&mut self) -> TXC_W {
+    #[must_use]
+    pub fn txc(&mut self) -> TXC_W<0> {
         TXC_W::new(self)
     }
     #[doc = "Bit 3 - Clear RX Overflow Interrupt Flag"]
     #[inline(always)]
-    pub fn rxof(&mut self) -> RXOF_W {
+    #[must_use]
+    pub fn rxof(&mut self) -> RXOF_W<3> {
         RXOF_W::new(self)
     }
     #[doc = "Bit 4 - Clear RX Underflow Interrupt Flag"]
     #[inline(always)]
-    pub fn rxuf(&mut self) -> RXUF_W {
+    #[must_use]
+    pub fn rxuf(&mut self) -> RXUF_W<4> {
         RXUF_W::new(self)
     }
     #[doc = "Bit 5 - Clear TX Overflow Interrupt Flag"]
     #[inline(always)]
-    pub fn txof(&mut self) -> TXOF_W {
+    #[must_use]
+    pub fn txof(&mut self) -> TXOF_W<5> {
         TXOF_W::new(self)
     }
     #[doc = "Bit 6 - Clear Parity Error Interrupt Flag"]
     #[inline(always)]
-    pub fn perr(&mut self) -> PERR_W {
+    #[must_use]
+    pub fn perr(&mut self) -> PERR_W<6> {
         PERR_W::new(self)
     }
     #[doc = "Bit 7 - Clear Framing Error Interrupt Flag"]
     #[inline(always)]
-    pub fn ferr(&mut self) -> FERR_W {
+    #[must_use]
+    pub fn ferr(&mut self) -> FERR_W<7> {
         FERR_W::new(self)
     }
     #[doc = "Bit 8 - Clear Multi-Processor Address Frame Interrupt Flag"]
     #[inline(always)]
-    pub fn mpaf(&mut self) -> MPAF_W {
+    #[must_use]
+    pub fn mpaf(&mut self) -> MPAF_W<8> {
         MPAF_W::new(self)
     }
     #[doc = "Bit 9 - Clear Start-Frame Interrupt Flag"]
     #[inline(always)]
-    pub fn startf(&mut self) -> STARTF_W {
+    #[must_use]
+    pub fn startf(&mut self) -> STARTF_W<9> {
         STARTF_W::new(self)
     }
     #[doc = "Bit 10 - Clear Signal-Frame Interrupt Flag"]
     #[inline(always)]
-    pub fn sigf(&mut self) -> SIGF_W {
+    #[must_use]
+    pub fn sigf(&mut self) -> SIGF_W<10> {
         SIGF_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -98,11 +107,10 @@ impl crate::RegisterSpec for IFC_SPEC {
 #[doc = "`write(|w| ..)` method takes [ifc::W](W) writer structure"]
 impl crate::Writable for IFC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IFC to value 0"]
 impl crate::Resettable for IFC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

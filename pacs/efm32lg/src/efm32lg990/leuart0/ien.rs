@@ -37,47 +37,47 @@ impl From<crate::W<IEN_SPEC>> for W {
 #[doc = "Field `TXC` reader - TX Complete Interrupt Enable"]
 pub type TXC_R = crate::BitReader<bool>;
 #[doc = "Field `TXC` writer - TX Complete Interrupt Enable"]
-pub type TXC_W<'a> = crate::BitWriter<'a, u32, IEN_SPEC, bool, 0>;
+pub type TXC_W<'a, const O: u8> = crate::BitWriter<'a, u32, IEN_SPEC, bool, O>;
 #[doc = "Field `TXBL` reader - TX Buffer Level Interrupt Enable"]
 pub type TXBL_R = crate::BitReader<bool>;
 #[doc = "Field `TXBL` writer - TX Buffer Level Interrupt Enable"]
-pub type TXBL_W<'a> = crate::BitWriter<'a, u32, IEN_SPEC, bool, 1>;
+pub type TXBL_W<'a, const O: u8> = crate::BitWriter<'a, u32, IEN_SPEC, bool, O>;
 #[doc = "Field `RXDATAV` reader - RX Data Valid Interrupt Enable"]
 pub type RXDATAV_R = crate::BitReader<bool>;
 #[doc = "Field `RXDATAV` writer - RX Data Valid Interrupt Enable"]
-pub type RXDATAV_W<'a> = crate::BitWriter<'a, u32, IEN_SPEC, bool, 2>;
+pub type RXDATAV_W<'a, const O: u8> = crate::BitWriter<'a, u32, IEN_SPEC, bool, O>;
 #[doc = "Field `RXOF` reader - RX Overflow Interrupt Enable"]
 pub type RXOF_R = crate::BitReader<bool>;
 #[doc = "Field `RXOF` writer - RX Overflow Interrupt Enable"]
-pub type RXOF_W<'a> = crate::BitWriter<'a, u32, IEN_SPEC, bool, 3>;
+pub type RXOF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IEN_SPEC, bool, O>;
 #[doc = "Field `RXUF` reader - RX Underflow Interrupt Enable"]
 pub type RXUF_R = crate::BitReader<bool>;
 #[doc = "Field `RXUF` writer - RX Underflow Interrupt Enable"]
-pub type RXUF_W<'a> = crate::BitWriter<'a, u32, IEN_SPEC, bool, 4>;
+pub type RXUF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IEN_SPEC, bool, O>;
 #[doc = "Field `TXOF` reader - TX Overflow Interrupt Enable"]
 pub type TXOF_R = crate::BitReader<bool>;
 #[doc = "Field `TXOF` writer - TX Overflow Interrupt Enable"]
-pub type TXOF_W<'a> = crate::BitWriter<'a, u32, IEN_SPEC, bool, 5>;
+pub type TXOF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IEN_SPEC, bool, O>;
 #[doc = "Field `PERR` reader - Parity Error Interrupt Enable"]
 pub type PERR_R = crate::BitReader<bool>;
 #[doc = "Field `PERR` writer - Parity Error Interrupt Enable"]
-pub type PERR_W<'a> = crate::BitWriter<'a, u32, IEN_SPEC, bool, 6>;
+pub type PERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, IEN_SPEC, bool, O>;
 #[doc = "Field `FERR` reader - Framing Error Interrupt Enable"]
 pub type FERR_R = crate::BitReader<bool>;
 #[doc = "Field `FERR` writer - Framing Error Interrupt Enable"]
-pub type FERR_W<'a> = crate::BitWriter<'a, u32, IEN_SPEC, bool, 7>;
+pub type FERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, IEN_SPEC, bool, O>;
 #[doc = "Field `MPAF` reader - Multi-Processor Address Frame Interrupt Enable"]
 pub type MPAF_R = crate::BitReader<bool>;
 #[doc = "Field `MPAF` writer - Multi-Processor Address Frame Interrupt Enable"]
-pub type MPAF_W<'a> = crate::BitWriter<'a, u32, IEN_SPEC, bool, 8>;
+pub type MPAF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IEN_SPEC, bool, O>;
 #[doc = "Field `STARTF` reader - Start Frame Interrupt Enable"]
 pub type STARTF_R = crate::BitReader<bool>;
 #[doc = "Field `STARTF` writer - Start Frame Interrupt Enable"]
-pub type STARTF_W<'a> = crate::BitWriter<'a, u32, IEN_SPEC, bool, 9>;
+pub type STARTF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IEN_SPEC, bool, O>;
 #[doc = "Field `SIGF` reader - Signal Frame Interrupt Enable"]
 pub type SIGF_R = crate::BitReader<bool>;
 #[doc = "Field `SIGF` writer - Signal Frame Interrupt Enable"]
-pub type SIGF_W<'a> = crate::BitWriter<'a, u32, IEN_SPEC, bool, 10>;
+pub type SIGF_W<'a, const O: u8> = crate::BitWriter<'a, u32, IEN_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - TX Complete Interrupt Enable"]
     #[inline(always)]
@@ -138,57 +138,68 @@ impl R {
 impl W {
     #[doc = "Bit 0 - TX Complete Interrupt Enable"]
     #[inline(always)]
-    pub fn txc(&mut self) -> TXC_W {
+    #[must_use]
+    pub fn txc(&mut self) -> TXC_W<0> {
         TXC_W::new(self)
     }
     #[doc = "Bit 1 - TX Buffer Level Interrupt Enable"]
     #[inline(always)]
-    pub fn txbl(&mut self) -> TXBL_W {
+    #[must_use]
+    pub fn txbl(&mut self) -> TXBL_W<1> {
         TXBL_W::new(self)
     }
     #[doc = "Bit 2 - RX Data Valid Interrupt Enable"]
     #[inline(always)]
-    pub fn rxdatav(&mut self) -> RXDATAV_W {
+    #[must_use]
+    pub fn rxdatav(&mut self) -> RXDATAV_W<2> {
         RXDATAV_W::new(self)
     }
     #[doc = "Bit 3 - RX Overflow Interrupt Enable"]
     #[inline(always)]
-    pub fn rxof(&mut self) -> RXOF_W {
+    #[must_use]
+    pub fn rxof(&mut self) -> RXOF_W<3> {
         RXOF_W::new(self)
     }
     #[doc = "Bit 4 - RX Underflow Interrupt Enable"]
     #[inline(always)]
-    pub fn rxuf(&mut self) -> RXUF_W {
+    #[must_use]
+    pub fn rxuf(&mut self) -> RXUF_W<4> {
         RXUF_W::new(self)
     }
     #[doc = "Bit 5 - TX Overflow Interrupt Enable"]
     #[inline(always)]
-    pub fn txof(&mut self) -> TXOF_W {
+    #[must_use]
+    pub fn txof(&mut self) -> TXOF_W<5> {
         TXOF_W::new(self)
     }
     #[doc = "Bit 6 - Parity Error Interrupt Enable"]
     #[inline(always)]
-    pub fn perr(&mut self) -> PERR_W {
+    #[must_use]
+    pub fn perr(&mut self) -> PERR_W<6> {
         PERR_W::new(self)
     }
     #[doc = "Bit 7 - Framing Error Interrupt Enable"]
     #[inline(always)]
-    pub fn ferr(&mut self) -> FERR_W {
+    #[must_use]
+    pub fn ferr(&mut self) -> FERR_W<7> {
         FERR_W::new(self)
     }
     #[doc = "Bit 8 - Multi-Processor Address Frame Interrupt Enable"]
     #[inline(always)]
-    pub fn mpaf(&mut self) -> MPAF_W {
+    #[must_use]
+    pub fn mpaf(&mut self) -> MPAF_W<8> {
         MPAF_W::new(self)
     }
     #[doc = "Bit 9 - Start Frame Interrupt Enable"]
     #[inline(always)]
-    pub fn startf(&mut self) -> STARTF_W {
+    #[must_use]
+    pub fn startf(&mut self) -> STARTF_W<9> {
         STARTF_W::new(self)
     }
     #[doc = "Bit 10 - Signal Frame Interrupt Enable"]
     #[inline(always)]
-    pub fn sigf(&mut self) -> SIGF_W {
+    #[must_use]
+    pub fn sigf(&mut self) -> SIGF_W<10> {
         SIGF_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -210,11 +221,10 @@ impl crate::Readable for IEN_SPEC {
 #[doc = "`write(|w| ..)` method takes [ien::W](W) writer structure"]
 impl crate::Writable for IEN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IEN to value 0"]
 impl crate::Resettable for IEN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

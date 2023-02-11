@@ -37,21 +37,23 @@ impl From<crate::W<HC10_CHAR_SPEC>> for W {
 #[doc = "Field `MPS` reader - Maximum Packet Size"]
 pub type MPS_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `MPS` writer - Maximum Packet Size"]
-pub type MPS_W<'a> = crate::FieldWriter<'a, u32, HC10_CHAR_SPEC, u16, u16, 11, 0>;
+pub type MPS_W<'a, const O: u8> = crate::FieldWriter<'a, u32, HC10_CHAR_SPEC, u16, u16, 11, O>;
 #[doc = "Field `EPNUM` reader - Endpoint Number"]
 pub type EPNUM_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `EPNUM` writer - Endpoint Number"]
-pub type EPNUM_W<'a> = crate::FieldWriter<'a, u32, HC10_CHAR_SPEC, u8, u8, 4, 11>;
+pub type EPNUM_W<'a, const O: u8> = crate::FieldWriter<'a, u32, HC10_CHAR_SPEC, u8, u8, 4, O>;
 #[doc = "Field `EPDIR` reader - Endpoint Direction"]
 pub type EPDIR_R = crate::BitReader<bool>;
 #[doc = "Field `EPDIR` writer - Endpoint Direction"]
-pub type EPDIR_W<'a> = crate::BitWriter<'a, u32, HC10_CHAR_SPEC, bool, 15>;
+pub type EPDIR_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC10_CHAR_SPEC, bool, O>;
 #[doc = "Field `LSPDDEV` reader - Low-Speed Device"]
 pub type LSPDDEV_R = crate::BitReader<bool>;
 #[doc = "Field `LSPDDEV` writer - Low-Speed Device"]
-pub type LSPDDEV_W<'a> = crate::BitWriter<'a, u32, HC10_CHAR_SPEC, bool, 17>;
+pub type LSPDDEV_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC10_CHAR_SPEC, bool, O>;
+#[doc = "Field `EPTYPE` reader - Endpoint Type"]
+pub type EPTYPE_R = crate::FieldReader<u8, EPTYPE_A>;
 #[doc = "Endpoint Type\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum EPTYPE_A {
     #[doc = "0: Control endpoint."]
@@ -69,8 +71,6 @@ impl From<EPTYPE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `EPTYPE` reader - Endpoint Type"]
-pub type EPTYPE_R = crate::FieldReader<u8, EPTYPE_A>;
 impl EPTYPE_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -105,8 +105,9 @@ impl EPTYPE_R {
     }
 }
 #[doc = "Field `EPTYPE` writer - Endpoint Type"]
-pub type EPTYPE_W<'a> = crate::FieldWriterSafe<'a, u32, HC10_CHAR_SPEC, u8, EPTYPE_A, 2, 18>;
-impl<'a> EPTYPE_W<'a> {
+pub type EPTYPE_W<'a, const O: u8> =
+    crate::FieldWriterSafe<'a, u32, HC10_CHAR_SPEC, u8, EPTYPE_A, 2, O>;
+impl<'a, const O: u8> EPTYPE_W<'a, O> {
     #[doc = "Control endpoint."]
     #[inline(always)]
     pub fn control(self) -> &'a mut W {
@@ -131,23 +132,23 @@ impl<'a> EPTYPE_W<'a> {
 #[doc = "Field `MC` reader - Multi Count"]
 pub type MC_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `MC` writer - Multi Count"]
-pub type MC_W<'a> = crate::FieldWriter<'a, u32, HC10_CHAR_SPEC, u8, u8, 2, 20>;
+pub type MC_W<'a, const O: u8> = crate::FieldWriter<'a, u32, HC10_CHAR_SPEC, u8, u8, 2, O>;
 #[doc = "Field `DEVADDR` reader - Device Address"]
 pub type DEVADDR_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `DEVADDR` writer - Device Address"]
-pub type DEVADDR_W<'a> = crate::FieldWriter<'a, u32, HC10_CHAR_SPEC, u8, u8, 7, 22>;
+pub type DEVADDR_W<'a, const O: u8> = crate::FieldWriter<'a, u32, HC10_CHAR_SPEC, u8, u8, 7, O>;
 #[doc = "Field `ODDFRM` reader - Odd Frame"]
 pub type ODDFRM_R = crate::BitReader<bool>;
 #[doc = "Field `ODDFRM` writer - Odd Frame"]
-pub type ODDFRM_W<'a> = crate::BitWriter<'a, u32, HC10_CHAR_SPEC, bool, 29>;
+pub type ODDFRM_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC10_CHAR_SPEC, bool, O>;
 #[doc = "Field `CHDIS` reader - Channel Disable"]
 pub type CHDIS_R = crate::BitReader<bool>;
 #[doc = "Field `CHDIS` writer - Channel Disable"]
-pub type CHDIS_W<'a> = crate::BitWriter<'a, u32, HC10_CHAR_SPEC, bool, 30>;
+pub type CHDIS_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC10_CHAR_SPEC, bool, O>;
 #[doc = "Field `CHENA` reader - Channel Enable"]
 pub type CHENA_R = crate::BitReader<bool>;
 #[doc = "Field `CHENA` writer - Channel Enable"]
-pub type CHENA_W<'a> = crate::BitWriter<'a, u32, HC10_CHAR_SPEC, bool, 31>;
+pub type CHENA_W<'a, const O: u8> = crate::BitWriter<'a, u32, HC10_CHAR_SPEC, bool, O>;
 impl R {
     #[doc = "Bits 0:10 - Maximum Packet Size"]
     #[inline(always)]
@@ -203,52 +204,62 @@ impl R {
 impl W {
     #[doc = "Bits 0:10 - Maximum Packet Size"]
     #[inline(always)]
-    pub fn mps(&mut self) -> MPS_W {
+    #[must_use]
+    pub fn mps(&mut self) -> MPS_W<0> {
         MPS_W::new(self)
     }
     #[doc = "Bits 11:14 - Endpoint Number"]
     #[inline(always)]
-    pub fn epnum(&mut self) -> EPNUM_W {
+    #[must_use]
+    pub fn epnum(&mut self) -> EPNUM_W<11> {
         EPNUM_W::new(self)
     }
     #[doc = "Bit 15 - Endpoint Direction"]
     #[inline(always)]
-    pub fn epdir(&mut self) -> EPDIR_W {
+    #[must_use]
+    pub fn epdir(&mut self) -> EPDIR_W<15> {
         EPDIR_W::new(self)
     }
     #[doc = "Bit 17 - Low-Speed Device"]
     #[inline(always)]
-    pub fn lspddev(&mut self) -> LSPDDEV_W {
+    #[must_use]
+    pub fn lspddev(&mut self) -> LSPDDEV_W<17> {
         LSPDDEV_W::new(self)
     }
     #[doc = "Bits 18:19 - Endpoint Type"]
     #[inline(always)]
-    pub fn eptype(&mut self) -> EPTYPE_W {
+    #[must_use]
+    pub fn eptype(&mut self) -> EPTYPE_W<18> {
         EPTYPE_W::new(self)
     }
     #[doc = "Bits 20:21 - Multi Count"]
     #[inline(always)]
-    pub fn mc(&mut self) -> MC_W {
+    #[must_use]
+    pub fn mc(&mut self) -> MC_W<20> {
         MC_W::new(self)
     }
     #[doc = "Bits 22:28 - Device Address"]
     #[inline(always)]
-    pub fn devaddr(&mut self) -> DEVADDR_W {
+    #[must_use]
+    pub fn devaddr(&mut self) -> DEVADDR_W<22> {
         DEVADDR_W::new(self)
     }
     #[doc = "Bit 29 - Odd Frame"]
     #[inline(always)]
-    pub fn oddfrm(&mut self) -> ODDFRM_W {
+    #[must_use]
+    pub fn oddfrm(&mut self) -> ODDFRM_W<29> {
         ODDFRM_W::new(self)
     }
     #[doc = "Bit 30 - Channel Disable"]
     #[inline(always)]
-    pub fn chdis(&mut self) -> CHDIS_W {
+    #[must_use]
+    pub fn chdis(&mut self) -> CHDIS_W<30> {
         CHDIS_W::new(self)
     }
     #[doc = "Bit 31 - Channel Enable"]
     #[inline(always)]
-    pub fn chena(&mut self) -> CHENA_W {
+    #[must_use]
+    pub fn chena(&mut self) -> CHENA_W<31> {
         CHENA_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -270,11 +281,10 @@ impl crate::Readable for HC10_CHAR_SPEC {
 #[doc = "`write(|w| ..)` method takes [hc10_char::W](W) writer structure"]
 impl crate::Writable for HC10_CHAR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets HC10_CHAR to value 0"]
 impl crate::Resettable for HC10_CHAR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

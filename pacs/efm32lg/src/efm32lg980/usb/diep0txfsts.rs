@@ -33,8 +33,5 @@ impl crate::Readable for DIEP0TXFSTS_SPEC {
 }
 #[doc = "`reset()` method sets DIEP0TXFSTS to value 0x0200"]
 impl crate::Resettable for DIEP0TXFSTS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0200
-    }
+    const RESET_VALUE: Self::Ux = 0x0200;
 }

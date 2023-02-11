@@ -23,8 +23,10 @@ pub type TRANSMITTER_R = crate::BitReader<bool>;
 pub type NACKED_R = crate::BitReader<bool>;
 #[doc = "Field `BUSHOLD` reader - Bus Held"]
 pub type BUSHOLD_R = crate::BitReader<bool>;
+#[doc = "Field `STATE` reader - Transmission State"]
+pub type STATE_R = crate::FieldReader<u8, STATE_A>;
 #[doc = "Transmission State\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum STATE_A {
     #[doc = "0: No transmission is being performed."]
@@ -48,8 +50,6 @@ impl From<STATE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `STATE` reader - Transmission State"]
-pub type STATE_R = crate::FieldReader<u8, STATE_A>;
 impl STATE_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -144,8 +144,5 @@ impl crate::Readable for STATE_SPEC {
 }
 #[doc = "`reset()` method sets STATE to value 0x01"]
 impl crate::Resettable for STATE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x01
-    }
+    const RESET_VALUE: Self::Ux = 0x01;
 }

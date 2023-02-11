@@ -37,9 +37,11 @@ impl From<crate::W<CH3_CTRL_SPEC>> for W {
 #[doc = "Field `SIGSEL` reader - Signal Select"]
 pub type SIGSEL_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `SIGSEL` writer - Signal Select"]
-pub type SIGSEL_W<'a> = crate::FieldWriter<'a, u32, CH3_CTRL_SPEC, u8, u8, 4, 0>;
+pub type SIGSEL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CH3_CTRL_SPEC, u8, u8, 4, O>;
+#[doc = "Field `SOURCESEL` reader - Source Select"]
+pub type SOURCESEL_R = crate::FieldReader<u8, SOURCESEL_A>;
 #[doc = "Source Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SOURCESEL_A {
     #[doc = "0: No source selected"]
@@ -83,8 +85,6 @@ impl From<SOURCESEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `SOURCESEL` reader - Source Select"]
-pub type SOURCESEL_R = crate::FieldReader<u8, SOURCESEL_A>;
 impl SOURCESEL_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -197,8 +197,9 @@ impl SOURCESEL_R {
     }
 }
 #[doc = "Field `SOURCESEL` writer - Source Select"]
-pub type SOURCESEL_W<'a> = crate::FieldWriter<'a, u32, CH3_CTRL_SPEC, u8, SOURCESEL_A, 6, 16>;
-impl<'a> SOURCESEL_W<'a> {
+pub type SOURCESEL_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, CH3_CTRL_SPEC, u8, SOURCESEL_A, 6, O>;
+impl<'a, const O: u8> SOURCESEL_W<'a, O> {
     #[doc = "No source selected"]
     #[inline(always)]
     pub fn none(self) -> &'a mut W {
@@ -300,12 +301,14 @@ impl R {
 impl W {
     #[doc = "Bits 0:3 - Signal Select"]
     #[inline(always)]
-    pub fn sigsel(&mut self) -> SIGSEL_W {
+    #[must_use]
+    pub fn sigsel(&mut self) -> SIGSEL_W<0> {
         SIGSEL_W::new(self)
     }
     #[doc = "Bits 16:21 - Source Select"]
     #[inline(always)]
-    pub fn sourcesel(&mut self) -> SOURCESEL_W {
+    #[must_use]
+    pub fn sourcesel(&mut self) -> SOURCESEL_W<16> {
         SOURCESEL_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -327,11 +330,10 @@ impl crate::Readable for CH3_CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ch3_ctrl::W](W) writer structure"]
 impl crate::Writable for CH3_CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CH3_CTRL to value 0"]
 impl crate::Resettable for CH3_CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

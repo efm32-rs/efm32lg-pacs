@@ -20,32 +20,36 @@ impl From<crate::W<TXDATAX_SPEC>> for W {
     }
 }
 #[doc = "Field `TXDATA` writer - TX Data"]
-pub type TXDATA_W<'a> = crate::FieldWriter<'a, u32, TXDATAX_SPEC, u16, u16, 9, 0>;
+pub type TXDATA_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TXDATAX_SPEC, u16, u16, 9, O>;
 #[doc = "Field `TXBREAK` writer - Transmit Data As Break"]
-pub type TXBREAK_W<'a> = crate::BitWriter<'a, u32, TXDATAX_SPEC, bool, 13>;
+pub type TXBREAK_W<'a, const O: u8> = crate::BitWriter<'a, u32, TXDATAX_SPEC, bool, O>;
 #[doc = "Field `TXDISAT` writer - Disable TX After Transmission"]
-pub type TXDISAT_W<'a> = crate::BitWriter<'a, u32, TXDATAX_SPEC, bool, 14>;
+pub type TXDISAT_W<'a, const O: u8> = crate::BitWriter<'a, u32, TXDATAX_SPEC, bool, O>;
 #[doc = "Field `RXENAT` writer - Enable RX After Transmission"]
-pub type RXENAT_W<'a> = crate::BitWriter<'a, u32, TXDATAX_SPEC, bool, 15>;
+pub type RXENAT_W<'a, const O: u8> = crate::BitWriter<'a, u32, TXDATAX_SPEC, bool, O>;
 impl W {
     #[doc = "Bits 0:8 - TX Data"]
     #[inline(always)]
-    pub fn txdata(&mut self) -> TXDATA_W {
+    #[must_use]
+    pub fn txdata(&mut self) -> TXDATA_W<0> {
         TXDATA_W::new(self)
     }
     #[doc = "Bit 13 - Transmit Data As Break"]
     #[inline(always)]
-    pub fn txbreak(&mut self) -> TXBREAK_W {
+    #[must_use]
+    pub fn txbreak(&mut self) -> TXBREAK_W<13> {
         TXBREAK_W::new(self)
     }
     #[doc = "Bit 14 - Disable TX After Transmission"]
     #[inline(always)]
-    pub fn txdisat(&mut self) -> TXDISAT_W {
+    #[must_use]
+    pub fn txdisat(&mut self) -> TXDISAT_W<14> {
         TXDISAT_W::new(self)
     }
     #[doc = "Bit 15 - Enable RX After Transmission"]
     #[inline(always)]
-    pub fn rxenat(&mut self) -> RXENAT_W {
+    #[must_use]
+    pub fn rxenat(&mut self) -> RXENAT_W<15> {
         RXENAT_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -63,11 +67,10 @@ impl crate::RegisterSpec for TXDATAX_SPEC {
 #[doc = "`write(|w| ..)` method takes [txdatax::W](W) writer structure"]
 impl crate::Writable for TXDATAX_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TXDATAX to value 0"]
 impl crate::Resettable for TXDATAX_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

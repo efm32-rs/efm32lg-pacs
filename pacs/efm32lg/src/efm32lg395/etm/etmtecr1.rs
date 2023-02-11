@@ -37,19 +37,19 @@ impl From<crate::W<ETMTECR1_SPEC>> for W {
 #[doc = "Field `ADRCMP` reader - Address Comparator"]
 pub type ADRCMP_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `ADRCMP` writer - Address Comparator"]
-pub type ADRCMP_W<'a> = crate::FieldWriter<'a, u32, ETMTECR1_SPEC, u8, u8, 8, 0>;
+pub type ADRCMP_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ETMTECR1_SPEC, u8, u8, 8, O>;
 #[doc = "Field `MEMMAP` reader - Memmap"]
 pub type MEMMAP_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `MEMMAP` writer - Memmap"]
-pub type MEMMAP_W<'a> = crate::FieldWriter<'a, u32, ETMTECR1_SPEC, u16, u16, 16, 8>;
+pub type MEMMAP_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ETMTECR1_SPEC, u16, u16, 16, O>;
 #[doc = "Field `INCEXCTL` reader - Trace Include/Exclude Flag"]
 pub type INCEXCTL_R = crate::BitReader<bool>;
 #[doc = "Field `INCEXCTL` writer - Trace Include/Exclude Flag"]
-pub type INCEXCTL_W<'a> = crate::BitWriter<'a, u32, ETMTECR1_SPEC, bool, 24>;
+pub type INCEXCTL_W<'a, const O: u8> = crate::BitWriter<'a, u32, ETMTECR1_SPEC, bool, O>;
 #[doc = "Field `TCE` reader - Trace Control Enable"]
 pub type TCE_R = crate::BitReader<bool>;
 #[doc = "Field `TCE` writer - Trace Control Enable"]
-pub type TCE_W<'a> = crate::BitWriter<'a, u32, ETMTECR1_SPEC, bool, 25>;
+pub type TCE_W<'a, const O: u8> = crate::BitWriter<'a, u32, ETMTECR1_SPEC, bool, O>;
 impl R {
     #[doc = "Bits 0:7 - Address Comparator"]
     #[inline(always)]
@@ -75,22 +75,26 @@ impl R {
 impl W {
     #[doc = "Bits 0:7 - Address Comparator"]
     #[inline(always)]
-    pub fn adrcmp(&mut self) -> ADRCMP_W {
+    #[must_use]
+    pub fn adrcmp(&mut self) -> ADRCMP_W<0> {
         ADRCMP_W::new(self)
     }
     #[doc = "Bits 8:23 - Memmap"]
     #[inline(always)]
-    pub fn memmap(&mut self) -> MEMMAP_W {
+    #[must_use]
+    pub fn memmap(&mut self) -> MEMMAP_W<8> {
         MEMMAP_W::new(self)
     }
     #[doc = "Bit 24 - Trace Include/Exclude Flag"]
     #[inline(always)]
-    pub fn incexctl(&mut self) -> INCEXCTL_W {
+    #[must_use]
+    pub fn incexctl(&mut self) -> INCEXCTL_W<24> {
         INCEXCTL_W::new(self)
     }
     #[doc = "Bit 25 - Trace Control Enable"]
     #[inline(always)]
-    pub fn tce(&mut self) -> TCE_W {
+    #[must_use]
+    pub fn tce(&mut self) -> TCE_W<25> {
         TCE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -112,11 +116,10 @@ impl crate::Readable for ETMTECR1_SPEC {
 #[doc = "`write(|w| ..)` method takes [etmtecr1::W](W) writer structure"]
 impl crate::Writable for ETMTECR1_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ETMTECR1 to value 0"]
 impl crate::Resettable for ETMTECR1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -17,8 +17,10 @@ impl From<crate::R<GRXSTSP_SPEC>> for R {
 pub type CHEPNUM_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `BCNT` reader - Byte Count (host or device)"]
 pub type BCNT_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `DPID` reader - Data PID (host or device)"]
+pub type DPID_R = crate::FieldReader<u8, DPID_A>;
 #[doc = "Data PID (host or device)\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum DPID_A {
     #[doc = "0: DATA0 PID."]
@@ -36,8 +38,6 @@ impl From<DPID_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `DPID` reader - Data PID (host or device)"]
-pub type DPID_R = crate::FieldReader<u8, DPID_A>;
 impl DPID_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -71,8 +71,10 @@ impl DPID_R {
         *self == DPID_A::MDATA
     }
 }
+#[doc = "Field `PKTSTS` reader - Packet Status (host or device)"]
+pub type PKTSTS_R = crate::FieldReader<u8, PKTSTS_A>;
 #[doc = "Packet Status (host or device)\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PKTSTS_A {
     #[doc = "1: Device mode: Global OUT NAK (triggers an interrupt)."]
@@ -96,8 +98,6 @@ impl From<PKTSTS_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `PKTSTS` reader - Packet Status (host or device)"]
-pub type PKTSTS_R = crate::FieldReader<u8, PKTSTS_A>;
 impl PKTSTS_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
@@ -189,8 +189,5 @@ impl crate::Readable for GRXSTSP_SPEC {
 }
 #[doc = "`reset()` method sets GRXSTSP to value 0"]
 impl crate::Resettable for GRXSTSP_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

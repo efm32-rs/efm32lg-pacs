@@ -20,11 +20,12 @@ impl From<crate::W<IFS_SPEC>> for W {
     }
 }
 #[doc = "Field `EXT` writer - External Interrupt Flag n Set"]
-pub type EXT_W<'a> = crate::FieldWriter<'a, u32, IFS_SPEC, u16, u16, 16, 0>;
+pub type EXT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, IFS_SPEC, u16, u16, 16, O>;
 impl W {
     #[doc = "Bits 0:15 - External Interrupt Flag n Set"]
     #[inline(always)]
-    pub fn ext(&mut self) -> EXT_W {
+    #[must_use]
+    pub fn ext(&mut self) -> EXT_W<0> {
         EXT_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
@@ -42,11 +43,10 @@ impl crate::RegisterSpec for IFS_SPEC {
 #[doc = "`write(|w| ..)` method takes [ifs::W](W) writer structure"]
 impl crate::Writable for IFS_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IFS to value 0"]
 impl crate::Resettable for IFS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <device xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="1.3" xs:noNamespaceSchemaLocation="CMSIS-SVD.xsd">
   <name>EFM32LG295F256</name>
-  <version>4.1.1</version>
+  <version>4.2.0</version>
   <description>Silicon Labs EFM32LG295F256 Cortex-M MCU</description>
   <licenseText>
     *******************************************************************************\n

@@ -20,9 +20,20 @@ jobs:
           toolchain: stable
           profile: minimal
           components: rustfmt
+      - name: Add targets
+        run: rustup target add thumbv6m-none-eabi thumbv7em-none-eabihf thumbv7m-none-eabi thumbv8m.main-none-eabihf
       - name: Build Crates
         run: |
-          find . -type f -name "Cargo.toml" -execdir cargo test \; -execdir cargo clean \;
+          CARGO_TOML_FILES="$(find . -type f -name 'Cargo.toml')"
+
+          for d in $CARGO_TOML_FILES; do
+              pushd "$(dirname -- $d)" >/dev/null
+              TARGET_FEATURE="$(egrep '^efm32' Cargo.toml | cut -f 1 -d ' ' | head -1)"
+              BUILD_TARGET="$(grep -e 'default-target' Cargo.toml | cut -f 3 -d ' ' | tr -d '"')"
+              cargo check --target="$BUILD_TARGET" --features="rt,${TARGET_FEATURE}"
+              cargo clean
+              popd >/dev/null
+          done
         env:
           RUSTFLAGS: --deny warnings
 

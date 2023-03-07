@@ -25,12 +25,18 @@ jobs:
       - name: Build Crates
         run: |
           CARGO_TOML_FILES="$(find . -type f -name 'Cargo.toml')"
-
+          
           for d in $CARGO_TOML_FILES; do
               pushd "$(dirname -- $d)" >/dev/null
               TARGET_FEATURE="$(egrep '^efm32' Cargo.toml | cut -f 1 -d ' ' | head -1)"
               BUILD_TARGET="$(grep -e 'default-target' Cargo.toml | cut -f 3 -d ' ' | tr -d '"')"
-              cargo check --target="$BUILD_TARGET" --features="rt,${TARGET_FEATURE}"
+              FEATURES="rt,${TARGET_FEATURE}"
+          		
+              if [[ "$BUILD_TARGET" == "thumbv6m-none-eabi" ]]; then
+                  FEATURES="${FEATURES},critical-section"
+              fi
+          		
+              cargo check --target="$BUILD_TARGET" --features="$FEATURES"
               cargo clean
               popd >/dev/null
           done
